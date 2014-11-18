@@ -29,8 +29,8 @@ namespace SoundScape
             get { return menu.ActiveMenuItem; }
         }
         
-        private Color regularColour = Color.Black;
-        private Color highlightColor = Color.Red;
+        private Color regularColour = Color.CornflowerBlue;
+        private Color highlightColor = Color.Green;
         private List<string> menuItems;
 
         public StartScene(Game game, SpriteBatch sb, string[] menuItems)

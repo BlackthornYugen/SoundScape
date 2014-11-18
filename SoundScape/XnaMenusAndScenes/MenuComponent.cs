@@ -121,7 +121,6 @@ namespace XNALib.Menus
         }
     }
 
-
     public struct MenuItem
     {
         string name;
