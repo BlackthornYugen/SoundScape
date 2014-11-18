@@ -3,9 +3,6 @@
  * Sound Scape 2nd Time
  * 
  * 
- * 
- * 
- * 
  */
 using System;
 using System.Collections.Generic;
@@ -45,7 +42,7 @@ namespace SoundScape
             graphics.PreferredBackBufferHeight = 800;
         }
 
-        private void HideAllScenese()
+        private void HideAllScene()
         {
             foreach (GameComponent gc in Components)
             {
@@ -117,7 +114,7 @@ namespace SoundScape
                     this.Exit();
                 else
                 {
-                    HideAllScenese();
+                    HideAllScene();
                     SetTitle();
                     menu.Show();
                 }
@@ -128,7 +125,7 @@ namespace SoundScape
                 switch (menu.SelectedItem.Name)
                 {
                     case "Help":
-                        HideAllScenese();
+                        HideAllScene();
                         SetTitle("Help");
                         help.Show();
                         break;
@@ -161,7 +158,7 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
