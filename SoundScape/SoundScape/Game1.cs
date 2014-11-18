@@ -1,14 +1,12 @@
 /*
  * 
- * Sound Scape
+ * Sound Scape 2nd Time
  * 
  * 
  * 
  * 
  * 
  */
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
