@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JSXNALib.Scenes.GameScene">
+    <Position X="1.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAwAAAAIAAAAAgAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JSXNALib.Menus.MenuComponent">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYAAAAIQIAAChAAiAAQICAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="JSXNALib.Menus.MenuItem">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAABAAAAAQAA=</HashCode>
+      <FileName>MenuComponent.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
