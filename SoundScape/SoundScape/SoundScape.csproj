@@ -74,8 +74,10 @@
   <ItemGroup>
     <Compile Include="Bat.cs" />
     <Compile Include="GameplayScene.cs" />
-    <Compile Include="GameplaySceneComponents\GSC.cs" />
+    <Compile Include="GameplaySceneComponents\GameplaySceneComponent.cs" />
+    <Compile Include="GameplaySceneComponents\Item.cs" />
     <Compile Include="GameplaySceneComponents\Player.cs" />
+    <Compile Include="GameplaySceneComponents\Wall.cs" />
     <Compile Include="HighScore.cs" />
     <Compile Include="HelpScene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
