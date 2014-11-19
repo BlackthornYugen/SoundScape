@@ -27,9 +27,11 @@ namespace SoundScape
         SpriteBatch spriteBatch;
         Vector2 speed;
 
-        List<Texture2D> texBatch;
-        Game game;
+        List<Texture2D> texBatch = new List<Texture2D>();
+        List<Color> ourColor = new List<Color>();
 
+        Game game;
+        Rectangle sourceRect = new Rectangle();
         private bool destroyMe;
 
         public bool DestroyMe
@@ -48,18 +50,13 @@ namespace SoundScape
             scale = iniScale;
             this.scaleFactor = scaleFactor;
 
-            if (iniScale == 0) { iniScale = floatRandomizer(10, 100); }
+            if (scale == 0) { scale = floatRandomizer(10, 100); }
             if(scaleFactor == 0) {scaleFactor = floatRandomizer(5, 30);}
-            if(tex == null)
+
+            if (this.speed == new Vector2())
             {
-                LoadContent();
-                tex = texBatch[intRandomizer(0, texBatch.Count)];
-                            new Rectangle(0, 0, tex.Width, tex.Height);
-            }
-            if(speed == new Vector2())
-            {
-                speed.X = floatRandomizer(10, 100);
-                speed.Y = floatRandomizer(10, 100);
+                this.speed.X = floatRandomizer(10, 100);
+                this.speed.Y = floatRandomizer(10, 100);
             }
             this.spriteBatch = spriteBatch;
         }
@@ -78,18 +75,24 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-
-
             texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircle97Percent"));
             texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleBorder"));
             texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleBorder2CircleIn"));
             texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleFilled"));
             texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleThickBorder"));
 
-            for (int i = 0; i < texBatch.Count; i++)
+            ourColor.Add(Color.Beige);
+            ourColor.Add(Color.Coral);
+            ourColor.Add(Color.Crimson);
+
+            if (tex == null)
             {
-                game.Components.Add(texBatch[i]);
+                LoadContent();
+                tex = texBatch[intRandomizer(0, texBatch.Count)];
+                sourceRect = new Rectangle(0, 0, tex.Width, tex.Height);
             }
+            currentColor = ourColor[intRandomizer(0, ourColor.Count)];
+
         }
 
         /// <summary>
@@ -128,7 +131,7 @@ namespace SoundScape
             }
         }
 
-        Rectangle sourceRect = new Rectangle();
+
 
         public override void Draw(GameTime gameTime)
         {
