@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents
 {
-    class GSC : DrawableGameComponent
+    class GameplaySceneComponent : DrawableGameComponent
     {
         private SpriteBatch spriteBatch;
         private SoundEffect soundEffect;
@@ -13,7 +13,7 @@ namespace SoundScape.GameplaySceneComponents
         private Vector2 position;
         private Rectangle hitbox;
 
-        protected GSC(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox) : base(game)
+        protected GameplaySceneComponent(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox) : base(game)
         {
             SpriteBatch = spriteBatch;
             Position = position;
@@ -23,7 +23,7 @@ namespace SoundScape.GameplaySceneComponents
             Colour = Color.White;
         }
 
-        protected GSC(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox,
+        protected GameplaySceneComponent(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox,
             Color colour) : this(game, spriteBatch, position, texture, sound, hitbox)
         {
             Colour = colour;

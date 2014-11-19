@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SoundScape.GameplaySceneComponents
 {
-    class Player : GSC
+    class Player : GameplaySceneComponent
     {
         private PlayerIndex controllerIndex;
         private GamePadState padState;
@@ -51,7 +51,10 @@ namespace SoundScape.GameplaySceneComponents
             {
 
                 SpriteBatch.Begin();
-                SpriteBatch.Draw(Texture, Position + arrow, Colour);
+                for (int i = 0; i < arrow.Length(); i++)
+                {
+                    SpriteBatch.Draw(Texture, Position + arrow*i, Colour);
+                }
                 SpriteBatch.End();
             }
             base.Draw(gameTime);
