@@ -55,8 +55,54 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\" />
-    <Folder Include="images\" />
-    <Folder Include="sounds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sounds\253203__robinhood76__05455-catapult-shot.wav">
+      <Name>253203__robinhood76__05455-catapult-shot</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="sounds\406__tictacshutup__click-1-d.wav">
+      <Name>406__tictacshutup__click-1-d</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="sounds\777__vitriolix__808-kick.wav">
+      <Name>777__vitriolix__808-kick</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="sounds\click.wav">
+      <Name>click</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="sounds\ding.wav">
+      <Name>ding</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\player.PNG">
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\item.PNG">
+      <Name>item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\wall.PNG">
+      <Name>wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

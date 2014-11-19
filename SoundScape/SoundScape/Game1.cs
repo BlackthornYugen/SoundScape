@@ -31,8 +31,9 @@ namespace SoundScape
         {
             get { return spriteBatch; }
         }
-        StartScene menu;
-        GameScene help;
+        private StartScene menu;
+        private GameScene help;
+        private GameScene gameplay;
 
         public Game1()
         {
@@ -69,7 +70,6 @@ namespace SoundScape
         {
             // TODO: Add your initialization logic here
             SetTitle();
-            Shared.stage = new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2);
             base.Initialize();
         }
 
@@ -84,6 +84,7 @@ namespace SoundScape
             
             this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] { "Start Game", "Help", "High Score", "Credit", "Quit" }));
             this.Components.Add(help = new HelpScene(this));
+            this.Components.Add(gameplay = new GameplayScene(this, spriteBatch));
             menu.Show();
             
             // TODO: use this.Content to load your game content here
@@ -105,7 +106,6 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            int selectedIndex = 0;
             KeyboardState ks = Keyboard.GetState();
             // Allows the game to exit
             if (ks.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
@@ -124,6 +124,11 @@ namespace SoundScape
             {
                 switch (menu.SelectedItem.Name)
                 {
+                    case "Start Game":
+                        HideAllScene();
+                        SetTitle("Game thingy");
+                        gameplay.Show();
+                        break;
                     case "Help":
                         HideAllScene();
                         SetTitle("Help");
