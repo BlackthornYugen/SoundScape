@@ -78,7 +78,7 @@ namespace SoundScape
                 int y = r.Next(yLimit);
                 player = new Player(this, spritebatch, new Vector2(x, y), textures[Entity.Player], sfx[Entity.Player],
                     textures[Entity.Player].Bounds, colours[i%colours.Length]);
-                Compontents.Add(player);
+                Components.Add(player);
 
                 player.ControllerIndex = gamepads[i];
             }

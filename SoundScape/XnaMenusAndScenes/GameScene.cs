@@ -14,13 +14,13 @@ namespace XNALib.Scenes
 {
     public abstract class GameScene : DrawableGameComponent
     {
-        private GameComponentCollection _compontents;
+        private GameComponentCollection _components;
         protected SpriteBatch spritebatch;
 
-        public GameComponentCollection Compontents
+        public GameComponentCollection Components
         {
-            get { return _compontents; }
-            set { _compontents = value; }
+            get { return _components; }
+            set { _components = value; }
         }
 
         public virtual void Show()
@@ -38,7 +38,7 @@ namespace XNALib.Scenes
         public GameScene(Game game, SpriteBatch spritebatch)
             : base(game)
         {
-            this.Compontents = new GameComponentCollection();
+            this.Components = new GameComponentCollection();
             Hide();
             this.spritebatch = spritebatch;
         }
@@ -46,7 +46,7 @@ namespace XNALib.Scenes
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            foreach (GameComponent item in Compontents)
+            foreach (GameComponent item in Components)
             {
                 if (item.Enabled)
                     item.Update(gameTime);
@@ -56,7 +56,7 @@ namespace XNALib.Scenes
         public override void Draw(GameTime gameTime)
         {
             DrawableGameComponent drawableGC;
-            foreach (GameComponent item in Compontents)
+            foreach (GameComponent item in Components)
             {
                 if (item is DrawableGameComponent)
                 {

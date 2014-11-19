@@ -16,6 +16,8 @@ namespace SoundScape
 {
     public class StartScene : GameScene
     {
+        ParticleEmiter partEmitterTopRight1, partEmitterTopRight2;
+
         private SpriteFont regularFont, highlightFont;
         private MenuComponent menu;
 
@@ -42,6 +44,13 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
+            partEmitterTopRight1 = new ParticleEmiter(this, spritebatch, new Vector2(-150, 300), 25, 0.1f);
+            this.Components.Add(partEmitterTopRight1);
+
+            partEmitterTopRight2 = new ParticleEmiter(this, spritebatch, new Vector2(-200, 300), 30, 0.3f);
+            this.Components.Add(partEmitterTopRight2);
+
+
             regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
@@ -50,7 +59,7 @@ namespace SoundScape
             {
                 menu.Add(item, null);
             }
-            this.Compontents.Add(menu);
+            this.Components.Add(menu);
             base.LoadContent();
         }
     }

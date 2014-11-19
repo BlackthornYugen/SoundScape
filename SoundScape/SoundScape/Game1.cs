@@ -44,8 +44,6 @@ namespace SoundScape
         public static Vector2 bottomRightScreen;
         public static Rectangle stage;
 
-        ParticleEmiter partEmitterTopRight1;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -96,10 +94,7 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            partEmitterTopRight1 = new ParticleEmiter(this, spriteBatch, new Vector2());
-            this.Components.Add(partEmitterTopRight1);
 
-            
             
             this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));

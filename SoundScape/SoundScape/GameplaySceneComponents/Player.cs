@@ -57,7 +57,7 @@ namespace SoundScape.GameplaySceneComponents
             for (int i = 0; i < limit && flag; i++)
             {
                 _aimVectors[i] = Position + _arrow * i;
-                foreach (IGameComponent gameComponent in Scene.Compontents)
+                foreach (IGameComponent gameComponent in Scene.Components)
                 {
                     if (gameComponent != this && gameComponent is GameplaySceneComponent)
                     {

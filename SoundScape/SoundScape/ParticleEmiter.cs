@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
+using XNALib.Scenes;
 
 namespace SoundScape
 {
@@ -17,16 +17,26 @@ namespace SoundScape
     /// </summary>
     public class ParticleEmiter : Microsoft.Xna.Framework.GameComponent
     {
-        Game game;
+
+        List<Particle> parts = new List<Particle>();
+        int counter;
+
+        GameScene gameScene;
         SpriteBatch spriteBatch;
         Vector2 originEmision;
+        int interval;
+        bool create;
+        float scale;
 
-        public ParticleEmiter(Game game, SpriteBatch spriteBatch, Vector2 originEmision)
-            : base(game)
+        public ParticleEmiter(GameScene gameScene, SpriteBatch spriteBatch, 
+            Vector2 originEmision, int interval, float scale)
+            : base(gameScene.Game)
         {
-            this.game = game;
+            this.gameScene = gameScene;
             this.spriteBatch = spriteBatch;
             this.originEmision = originEmision;
+            this.interval = interval;
+            this.scale = scale;
         }
 
         /// <summary>
@@ -40,8 +50,6 @@ namespace SoundScape
             base.Initialize();
         }
 
-        List<Particle> parts = new List<Particle>();
-
         /// <summary>
         /// Allows the game component to update itself.
         /// </summary>
@@ -52,11 +60,25 @@ namespace SoundScape
 
             base.Update(gameTime);
 
-            parts.Add(new Particle(game, spriteBatch, originEmision));
-            game.Components.Add(parts[parts.Count - 1]);
-
+            if (create)
+            {
+                parts.Add(new Particle(gameScene.Game, spriteBatch, originEmision,
+                    speed: new Vector2(1, 0), iniScale: scale));
+                gameScene.Game.Components.Add(parts[parts.Count - 1]);
+                create = false;
+            }
+            else
+            {
+                counter++;
+                if(interval == counter)
+                {
+                    create = true;
+                    counter = 0;
+                }
+            }
             CheckParticlesOnScreen();
         }
+
 
         void CheckParticlesOnScreen()
         {
@@ -64,7 +86,13 @@ namespace SoundScape
             {
                 if(parts[i].DestroyMe)
                 {
-
+                    for (int j = 0; j < gameScene.Game.Components.Count; j++)
+                    {
+                        if(parts[i] == gameScene.Game.Components[j])
+                        {
+                            
+                        }
+                    }
                 }
             }
         }

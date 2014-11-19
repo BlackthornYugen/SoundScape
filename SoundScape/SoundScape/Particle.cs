@@ -50,8 +50,8 @@ namespace SoundScape
             scale = iniScale;
             this.scaleFactor = scaleFactor;
 
-            if (scale == 0) { scale = floatRandomizer(10, 100); }
-            if(scaleFactor == 0) {scaleFactor = floatRandomizer(5, 30);}
+            if (scale == 0) { scale = floatRandomizer(5, 50); }
+            if(scaleFactor == 0) {scaleFactor = floatRandomizer(1, 5);}
 
             if (this.speed == new Vector2())
             {
@@ -64,7 +64,7 @@ namespace SoundScape
         //all is div by 100 so: 10 = 0.1
         float floatRandomizer(int min, int max)
         {
-            int temp = rand.Next(min, max);
+            float temp = rand.Next(min, max);
             return temp / 100;
         }
 
