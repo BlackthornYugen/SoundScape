@@ -1,6 +1,6 @@
 /*
  * 
- * Sound Scape 2nd Time
+ * Final Project: Sound Scape 
  * 
  * 
  */
@@ -32,8 +32,15 @@ namespace SoundScape
             get { return spriteBatch; }
         }
         private StartScene menu;
+
+        private GameScene howToPlay;
         private GameScene help;
+        private HighScore highScore;
+        private GameScene credit;
+
         private GameScene gameplay;
+
+        public static Vector2 bottomRightScreen;
 
         public Game1()
         {
@@ -79,12 +86,23 @@ namespace SoundScape
         /// </summary>
         protected override void LoadContent()
         {
+            bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] { "Start Game", "Help", "High Score", "Credit", "Quit" }));
-            this.Components.Add(help = new HelpScene(this));
+            this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
+                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
             this.Components.Add(gameplay = new GameplayScene(this, spriteBatch));
+
+            this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("images/Help")));
+            this.Components.Add(howToPlay = new HelpScene(this, Content.Load<Texture2D>("images/HowToPlay")));
+
+            List<int> tempHigh = new List<int>() { 1, 2, 3 };
+            this.Components.Add(highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
+                
+            this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("images/Credits")));
+
             menu.Show();
             
             // TODO: use this.Content to load your game content here
@@ -106,11 +124,21 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+
+            ControlInput();
+
+            // TODO: Add your update logic here
+            base.Update(gameTime);
+        }
+
+        void ControlInput()
+        {
             KeyboardState ks = Keyboard.GetState();
             // Allows the game to exit
             if (ks.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
             {
-                if(menu.Enabled)
+                if (menu.Enabled)
                     this.Exit();
                 else
                 {
@@ -120,19 +148,35 @@ namespace SoundScape
                 }
             }
 
+            // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
             if (menu.Enabled && ks.IsKeyDown(Keys.Enter))
             {
                 switch (menu.SelectedItem.Name)
                 {
                     case "Start Game":
                         HideAllScene();
-                        SetTitle("Game thingy");
+                        SetTitle("Game thing");
                         gameplay.Show();
+                        break;
+                    case "How To Play":
+                        HideAllScene();
+                        SetTitle("How To Play");
+                        howToPlay.Show();
                         break;
                     case "Help":
                         HideAllScene();
                         SetTitle("Help");
                         help.Show();
+                        break;
+                    case "High Score":
+                        HideAllScene();
+                        SetTitle("High Score");
+                        highScore.Show();
+                        break;
+                    case "Credits":
+                        HideAllScene();
+                        SetTitle("Credit");
+                        credit.Show();
                         break;
                     case "Quit":
                         this.Exit();
@@ -149,12 +193,7 @@ namespace SoundScape
                         break;
                 }
             }
-
             oldState = ks;
-
-            // TODO: Add your update logic here
-
-            base.Update(gameTime);
         }
 
         /// <summary>
@@ -164,9 +203,7 @@ namespace SoundScape
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
             // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }

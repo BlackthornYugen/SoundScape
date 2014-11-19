@@ -35,26 +35,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="helpImage.png">
-      <Name>helpImage</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="regularFont.spritefont">
+    <Compile Include="fonts\regularFont.spritefont">
       <Name>regularFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="highFont.spritefont">
+    <Compile Include="fonts\highFont.spritefont">
       <Name>highFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sounds\253203__robinhood76__05455-catapult-shot.wav">
@@ -100,6 +92,61 @@
   <ItemGroup>
     <Compile Include="images\wall.PNG">
       <Name>wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\howToPlay.png">
+      <Name>howToPlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Help.png">
+      <Name>Help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\Credits.png">
+      <Name>Credits</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\HighScore.png">
+      <Name>HighScore</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\part\ParticleCircle97Percent.png">
+      <Name>ParticleCircle97Percent</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\part\ParticleCircleBorder.png">
+      <Name>ParticleCircleBorder</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\part\ParticleCircleBorder2CircleIn.png">
+      <Name>ParticleCircleBorder2CircleIn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\part\ParticleCircleFilled.png">
+      <Name>ParticleCircleFilled</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\part\ParticleCircleThickBorder.png">
+      <Name>ParticleCircleThickBorder</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

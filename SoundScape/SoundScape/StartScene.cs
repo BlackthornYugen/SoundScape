@@ -42,8 +42,8 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-            regularFont = Game.Content.Load<SpriteFont>("regularFont");
-            highlightFont = Game.Content.Load<SpriteFont>("highFont");
+            regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
+            highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
             this.menu = new MenuComponent(Game, spritebatch, regularColour, highlightColor, regularFont, highlightFont, Vector2.Zero);
             foreach (string item in menuItems)

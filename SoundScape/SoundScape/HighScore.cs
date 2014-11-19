@@ -16,14 +16,26 @@ namespace SoundScape
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class HelpScene : GameScene
+    public class HighScore : HelpScene
     {
-        protected Texture2D texture;
+        List< int> highScores;
 
-        public HelpScene(Game game, Texture2D tex)
-            : base(game, (game as Game1).SpriteBatch)
+        public List<int> HighScores
         {
-            texture = tex;
+            get { return highScores; }
+            set
+            {
+                if (highScores.Count < 10)
+                {
+                    highScores = value;
+                }
+            }
+        }
+
+        public HighScore(Game game, Texture2D tex, List<int> highScores)
+            : base(game, tex)
+        {
+            this.highScores = highScores;
         }
 
         /// <summary>
@@ -49,10 +61,22 @@ namespace SoundScape
 
         public override void Draw(GameTime gameTime)
         {
+            SpriteFont regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
+
+            string msg = "";
             spritebatch.Begin();
-            spritebatch.Draw(texture, Vector2.Zero,  Color.White);
+
+            spritebatch.Draw(texture, Vector2.Zero, Color.White);
+
+            for (int i = 0; i < highScores.Count; i++)
+            {
+                msg += highScores[i] + " \n";
+            }
+
+            spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
+                new Vector2(), 1f, SpriteEffects.None, 0);
+
             spritebatch.End();
-            base.Draw(gameTime);
         }
     }
 }
