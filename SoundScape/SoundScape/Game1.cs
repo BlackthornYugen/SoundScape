@@ -90,13 +90,16 @@ namespace SoundScape
         /// </summary>
         protected override void LoadContent()
         {
-            partEmitterTopRight1 = new ParticleEmiter(this, spriteBatch, new Vector2());
-            this.Components.Add(partEmitterTopRight1);
 
             bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            partEmitterTopRight1 = new ParticleEmiter(this, spriteBatch, new Vector2());
+            this.Components.Add(partEmitterTopRight1);
+
+            
             
             this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));

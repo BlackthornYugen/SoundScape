@@ -87,7 +87,6 @@ namespace SoundScape
 
             if (tex == null)
             {
-                LoadContent();
                 tex = texBatch[intRandomizer(0, texBatch.Count)];
                 sourceRect = new Rectangle(0, 0, tex.Width, tex.Height);
             }
