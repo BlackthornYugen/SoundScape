@@ -32,7 +32,12 @@ namespace SoundScape
             get { return spriteBatch; }
         }
         private StartScene menu;
+
+        private GameScene howToPlay;
         private GameScene help;
+        private GameScene highScore;
+        private GameScene credit;
+
         private GameScene gameplay;
 
         public Game1()
@@ -82,9 +87,14 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] { "Start Game", "Help", "High Score", "Credit", "Quit" }));
-            this.Components.Add(help = new HelpScene(this));
+            this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
+                { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
             this.Components.Add(gameplay = new GameplayScene(this, spriteBatch));
+
+            this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("helpImage")));
+            this.Components.Add(howToPlay = new HelpScene(this, Content.Load<Texture2D>("howToPlay")));
+            this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("credit")));
+
             menu.Show();
             
             // TODO: use this.Content to load your game content here
@@ -120,19 +130,30 @@ namespace SoundScape
                 }
             }
 
+            // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
             if (menu.Enabled && ks.IsKeyDown(Keys.Enter))
             {
                 switch (menu.SelectedItem.Name)
                 {
                     case "Start Game":
                         HideAllScene();
-                        SetTitle("Game thingy");
+                        SetTitle("Game thing");
                         gameplay.Show();
+                        break;
+                    case "How To Play":
+                        HideAllScene();
+                        SetTitle("How To Play");
+                        howToPlay.Show();
                         break;
                     case "Help":
                         HideAllScene();
                         SetTitle("Help");
                         help.Show();
+                        break;
+                    case "Credit":
+                        HideAllScene();
+                        SetTitle("Credit");
+                        credit.Show();
                         break;
                     case "Quit":
                         this.Exit();

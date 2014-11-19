@@ -20,11 +20,11 @@ namespace SoundScape
     {
         private Texture2D texture;
 
-        public HelpScene(Game game)
+        public HelpScene(Game game, Texture2D tex)
             : base(game, (game as Game1).SpriteBatch)
         {
-            texture = game.Content.Load<Texture2D>("helpImage");
-            this.Compontents.Add(new Bat(game, game.Content.Load<Texture2D>("Bat")));
+            texture = tex;
+            //this.Compontents.Add(new Bat(game, game.Content.Load<Texture2D>("Bat")));
         }
 
         /// <summary>
