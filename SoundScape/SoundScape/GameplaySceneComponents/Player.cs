@@ -17,7 +17,7 @@ namespace SoundScape.GameplaySceneComponents
         private GamePadState _padOldState;
         private Vector2 _arrow;
         private Vector2[] _aimVectors;
-
+        private SoundEffectInstance _activeSound;
 
         public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
             SoundEffect soundEffect, Rectangle hitbox)
@@ -52,8 +52,9 @@ namespace SoundScape.GameplaySceneComponents
             _aimVectors = new Vector2[(int)_arrow.Length()];
 
             bool flag = true;
+            var limit = (int) _arrow.Length();
 
-            for (int i = 0; i < (int)_arrow.Length() && flag; i++)
+            for (int i = 0; i < limit && flag; i++)
             {
                 _aimVectors[i] = Position + _arrow * i;
                 foreach (IGameComponent gameComponent in Scene.Compontents)
@@ -61,8 +62,21 @@ namespace SoundScape.GameplaySceneComponents
                     if (gameComponent != this && gameComponent is GameplaySceneComponent)
                     {
                         var gsc = gameComponent as GameplaySceneComponent;
-                        if(gsc.Hitbox.Contains((int)_aimVectors[i].X, (int)_aimVectors[i].Y))
+                        if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
+                        {
                             flag = false;
+                            if (_activeSound == null || _activeSound.State == SoundState.Stopped)
+                            {
+                                var distance = (gsc.Position - Position).Length() / (Position - (Position + _arrow * limit)).Length();
+                                distance = Math.Min(Math.Max(1f - distance, 0f), 1f);
+                                Console.WriteLine(gsc.GetType());
+                                if (gsc is Player)
+                                    Console.WriteLine(((Player)gsc).ControllerIndex);
+                                _activeSound = gsc.SoundEffect.CreateInstance();
+                                _activeSound.Volume = distance;
+                                _activeSound.Play();
+                            }
+                        }
                     }
                 }
             }
@@ -74,7 +88,6 @@ namespace SoundScape.GameplaySceneComponents
         {
             //if (!arrow.Equals(Vector2.Zero))
             {
-                Console.WriteLine(_arrow.Length());
                 SpriteBatch.Begin();
                 foreach (Vector2 aimVector in _aimVectors)
                 {

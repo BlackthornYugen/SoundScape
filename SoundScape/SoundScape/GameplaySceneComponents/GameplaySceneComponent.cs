@@ -44,10 +44,15 @@ namespace SoundScape.GameplaySceneComponents
             set { _spriteBatch = value; }
         }
 
-        protected Vector2 Position
+        public Vector2 Position
         {
             get { return _position; }
-            set { _position = value; }
+            set
+            {
+                _hitbox.X = (int)value.X;
+                _hitbox.Y = (int)value.Y;
+                _position = value;
+            }
         }
 
         protected Texture2D Texture
@@ -56,7 +61,7 @@ namespace SoundScape.GameplaySceneComponents
             set { _texture = value; }
         }
 
-        protected SoundEffect SoundEffect
+        public SoundEffect SoundEffect
         {
             get { return _soundEffect; }
             set { _soundEffect = value; }
