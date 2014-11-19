@@ -27,6 +27,7 @@ namespace SoundScape
         SpriteBatch spriteBatch;
         KeyboardState oldState;
 
+
         public SpriteBatch SpriteBatch
         {
             get { return spriteBatch; }
@@ -41,6 +42,9 @@ namespace SoundScape
         private GameScene gameplay;
 
         public static Vector2 bottomRightScreen;
+        public static Rectangle stage;
+
+        ParticleEmiter partEmitterTopRight1;
 
         public Game1()
         {
@@ -86,6 +90,9 @@ namespace SoundScape
         /// </summary>
         protected override void LoadContent()
         {
+            partEmitterTopRight1 = new ParticleEmiter(this, spriteBatch, new Vector2());
+            this.Components.Add(partEmitterTopRight1);
+
             bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -102,6 +109,9 @@ namespace SoundScape
             this.Components.Add(highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
                 
             this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("images/Credits")));
+
+            stage = new Rectangle(0, 0, int.Parse((bottomRightScreen.X + 1f).ToString()),
+                int.Parse((bottomRightScreen.Y + 1f).ToString())); 
 
             menu.Show();
             
