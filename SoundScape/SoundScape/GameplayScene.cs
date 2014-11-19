@@ -68,12 +68,15 @@ namespace SoundScape
                 PlayerIndex.Four
             };
 
-
+            var r = new Random();
+            var xLimit = Game.Window.ClientBounds.Width - textures[Entity.Player].Width;
+            var yLimit = Game.Window.ClientBounds.Height - textures[Entity.Player].Height;
             for (int i = 0; i < colours.Length; i++)
             {
-                int x = 175 + i*25;
-                int y = 175 + (i*50%150);
-                player = new Player(Game, spritebatch, new Vector2(x, y), textures[Entity.Player], sfx[Entity.Player],
+
+                int x = r.Next(xLimit);
+                int y = r.Next(yLimit);
+                player = new Player(this, spritebatch, new Vector2(x, y), textures[Entity.Player], sfx[Entity.Player],
                     textures[Entity.Player].Bounds, colours[i%colours.Length]);
                 Compontents.Add(player);
 

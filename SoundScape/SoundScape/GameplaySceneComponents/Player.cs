@@ -11,49 +11,77 @@ namespace SoundScape.GameplaySceneComponents
 {
     class Player : GameplaySceneComponent
     {
-        private PlayerIndex controllerIndex;
-        private GamePadState padState;
-        private GamePadState padOldState;
+        private const int DISTANCE_FACTOR = 100;
+        private PlayerIndex _controllerIndex;
+        private GamePadState _padState;
+        private GamePadState _padOldState;
+        private Vector2 _arrow;
+        private Vector2[] _aimVectors;
 
 
-        public Player(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
+        public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
             SoundEffect soundEffect, Rectangle hitbox)
-            : base(game, spriteBatch, position, texture, soundEffect, hitbox)
+            : base(scene, spriteBatch, position, texture, soundEffect, hitbox)
         {
         }
 
-        public Player(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
+        public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
             SoundEffect soundEffect, Rectangle hitbox, Color colour)
-            : base(game, spriteBatch, position, texture, soundEffect, hitbox, colour)
+            : base(scene, spriteBatch, position, texture, soundEffect, hitbox, colour)
         {
         }
 
         public override void Update(GameTime gameTime)
         {
-            padState = GamePad.GetState(ControllerIndex);
-            float deltaX = padState.ThumbSticks.Left.X;
-            float deltaY = -padState.ThumbSticks.Left.Y;
+            _padState = GamePad.GetState(ControllerIndex);
+            
+            // Movement Controlls
+            float deltaX = _padState.ThumbSticks.Left.X;
+            float deltaY = -_padState.ThumbSticks.Left.Y;
 
-            if (padState.IsConnected &&
-                padState.DPad.Down == ButtonState.Pressed &&
-                padState.DPad.Down == ButtonState.Released)
-                Console.WriteLine(padState.DPad.Down);
+            if (_padState.IsConnected &&
+                _padState.DPad.Down == ButtonState.Pressed &&
+                _padState.DPad.Down == ButtonState.Released)
+                Console.WriteLine(_padState.DPad.Down);
 
             Position += new Vector2(deltaX*3, deltaY*3);
-            padOldState = padState;
+            _padOldState = _padState;
+
+            // Aiming Controlls
+            _arrow = new Vector2(_padState.ThumbSticks.Right.X, -_padState.ThumbSticks.Right.Y) * DISTANCE_FACTOR;
+            _aimVectors = new Vector2[(int)_arrow.Length()];
+
+            bool flag = true;
+
+            for (int i = 0; i < (int)_arrow.Length() && flag; i++)
+            {
+                _aimVectors[i] = Position + _arrow * i;
+                foreach (IGameComponent gameComponent in Scene.Compontents)
+                {
+                    if (gameComponent != this && gameComponent is GameplaySceneComponent)
+                    {
+                        var gsc = gameComponent as GameplaySceneComponent;
+                        if(gsc.Hitbox.Contains((int)_aimVectors[i].X, (int)_aimVectors[i].Y))
+                            flag = false;
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            var arrow = new Vector2(padState.ThumbSticks.Right.X, -padState.ThumbSticks.Right.Y) * 100;
             //if (!arrow.Equals(Vector2.Zero))
             {
-
+                Console.WriteLine(_arrow.Length());
                 SpriteBatch.Begin();
-                for (int i = 0; i < arrow.Length(); i++)
+                foreach (Vector2 aimVector in _aimVectors)
                 {
-                    SpriteBatch.Draw(Texture, Position + arrow*i, Colour);
+                    if (aimVector != Vector2.Zero)
+                    {
+                        SpriteBatch.Draw(Texture, aimVector, Colour);
+                    }
                 }
                 SpriteBatch.End();
             }
@@ -63,8 +91,8 @@ namespace SoundScape.GameplaySceneComponents
 
         public PlayerIndex ControllerIndex
         {
-            get { return controllerIndex; }
-            set { controllerIndex = value; }
+            get { return _controllerIndex; }
+            set { _controllerIndex = value; }
         }
     }
 }

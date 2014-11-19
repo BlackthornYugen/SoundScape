@@ -6,20 +6,21 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using XNALib.Scenes;
 
 namespace SoundScape.GameplaySceneComponents
 {
     class Wall : GameplaySceneComponent
     {
-        public Wall(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
+        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
             SoundEffect soundEffect, Rectangle hitbox)
-            : base(game, spriteBatch, position, texture, soundEffect, hitbox)
+            : base(scene, spriteBatch, position, texture, soundEffect, hitbox)
         {
         }
 
-        public Wall(Game game, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
+        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
             SoundEffect soundEffect, Rectangle hitbox, Color colour)
-            : base(game, spriteBatch, position, texture, soundEffect, hitbox, colour)
+            : base(scene, spriteBatch, position, texture, soundEffect, hitbox, colour)
         {
         }
     }
