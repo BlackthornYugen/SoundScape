@@ -46,7 +46,8 @@ namespace XNALib.Scenes
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            foreach (GameComponent item in Components)
+            var components = Components.ToArray();
+            foreach (GameComponent item in components)
             {
                 if (item.Enabled)
                     item.Update(gameTime);
@@ -55,8 +56,9 @@ namespace XNALib.Scenes
 
         public override void Draw(GameTime gameTime)
         {
+            var components = Components.ToArray();
             DrawableGameComponent drawableGC;
-            foreach (GameComponent item in Components)
+            foreach (GameComponent item in components)
             {
                 if (item is DrawableGameComponent)
                 {
