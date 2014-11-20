@@ -18,24 +18,21 @@ namespace SoundScape
     /// </summary>
     public class HighScore : HelpScene
     {
-        List< int> highScores;
+        int score;
 
-        public List<int> HighScores
+        public int Score
         {
-            get { return highScores; }
+            get { return score; }
             set
             {
-                if (highScores.Count < 10)
-                {
-                    highScores = value;
-                }
+                score = value;
             }
         }
 
-        public HighScore(Game game, Texture2D tex, List<int> highScores)
+        public HighScore(Game game, Texture2D tex, int score)
             : base(game, tex)
         {
-            this.highScores = highScores;
+            this.score = score;
         }
 
         /// <summary>
@@ -68,10 +65,9 @@ namespace SoundScape
 
             spritebatch.Draw(texture, Vector2.Zero, Color.White);
 
-            for (int i = 0; i < highScores.Count; i++)
-            {
-                msg += highScores[i] + " \n";
-            }
+
+            msg = score.ToString();
+
 
             spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
                 new Vector2(), 1f, SpriteEffects.None, 0);
