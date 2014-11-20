@@ -18,6 +18,7 @@ namespace SoundScape.GameplaySceneComponents
         private Vector2 _arrow;
         private Vector2[] _aimVectors;
         private SoundEffectInstance _activeSound;
+        private DateTime resetRumbleTime;
 
         public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
             SoundEffect soundEffect, Rectangle hitbox)
@@ -39,6 +40,15 @@ namespace SoundScape.GameplaySceneComponents
             float deltaX = _padState.ThumbSticks.Left.X;
             float deltaY = -_padState.ThumbSticks.Left.Y;
 
+            if (_padState.IsButtonDown(Buttons.A) && _padOldState.IsButtonUp(Buttons.A))
+                RumbleFor(300);
+
+            if (resetRumbleTime < DateTime.Now)
+            {
+                GamePad.SetVibration(_controllerIndex, 0, 0);
+                resetRumbleTime = DateTime.MaxValue;
+            }
+            
             if (_padState.IsConnected &&
                 _padState.DPad.Down == ButtonState.Pressed &&
                 _padState.DPad.Down == ButtonState.Released)
@@ -76,7 +86,6 @@ namespace SoundScape.GameplaySceneComponents
                                 _activeSound = gsc.SoundEffect.CreateInstance();
                                 _activeSound.Volume = distance;
                                 _activeSound.Play();
-                                Scene.Game.Window.Title = distance.ToString();
                             }
                         }
                     }
@@ -108,6 +117,12 @@ namespace SoundScape.GameplaySceneComponents
         {
             get { return _controllerIndex; }
             set { _controllerIndex = value; }
+        }
+
+        private void RumbleFor(int miliseconds, float leftMotor = 1f, float rightMotor = 1f)
+        {
+            GamePad.SetVibration(_controllerIndex, leftMotor, rightMotor);
+            resetRumbleTime = DateTime.Now.AddMilliseconds(miliseconds);
         }
     }
 }
