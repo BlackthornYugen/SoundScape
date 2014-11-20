@@ -89,14 +89,11 @@ namespace SoundScape
         /// </summary>
         protected override void LoadContent()
         {
-
             bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-
-            
             this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
             this.Components.Add(gameplay = new GameplayScene(this, spriteBatch));
@@ -104,7 +101,7 @@ namespace SoundScape
             this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("images/Help")));
             this.Components.Add(howToPlay = new HelpScene(this, Content.Load<Texture2D>("images/HowToPlay")));
 
-            List<int> tempHigh = new List<int>() { 1, 2, 3 };
+            int tempHigh = 3;
             this.Components.Add(highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
                 
             this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("images/Credits")));

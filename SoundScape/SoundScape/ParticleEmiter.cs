@@ -17,7 +17,6 @@ namespace SoundScape
     /// </summary>
     public class ParticleEmiter : Microsoft.Xna.Framework.DrawableGameComponent
     {
-
         private GameComponentCollection componentsParticles;
 
         List<Particle> parts = new List<Particle>();
@@ -90,7 +89,6 @@ namespace SoundScape
                 }
             }
             CheckParticlesOnScreen();
-            Console.WriteLine(parts.Count);
         }
 
         void CheckParticlesOnScreen()
@@ -100,7 +98,6 @@ namespace SoundScape
                 if(parts[i].DestroyMe)
                 {
                     parts.RemoveAt(i);
-//                    Console.WriteLine("removed part"+ i);
                 }
             }
         }

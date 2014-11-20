@@ -143,12 +143,10 @@ namespace SoundScape
             if (Game1.stage.Contains(bounds))
             {
                 isOnScreen = true;
-               // Console.WriteLine("onScreen");
             }
-            else if (!Game1.stage.Contains(bounds) && isOnScreen)
+            else if (!Game1.stage.Contains(bounds) && isOnScreen || position.Y < Game1.stage.Height) 
             {
                 destroyMe = true;
-               // Console.WriteLine("Destroy bool");
             }
         }
 
@@ -162,16 +160,5 @@ namespace SoundScape
             spriteBatch.End();
         }
 
-        public virtual void Show()
-        {
-            this.Enabled = true;
-            this.Visible = true;
-        }
-
-        public virtual void Hide()
-        {
-            this.Enabled = false;
-            this.Visible = false;
-        }
     }
 }
