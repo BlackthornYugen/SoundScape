@@ -15,23 +15,29 @@ namespace SoundScape
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class ParticleEmiter : Microsoft.Xna.Framework.GameComponent
+    public class ParticleEmiter : Microsoft.Xna.Framework.DrawableGameComponent
     {
+
+        private GameComponentCollection componentsParticles;
 
         List<Particle> parts = new List<Particle>();
         int counter;
+        List<Texture2D> particlesTex;
 
         GameScene gameScene;
         SpriteBatch spriteBatch;
         Vector2 originEmision;
         int interval;
         bool create;
+        bool isEmitting = true;
         float scale;
 
-        public ParticleEmiter(GameScene gameScene, SpriteBatch spriteBatch, 
+        public ParticleEmiter(GameScene gameScene, SpriteBatch spriteBatch, List<Texture2D> particlesTex, 
             Vector2 originEmision, int interval, float scale)
             : base(gameScene.Game)
         {
+            componentsParticles = new GameComponentCollection();
+            this.particlesTex = particlesTex;
             this.gameScene = gameScene;
             this.spriteBatch = spriteBatch;
             this.originEmision = originEmision;
@@ -56,15 +62,22 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+
+            foreach (GameComponent item in componentsParticles)
+            {
+                if (item.Enabled)
+                    item.Update(gameTime);
+            }
+
             // TODO: Add your update code here
 
             base.Update(gameTime);
 
-            if (create)
+            if (create && isEmitting)
             {
-                parts.Add(new Particle(gameScene.Game, spriteBatch, originEmision,
+                parts.Add(new Particle(gameScene, spriteBatch, originEmision, particlesTex,
                     speed: new Vector2(1, 0), iniScale: scale));
-                gameScene.Game.Components.Add(parts[parts.Count - 1]);
+                componentsParticles.Add(parts[parts.Count - 1]);
                 create = false;
             }
             else
@@ -77,8 +90,8 @@ namespace SoundScape
                 }
             }
             CheckParticlesOnScreen();
+            Console.WriteLine(parts.Count);
         }
-
 
         void CheckParticlesOnScreen()
         {
@@ -86,15 +99,40 @@ namespace SoundScape
             {
                 if(parts[i].DestroyMe)
                 {
-                    for (int j = 0; j < gameScene.Game.Components.Count; j++)
-                    {
-                        if(parts[i] == gameScene.Game.Components[j])
-                        {
-                            
-                        }
-                    }
+                    parts.RemoveAt(i);
+//                    Console.WriteLine("removed part"+ i);
                 }
             }
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            DrawableGameComponent drawableGC;
+            foreach (GameComponent item in componentsParticles)
+            {
+                if (item is DrawableGameComponent)
+                {
+                    drawableGC = item as DrawableGameComponent;
+                    if (drawableGC.Visible)
+                        drawableGC.Draw(gameTime);
+                }
+            }
+            base.Draw(gameTime);
+        }
+
+        public virtual void Show()
+        {
+            isEmitting = true;
+            this.Enabled = true;
+            this.Visible = true;
+        }
+
+        public virtual void Hide()
+        {
+            parts.Clear();
+            isEmitting = false;
+            this.Enabled = false;
+            this.Visible = false;
         }
     }
 }

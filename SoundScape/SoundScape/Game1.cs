@@ -59,6 +59,7 @@ namespace SoundScape
                 if (gc is GameScene)
                     (gc as GameScene).Hide();
             }
+
         }
 
         public void SetTitle(string title = null)

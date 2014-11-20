@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using XNALib.Scenes;
 
 namespace SoundScape
 {
@@ -16,10 +17,9 @@ namespace SoundScape
     /// </summary>
     public class Particle : Microsoft.Xna.Framework.DrawableGameComponent
     {
-
         Random rand = new Random();
-
         Texture2D tex;
+
         Vector2 position;
         float scale;
         float scaleFactor;
@@ -27,12 +27,20 @@ namespace SoundScape
         SpriteBatch spriteBatch;
         Vector2 speed;
 
-        List<Texture2D> texBatch = new List<Texture2D>();
+        List<Texture2D> texBatch;
         List<Color> ourColor = new List<Color>();
 
-        Game game;
         Rectangle sourceRect = new Rectangle();
         private bool destroyMe;
+        private bool isOnScreen;
+
+        private Rectangle bounds =new Rectangle();
+
+        public Rectangle Bounds
+        {
+            get { return bounds; }
+            set { bounds = value; }
+        }
 
         public bool DestroyMe
         {
@@ -40,12 +48,12 @@ namespace SoundScape
             set { destroyMe = value; }
         }
 
-        public Particle(Game game, SpriteBatch spriteBatch, Vector2 originEmision, float iniScale = 0, float scaleFactor = 0, Texture2D tex = null, 
+        public Particle(GameScene gameScene, SpriteBatch spriteBatch, Vector2 originEmision, List<Texture2D> texBatch, float iniScale = 0, float scaleFactor = 0,  
             Vector2 speed = new Vector2())
-            : base(game)
+            : base(gameScene.Game)
         {
-            this.game = game;
-            this.tex = tex;
+            
+            this.texBatch = texBatch;
             this.position = originEmision;
             scale = iniScale;
             this.scaleFactor = scaleFactor;
@@ -59,6 +67,11 @@ namespace SoundScape
                 this.speed.Y = floatRandomizer(10, 100);
             }
             this.spriteBatch = spriteBatch;
+
+            tex = texBatch[intRandomizer(0, texBatch.Count)];
+            sourceRect = new Rectangle(0, 0, tex.Width, tex.Height);
+
+            LoadContent();
         }
 
         //all is div by 100 so: 10 = 0.1
@@ -75,21 +88,20 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-            texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircle97Percent"));
-            texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleBorder"));
-            texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleBorder2CircleIn"));
-            texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleFilled"));
-            texBatch.Add(game.Content.Load<Texture2D>("images/part/ParticleCircleThickBorder"));
+
 
             ourColor.Add(Color.Beige);
             ourColor.Add(Color.Coral);
             ourColor.Add(Color.Crimson);
+            ourColor.Add(Color.Red);
+            ourColor.Add(Color.Blue);
+            ourColor.Add(Color.Green);
+            ourColor.Add(Color.Yellow);
+            ourColor.Add(Color.Pink);
+            ourColor.Add(Color.Wheat);
 
-            if (tex == null)
-            {
-                tex = texBatch[intRandomizer(0, texBatch.Count)];
-                sourceRect = new Rectangle(0, 0, tex.Width, tex.Height);
-            }
+
+
             currentColor = ourColor[intRandomizer(0, ourColor.Count)];
 
         }
@@ -112,25 +124,33 @@ namespace SoundScape
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-
             base.Update(gameTime);
-
             position += speed;
-
             scale += scaleFactor;
 
-            DestroyIfNotOnScreen();
+            UpdateBounds();
+            UpdateStatus();
         }
 
-        void DestroyIfNotOnScreen()
+        void UpdateBounds()
         {
-            if(Game1.stage.Contains(sourceRect))
+            bounds.X = (int)position.X;
+            bounds.Y = (int)position.Y;
+        }
+
+        void UpdateStatus()
+        {
+            if (Game1.stage.Contains(bounds))
+            {
+                isOnScreen = true;
+               // Console.WriteLine("onScreen");
+            }
+            else if (!Game1.stage.Contains(bounds) && isOnScreen)
             {
                 destroyMe = true;
+               // Console.WriteLine("Destroy bool");
             }
         }
-
-
 
         public override void Draw(GameTime gameTime)
         {
@@ -140,6 +160,18 @@ namespace SoundScape
             spriteBatch.Draw(tex, position, sourceRect, currentColor, 0, new Vector2(),
                 scale, SpriteEffects.None, 0);
             spriteBatch.End();
+        }
+
+        public virtual void Show()
+        {
+            this.Enabled = true;
+            this.Visible = true;
+        }
+
+        public virtual void Hide()
+        {
+            this.Enabled = false;
+            this.Visible = false;
         }
     }
 }
