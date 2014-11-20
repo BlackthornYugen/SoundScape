@@ -27,7 +27,6 @@ namespace SoundScape
         SpriteBatch spriteBatch;
         KeyboardState oldState;
 
-
         public SpriteBatch SpriteBatch
         {
             get { return spriteBatch; }
@@ -42,7 +41,6 @@ namespace SoundScape
         private GameScene gameplay;
 
         public static Vector2 bottomRightScreen;
-        public static Rectangle stage;
 
         public Game1()
         {
@@ -59,7 +57,6 @@ namespace SoundScape
                 if (gc is GameScene)
                     (gc as GameScene).Hide();
             }
-
         }
 
         public void SetTitle(string title = null)
@@ -106,9 +103,6 @@ namespace SoundScape
                 
             this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("images/Credits")));
 
-            stage = new Rectangle(0, 0, int.Parse((bottomRightScreen.X + 1f).ToString()),
-                int.Parse((bottomRightScreen.Y + 1f).ToString())); 
-
             menu.Show();
             
             // TODO: use this.Content to load your game content here
@@ -138,6 +132,9 @@ namespace SoundScape
             base.Update(gameTime);
         }
 
+        /// <summary>
+        /// Handles the user input for the menu
+        /// </summary>
         void ControlInput()
         {
             KeyboardState ks = Keyboard.GetState();

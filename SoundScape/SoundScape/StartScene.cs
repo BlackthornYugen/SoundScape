@@ -16,8 +16,6 @@ namespace SoundScape
 {
     public class StartScene : GameScene
     {
-        ParticleEmiter partEmitterTopRight1, partEmitterTopRight2;
-
         private SpriteFont regularFont, highlightFont;
         private MenuComponent menu;
 
@@ -47,20 +45,6 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-            particleTexBatch = new List<Texture2D>();
-
-            particleTexBatch.Add(Game.Content.Load<Texture2D>("images/part/ParticleCircle97Percent"));
-            particleTexBatch.Add(Game.Content.Load<Texture2D>("images/part/ParticleCircleBorder"));
-            particleTexBatch.Add(Game.Content.Load<Texture2D>("images/part/ParticleCircleBorder2CircleIn"));
-            particleTexBatch.Add(Game.Content.Load<Texture2D>("images/part/ParticleCircleFilled"));
-            particleTexBatch.Add(Game.Content.Load<Texture2D>("images/part/ParticleCircleThickBorder"));
-
-            partEmitterTopRight1 = new ParticleEmiter(this, spritebatch, particleTexBatch, new Vector2(-150, 300), 25, 0.1f);
-            this.Components.Add(partEmitterTopRight1);
-
-            partEmitterTopRight2 = new ParticleEmiter(this, spritebatch, particleTexBatch, new Vector2(-200, 300), 30, 0.3f);
-            this.Components.Add(partEmitterTopRight2);
-
             regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
