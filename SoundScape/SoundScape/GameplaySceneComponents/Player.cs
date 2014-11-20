@@ -11,7 +11,7 @@ namespace SoundScape.GameplaySceneComponents
 {
     class Player : GameplaySceneComponent
     {
-        private const int DISTANCE_FACTOR = 100;
+        private const int DISTANCE_FACTOR = 30;
         private PlayerIndex _controllerIndex;
         private GamePadState _padState;
         private GamePadState _padOldState;
@@ -67,14 +67,16 @@ namespace SoundScape.GameplaySceneComponents
                             flag = false;
                             if (_activeSound == null || _activeSound.State == SoundState.Stopped)
                             {
+                                // TODO: Rework distance formula to be more reliable
                                 var distance = (gsc.Position - Position).Length() / (Position - (Position + _arrow * limit)).Length();
-                                distance = Math.Min(Math.Max(1f - distance, 0f), 1f);
+                                distance = Math.Min(Math.Max(1f - distance, 0f), 1f); 
                                 Console.WriteLine(gsc.GetType());
                                 if (gsc is Player)
                                     Console.WriteLine(((Player)gsc).ControllerIndex);
                                 _activeSound = gsc.SoundEffect.CreateInstance();
                                 _activeSound.Volume = distance;
                                 _activeSound.Play();
+                                Scene.Game.Window.Title = distance.ToString();
                             }
                         }
                     }

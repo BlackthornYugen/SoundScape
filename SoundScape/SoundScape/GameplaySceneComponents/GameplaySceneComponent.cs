@@ -49,8 +49,8 @@ namespace SoundScape.GameplaySceneComponents
             get { return _position; }
             set
             {
-                _hitbox.X = (int)value.X;
-                _hitbox.Y = (int)value.Y;
+                _hitbox.X = (int)value.X - (_texture.Width / 2);
+                _hitbox.Y = (int)value.Y - (_texture.Height / 2);
                 _position = value;
             }
         }

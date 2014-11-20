@@ -25,7 +25,8 @@ namespace SoundScape
         {
             Wall,
             Item,
-            Player
+            Player,
+            Enemy
         }
 
         public GameplayScene(Game game, SpriteBatch sb)
@@ -42,14 +43,16 @@ namespace SoundScape
             {
                 {Entity.Wall, contentMgr.Load<SoundEffect>("sounds/click")},
                 {Entity.Item, contentMgr.Load<SoundEffect>("sounds/ding")},
-                {Entity.Player, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")}
+                {Entity.Player, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
+                {Entity.Enemy, contentMgr.Load<SoundEffect>("sounds/click")}
             };
 
             textures = new Dictionary<Entity, Texture2D>
             {
                 {Entity.Wall, contentMgr.Load<Texture2D>("images/wall")},
                 {Entity.Item, contentMgr.Load<Texture2D>("images/item")},
-                {Entity.Player, contentMgr.Load<Texture2D>("images/player")}
+                {Entity.Player, contentMgr.Load<Texture2D>("images/player")},
+                {Entity.Enemy, contentMgr.Load<Texture2D>("images/enemy")}
             };
             Player player;
             Color[] colours = new Color[]
@@ -83,6 +86,9 @@ namespace SoundScape
                 player.ControllerIndex = gamepads[i];
             }
 
+            Enemy enemy = new Enemy(this, spritebatch, Vector2.Zero, textures[Entity.Enemy], sfx[Entity.Enemy], Rectangle.Empty, Color.Green);
+            enemy.Speed = Vector2.One * 3;
+            Components.Add(enemy);
             base.LoadContent();
         }
     }

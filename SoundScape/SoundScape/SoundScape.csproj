@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Bat.cs" />
     <Compile Include="GameplayScene.cs" />
+    <Compile Include="GameplaySceneComponents\Enemy.cs" />
     <Compile Include="GameplaySceneComponents\GameplaySceneComponent.cs" />
     <Compile Include="GameplaySceneComponents\Item.cs" />
     <Compile Include="GameplaySceneComponents\Player.cs" />
