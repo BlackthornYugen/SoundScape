@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="XNALib.Scenes.GameScene">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SoundScape.GameplayScene">
+    <Position X="1.25" Y="6" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SoundScape.GameplayScene.Entity" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameplayScene.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>GameplayScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.HelpScene">
+    <Position X="3.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>HelpScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.StartScene">
+    <Position X="5.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAQAAhAAAAAABAAAJAAAAAoAAQ=</HashCode>
+      <FileName>StartScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.HighScore">
+    <Position X="3.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwgAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HighScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.GameplaySceneComponents.GameplaySceneComponent">
+    <Position X="7.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAgQAEAgAgggAAAAAAAAAAgAAAQIIAgBAAAAA=</HashCode>
+      <FileName>GameplaySceneComponents\GameplaySceneComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.GameplaySceneComponents.Enemy">
+    <Position X="7.75" Y="7.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameplaySceneComponents\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.GameplaySceneComponents.Item">
+    <Position X="10.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameplaySceneComponents\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.GameplaySceneComponents.Player">
+    <Position X="10.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQQAgBAAYAACgAAAIQAQAAQAAAAQAAACQAAAAUAAAA=</HashCode>
+      <FileName>GameplaySceneComponents\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.GameplaySceneComponents.Wall">
+    <Position X="10.75" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameplaySceneComponents\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
