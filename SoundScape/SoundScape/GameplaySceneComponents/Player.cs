@@ -38,14 +38,6 @@ namespace SoundScape.GameplaySceneComponents
         {
             _padState = GamePad.GetState(ControllerIndex);
 
-            // Test rumble
-            if (_padState.IsButtonDown(Buttons.A) && _padOldState.IsButtonUp(Buttons.A))
-                GamePad.SetVibration(_controllerIndex, 0, 0);
-            
-            if(_padState.IsConnected)
-                Game.Window.Title = string.Format("Rumble Left: {0:n1} {1} - Rumble Right: {2:n1} / {3}",
-                    _rumbleLeft, DateTime.Now - _rumbleLeftTime, _rumbleRight, DateTime.Now - _rumbleRightTime);
-
             // Expire rumbles
             if (_rumbleLeftTime < DateTime.Now)
             {
@@ -70,7 +62,9 @@ namespace SoundScape.GameplaySceneComponents
                 if (component != this && component is GameplaySceneComponent)
                 {
                     GameplaySceneComponent gsc = component as GameplaySceneComponent;
-                    if (gsc.Hitbox.Intersects(this.Hitbox))
+                    // TODO: Stop ignoring collision when right sholder is pressed. 
+                    if (_padState.Buttons.RightShoulder == ButtonState.Released 
+                        && gsc.Hitbox.Intersects(this.Hitbox))
                     {
                         Position = oldPosition;
                         // Rumble for the player coliding.
@@ -120,26 +114,17 @@ namespace SoundScape.GameplaySceneComponents
             base.Update(gameTime);
         }
 
-        private void ResetRumble()
-        {
-            GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
-            Console.WriteLine("Reset Rumble {0:n3} - {1:n3}\nFor: {2}", RumbleLeft, RumbleRight, _controllerIndex);
-        }
-
         public override void Draw(GameTime gameTime)
         {
-            //if (!arrow.Equals(Vector2.Zero))
+            SpriteBatch.Begin();
+            foreach (Vector2 aimVector in _aimVectors)
             {
-                SpriteBatch.Begin();
-                foreach (Vector2 aimVector in _aimVectors)
+                if (aimVector != Vector2.Zero)
                 {
-                    if (aimVector != Vector2.Zero)
-                    {
-                        SpriteBatch.Draw(Texture, aimVector, Colour);
-                    }
+                    SpriteBatch.Draw(Texture, aimVector, Colour);
                 }
-                SpriteBatch.End();
             }
+            SpriteBatch.End();
             base.Draw(gameTime);
         }
 
@@ -158,7 +143,7 @@ namespace SoundScape.GameplaySceneComponents
                 if (Math.Abs(_rumbleLeft - value) > 0.01)
                 {
                     _rumbleLeft = value;
-                    ResetRumble();
+                    GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
                 }
             }
         }
@@ -171,7 +156,7 @@ namespace SoundScape.GameplaySceneComponents
                 if (Math.Abs(_rumbleRight - value) > 0.01)
                 {
                     _rumbleRight = value;
-                    ResetRumble();   
+                    GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
                 }
             }
         }
@@ -181,18 +166,12 @@ namespace SoundScape.GameplaySceneComponents
             if (leftMotor > 0)
             {
                 _rumbleLeftTime = DateTime.Now.AddMilliseconds(miliseconds);
-            //}
-            //else
-            //{
                 _rumbleLeft = leftMotor;
             }
 
             if (rightMotor > 0)
             {
                 _rumbleRightTime = DateTime.Now.AddMilliseconds(miliseconds);
-            //}
-            //else
-            //{
                 _rumbleRight = rightMotor;                
             }
 
