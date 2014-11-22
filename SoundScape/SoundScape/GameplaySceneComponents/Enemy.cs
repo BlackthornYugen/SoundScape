@@ -15,14 +15,14 @@ namespace SoundScape.GameplaySceneComponents
         private Vector2 speed;
         
         public Enemy(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, Rectangle hitbox)
-            : base(scene, spriteBatch, position, texture, soundEffect, hitbox)
+            SoundEffect soundEffect)
+            : base(scene, spriteBatch, position, texture, soundEffect)
         {
         }
 
         public Enemy(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, Rectangle hitbox, Color colour)
-            : base(scene, spriteBatch, position, texture, soundEffect, hitbox, colour)
+            SoundEffect soundEffect, Color colour)
+            : base(scene, spriteBatch, position, texture, soundEffect, colour)
         {
         }
 

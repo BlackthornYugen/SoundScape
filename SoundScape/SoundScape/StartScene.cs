@@ -19,9 +19,6 @@ namespace SoundScape
         private SpriteFont regularFont, highlightFont;
         private MenuComponent menu;
 
-
-        List<Texture2D> particleTexBatch;
-
         public int SelectedIndex
         {
             get { return menu.MenuIndex; }

@@ -13,14 +13,14 @@ namespace SoundScape.GameplaySceneComponents
     class Item : GameplaySceneComponent
     {
         public Item(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, Rectangle hitbox)
-            : base(scene, spriteBatch, position, texture, soundEffect, hitbox)
+            SoundEffect soundEffect)
+            : base(scene, spriteBatch, position, texture, soundEffect)
         {
         }
 
         public Item(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, Rectangle hitbox, Color colour)
-            : base(scene, spriteBatch, position, texture, soundEffect, hitbox, colour)
+            SoundEffect soundEffect, Color colour)
+            : base(scene, spriteBatch, position, texture, soundEffect, colour)
         {
         }
     }

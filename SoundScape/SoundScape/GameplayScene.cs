@@ -57,9 +57,7 @@ namespace SoundScape
             Player player;
             Color[] colours = new Color[]
             {
-                Color.Pink,
                 Color.Red,
-                Color.Green,
                 Color.Blue
             };
 
@@ -80,10 +78,10 @@ namespace SoundScape
                 int x = r.Next(xLimit);
                 int y = r.Next(yLimit);
                 player = new Player(this, spritebatch, new Vector2(x, y), textures[Entity.Player], sfx[Entity.Player],
-                    textures[Entity.Player].Bounds, colours[i%colours.Length]);
+                    i % 2 == 0 ? 1f : -1f, colours[i%colours.Length]);
                 Components.Add(player);
 
-                player.ControllerIndex = gamepads[i];
+                player.ControllerIndex = (PlayerIndex)i;
             }
 
             Enemy enemy = new Enemy(this, spritebatch, Vector2.Zero, textures[Entity.Enemy], sfx[Entity.Enemy], Rectangle.Empty, Color.Green);

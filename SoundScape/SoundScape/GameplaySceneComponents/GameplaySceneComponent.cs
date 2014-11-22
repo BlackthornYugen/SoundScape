@@ -14,7 +14,7 @@ namespace SoundScape.GameplaySceneComponents
         private Rectangle _hitbox;
         private Color _colour;
 
-        protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox)
+        protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound)
             : base(scene.Game)
         {
             Scene = scene;
@@ -22,12 +22,12 @@ namespace SoundScape.GameplaySceneComponents
             _position = position;
             _texture = texture;
             _soundEffect = sound;
-            _hitbox = hitbox;
+            _hitbox = new Rectangle((int)_position.X - texture.Width/2, (int)_position.Y - texture.Width/2, texture.Width, texture.Height);
             _colour = Color.White;
         }
 
-        protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound, Rectangle hitbox,
-            Color colour) : this(scene, spriteBatch, position, texture, sound, hitbox)
+        protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound,
+            Color colour) : this(scene, spriteBatch, position, texture, sound)
         {
             _colour = colour;
         }
