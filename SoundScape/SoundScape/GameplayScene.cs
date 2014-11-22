@@ -84,7 +84,7 @@ namespace SoundScape
                 player.ControllerIndex = (PlayerIndex)i;
             }
 
-            Enemy enemy = new Enemy(this, spritebatch, Vector2.Zero, textures[Entity.Enemy], sfx[Entity.Enemy], Rectangle.Empty, Color.Green);
+            Enemy enemy = new Enemy(this, spritebatch, Vector2.Zero, textures[Entity.Enemy], sfx[Entity.Enemy], Color.Green);
             enemy.Speed = Vector2.One * 3;
             Components.Add(enemy);
             base.LoadContent();
