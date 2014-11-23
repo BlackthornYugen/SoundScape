@@ -26,30 +26,33 @@ namespace SoundScape.GameplaySceneComponents
 
         public override void Update(GameTime gameTime)
         {
+            int xSpeed = (int)Math.Abs(Speed.X * 3);
+            int ySpeed = (int)Math.Abs(Speed.X * 3);
+
             var eastCollisionRect = new Rectangle(
-                x: (int)(Position.X + Hitbox.Width),
-                y: (int)Position.Y,
-                width: (int)Speed.X,
+                x: (int)(Hitbox.X + Hitbox.Width),
+                y: (int)Hitbox.Y,
+                width: xSpeed,
                 height: Hitbox.Height);
             var westCollisionRect = new Rectangle(
-                x: (int)(Position.X - Speed.X),
-                y: (int)Position.Y,
-                width: (int)Speed.X,
+                x: (int)(Hitbox.X - xSpeed),
+                y: (int)Hitbox.Y,
+                width: xSpeed,
                 height: Hitbox.Height);
             var northCollisionRect = new Rectangle(
-                x: (int)Position.X,
-                y: (int)(Position.Y - Speed.Y),
-                width: (int)Speed.X,
-                height: Hitbox.Height);
+                x: (int)Hitbox.X,
+                y: (int)(Hitbox.Y - ySpeed),
+                width: Hitbox.Width,
+                height: ySpeed);
             var southCollisionRect = new Rectangle(
-                x: (int)Position.X,
-                y: (int)Position.Y,
-                width: Hitbox.X,
-                height: (int)Speed.Y);
+                x: (int)Hitbox.X,
+                y: (int)Hitbox.Y,
+                width: Hitbox.Width,
+                height: (int)(Hitbox.Height + ySpeed));
 
             foreach (var gameComponent in this.Scene.Components)
             {
-                if (gameComponent is GameplaySceneComponent && gameComponent is Player) // Bouncer set only to collide with player for debugging
+                if (gameComponent is GameplaySceneComponent && gameComponent is Wall)
                 { 
                     var component = (GameplaySceneComponent)gameComponent;
                     if (component != this)
