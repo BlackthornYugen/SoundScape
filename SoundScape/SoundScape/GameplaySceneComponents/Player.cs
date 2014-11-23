@@ -101,12 +101,20 @@ namespace SoundScape.GameplaySceneComponents
                     if (_padState.Buttons.RightShoulder == ButtonState.Released 
                         && gsc.Hitbox.Intersects(this.Hitbox))
                     {
-                        Position = oldPosition;
-                        // Rumble for the player coliding.
-                        RumbleFor(miliseconds: 75, leftMotor: 1);
-                        if (gsc is Player)
-                        {   // Rumble for other player
-                            (gsc as Player).RumbleFor(miliseconds: 50, rightMotor: 1);
+                        if (gsc is Enemy)
+                        {
+                            this.Visible = false;
+                            this.RumbleFor(3000, 1, 1);
+                        }
+                        else
+                        {
+                            Position = oldPosition;
+                            // Rumble for the player coliding.
+                            RumbleFor(miliseconds: 75, leftMotor: 1);
+                            if (gsc is Player)
+                            {   // Rumble for other player
+                                (gsc as Player).RumbleFor(miliseconds: 50, rightMotor: 1);
+                            }
                         }
                     }
                 }

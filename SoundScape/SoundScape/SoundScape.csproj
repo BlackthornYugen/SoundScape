@@ -72,7 +72,6 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bat.cs" />
     <Compile Include="GameplayScene.cs" />
     <Compile Include="GameplaySceneComponents\Enemies\Bouncer.cs" />
     <Compile Include="GameplaySceneComponents\Enemy.cs" />
@@ -82,10 +81,12 @@
     <Compile Include="GameplaySceneComponents\Wall.cs" />
     <Compile Include="HighScore.cs" />
     <Compile Include="HelpScene.cs" />
+    <Compile Include="Levels\MultiplayerLevel1.cs" />
+    <Compile Include="Levels\SinglePlayerLevel2.cs" />
+    <Compile Include="Levels\SinglePlayerLevel1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Shared.cs" />
     <Compile Include="StartScene.cs" />
   </ItemGroup>
   <ItemGroup>

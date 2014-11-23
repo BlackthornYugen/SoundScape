@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SoundScape.Levels;
 using XNALib.Scenes;
 
 namespace SoundScape
@@ -25,7 +26,8 @@ namespace SoundScape
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        KeyboardState oldState;
+        KeyboardState oldKeyboardState;
+        GamePadState oldPadState;
 
         public SpriteBatch SpriteBatch
         {
@@ -39,8 +41,6 @@ namespace SoundScape
         private GameScene credit;
 
         private GameScene gameplay;
-
-        public static Vector2 bottomRightScreen;
 
         public Game1()
         {
@@ -86,14 +86,11 @@ namespace SoundScape
         /// </summary>
         protected override void LoadContent()
         {
-            bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
-            this.Components.Add(gameplay = new GameplayScene(this, spriteBatch));
 
             this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("images/Help")));
             this.Components.Add(howToPlay = new HelpScene(this, Content.Load<Texture2D>("images/HowToPlay")));
@@ -124,8 +121,6 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            bottomRightScreen = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
-
             ControlInput();
 
             // TODO: Add your update logic here
@@ -138,8 +133,11 @@ namespace SoundScape
         void ControlInput()
         {
             KeyboardState ks = Keyboard.GetState();
+            GamePadState ps = GamePad.GetState(0);
+
             // Allows the game to exit
-            if (ks.IsKeyDown(Keys.Escape) && oldState.IsKeyUp(Keys.Escape))
+            if (ks.IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyUp(Keys.Escape) ||
+                ps.IsButtonDown(Buttons.Back) && oldPadState.IsButtonUp(Buttons.Back))
             {
                 if (menu.Enabled)
                     this.Exit();
@@ -152,16 +150,20 @@ namespace SoundScape
             }
 
             // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
-            if (menu.Enabled && ks.IsKeyDown(Keys.Enter))
+            if (menu.Enabled && ks.IsKeyDown(Keys.Enter) ||
+                ps.IsButtonDown(Buttons.Start) && oldPadState.IsButtonUp(Buttons.Start))
             {
                 switch (menu.SelectedItem.Name)
                 {
                     case "Start Game":
                         HideAllScene();
                         SetTitle("Game thing");
-                        //gameplay.Dispose();
-                        //Components.Remove(gameplay);
-                        //Components.Add(gameplay = new GameplayScene(this, spriteBatch));
+                        if(gameplay!= null)
+                        {
+                            Components.Remove(gameplay);
+                            gameplay.Dispose();
+                        }
+                        Components.Add(gameplay = new MultiplayerLevel1(this, spriteBatch));
                         gameplay.Show();
                         break;
                     case "How To Play":
@@ -199,7 +201,17 @@ namespace SoundScape
                         break;
                 }
             }
-            oldState = ks;
+
+
+            if (ks.IsKeyUp(Keys.Down) && oldKeyboardState.IsKeyDown(Keys.Down) ||
+                ps.IsButtonDown(Buttons.DPadDown) && oldPadState.IsButtonUp(Buttons.DPadDown))
+                menu.SelectedIndex = Math.Min(menu.SelectedIndex + 1, menu.Count - 1);
+            else if (ks.IsKeyUp(Keys.Up) && oldKeyboardState.IsKeyDown(Keys.Up) ||
+                ps.IsButtonDown(Buttons.DPadUp) && oldPadState.IsButtonUp(Buttons.DPadUp))
+                menu.SelectedIndex = Math.Max(menu.SelectedIndex - 1, 0);
+
+            oldKeyboardState = ks;
+            oldPadState = ps;
         }
 
         /// <summary>

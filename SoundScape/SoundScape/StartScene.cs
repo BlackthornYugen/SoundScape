@@ -22,6 +22,15 @@ namespace SoundScape
         public int SelectedIndex
         {
             get { return menu.MenuIndex; }
+            set { menu.MenuIndex = value; }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return menuItems.Count;                
+            }
         }
 
         public MenuItem SelectedItem

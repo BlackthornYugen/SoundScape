@@ -72,7 +72,11 @@ namespace SoundScape.GameplaySceneComponents
                             Speed *= new Vector2(1, -1);
 
                         if (collissionEastWest || collissionNorthSouth)
+                        {   // On any collision event, play a bounce 
+                            // sound then end the loop.
+                            Scene.PlayBounceSound(SoundEffect, Position);
                             break;
+                        }
                     }
                 }
             }

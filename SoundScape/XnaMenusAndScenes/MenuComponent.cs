@@ -84,19 +84,6 @@ namespace XNALib.Menus
             this.menuItems = menuItems;
         }
 
-        public override void Update(GameTime gameTime)
-        {    
-            KeyboardState ks = Keyboard.GetState();
-
-            if (ks.IsKeyUp(Keys.Down) && oldKS.IsKeyDown(Keys.Down))
-                menuIndex = Math.Min(menuIndex + 1, menuItems.Count - 1);
-            else if (ks.IsKeyUp(Keys.Up) && oldKS.IsKeyDown(Keys.Up))
-                menuIndex = Math.Max(menuIndex - 1, 0);
-
-            this.oldKS = ks;
-            base.Update(gameTime);
-        }
-
         public override void Draw(GameTime gameTime)
         {
             SpriteFont font;
