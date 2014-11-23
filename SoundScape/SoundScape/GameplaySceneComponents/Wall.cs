@@ -25,16 +25,10 @@ namespace SoundScape.GameplaySceneComponents
             Hitbox = hitbox;
         }
 
-        public override void Update(GameTime gameTime)
-        {
-
-            base.Update(gameTime);
-        }
-
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch.Begin();
-            SpriteBatch.Draw(Texture, Hitbox, null, Color.White);
+            SpriteBatch.Draw(Texture, destinationRectangle: Hitbox, sourceRectangle: null, color: Colour);
             SpriteBatch.End();
         }
     }
