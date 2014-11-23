@@ -12,16 +12,30 @@ namespace SoundScape.GameplaySceneComponents
 {
     class Wall : GameplaySceneComponent
     {
-        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect)
-            : base(scene, spriteBatch, position, texture, soundEffect)
+        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Texture2D texture,
+            SoundEffect soundEffect, Rectangle hitbox)
+            : this(scene, spriteBatch, texture, soundEffect, hitbox, Color.White)
         {
         }
 
-        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, Color colour)
-            : base(scene, spriteBatch, position, texture, soundEffect, colour)
+        public Wall(GameplayScene scene, SpriteBatch spriteBatch, Texture2D texture,
+            SoundEffect soundEffect, Rectangle hitbox, Color colour)
+            : base(scene, spriteBatch, new Vector2(hitbox.X, hitbox.Y), texture, soundEffect, colour)
         {
+            Hitbox = hitbox;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            SpriteBatch.Begin();
+            SpriteBatch.Draw(Texture, Hitbox, null, Color.White);
+            SpriteBatch.End();
         }
     }
 }

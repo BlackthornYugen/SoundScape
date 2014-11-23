@@ -159,6 +159,9 @@ namespace SoundScape
                     case "Start Game":
                         HideAllScene();
                         SetTitle("Game thing");
+                        //gameplay.Dispose();
+                        //Components.Remove(gameplay);
+                        //Components.Add(gameplay = new GameplayScene(this, spriteBatch));
                         gameplay.Show();
                         break;
                     case "How To Play":

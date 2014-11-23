@@ -134,11 +134,8 @@ namespace SoundScape.GameplaySceneComponents
                             soundReflected = true;
                             if (_activeSound == null || _activeSound.State == SoundState.Stopped)
                             {
-                                // TODO: Rework distance formula to be more reliable
-                                var distance = (gsc.Position - Position).Length() / (Position - (Position + _arrow * limit)).Length();
-                                distance = Math.Min(Math.Max(1f - distance, 0f), 1f); 
                                 _activeSound = gsc.SoundEffect.CreateInstance();
-                                _activeSound.Volume = distance;
+                                _activeSound.Volume = 1f - (float)i / limit;
                                 _activeSound.Pan = _pan;
                                 _activeSound.Play();
                             }
@@ -161,7 +158,7 @@ namespace SoundScape.GameplaySceneComponents
             {
                 if (aimVector != Vector2.Zero)
                 {
-                    SpriteBatch.Draw(Texture, aimVector, Colour);
+                    SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), Colour);
                 }
             }
             SpriteBatch.End();

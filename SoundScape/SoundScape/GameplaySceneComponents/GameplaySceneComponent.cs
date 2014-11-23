@@ -82,7 +82,7 @@ namespace SoundScape.GameplaySceneComponents
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch.Begin();
-            SpriteBatch.Draw(_texture, Position, Colour);
+            SpriteBatch.Draw(_texture, Position - new Vector2(Texture.Width / 2f, Texture.Height / 2f), Colour);
             SpriteBatch.End();
             base.Draw(gameTime);
         }
