@@ -32,10 +32,10 @@ namespace SoundScape.GameplaySceneComponents
 
         public override void Update(GameTime gameTime)
         {
-            float speed = 222; // TODO: Generate speed using Vector2 Speed
-            float increase = (float) (Math.PI*2/speed);
-            float x = (float)(200 * Math.Cos(_angle) + _offsetX); // TODO: Replace 200 with a formula that uses speed.x
-            float y = (float)(200 * Math.Sin(_angle) + _offsetY); // TODO: Replace 200 with a formula that uses speed.y
+            float framesForFullCircle = 222; // TODO: Generate this using speed? 
+            float increase = (float)Math.PI * 2 / framesForFullCircle;
+            float x = (float)(Speed.X * 100 * Math.Cos(_angle) + _offsetX); // TODO: Replace 200 with a formula that uses speed.x
+            float y = (float)(Speed.Y * 100 * Math.Sin(_angle) + _offsetY); // TODO: Replace 200 with a formula that uses speed.y
             
             _angle += increase;
 

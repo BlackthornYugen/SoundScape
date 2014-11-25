@@ -105,7 +105,21 @@ namespace SoundScape.Levels
                 soundEffect: SFX[Entity.Enemy],
                 colour: Color.Green);
             enemy.Speed =
-                Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) + 
+                Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
+                Vector2.UnitY * (r.Next(2) == 0 ? -1 : 1);
+            startingPositions.RemoveAt(startIndex);
+
+            Components.Add(enemy);
+            startIndex = r.Next(startingPositions.Count);
+            enemy = new Bouncer(
+                scene: this,
+                spriteBatch: spritebatch,
+                position: startingPositions[startIndex],
+                texture: Textures[Entity.Enemy],
+                soundEffect: SFX[Entity.Enemy],
+                colour: Color.Green);
+            enemy.Speed =
+                Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
                 Vector2.UnitY * (r.Next(2) == 0 ? -1 : 1);
             startingPositions.RemoveAt(startIndex);
             Components.Add(enemy);

@@ -34,7 +34,6 @@ namespace SoundScape.GameplaySceneComponents
 
         public override void Update(GameTime gameTime)
         {
-            Position += Speed;
             base.Update(gameTime);
         }
     }

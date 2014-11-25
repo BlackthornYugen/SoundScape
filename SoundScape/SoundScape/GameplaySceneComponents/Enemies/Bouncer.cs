@@ -26,6 +26,7 @@ namespace SoundScape.GameplaySceneComponents
 
         public override void Update(GameTime gameTime)
         {
+            Position += Speed;
             int xSpeed = (int)Math.Abs(Speed.X * 3);
             int ySpeed = (int)Math.Abs(Speed.X * 3);
 

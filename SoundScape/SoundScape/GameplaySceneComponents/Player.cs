@@ -102,7 +102,9 @@ namespace SoundScape.GameplaySceneComponents
                         && gsc.Enabled
                         && gsc.Hitbox.Intersects(this.Hitbox))
                     {
-                        if (gsc is Enemy)
+                        // TODO: Remove godmode when left sholder is pressed. 
+                        if (_padState.Buttons.LeftShoulder == ButtonState.Released
+                            && gsc is Enemy)
                         {
                             this.Visible = false;
                             this.Enabled = false;
