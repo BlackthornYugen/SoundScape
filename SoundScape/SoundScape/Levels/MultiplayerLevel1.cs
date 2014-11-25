@@ -97,7 +97,7 @@ namespace SoundScape.Levels
             Components.Add(wall);
 
             startIndex = r.Next(startingPositions.Count);
-            Enemy enemy = new Bouncer(
+            Enemy enemy = new Circler(
                 scene: this,
                 spriteBatch: spritebatch,
                 position: startingPositions[startIndex],

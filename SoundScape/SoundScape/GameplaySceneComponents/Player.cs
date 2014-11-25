@@ -94,11 +94,12 @@ namespace SoundScape.GameplaySceneComponents
             
             foreach (IGameComponent component in Scene.Components)
             {
-                if (component != this && component is GameplaySceneComponent)
+                var gsc = component as GameplaySceneComponent;
+                if (gsc != this && gsc != null)
                 {
-                    GameplaySceneComponent gsc = component as GameplaySceneComponent;
                     // TODO: Stop ignoring collision when right sholder is pressed. 
                     if (_padState.Buttons.RightShoulder == ButtonState.Released 
+                        && gsc.Enabled
                         && gsc.Hitbox.Intersects(this.Hitbox))
                     {
                         if (gsc is Enemy)
@@ -138,7 +139,7 @@ namespace SoundScape.GameplaySceneComponents
                     if (gameComponent != this && gameComponent is GameplaySceneComponent)
                     {
                         var gsc = gameComponent as GameplaySceneComponent;
-                        if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
+                        if (gsc.Enabled && gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
                         {
                             soundReflected = true;
                             if (_activeSound == null || _activeSound.State == SoundState.Stopped)
@@ -249,7 +250,18 @@ namespace SoundScape.GameplaySceneComponents
                 _rumbleRight = rightMotor;                
             }
 
-            GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
+            if (Enabled)
+            {
+                GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
+            }
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            RumbleRight = 0;
+            RumbleLeft = 0;
+
+            base.OnEnabledChanged(sender, args);
         }
     }
 }
