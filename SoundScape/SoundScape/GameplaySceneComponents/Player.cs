@@ -104,7 +104,8 @@ namespace SoundScape.GameplaySceneComponents
                         if (gsc is Enemy)
                         {
                             this.Visible = false;
-                            this.RumbleFor(3000, 1, 1);
+                            this.Enabled = false;
+                            //this.RumbleFor(3000, 1, 1);
                         }
                         else
                         {
