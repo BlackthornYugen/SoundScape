@@ -12,6 +12,8 @@ namespace SoundScape.GameplaySceneComponents
     class Player : GameplaySceneComponent
     {
         private const int DISTANCE_FACTOR = 30;
+        private const float PITCH_VELOCITY = 0.01f;
+        private const float TOLLERENCE = 0.01f;
 
         private PlayerIndex _controllerIndex;
         private GamePadState _padState;
@@ -23,7 +25,7 @@ namespace SoundScape.GameplaySceneComponents
         private float _rumbleLeft, _rumbleRight;
         private DateTime _rumbleLeftTime, _rumbleRightTime;
         private SoundEffect _weaponSoundEffect;
-        private SoundEffectInstance _weaponSoundEffectInstance;
+        private readonly SoundEffectInstance _weaponSoundEffectInstance;
         private WeaponState _weaponState = WeaponState.DISCHARGED;
 
         private enum WeaponState
@@ -145,10 +147,10 @@ namespace SoundScape.GameplaySceneComponents
             // Weapon
             if (_weaponState == WeaponState.CHARGING)
             {
-                if(_weaponSoundEffectInstance.State == SoundState.Stopped)
+                if (_weaponSoundEffectInstance.State == SoundState.Stopped)
                     _weaponState = WeaponState.CHARGED;
                 else
-                    _weaponSoundEffectInstance.Pitch += 0.01f;
+                    _weaponSoundEffectInstance.Pitch = Math.Min(_weaponSoundEffectInstance.Pitch + PITCH_VELOCITY, 1);
             }
 
             if (_weaponState == WeaponState.COOLDOWN)
@@ -159,7 +161,7 @@ namespace SoundScape.GameplaySceneComponents
                 }
                 else
                 {
-                    _weaponSoundEffectInstance.Pitch -= 0.01f;
+                    _weaponSoundEffectInstance.Pitch = Math.Max(_weaponSoundEffectInstance.Pitch - PITCH_VELOCITY, -1);
                 }
             }
 
@@ -170,6 +172,7 @@ namespace SoundScape.GameplaySceneComponents
                 _weaponSoundEffectInstance.Pitch = -1;
                 _weaponSoundEffectInstance.Play();
                 _weaponState = WeaponState.CHARGING;
+                Colour = new Color(Colour.R / 2, Colour.G / 2, Colour.B / 2);
             }
 
             
@@ -211,10 +214,12 @@ namespace SoundScape.GameplaySceneComponents
                         _weaponSoundEffectInstance.Play();
                         _weaponState = WeaponState.COOLDOWN;
                         SonarHit(gsc, 1f);
-
-                        // TODO: Improve kill code (Currently will kill anything)
-                        gsc.Visible = false;
-                        gsc.Enabled = false;
+                        Colour = new Color(Colour.R * 2, Colour.G * 2, Colour.B * 2);
+                        if (!(gsc is Wall))
+                        {
+                            gsc.Visible = false;
+                            gsc.Enabled = false;   
+                        }
                     }
                 }
                 else if (_weaponState != WeaponState.CHARGING &&
@@ -244,12 +249,16 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
+            Color vColor = Colour;
             SpriteBatch.Begin();
             foreach (Vector2 aimVector in _aimVectors)
             {
                 if (aimVector != Vector2.Zero)
                 {
-                    SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), Colour);
+                    SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), vColor);
+                    vColor.R = (byte)(vColor.R / 1.1);
+                    vColor.G = (byte)(vColor.G / 1.1);
+                    vColor.B = (byte)(vColor.B / 1.1);
                 }
             }
             SpriteBatch.End();
@@ -274,7 +283,7 @@ namespace SoundScape.GameplaySceneComponents
             get { return _rumbleLeft; }
             set
             {
-                if (Math.Abs(_rumbleLeft - value) > 0.01)
+                if (Math.Abs(_rumbleLeft - value) > TOLLERENCE)
                 {
                     _rumbleLeft = value;
                     GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
@@ -290,7 +299,7 @@ namespace SoundScape.GameplaySceneComponents
             get { return _rumbleRight; }
             set
             {
-                if (Math.Abs(_rumbleRight - value) > 0.01)
+                if (Math.Abs(_rumbleRight - value) > TOLLERENCE)
                 {
                     _rumbleRight = value;
                     GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
