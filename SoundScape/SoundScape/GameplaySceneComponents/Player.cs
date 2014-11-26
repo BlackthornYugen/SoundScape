@@ -12,6 +12,7 @@ namespace SoundScape.GameplaySceneComponents
     class Player : GameplaySceneComponent
     {
         private const int DISTANCE_FACTOR = 30;
+
         private PlayerIndex _controllerIndex;
         private GamePadState _padState;
         private GamePadState _padOldState;
@@ -21,6 +22,17 @@ namespace SoundScape.GameplaySceneComponents
         private SoundEffectInstance _activeSound;
         private float _rumbleLeft, _rumbleRight;
         private DateTime _rumbleLeftTime, _rumbleRightTime;
+        private SoundEffect _weaponSoundEffect;
+        private SoundEffectInstance _weaponSoundEffectInstance;
+        private WeaponState _weaponState = WeaponState.DISCHARGED;
+
+        private enum WeaponState
+        {
+            CHARGED,
+            CHARGING,
+            DISCHARGED,
+            COOLDOWN
+        }
 
         /// <summary>
         /// Construct a player
@@ -36,11 +48,12 @@ namespace SoundScape.GameplaySceneComponents
         /// player.</param>
         /// <param name="pan">The audio channel that sound is played on for 
         /// this player where -1 is full left and 1 is full right.</param>
+        /// <param name="weaponSoundEffect">The sound used for the player's
+        /// weapon.</param>
         public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
-            SoundEffect soundEffect, float pan)
-            : base(scene, spriteBatch, position, texture, soundEffect)
+            SoundEffect soundEffect, float pan, SoundEffect weaponSoundEffect)
+            : this(scene, spriteBatch, position, texture, soundEffect, pan, weaponSoundEffect, Color.White)
         {
-            _pan = pan;
         }
 
         /// <summary>
@@ -57,12 +70,18 @@ namespace SoundScape.GameplaySceneComponents
         /// player.</param>
         /// <param name="pan">The audio channel that sound is played on for 
         /// this player where -1 is full left and 1 is full right.</param>
+        /// <param name="weaponSoundEffect">The sound used for the player's
+        /// weapon.</param>
         /// <param name="colour">The colour to draw the player.</param>
         public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
-            SoundEffect soundEffect, float pan, Color colour)
+            SoundEffect soundEffect, float pan, SoundEffect weaponSoundEffect, Color colour)
             : base(scene, spriteBatch, position, texture, soundEffect, colour)
         {
             _pan = pan;
+            _weaponSoundEffect = weaponSoundEffect;
+            _weaponSoundEffectInstance = weaponSoundEffect.CreateInstance();
+            _weaponSoundEffectInstance.Pan = pan;
+            _weaponSoundEffectInstance.Pitch = -1;
         }
 
         /// <summary>
@@ -108,7 +127,6 @@ namespace SoundScape.GameplaySceneComponents
                         {
                             this.Visible = false;
                             this.Enabled = false;
-                            //this.RumbleFor(3000, 1, 1);
                         }
                         else
                         {
@@ -124,39 +142,100 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            _padOldState = _padState;
+            // Weapon
+            if (_weaponState == WeaponState.CHARGING)
+            {
+                if(_weaponSoundEffectInstance.State == SoundState.Stopped)
+                    _weaponState = WeaponState.CHARGED;
+                else
+                    _weaponSoundEffectInstance.Pitch += 0.01f;
+            }
+
+            if (_weaponState == WeaponState.COOLDOWN)
+            {
+                if (_weaponSoundEffectInstance.Pitch < 0)
+                {
+                    _weaponState = WeaponState.DISCHARGED;
+                }
+                else
+                {
+                    _weaponSoundEffectInstance.Pitch -= 0.01f;
+                }
+            }
+
+            else if (_weaponState == WeaponState.DISCHARGED &&
+                _padState.Buttons.A == ButtonState.Released &&
+                _padOldState.Buttons.A == ButtonState.Pressed)
+            {
+                _weaponSoundEffectInstance.Pitch = -1;
+                _weaponSoundEffectInstance.Play();
+                _weaponState = WeaponState.CHARGING;
+            }
+
+            
 
             // Sound Wave
             _arrow = new Vector2(_padState.ThumbSticks.Right.X, -_padState.ThumbSticks.Right.Y) * DISTANCE_FACTOR;
             _aimVectors = new Vector2[(int)_arrow.Length()];
 
-            bool soundReflected = false;
+            bool hitSomething = false;
             int limit = (int) _arrow.Length();
 
-            for (int i = 0; i < limit && !soundReflected; i++)
+            for (int i = 0; i < limit && !hitSomething; i++)
             {
                 _aimVectors[i] = Position + _arrow * i;
                 foreach (IGameComponent gameComponent in Scene.Components)
                 {
-                    if (gameComponent != this && gameComponent is GameplaySceneComponent)
+                    var gsc = gameComponent as GameplaySceneComponent;
+                    if (gsc != this && gsc != null && gsc.Enabled)
                     {
-                        var gsc = gameComponent as GameplaySceneComponent;
-                        if (gsc.Enabled && gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
-                        {
-                            soundReflected = true;
-                            if (_activeSound == null || _activeSound.State == SoundState.Stopped)
-                            {
-                                _activeSound = gsc.SoundEffect.CreateInstance();
-                                _activeSound.Volume = 1f - (float)i / limit;
-                                _activeSound.Pan = _pan;
-                                _activeSound.Play();
-                            }
-                        }
+                        hitSomething = HitSomething(gsc, i, limit);
                     }
                 }
             }
 
+            _padOldState = _padState;
             base.Update(gameTime);
+        }
+
+        private bool HitSomething(GameplaySceneComponent gsc, int i, int limit)
+        {
+            bool hitSomething = false;
+            if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
+            {
+                if (_weaponState == WeaponState.CHARGED)
+                {
+                    if (limit > DISTANCE_FACTOR-5)
+                    {
+                        _weaponSoundEffectInstance.Pitch = 1;
+                        _weaponSoundEffectInstance.Play();
+                        _weaponState = WeaponState.COOLDOWN;
+                        SonarHit(gsc, 1f);
+
+                        // TODO: Improve kill code (Currently will kill anything)
+                        gsc.Visible = false;
+                        gsc.Enabled = false;
+                    }
+                }
+                else if (_weaponState != WeaponState.CHARGING &&
+                    _weaponState != WeaponState.COOLDOWN)
+                {
+                    hitSomething = true;
+                    if (_activeSound == null || _activeSound.State == SoundState.Stopped)
+                    {
+                        SonarHit(gsc, 1f - (float)i / limit);
+                    }
+                }
+            }
+            return hitSomething;
+        }
+
+        private void SonarHit(GameplaySceneComponent gsc, float volume)
+        {
+            _activeSound = gsc.SoundEffect.CreateInstance();
+            _activeSound.Volume = volume;
+            _activeSound.Pan = _pan;
+            _activeSound.Play();
         }
 
         /// <summary>
@@ -260,9 +339,9 @@ namespace SoundScape.GameplaySceneComponents
 
         protected override void OnEnabledChanged(object sender, EventArgs args)
         {
-            RumbleRight = 0;
-            RumbleLeft = 0;
-
+            _rumbleLeft = 0;
+            _rumbleRight = 0;
+            GamePad.SetVibration(_controllerIndex, 0, 0);
             base.OnEnabledChanged(sender, args);
         }
     }

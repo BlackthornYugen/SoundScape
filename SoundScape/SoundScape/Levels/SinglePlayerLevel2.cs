@@ -43,7 +43,7 @@ namespace SoundScape.Levels
             };
 
             int startIndex = r.Next(startingPositions.Count);
-            player = new Player(this, spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player], 0);
+            player = new Player(this, spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player], 0, SFX[Entity.Item]);
             startingPositions.RemoveAt(startIndex);
             Components.Add(player);
 

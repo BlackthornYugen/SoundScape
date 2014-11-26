@@ -37,7 +37,7 @@ namespace SoundScape.Levels
                 int x = r.Next(xLimit) + WallThickness;
                 int y = r.Next(yLimit) + WallThickness;
                 player = new Player(this, spritebatch, new Vector2(x, y), Textures[Entity.Player], SFX[Entity.Player],
-                    i % 2 == 0 ? 1f : -1f, colours[i % colours.Length]);
+                    i % 2 == 0 ? 1f : -1f, SFX[Entity.Item], colours[i % colours.Length]);
                 Components.Add(player);
 
                 player.ControllerIndex = (PlayerIndex)i;

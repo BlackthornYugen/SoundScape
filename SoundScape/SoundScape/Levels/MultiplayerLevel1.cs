@@ -52,7 +52,7 @@ namespace SoundScape.Levels
             {
                 startIndex = r.Next(startingPositions.Count);
                 player = new Player(this, spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player],
-                    i % 2 == 0 ? 1f : -1f, colours[i % colours.Length]);
+                    i % 2 == 0 ? 1f : -1f, SFX[Entity.Item], colours[i % colours.Length]);
                 startingPositions.RemoveAt(startIndex);
                 Components.Add(player);
 
