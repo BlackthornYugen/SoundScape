@@ -11,9 +11,8 @@ namespace XNALib.Menus
 {
     public class MenuComponent : DrawableGameComponent
     {
-        private int menuIndex = 0;
+        private int menuIndex;
         private List<MenuItem> menuItems;
-        private KeyboardState oldKS;
         private SpriteBatch spritebatch;
         private Color colourNormal;
         private Color colourHighlighted;

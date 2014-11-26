@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,6 +14,25 @@ namespace SoundScape.GameplaySceneComponents
         private SoundEffect _soundEffect;
         private Rectangle _hitbox;
         private Color _colour;
+
+
+        public virtual int Score
+        {
+            get { return 0; }
+        }
+
+        public virtual void Kill()
+        {
+            int scoreChange = Score;
+            Visible = false;
+            Enabled = false;
+            Scene.Score += scoreChange;
+            Console.WriteLine("\n--- {0} Died! ---\nScene Score = {1} ({2}{3})",
+                this.ToString().Replace("SoundScape.GameplaySceneComponents.",""),
+                Scene.Score,
+                scoreChange > 0 ? "+" : "",
+                scoreChange);
+        }
 
         protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound)
             : base(scene.Game)

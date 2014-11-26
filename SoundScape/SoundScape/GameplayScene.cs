@@ -20,7 +20,9 @@ namespace SoundScape
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
-        private int _wallThickness = 100;
+        private const int _wallThickness = 100;
+        private int _score = 0;
+        private DateTime _startTime;
 
         public enum Entity
         {
@@ -50,6 +52,17 @@ namespace SoundScape
         protected int WallThickness
         {
             get { return _wallThickness; }
+        }
+
+        public int Score
+        {
+            get { return _score; }
+            set { _score = value; }
+        }
+
+        public int RunningSeconds
+        {
+            get { return (DateTime.Now - _startTime).Seconds; }
         }
 
         protected override void LoadContent()
@@ -96,6 +109,15 @@ namespace SoundScape
                         pan: player.Pan);
                 }
             }
+        }
+
+        protected override void OnVisibleChanged(object sender, EventArgs args)
+        {
+            if (Visible && DateTime.MinValue == _startTime)
+            {
+                _startTime = DateTime.Now;
+            }
+            base.OnVisibleChanged(sender, args);
         }
     }
 }

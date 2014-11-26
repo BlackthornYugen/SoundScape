@@ -12,6 +12,7 @@ namespace SoundScape.GameplaySceneComponents
 {
     class Circler : Enemy
     {
+        private const int SCORE_ADJUSTMENT = 50;
         private float _angle = 0;
         private float _offsetX;
         private float _offsetY;
@@ -41,6 +42,12 @@ namespace SoundScape.GameplaySceneComponents
 
             base.Update(gameTime);
             Position = new Vector2(x, y);
+        }
+
+        public override int Score
+        {
+            // SCORE_ADJUSTMENT more points than the base
+            get { return base.Score + SCORE_ADJUSTMENT; }
         }
     }
 }

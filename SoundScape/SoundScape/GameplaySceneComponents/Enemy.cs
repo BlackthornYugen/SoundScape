@@ -12,7 +12,10 @@ namespace SoundScape.GameplaySceneComponents
 {
     class Enemy : GameplaySceneComponent
     {
-        private Vector2 speed;
+        private const int SCORE_REDUCTION = 3;
+        private const int MAX_SCORE = 100;
+        private const int MIN_SCORE = 50;
+        private Vector2 _speed;
         
         public Enemy(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,
             SoundEffect soundEffect)
@@ -28,13 +31,14 @@ namespace SoundScape.GameplaySceneComponents
 
         public Vector2 Speed
         {
-            get { return speed; }
-            set { speed = value; }
+            get { return _speed; }
+            set { _speed = value; }
         }
 
-        public override void Update(GameTime gameTime)
+        public override int Score
         {
-            base.Update(gameTime);
+            // Score goes down by 3 every second. Minimum 50 points.
+            get { return Math.Max(MAX_SCORE - Scene.RunningSeconds * SCORE_REDUCTION, MIN_SCORE); }
         }
     }
 }

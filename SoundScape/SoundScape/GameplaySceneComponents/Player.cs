@@ -14,6 +14,7 @@ namespace SoundScape.GameplaySceneComponents
         private const int DISTANCE_FACTOR = 30;
         private const float PITCH_VELOCITY = 0.01f;
         private const float TOLLERENCE = 0.01f;
+        private const int SCORE = -50;
 
         private PlayerIndex _controllerIndex;
         private GamePadState _padState;
@@ -26,14 +27,14 @@ namespace SoundScape.GameplaySceneComponents
         private DateTime _rumbleLeftTime, _rumbleRightTime;
         private SoundEffect _weaponSoundEffect;
         private readonly SoundEffectInstance _weaponSoundEffectInstance;
-        private WeaponState _weaponState = WeaponState.DISCHARGED;
+        private WeaponState _weaponState = WeaponState.Discharged;
 
         private enum WeaponState
         {
-            CHARGED,
-            CHARGING,
-            DISCHARGED,
-            COOLDOWN
+            Charged,
+            Charging,
+            Discharged,
+            Cooldown
         }
 
         /// <summary>
@@ -126,10 +127,7 @@ namespace SoundScape.GameplaySceneComponents
                         // TODO: Remove godmode when left sholder is pressed. 
                         if (_padState.Buttons.LeftShoulder == ButtonState.Released
                             && gsc is Enemy)
-                        {
-                            this.Visible = false;
-                            this.Enabled = false;
-                        }
+                            Kill();
                         else
                         {
                             Position = oldPosition;
@@ -145,19 +143,19 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             // Weapon
-            if (_weaponState == WeaponState.CHARGING)
+            if (_weaponState == WeaponState.Charging)
             {
                 if (_weaponSoundEffectInstance.State == SoundState.Stopped)
-                    _weaponState = WeaponState.CHARGED;
+                    _weaponState = WeaponState.Charged;
                 else
                     _weaponSoundEffectInstance.Pitch = Math.Min(_weaponSoundEffectInstance.Pitch + PITCH_VELOCITY, 1);
             }
 
-            if (_weaponState == WeaponState.COOLDOWN)
+            if (_weaponState == WeaponState.Cooldown)
             {
                 if (_weaponSoundEffectInstance.Pitch < 0)
                 {
-                    _weaponState = WeaponState.DISCHARGED;
+                    _weaponState = WeaponState.Discharged;
                 }
                 else
                 {
@@ -165,13 +163,13 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            else if (_weaponState == WeaponState.DISCHARGED &&
+            else if (_weaponState == WeaponState.Discharged &&
                 _padState.Buttons.A == ButtonState.Released &&
                 _padOldState.Buttons.A == ButtonState.Pressed)
             {
                 _weaponSoundEffectInstance.Pitch = -1;
                 _weaponSoundEffectInstance.Play();
-                _weaponState = WeaponState.CHARGING;
+                _weaponState = WeaponState.Charging;
                 Colour = new Color(Colour.R / 2, Colour.G / 2, Colour.B / 2);
             }
 
@@ -206,24 +204,17 @@ namespace SoundScape.GameplaySceneComponents
             bool hitSomething = false;
             if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
             {
-                if (_weaponState == WeaponState.CHARGED)
+                if (_weaponState == WeaponState.Charged)
                 {
-                    if (limit > DISTANCE_FACTOR-5)
-                    {
                         _weaponSoundEffectInstance.Pitch = 1;
                         _weaponSoundEffectInstance.Play();
-                        _weaponState = WeaponState.COOLDOWN;
+                        _weaponState = WeaponState.Cooldown;
                         SonarHit(gsc, 1f);
                         Colour = new Color(Colour.R * 2, Colour.G * 2, Colour.B * 2);
-                        if (!(gsc is Wall))
-                        {
-                            gsc.Visible = false;
-                            gsc.Enabled = false;   
-                        }
-                    }
+                        gsc.Kill();
                 }
-                else if (_weaponState != WeaponState.CHARGING &&
-                    _weaponState != WeaponState.COOLDOWN)
+                else if (_weaponState != WeaponState.Charging &&
+                    _weaponState != WeaponState.Cooldown)
                 {
                     hitSomething = true;
                     if (_activeSound == null || _activeSound.State == SoundState.Stopped)
@@ -352,6 +343,11 @@ namespace SoundScape.GameplaySceneComponents
             _rumbleRight = 0;
             GamePad.SetVibration(_controllerIndex, 0, 0);
             base.OnEnabledChanged(sender, args);
+        }
+
+        public override int Score
+        {
+            get { return SCORE; }
         }
     }
 }
