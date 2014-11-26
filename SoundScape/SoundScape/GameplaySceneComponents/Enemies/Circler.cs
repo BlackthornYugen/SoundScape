@@ -13,6 +13,8 @@ namespace SoundScape.GameplaySceneComponents
     class Circler : Enemy
     {
         private const int SCORE_ADJUSTMENT = 50;
+        private const int SPEED_FACTOR = 100;
+        private const int FULL_CIRCLE_FRAMES = 500;
         private float _angle = 0;
         private float _offsetX;
         private float _offsetY;
@@ -33,10 +35,9 @@ namespace SoundScape.GameplaySceneComponents
 
         public override void Update(GameTime gameTime)
         {
-            float framesForFullCircle = 222; // TODO: Generate this using speed? 
-            float increase = (float)Math.PI * 2 / framesForFullCircle;
-            float x = (float)(Speed.X * 100 * Math.Cos(_angle) + _offsetX); // TODO: Replace 200 with a formula that uses speed.x
-            float y = (float)(Speed.Y * 100 * Math.Sin(_angle) + _offsetY); // TODO: Replace 200 with a formula that uses speed.y
+            float increase = (float)Math.PI * 2 / FULL_CIRCLE_FRAMES;
+            float x = (float)(Speed.X * SPEED_FACTOR * Math.Cos(_angle) + _offsetX);
+            float y = (float)(Speed.Y * SPEED_FACTOR * Math.Sin(_angle) + _offsetY);
             
             _angle += increase;
 
