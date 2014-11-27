@@ -74,7 +74,7 @@ namespace SoundScape
                 {Entity.Wall, contentMgr.Load<SoundEffect>("sounds/click")},
                 {Entity.Item, contentMgr.Load<SoundEffect>("sounds/ding")},
                 {Entity.Player, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
-                {Entity.Enemy, contentMgr.Load<SoundEffect>("sounds/click")}
+                {Entity.Enemy, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")}
             };
 
             Textures = new Dictionary<Entity, Texture2D>
