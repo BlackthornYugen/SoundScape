@@ -7,7 +7,7 @@ namespace SoundScape
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class HighScore : HelpScene
+    public class HighScore : InfoScene
     {
         int _score;
 
@@ -54,7 +54,7 @@ namespace SoundScape
             string msg = "";
             spritebatch.Begin();
 
-            spritebatch.Draw(_texture, Vector2.Zero, Color.White);
+            spritebatch.Draw(Texture, Vector2.Zero, Color.White);
 
 
             msg = _score.ToString();

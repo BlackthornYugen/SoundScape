@@ -26,14 +26,14 @@ namespace SoundScape
         {
             get { return _spriteBatch; }
         }
-        private StartScene menu;
+        private StartScene _menu;
 
-        private GameScene howToPlay;
-        private GameScene help;
-        private HighScore highScore;
-        private GameScene credit;
+        private GameScene _howToPlay;
+        private GameScene _help;
+        private HighScore _highScore;
+        private GameScene _credit;
 
-        private GameScene gameplay;
+        private GameScene _gameplay;
 
         public Game1()
         {
@@ -82,18 +82,18 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.Components.Add(menu = new StartScene(this, _spriteBatch, new string[] 
+            this.Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
 
-            this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("images/Help")));
-            this.Components.Add(howToPlay = new HelpScene(this, Content.Load<Texture2D>("images/HowToPlay")));
+            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help")));
+            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay")));
 
             int tempHigh = 3;
-            this.Components.Add(highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
+            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
                 
-            this.Components.Add(credit = new HelpScene(this, Content.Load<Texture2D>("images/Credits")));
+            this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits")));
 
-            menu.Show();
+            _menu.Show();
             
             // TODO: use this.Content to load your game content here
         }
@@ -132,64 +132,64 @@ namespace SoundScape
             if (ks.IsKeyDown(Keys.Escape) && _oldKeyboardState.IsKeyUp(Keys.Escape) ||
                 ps.IsButtonDown(Buttons.Back) && _oldPadState.IsButtonUp(Buttons.Back))
             {
-                if (menu.Enabled)
+                if (_menu.Enabled)
                     this.Exit();
                 else
                 {
                     HideAllScene();
                     SetTitle();
-                    menu.Show();
+                    _menu.Show();
                 }
             }
 
             // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
-            if (menu.Enabled && ks.IsKeyDown(Keys.Enter) ||
+            if (_menu.Enabled && ks.IsKeyDown(Keys.Enter) ||
                 ps.IsButtonDown(Buttons.Start) && _oldPadState.IsButtonUp(Buttons.Start))
             {
-                switch (menu.SelectedItem.Name)
+                switch (_menu.SelectedItem.Name)
                 {
                     case "Start Game":
                         HideAllScene();
                         SetTitle("Game thing");
-                        if(gameplay!= null)
+                        if(_gameplay!= null)
                         {
-                            Components.Remove(gameplay);
-                            gameplay.Dispose();
+                            Components.Remove(_gameplay);
+                            _gameplay.Dispose();
                         }
-                        Components.Add(gameplay = new MultiplayerLevel1(this, _spriteBatch));
-                        gameplay.Show();
+                        Components.Add(_gameplay = new MultiplayerLevel1(this, _spriteBatch));
+                        _gameplay.Show();
                         break;
                     case "How To Play":
                         HideAllScene();
                         SetTitle("How To Play");
-                        howToPlay.Show();
+                        _howToPlay.Show();
                         break;
                     case "Help":
                         HideAllScene();
                         SetTitle("Help");
-                        help.Show();
+                        _help.Show();
                         break;
                     case "High Score":
                         HideAllScene();
                         SetTitle("High Score");
-                        highScore.Show();
+                        _highScore.Show();
                         break;
                     case "Credits":
                         HideAllScene();
                         SetTitle("Credit");
-                        credit.Show();
+                        _credit.Show();
                         break;
                     case "Quit":
                         this.Exit();
                         break;
                     default:
-                        if (menu.SelectedItem.Component == null)
+                        if (_menu.SelectedItem.Component == null)
                         {
-                            SetTitle(string.Format("\"{0}\" cannot be opened.", menu.SelectedItem.Name));
+                            SetTitle(string.Format("\"{0}\" cannot be opened.", _menu.SelectedItem.Name));
                         }
                         else
                         {
-                            SetTitle(menu.SelectedItem.Name);
+                            SetTitle(_menu.SelectedItem.Name);
                         }
                         break;
                 }
@@ -198,10 +198,10 @@ namespace SoundScape
 
             if (ks.IsKeyUp(Keys.Down) && _oldKeyboardState.IsKeyDown(Keys.Down) ||
                 ps.IsButtonDown(Buttons.DPadDown) && _oldPadState.IsButtonUp(Buttons.DPadDown))
-                menu.SelectedIndex = Math.Min(menu.SelectedIndex + 1, menu.Count - 1);
+                _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
             else if (ks.IsKeyUp(Keys.Up) && _oldKeyboardState.IsKeyDown(Keys.Up) ||
                 ps.IsButtonDown(Buttons.DPadUp) && _oldPadState.IsButtonUp(Buttons.DPadUp))
-                menu.SelectedIndex = Math.Max(menu.SelectedIndex - 1, 0);
+                _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
 
             _oldKeyboardState = ks;
             _oldPadState = ps;

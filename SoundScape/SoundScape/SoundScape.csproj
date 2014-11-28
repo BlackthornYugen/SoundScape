@@ -81,7 +81,7 @@
     <Compile Include="GameplaySceneComponents\Player.cs" />
     <Compile Include="GameplaySceneComponents\Wall.cs" />
     <Compile Include="HighScore.cs" />
-    <Compile Include="HelpScene.cs" />
+    <Compile Include="InfoScene.cs" />
     <Compile Include="Levels\MultiplayerLevel1.cs" />
     <Compile Include="Levels\SinglePlayerLevel2.cs" />
     <Compile Include="Levels\SinglePlayerLevel1.cs" />

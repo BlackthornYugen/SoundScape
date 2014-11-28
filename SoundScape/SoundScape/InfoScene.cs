@@ -8,14 +8,19 @@ namespace SoundScape
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class HelpScene : GameScene
+    public class InfoScene : GameScene
     {
-        protected Texture2D _texture;
+        private readonly Texture2D _texture;
 
-        public HelpScene(Game1 game, Texture2D texture)
+        public InfoScene(Game1 game, Texture2D texture)
             : base(game, game.SpriteBatch)
         {
             _texture = texture;
+        }
+
+        protected Texture2D Texture
+        {
+            get { return _texture; }
         }
 
         /// <summary>
