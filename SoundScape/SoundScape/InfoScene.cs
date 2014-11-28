@@ -46,9 +46,9 @@ namespace SoundScape
 
         public override void Draw(GameTime gameTime)
         {
-            spritebatch.Begin();
-            spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
-            spritebatch.End();
+            _spritebatch.Begin();
+            _spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
+            _spritebatch.End();
             base.Draw(gameTime);
         }
     }

@@ -40,7 +40,7 @@ namespace SoundScape
             : base(game, sb)
         {
             _menuItems = menuItems.ToList();
-            Initialize();
+            base.Initialize();
         }
 
         protected override void LoadContent()
@@ -48,7 +48,7 @@ namespace SoundScape
             _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
-            _menu = new MenuComponent(Game, spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont, Vector2.Zero);
+            _menu = new MenuComponent(Game, _spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont, Vector2.Zero);
             foreach (string item in _menuItems)
             {
                 _menu.Add(item, null);

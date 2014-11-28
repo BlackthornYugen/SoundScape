@@ -52,18 +52,18 @@ namespace SoundScape
             SpriteFont regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
 
             string msg = "";
-            spritebatch.Begin();
+            _spritebatch.Begin();
 
-            spritebatch.Draw(Texture, Vector2.Zero, Color.White);
+            _spritebatch.Draw(Texture, Vector2.Zero, Color.White);
 
 
             msg = _score.ToString();
 
 
-            spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
+            _spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
                 new Vector2(), 1f, SpriteEffects.None, 0);
 
-            spritebatch.End();
+            _spritebatch.End();
         }
     }
 }

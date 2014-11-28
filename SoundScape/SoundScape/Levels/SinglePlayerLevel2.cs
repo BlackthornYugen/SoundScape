@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SoundScape.GameplaySceneComponents;
+using SoundScape.GameplaySceneComponents.Enemies;
 
 namespace SoundScape.Levels
 {
@@ -41,14 +42,14 @@ namespace SoundScape.Levels
             };
 
             int startIndex = r.Next(startingPositions.Count);
-            player = new Player(this, spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player], 0, SFX[Entity.Item]);
+            player = new Player(this, _spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player], 0, SFX[Entity.Item]);
             startingPositions.RemoveAt(startIndex);
             Components.Add(player);
 
             startIndex = r.Next(startingPositions.Count);
             Enemy enemy = new Bouncer(
                 scene: this,
-                spriteBatch: spritebatch,
+                spriteBatch: _spritebatch,
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.Enemy],
                 soundEffect: SFX[Entity.Enemy],
@@ -64,7 +65,7 @@ namespace SoundScape.Levels
             // North Wall
             wall = new Wall(
                 scene: this,
-                spriteBatch: spritebatch,
+                spriteBatch: _spritebatch,
                 texture: Textures[Entity.Wall],
                 soundEffect: SFX[Entity.Wall],
                 hitbox: new Rectangle(0, -WallThickness, cb.Width, 100));
@@ -73,7 +74,7 @@ namespace SoundScape.Levels
             // West Wall
             wall = new Wall(
                 scene: this,
-                spriteBatch: spritebatch,
+                spriteBatch: _spritebatch,
                 texture: Textures[Entity.Wall],
                 soundEffect: SFX[Entity.Wall],
                 hitbox: new Rectangle(-WallThickness, 0, WallThickness, cb.Height));
@@ -82,7 +83,7 @@ namespace SoundScape.Levels
             // East Wall
             wall = new Wall(
                  scene: this,
-                 spriteBatch: spritebatch,
+                 spriteBatch: _spritebatch,
                  texture: Textures[Entity.Wall],
                  soundEffect: SFX[Entity.Wall],
                  hitbox: new Rectangle(cb.Width, 0, WallThickness, cb.Height));
@@ -91,7 +92,7 @@ namespace SoundScape.Levels
             // South Wall
             wall = new Wall(
                  scene: this,
-                 spriteBatch: spritebatch,
+                 spriteBatch: _spritebatch,
                  texture: Textures[Entity.Wall],
                  soundEffect: SFX[Entity.Wall],
                  hitbox: new Rectangle(0, cb.Height, cb.Width, WallThickness));

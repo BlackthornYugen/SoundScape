@@ -8,7 +8,7 @@ namespace XNALib.Scenes
     public abstract class GameScene : DrawableGameComponent
     {
         private GameComponentCollection _components;
-        protected SpriteBatch spritebatch;
+        protected SpriteBatch _spritebatch;
 
         public GameComponentCollection Components
         {
@@ -16,49 +16,46 @@ namespace XNALib.Scenes
             set { _components = value; }
         }
 
-        public virtual void Show()
+        public void Show()
         {
-            this.Enabled = true;
-            this.Visible = true;
+            Enabled = true;
+            Visible = true;
         }
 
-        public virtual void Hide()
+        public void Hide()
         {
-            this.Enabled = false;
-            this.Visible = false;
+            Enabled = false;
+            Visible = false;
         }
 
         public GameScene(Game game, SpriteBatch spritebatch)
             : base(game)
         {
-            this.Components = new GameComponentCollection();
+            Components = new GameComponentCollection();
             Hide();
-            this.spritebatch = spritebatch;
+            _spritebatch = spritebatch;
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            var components = Components.ToArray();
-            foreach (GameComponent item in components)
+            IGameComponent[] components = Components.ToArray();
+            foreach (IGameComponent gameComponent in components)
             {
-                if (item.Enabled)
-                    item.Update(gameTime);
+                var component = gameComponent as GameComponent;
+                if (component != null && component.Enabled)
+                    component.Update(gameTime);
             }
         }
 
         public override void Draw(GameTime gameTime)
         {
-            var components = Components.ToArray();
-            DrawableGameComponent drawableGC;
-            foreach (GameComponent item in components)
+            IGameComponent[] components = Components.ToArray();
+            foreach (IGameComponent gameComponent in components)
             {
-                if (item is DrawableGameComponent)
-                {
-                    drawableGC = item as DrawableGameComponent;
-                    if (drawableGC.Visible)
-                        drawableGC.Draw(gameTime);
-                }
+                var drawableGameComponent = gameComponent as DrawableGameComponent;
+                if (drawableGameComponent != null && drawableGameComponent.Visible)
+                    drawableGameComponent.Draw(gameTime);
             }
             base.Draw(gameTime);
         }
