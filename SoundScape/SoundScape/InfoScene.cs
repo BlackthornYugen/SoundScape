@@ -12,7 +12,7 @@ namespace SoundScape
     {
         private readonly Texture2D _texture;
 
-        public InfoScene(Game1 game, Texture2D texture)
+        public InfoScene(GameLoop game, Texture2D texture)
             : base(game, game.SpriteBatch)
         {
             _texture = texture;

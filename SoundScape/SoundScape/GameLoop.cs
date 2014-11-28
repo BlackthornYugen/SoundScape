@@ -16,7 +16,7 @@ namespace SoundScape
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class GameLoop : Game
     {
         SpriteBatch _spriteBatch;
         KeyboardState _oldKeyboardState;
@@ -35,7 +35,7 @@ namespace SoundScape
 
         private GameScene _gameplay;
 
-        public Game1()
+        public GameLoop()
         {
             GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

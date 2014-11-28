@@ -20,8 +20,8 @@ namespace SoundScape
             }
         }
 
-        public HighScore(Game game, Texture2D texture, int score)
-            : base(game as Game1, texture)
+        public HighScore(GameLoop game, Texture2D texture, int score)
+            : base(game, texture)
         {
             _score = score;
         }
