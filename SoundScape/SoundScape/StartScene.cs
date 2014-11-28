@@ -10,50 +10,50 @@ namespace SoundScape
 {
     public class StartScene : GameScene
     {
-        private SpriteFont regularFont, highlightFont;
-        private MenuComponent menu;
+        private SpriteFont _regularFont, _highlightFont;
+        private MenuComponent _menu;
 
         public int SelectedIndex
         {
-            get { return menu.MenuIndex; }
-            set { menu.MenuIndex = value; }
+            get { return _menu.MenuIndex; }
+            set { _menu.MenuIndex = value; }
         }
 
         public int Count
         {
             get
             {
-                return menuItems.Count;                
+                return _menuItems.Count;                
             }
         }
 
         public MenuItem SelectedItem
         {
-            get { return menu.ActiveMenuItem; }
+            get { return _menu.ActiveMenuItem; }
         }
         
-        private Color regularColour = Color.CornflowerBlue;
-        private Color highlightColor = Color.Green;
-        private List<string> menuItems;
+        private Color _regularColour = Color.CornflowerBlue;
+        private Color _highlightColor = Color.Green;
+        private List<string> _menuItems;
 
         public StartScene(Game game, SpriteBatch sb, string[] menuItems)
             : base(game, sb)
         {
-            this.menuItems = menuItems.ToList();
+            _menuItems = menuItems.ToList();
             Initialize();
         }
 
         protected override void LoadContent()
         {
-            regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
-            highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
+            _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
+            _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
-            this.menu = new MenuComponent(Game, spritebatch, regularColour, highlightColor, regularFont, highlightFont, Vector2.Zero);
-            foreach (string item in menuItems)
+            _menu = new MenuComponent(Game, spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont, Vector2.Zero);
+            foreach (string item in _menuItems)
             {
-                menu.Add(item, null);
+                _menu.Add(item, null);
             }
-            this.Components.Add(menu);
+            Components.Add(_menu);
             base.LoadContent();
         }
     }

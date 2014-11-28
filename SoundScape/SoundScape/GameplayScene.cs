@@ -13,7 +13,7 @@ namespace SoundScape
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
-        private const int _wallThickness = 100;
+        private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
 
@@ -44,7 +44,7 @@ namespace SoundScape
 
         protected int WallThickness
         {
-            get { return _wallThickness; }
+            get { return WALL_THICKNESS; }
         }
 
         public int Score

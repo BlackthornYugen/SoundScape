@@ -10,12 +10,12 @@ namespace SoundScape
     /// </summary>
     public class HelpScene : GameScene
     {
-        protected Texture2D texture;
+        protected Texture2D _texture;
 
-        public HelpScene(Game game, Texture2D tex)
-            : base(game, (game as Game1).SpriteBatch)
+        public HelpScene(Game1 game, Texture2D texture)
+            : base(game, game.SpriteBatch)
         {
-            texture = tex;
+            _texture = texture;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace SoundScape
         public override void Draw(GameTime gameTime)
         {
             spritebatch.Begin();
-            spritebatch.Draw(texture, Vector2.Zero,  Color.White);
+            spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
             spritebatch.End();
             base.Draw(gameTime);
         }

@@ -18,14 +18,13 @@ namespace SoundScape
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        KeyboardState oldKeyboardState;
-        GamePadState oldPadState;
+        SpriteBatch _spriteBatch;
+        KeyboardState _oldKeyboardState;
+        GamePadState _oldPadState;
 
         public SpriteBatch SpriteBatch
         {
-            get { return spriteBatch; }
+            get { return _spriteBatch; }
         }
         private StartScene menu;
 
@@ -38,7 +37,7 @@ namespace SoundScape
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1000;
             graphics.PreferredBackBufferHeight = 800;
@@ -81,9 +80,9 @@ namespace SoundScape
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.Components.Add(menu = new StartScene(this, spriteBatch, new string[] 
+            this.Components.Add(menu = new StartScene(this, _spriteBatch, new string[] 
                 { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
 
             this.Components.Add(help = new HelpScene(this, Content.Load<Texture2D>("images/Help")));
@@ -130,8 +129,8 @@ namespace SoundScape
             GamePadState ps = GamePad.GetState(0);
 
             // Allows the game to exit
-            if (ks.IsKeyDown(Keys.Escape) && oldKeyboardState.IsKeyUp(Keys.Escape) ||
-                ps.IsButtonDown(Buttons.Back) && oldPadState.IsButtonUp(Buttons.Back))
+            if (ks.IsKeyDown(Keys.Escape) && _oldKeyboardState.IsKeyUp(Keys.Escape) ||
+                ps.IsButtonDown(Buttons.Back) && _oldPadState.IsButtonUp(Buttons.Back))
             {
                 if (menu.Enabled)
                     this.Exit();
@@ -145,7 +144,7 @@ namespace SoundScape
 
             // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
             if (menu.Enabled && ks.IsKeyDown(Keys.Enter) ||
-                ps.IsButtonDown(Buttons.Start) && oldPadState.IsButtonUp(Buttons.Start))
+                ps.IsButtonDown(Buttons.Start) && _oldPadState.IsButtonUp(Buttons.Start))
             {
                 switch (menu.SelectedItem.Name)
                 {
@@ -157,7 +156,7 @@ namespace SoundScape
                             Components.Remove(gameplay);
                             gameplay.Dispose();
                         }
-                        Components.Add(gameplay = new MultiplayerLevel1(this, spriteBatch));
+                        Components.Add(gameplay = new MultiplayerLevel1(this, _spriteBatch));
                         gameplay.Show();
                         break;
                     case "How To Play":
@@ -197,15 +196,15 @@ namespace SoundScape
             }
 
 
-            if (ks.IsKeyUp(Keys.Down) && oldKeyboardState.IsKeyDown(Keys.Down) ||
-                ps.IsButtonDown(Buttons.DPadDown) && oldPadState.IsButtonUp(Buttons.DPadDown))
+            if (ks.IsKeyUp(Keys.Down) && _oldKeyboardState.IsKeyDown(Keys.Down) ||
+                ps.IsButtonDown(Buttons.DPadDown) && _oldPadState.IsButtonUp(Buttons.DPadDown))
                 menu.SelectedIndex = Math.Min(menu.SelectedIndex + 1, menu.Count - 1);
-            else if (ks.IsKeyUp(Keys.Up) && oldKeyboardState.IsKeyDown(Keys.Up) ||
-                ps.IsButtonDown(Buttons.DPadUp) && oldPadState.IsButtonUp(Buttons.DPadUp))
+            else if (ks.IsKeyUp(Keys.Up) && _oldKeyboardState.IsKeyDown(Keys.Up) ||
+                ps.IsButtonDown(Buttons.DPadUp) && _oldPadState.IsButtonUp(Buttons.DPadUp))
                 menu.SelectedIndex = Math.Max(menu.SelectedIndex - 1, 0);
 
-            oldKeyboardState = ks;
-            oldPadState = ps;
+            _oldKeyboardState = ks;
+            _oldPadState = ps;
         }
 
         /// <summary>

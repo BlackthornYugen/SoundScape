@@ -9,21 +9,21 @@ namespace SoundScape
     /// </summary>
     public class HighScore : HelpScene
     {
-        int score;
+        int _score;
 
         public int Score
         {
-            get { return score; }
+            get { return _score; }
             set
             {
-                score = value;
+                _score = value;
             }
         }
 
-        public HighScore(Game game, Texture2D tex, int score)
-            : base(game, tex)
+        public HighScore(Game game, Texture2D texture, int score)
+            : base(game as Game1, texture)
         {
-            this.score = score;
+            _score = score;
         }
 
         /// <summary>
@@ -54,10 +54,10 @@ namespace SoundScape
             string msg = "";
             spritebatch.Begin();
 
-            spritebatch.Draw(texture, Vector2.Zero, Color.White);
+            spritebatch.Draw(_texture, Vector2.Zero, Color.White);
 
 
-            msg = score.ToString();
+            msg = _score.ToString();
 
 
             spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
