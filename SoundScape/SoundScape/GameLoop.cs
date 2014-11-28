@@ -27,12 +27,10 @@ namespace SoundScape
             get { return _spriteBatch; }
         }
         private StartScene _menu;
-
         private GameScene _howToPlay;
         private GameScene _help;
-        private HighScore _highScore;
+        private GameScene _highScore;
         private GameScene _credit;
-
         private GameScene _gameplay;
 
         public GameLoop()
@@ -143,8 +141,16 @@ namespace SoundScape
             }
 
             // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
-            if (_menu.Enabled && ks.IsKeyDown(Keys.Enter) ||
-                ps.IsButtonDown(Buttons.Start) && _oldPadState.IsButtonUp(Buttons.Start))
+            if (_menu.Enabled
+                && (
+                    ks.IsKeyDown(Keys.Enter)
+                    && _oldKeyboardState.IsKeyUp(Keys.Enter) ||
+
+                    ps.IsButtonDown(Buttons.Start) 
+                    && _oldPadState.IsButtonUp(Buttons.Start)
+                    )
+                )
+
             {
                 switch (_menu.SelectedItem.Name)
                 {
