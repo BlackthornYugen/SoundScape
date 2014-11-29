@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SoundScape.StartScene" Collapsed="true">
-    <Position X="2.5" Y="2" Width="1.5" />
+    <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAEAAAAQQAAAAAIAAAJAAACAAAAQ=</HashCode>
       <FileName>StartScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.HighScore" Collapsed="true">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="0.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAwgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>HighScore.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.InfoScene" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAQAAAwAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>InfoScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplayScene">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="2.5" Y="3" Width="1.5" />
     <NestedTypes>
       <Enum Name="SoundScape.GameplayScene.Entity" Collapsed="true">
         <TypeIdentifier>
@@ -36,77 +36,77 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameLoop" Collapsed="true">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACQAEAAEEAAAAwACAAAAQACIAAACAAAAwIAAACAgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.MultiplayerCampaign">
-    <Position X="2.75" Y="5" Width="1.75" />
+    <Position X="2.75" Y="8.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAEAAAEAAAAAAgAIAAAAAAAAAAAAAAAQAAAAAgAAAQ=</HashCode>
       <FileName>Levels\MultiplayerCampaign.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.MultiplayerLevel1">
-    <Position X="0.5" Y="9.75" Width="1.75" />
+    <Position X="0.5" Y="8.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\MultiplayerLevel1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.MultiplayerLevel2">
-    <Position X="2.5" Y="9.75" Width="1.75" />
+    <Position X="0.5" Y="9.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\MultiplayerLevel2.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.MultiplayerLevel3">
-    <Position X="4.5" Y="9.75" Width="1.75" />
+    <Position X="0.5" Y="11.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\MultiplayerLevel3.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.SinglePlayerLevel1">
-    <Position X="2.75" Y="3.25" Width="1.75" />
+    <Position X="0.5" Y="6" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\SinglePlayerLevel1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Wall">
-    <Position X="10.75" Y="1" Width="2" />
+    <Position X="7.75" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAggAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemy">
-    <Position X="8.5" Y="6.25" Width="2.25" />
+    <Position X="4.25" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAgAAAAAAAABAAAAAAAAhAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.GameplaySceneComponent">
-    <Position X="7.75" Y="0.5" Width="2.5" />
+    <Position X="7.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAgUAEAgggggAAAAAAAAAAgAAAQIIAgBAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\GameplaySceneComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Item">
-    <Position X="10.75" Y="4.75" Width="1.75" />
+    <Position X="2.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Player">
-    <Position X="12.75" Y="3.75" Width="2.25" />
+    <Position X="10.25" Y="0.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -123,14 +123,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Bouncer">
-    <Position X="7.5" Y="9.75" Width="2" />
+    <Position X="4.75" Y="6.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Bouncer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Circler">
-    <Position X="9.75" Y="9.75" Width="2" />
+    <Position X="4.75" Y="8" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAACAACAAEAAgAAAEAABAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Circler.cs</FileName>
