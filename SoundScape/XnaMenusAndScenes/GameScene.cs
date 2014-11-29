@@ -31,14 +31,13 @@ namespace XNALib.Scenes
         public GameScene(Game game, SpriteBatch spritebatch)
             : base(game)
         {
-            Components = new GameComponentCollection();
-            Hide();
+            _components = new GameComponentCollection();
             _spritebatch = spritebatch;
+            Hide();
         }
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
             IGameComponent[] components = Components.ToArray();
             foreach (IGameComponent gameComponent in components)
             {
@@ -46,6 +45,7 @@ namespace XNALib.Scenes
                 if (component != null && component.Enabled)
                     component.Update(gameTime);
             }
+            base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
