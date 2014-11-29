@@ -50,7 +50,17 @@ namespace SoundScape
         public int Score
         {
             get { return _score; }
-            set { _score = value; }
+            set
+            {
+                ((GameLoop)Game).SetTitle(
+                    String.Format(
+                        "Your {0} score is {1:n0} ({2} {3} Points!)",
+                        this.ToString().Replace("SoundScape.Levels.", ""),
+                        value,
+                        value - _score < 0 ? "Lost" : "Earned",
+                        Math.Abs(value - _score)));
+                _score = value; 
+            }
         }
 
         public int RunningSeconds

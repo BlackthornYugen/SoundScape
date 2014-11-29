@@ -5,6 +5,7 @@
  * 
  */
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -26,6 +27,7 @@ namespace SoundScape
         {
             get { return _spriteBatch; }
         }
+
         private StartScene _menu;
         private GameScene _howToPlay;
         private GameScene _help;
@@ -43,10 +45,10 @@ namespace SoundScape
 
         private void HideAllScene()
         {
-            foreach (GameComponent gc in Components)
+            foreach (IGameComponent gc in Components)
             {
-                if (gc is GameScene)
-                    (gc as GameScene).Hide();
+                var gs = gc as GameScene;
+                if (gs != null) gs.Hide();
             }
         }
 
@@ -91,6 +93,7 @@ namespace SoundScape
                 
             this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits")));
 
+            MultiplayerCampaign.NewCampaign(this);
             _menu.Show();
             
             // TODO: use this.Content to load your game content here
@@ -162,7 +165,7 @@ namespace SoundScape
                             Components.Remove(_gameplay);
                             _gameplay.Dispose();
                         }
-                        Components.Add(_gameplay = new MultiplayerLevel1(this, _spriteBatch));
+                        Components.Add(_gameplay = MultiplayerCampaign.NextLevel());
                         _gameplay.Show();
                         break;
                     case "How To Play":
