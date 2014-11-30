@@ -6,6 +6,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,7 +23,7 @@ namespace SoundScape
         SpriteBatch _spriteBatch;
         KeyboardState _oldKeyboardState;
         GamePadState _oldPadState;
-
+        private SpeechSynthesizer speechSynthesizer;
         public SpriteBatch SpriteBatch
         {
             get { return _spriteBatch; }
@@ -41,6 +42,13 @@ namespace SoundScape
             Content.RootDirectory = "Content";
             graphics.PreferredBackBufferWidth = 1000;
             graphics.PreferredBackBufferHeight = 800;
+            speechSynthesizer = new SpeechSynthesizer();
+        }
+
+        public void Speak(string textToSpeak)
+        {
+            speechSynthesizer.SpeakAsyncCancelAll();
+            speechSynthesizer.SpeakAsync(textToSpeak);
         }
 
         private void HideAllScene()

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,11 +26,26 @@ namespace SoundScape.GameplaySceneComponents
         public virtual void Kill()
         {
             int scoreChange = Score;
+            string itemName = ToString().Split('.').Reverse().First();
+            var p = this as Player;
+            if (p != null)
+            {
+                itemName += " " + p.ControllerIndex;
+            }
+            else if (this is Enemy)
+            {
+                itemName += " Enemy";
+            }
+
+            var gameLoop = Game as GameLoop;
+            if (gameLoop != null) gameLoop.Speak(String.Format("{0} has been destroyed.", itemName));
+
             Visible = false;
             Enabled = false;
+
             Scene.Score += scoreChange;
             Console.WriteLine("\n--- {0} Died! ---\nScene Score = {1} ({2}{3})",
-                this.ToString().Replace("SoundScape.GameplaySceneComponents.",""),
+                itemName,
                 Scene.Score,
                 scoreChange > 0 ? "+" : "",
                 scoreChange);

@@ -16,6 +16,42 @@ namespace SoundScape
         private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
+        private int _livingPlayers;
+        private int _livingEnemies;
+
+        public override void Update(GameTime gameTime)
+        {
+            int playerCount = 0;
+            int enemyCount = 0;
+
+            foreach (var c in Components)
+            {
+                var sceneComponent = c as GameplaySceneComponent;
+                if (sceneComponent == null || !sceneComponent.Enabled) continue;
+                if (sceneComponent is Enemy)
+                    enemyCount++;
+                if (sceneComponent is Player)
+                    playerCount++;
+            }
+
+            _livingPlayers = playerCount;
+            _livingEnemies = enemyCount;
+            var gameLoop = Game as GameLoop;
+            if (gameLoop != null)
+            {   // TODO: Make victory/defeat code better (maybe raise an event?)
+                if (playerCount == 0)
+                {
+                    gameLoop.Speak("You have been defeated.");
+                    Hide();
+                }
+                else if (enemyCount == 0)
+                {
+                    gameLoop.Speak("You are Victorious!");
+                    Hide();
+                }
+            }
+            base.Update(gameTime);
+        }
 
         public enum Entity
         {

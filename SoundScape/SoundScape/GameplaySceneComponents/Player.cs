@@ -120,7 +120,7 @@ namespace SoundScape.GameplaySceneComponents
                 if (gsc != this && gsc != null)
                 {
                     // TODO: Stop ignoring collision when right sholder is pressed. 
-                    if (_padState.Buttons.RightShoulder == ButtonState.Released 
+                    if (_padState.Buttons.A == ButtonState.Released 
                         && gsc.Enabled
                         && gsc.Hitbox.Intersects(this.Hitbox))
                     {
@@ -164,8 +164,8 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             else if (_weaponState == WeaponState.Discharged &&
-                _padState.Buttons.A == ButtonState.Released &&
-                _padOldState.Buttons.A == ButtonState.Pressed)
+                _padState.Buttons.RightShoulder == ButtonState.Released &&
+                _padOldState.Buttons.RightShoulder == ButtonState.Pressed)
             {
                 _weaponSoundEffectInstance.Pitch = -1;
                 _weaponSoundEffectInstance.Play();
@@ -204,7 +204,8 @@ namespace SoundScape.GameplaySceneComponents
             bool hitSomething = false;
             if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
             {
-                if (_weaponState == WeaponState.Charged)
+                if (_weaponState == WeaponState.Charged || 
+                    _weaponState == WeaponState.Charging)
                 {
                         _weaponSoundEffectInstance.Pitch = 1;
                         _weaponSoundEffectInstance.Play();
@@ -242,16 +243,17 @@ namespace SoundScape.GameplaySceneComponents
         {
             Color vColor = Colour;
             SpriteBatch.Begin();
-            foreach (Vector2 aimVector in _aimVectors)
-            {
-                if (aimVector != Vector2.Zero)
+            if (_aimVectors != null)
+                foreach (Vector2 aimVector in _aimVectors)
                 {
-                    SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), vColor);
-                    vColor.R = (byte)(vColor.R / 1.1);
-                    vColor.G = (byte)(vColor.G / 1.1);
-                    vColor.B = (byte)(vColor.B / 1.1);
+                    if (aimVector != Vector2.Zero)
+                    {
+                        SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), vColor);
+                        vColor.R = (byte)(vColor.R / 1.1);
+                        vColor.G = (byte)(vColor.G / 1.1);
+                        vColor.B = (byte)(vColor.B / 1.1);
+                    }
                 }
-            }
             SpriteBatch.End();
             base.Draw(gameTime);
         }
