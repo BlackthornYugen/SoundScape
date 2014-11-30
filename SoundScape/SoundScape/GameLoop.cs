@@ -174,7 +174,8 @@ namespace SoundScape
                             _gameplay.Dispose();
                         }
                         Components.Add(_gameplay = MultiplayerCampaign.NextLevel());
-                        _gameplay.Show();
+                        //_gameplay.Show();
+                        _gameplay.Enabled = true;
                         break;
                     case "How To Play":
                         HideAllScene();

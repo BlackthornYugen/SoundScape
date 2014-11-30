@@ -9,7 +9,7 @@ namespace SoundScape.Levels
 {
     class MultiplayerLevel3 : GameplayScene
     {
-        public MultiplayerLevel3(Game game, SpriteBatch sb)
+        public MultiplayerLevel3(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
         }

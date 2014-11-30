@@ -9,7 +9,7 @@ namespace SoundScape.Levels
 {
     class SinglePlayerLevel2 : GameplayScene
     {
-        public SinglePlayerLevel2(Game game, SpriteBatch sb)
+        public SinglePlayerLevel2(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
         }

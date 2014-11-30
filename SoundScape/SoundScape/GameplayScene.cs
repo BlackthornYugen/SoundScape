@@ -36,21 +36,25 @@ namespace SoundScape
 
             _livingPlayers = playerCount;
             _livingEnemies = enemyCount;
-            var gameLoop = Game as GameLoop;
-            if (gameLoop != null)
-            {   // TODO: Make victory/defeat code better (maybe raise an event?)
-                if (playerCount == 0)
-                {
-                    gameLoop.Speak("You have been defeated.");
-                    Hide();
-                }
-                else if (enemyCount == 0)
-                {
-                    gameLoop.Speak("You are Victorious!");
-                    Hide();
-                }
+            // TODO: Make victory/defeat code better (maybe raise an event?)
+            if (playerCount == 0)
+            {
+                Game.Speak("You have been defeated.");
+                Enabled = false;
+                Visible = true;
+            }
+            else if (enemyCount == 0)
+            {
+                Game.Speak("You are Victorious!");
+                Enabled = false;
+                Visible = true;
             }
             base.Update(gameTime);
+        }
+
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
         }
 
         public enum Entity
@@ -61,7 +65,7 @@ namespace SoundScape
             Enemy
         }
 
-        public GameplayScene(Game game, SpriteBatch sb)
+        public GameplayScene(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
         }
@@ -125,6 +129,7 @@ namespace SoundScape
             };
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
+            
         }
 
         /// <summary>

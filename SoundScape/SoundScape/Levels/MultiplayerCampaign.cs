@@ -46,7 +46,6 @@ namespace SoundScape.Levels
                 _instance = new MultiplayerCampaign(_game);
                 _currentLevel = 0;
             }
-
             return _gameplayScenes[_currentLevel];
         }
     }

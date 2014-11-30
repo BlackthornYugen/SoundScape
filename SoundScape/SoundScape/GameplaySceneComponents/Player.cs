@@ -95,6 +95,13 @@ namespace SoundScape.GameplaySceneComponents
         {
             _padState = GamePad.GetState(ControllerIndex);
 
+            // Toggle Visibility
+            if (_padState.Buttons.Y == ButtonState.Released &&
+                _padOldState.Buttons.Y == ButtonState.Pressed)
+            {
+                Scene.Visible = !Scene.Visible;
+            }
+
             // Expire rumbles
             if (_rumbleLeftTime < DateTime.Now)
             {
