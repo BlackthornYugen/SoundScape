@@ -37,8 +37,7 @@ namespace SoundScape.GameplaySceneComponents
                 itemName += " Enemy";
             }
 
-            var gameLoop = Game as GameLoop;
-            if (gameLoop != null) gameLoop.Speak(String.Format("{0} has been destroyed.", itemName));
+            Game.Speak(String.Format("{0} has been destroyed.", itemName));
 
             Visible = false;
             Enabled = false;
@@ -73,6 +72,11 @@ namespace SoundScape.GameplaySceneComponents
         {
             get { return _scene; }
             set { _scene = value; }
+        }
+
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
         }
 
         protected SpriteBatch SpriteBatch
