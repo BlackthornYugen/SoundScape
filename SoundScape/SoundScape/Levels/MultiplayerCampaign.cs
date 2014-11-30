@@ -34,12 +34,7 @@ namespace SoundScape.Levels
 
         public static MultiplayerCampaign NewCampaign(GameLoop game)
         {
-            if (_instance == null)
-            {
-                _instance = new MultiplayerCampaign(game);
-            }
-
-            return _instance;
+            return _instance ?? (_instance = new MultiplayerCampaign(game));
         }
 
         public static GameScene NextLevel()

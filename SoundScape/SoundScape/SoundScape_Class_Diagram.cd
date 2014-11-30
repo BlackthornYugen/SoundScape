@@ -104,7 +104,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.GameplaySceneComponent">
-    <Position X="7.5" Y="0.5" Width="2.5" />
+    <Position X="7" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAgUAEAgggggAAAAAAAAAAgAAAQIIAgBAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\GameplaySceneComponent.cs</FileName>
