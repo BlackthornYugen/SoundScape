@@ -180,16 +180,24 @@ namespace SoundScape.GameplaySceneComponents
                 Colour = new Color(Colour.R / 2, Colour.G / 2, Colour.B / 2);
             }
 
-            
+
 
             // Sound Wave
             _arrow = new Vector2(_padState.ThumbSticks.Right.X, -_padState.ThumbSticks.Right.Y) * DISTANCE_FACTOR;
-            _aimVectors = new Vector2[(int)_arrow.Length()];
+
 
             bool hitSomething = false;
-            int limit = (int) _arrow.Length();
 
-            for (int i = 0; i < limit && !hitSomething; i++)
+            int arrowLength = (int)_arrow.Length();
+
+            if (_weaponState == WeaponState.Charged ||
+                _weaponState == WeaponState.Charging)
+                // Shots fired go DISTANCE_FACTOR further than sonar.
+                arrowLength *= DISTANCE_FACTOR; 
+
+            _aimVectors = new Vector2[arrowLength];
+
+            for (int i = 0; i < arrowLength && !hitSomething; i++)
             {
                 _aimVectors[i] = Position + _arrow * i;
                 foreach (IGameComponent gameComponent in Scene.Components)
@@ -197,7 +205,7 @@ namespace SoundScape.GameplaySceneComponents
                     var gsc = gameComponent as GameplaySceneComponent;
                     if (gsc != this && gsc != null && gsc.Enabled)
                     {
-                        hitSomething = HitSomething(gsc, i, limit);
+                        hitSomething = HitSomething(gsc, i, arrowLength);
                     }
                 }
             }

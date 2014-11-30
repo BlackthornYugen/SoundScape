@@ -38,8 +38,8 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             Game.Speak(String.Format("{0} has been destroyed.", itemName));
-
-            Visible = false;
+            // Dead things stay visible but are turned gray
+            Colour = Color.Gray; 
             Enabled = false;
 
             Scene.Score += scoreChange;

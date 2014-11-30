@@ -5,7 +5,6 @@
  * 
  */
 using System;
-using System.Collections.Generic;
 using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,9 +38,20 @@ namespace SoundScape
         public GameLoop()
         {
             GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
+
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1000;
-            graphics.PreferredBackBufferHeight = 800;
+
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.ApplyChanges();
+
+            // The next 4 lines are apparently the only way to get borderless in xna. 
+            IntPtr hWnd = this.Window.Handle;
+            var control = System.Windows.Forms.Control.FromHandle(hWnd);
+            var form = control.FindForm();
+            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            // End of xna borderless hack ( http://gamedev.stackexchange.com/questions/37109/ )
+
             speechSynthesizer = new SpeechSynthesizer();
         }
 

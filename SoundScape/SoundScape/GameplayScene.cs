@@ -139,7 +139,7 @@ namespace SoundScape
         /// <param name="sPosition">The position of the sound</param>
         /// <param name="sPitch">The pitch to play the sound at</param>
         public void PlayBounceSound(SoundEffect sEffect, Vector2 sPosition, float sPitch = 1f)
-        {
+        {   return; // TODO: Temp disabled because I don't know if I still want it.
             foreach (IGameComponent component in Components)
             {
                 if (component is Player)
@@ -148,7 +148,7 @@ namespace SoundScape
                     Player player = component as Player;
                     var distance = sPosition - player.Position;
                     sEffect.Play(
-                        volume: 1 - distance.Length() / new Vector2(cb.Width, cb.Height).Length(), 
+                        volume: Math.Max(1 - distance.Length() / new Vector2(cb.Width, cb.Height).Length(), 1), 
                         pitch: sPitch, 
                         pan: player.Pan);
                 }
