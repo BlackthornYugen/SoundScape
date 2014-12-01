@@ -225,7 +225,6 @@ namespace SoundScape.GameplaySceneComponents
                         _weaponSoundEffectInstance.Pitch = 1;
                         _weaponSoundEffectInstance.Play();
                         _weaponState = WeaponState.Cooldown;
-                        SonarHit(gsc, 1f);
                         Colour = new Color(Colour.R * 2, Colour.G * 2, Colour.B * 2);
                         gsc.Kill();
                 }
