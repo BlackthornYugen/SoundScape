@@ -76,13 +76,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\gsc\player.PNG">
-      <Name>player</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="images\gsc\item.PNG">
       <Name>item</Name>
       <Importer>TextureImporter</Importer>
@@ -152,8 +145,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\gsc\enemy.PNG">
+    <Compile Include="images\gsc\player2.png">
+      <Name>player2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\gsc\enemy.png">
       <Name>enemy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\gsc\player.png">
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="images\gsc\sonar.png">
+      <Name>sonar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="images\gsc\enemy2.png">
+      <Name>enemy2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
