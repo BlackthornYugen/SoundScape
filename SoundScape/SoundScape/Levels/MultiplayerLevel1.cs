@@ -21,7 +21,7 @@ namespace SoundScape.Levels
             var dt = new LevelDataTransfer(){
                 Entities = new List<LevelDataTransfer.LevelEntity>()
                 {
-                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*2, Type = typeof (Bouncer)},
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*2, Type = typeof (Bouncer), Colour = Color.Green},
                     new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Bouncer)},
                     new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Circler)},
                     new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Player)},
@@ -41,6 +41,7 @@ namespace SoundScape.Levels
             };
 
             var jsonString = JsonConvert.SerializeObject(dt);
+            LevelDataTransfer restore = JsonConvert.DeserializeObject<LevelDataTransfer>(jsonString);
         }
 
         protected override void LoadContent()

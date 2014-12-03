@@ -6,51 +6,68 @@ using Microsoft.Xna.Framework;
 
 namespace SoundScape.Levels
 {
-
-
     public class LevelDataTransfer
     {
+        /// <summary>
+        /// Represents a Player/Enemy/Wall or any 
+        /// other object to add to a level
+        /// </summary>
         public struct LevelEntity
         {
+            // The type of entity.
             public Type Type;
-            public Vector2 Speed;
+            // The speed of the entity
+            public Vector2? Speed;
+            // The colour to draw the entity with
+            public Color? Colour;
+            // If set; level will allways spawn 
+            // this entity using this spawn location.
+            public int? SpawnIndex;
         }
 
+        /// <summary>
+        /// Entities will be randomly assigned to a 
+        /// spawn position unless SpawnIndex is set.
+        /// </summary>
         public struct LevelStartPosition
         {
+            // Where to align to.
             public Anchor Anchor;
+            // Distance from anchor point
             public Vector2 OffsetPosition;
         }
 
-        private List<LevelEntity> _entities;
-        private List<LevelStartPosition> _startPositions;
-
+        /// <summary>
+        /// The constructor for the level data object
+        /// </summary>
         public LevelDataTransfer()
         {
             Entities = new List<LevelEntity>();
             StartPositions = new List<LevelStartPosition>();
         }
 
-        public List<LevelEntity> Entities
-        {
-            get { return _entities; }
-            set { _entities = value; }
-        }
+        /// <summary>
+        /// A list of entities to spawn in the level
+        /// </summary>
+        public List<LevelEntity> Entities { get; set; }
 
-        public List<LevelStartPosition> StartPositions
-        {
-            get { return _startPositions; }
-            set { _startPositions = value; }
-        }
+        /// <summary>
+        /// A list of positions to spawn entities
+        /// </summary>
+        public List<LevelStartPosition> StartPositions { get; set; }
 
+        /// <summary>
+        /// Directions used to anchor spawn points. For example: 
+        ///     North = Top Middle
+        ///     North | West = Top Left
+        /// </summary>
         [Flags]
         public enum Anchor : byte
         {
             North = 1,
             East = 2,
             South = 4,
-            West = 8,
-            None = 16
+            West = 8
         }
     }
 }
