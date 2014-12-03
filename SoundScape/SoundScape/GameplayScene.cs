@@ -125,7 +125,7 @@ namespace SoundScape
                 {Entity.Wall, contentMgr.Load<Texture2D>("images/gsc/wall")},
                 {Entity.Item, contentMgr.Load<Texture2D>("images/gsc/item")},
                 {Entity.Player, contentMgr.Load<Texture2D>("images/gsc/player")},
-                {Entity.Enemy, contentMgr.Load<Texture2D>("images/gsc/enemy")}
+                {Entity.Enemy, contentMgr.Load<Texture2D>("images/gsc/enemy")},
             };
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
