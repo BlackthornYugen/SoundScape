@@ -21,15 +21,22 @@ namespace SoundScape.Levels
             var dt = new LevelDataTransfer(){
                 Entities = new List<LevelDataTransfer.LevelEntity>()
                 {
-                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One, Type = typeof (Bouncer)}
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*2, Type = typeof (Bouncer)},
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Bouncer)},
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Circler)},
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*3, Type = typeof (Player)},
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One*4, Type = typeof (Player)},
                 },
                 StartPositions = new List<LevelDataTransfer.LevelStartPosition>()
                 {
                     new LevelDataTransfer.LevelStartPosition()
-                    {
-                        Anchor = LevelDataTransfer.Anchor.North | LevelDataTransfer.Anchor.West, 
-                        OffsetPosition = Vector2.Zero
-                    }
+                        {Anchor = LevelDataTransfer.Anchor.North | LevelDataTransfer.Anchor.West},
+                    new LevelDataTransfer.LevelStartPosition()
+                        {Anchor = LevelDataTransfer.Anchor.North | LevelDataTransfer.Anchor.East},
+                    new LevelDataTransfer.LevelStartPosition()
+                        {Anchor = LevelDataTransfer.Anchor.South | LevelDataTransfer.Anchor.West},
+                    new LevelDataTransfer.LevelStartPosition()
+                        {Anchor = LevelDataTransfer.Anchor.South | LevelDataTransfer.Anchor.East},
                 }
             };
 
