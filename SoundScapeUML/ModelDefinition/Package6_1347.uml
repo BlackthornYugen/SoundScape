@@ -1,0 +1,1795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="aa76e8f5-18e2-4b71-bca1-0750a754cec5"
+  name="Menus"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="6f2c6156-5028-46f2-9b07-a9011d577b4a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DXNALib.Menus"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="e04d04d4-358e-4d42-b99a-e60a01415846"
+        name="MenuComponent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="9e778a8a-64c7-4e68-bf02-1243ed8e5da9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="05229543-f344-4dde-9b38-7d2e42fcabd8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="202bdbad-d09c-4c08-9fe7-e123c109fb76">
+                <propertyInstance
+                  Id="47e4ab4a-9352-411a-84a7-c68beed8b2bd"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="94690951-28bd-4975-b723-95465046a608">
+                <propertyInstance
+                  Id="5a70be4a-017d-4aef-b1f2-778486d369f8"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ceef9f55-3c7a-4226-90c5-8a6c2d2cfb0b">
+                <propertyInstance
+                  Id="0bd6f049-3fc3-4031-8d92-108f106fccf1"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9a5d2294-ae83-4c42-a0fe-3bba16e6263f">
+                <propertyInstance
+                  Id="6fc9ef67-1231-49c9-838c-6547a1078c03"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f9a92192-5dce-456d-bd49-5857a590a157">
+                <propertyInstance
+                  Id="cd6fe7a5-77ce-48ce-90a5-289264c712f9"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="fc368efc-1219-4076-8b8a-1b091ede1da0"
+            isSubstitutable="false">
+            <classMoniker
+              Id="4f9fc22c-a85c-4732-b1da-180491256c2b"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="Package4_1347.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="4020dff5-a009-42c8-a816-c7042fe07918"
+            isDerived="false"
+            sourceEndRoleName="MenuComponent"
+            targetEndRoleName="MenuItems"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="503fb6fe-93ac-45f9-9048-41a2d7b21d86"
+              LastKnownName="List&lt;MenuItem‎&gt;"
+              LastKnownLocation="Package9_1347.uml" />
+            <description>Property MenuItems references type List&lt;MenuItem‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c44173d8-f248-49f8-b22b-1554e45fe23e"
+                  name="MenuComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f68536f8-57e5-416c-841e-ceb9984658df"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="359edd01-9f86-491e-9eab-66667744b995"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2a39b281-0e2f-4bb0-ae14-6a3018ceb0bf"
+                  name="MenuItems"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3a099ef1-c7f7-44cf-91e0-37fba2ddbefa"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="10500bdd-2bf2-49ab-b955-2aaf1f9c453e"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="32106ef7-2529-4127-ae54-4a0a98e410ae"
+            isDerived="false"
+            sourceEndRoleName="MenuComponent"
+            targetEndRoleName="ActiveMenuItem"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="2e8de6e4-a7cc-4884-9a68-0ef73bd73af8"
+              LastKnownName="MenuItem"
+              LastKnownLocation="Package6_1347.uml" />
+            <description>Property ActiveMenuItem references type MenuItem.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7a6612a9-3443-49d8-a02e-300786dd0865"
+                  name="MenuComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="549c7c07-faec-484b-a604-bf04a21f3238"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="36a47da0-e29c-4546-bb04-86bc2ea20f56"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a53ee60a-6a77-4b7f-89bd-6a6389ecb142"
+                  name="ActiveMenuItem"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8321cf3d-abdd-4e7e-aea4-20b3bb452c1a"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="baa5db42-b864-4e4c-80f5-670560c1681c"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ad52f891-b454-4cf0-ba9d-5ac8afac01ee"
+            isDerived="false"
+            sourceEndRoleName="MenuComponent"
+            targetEndRoleName="StartScene"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1664040e-613d-475d-8ed4-2eaf701dcca6"
+              LastKnownName="StartScene"
+              LastKnownLocation="Package_1348.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="221e51db-e486-40a4-8a42-833440044c0d"
+                  name="MenuComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2bb73b7-821b-416a-b78d-cd8fc4681d88"
+                  name="StartScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="188352b4-d458-4476-bbd9-885d9cdcc7f6"
+            name="MenuItems"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3e234976-6487-4f44-b5a5-efe7d5107951"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DMenuItems"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3973e8b6-d1fc-40f6-b295-dc9e322ecdd3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15ab0d23-0122-409c-be62-914b6524ec2a">
+                    <propertyInstance
+                      Id="fbf6a141-65cc-43b3-a203-947403cdea42"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a512dc1f-7e53-4d4c-9d45-fd3ff205e8a1">
+                    <propertyInstance
+                      Id="8a74071b-1958-4e40-b949-16bf8420d83e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="466feca3-8bd4-4848-9f13-13c178f6672d">
+                    <propertyInstance
+                      Id="ae0006e4-4ee0-454f-b774-5075e89ad6a2"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="afc2f437-1314-4fbb-8a23-8fce9beebc93">
+                    <propertyInstance
+                      Id="155d83f6-c3fb-4673-977f-baa91f5adc96"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa2e02cd-c85c-401d-b88a-95d9247fdb9e">
+                    <propertyInstance
+                      Id="3f0ded7f-be04-4f1c-8a23-d30a88f26a90"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df3dcf24-547c-44d1-a091-f5e07532bdf9">
+                    <propertyInstance
+                      Id="31b821a2-92bb-452d-aec4-af1663b02b8a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bff9064-7155-4365-9f9f-fd5a15249866">
+                    <propertyInstance
+                      Id="fa4ed301-b00f-4529-a185-e7a7f75a9042"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="503fb6fe-93ac-45f9-9048-41a2d7b21d86"
+                LastKnownName="List&lt;MenuItem‎&gt;"
+                LastKnownLocation="Package9_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2e3122be-6358-45ae-a10a-1c6f7d7ac9a1"
+            name="MenuIndex"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3cf558ae-7e4b-434e-9497-ae466e2f62a3"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DMenuIndex"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f9c33d46-5216-4486-b7aa-f0eaecd777f9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f2d45cd-c69d-43ed-bcd8-ca1011630dd3">
+                    <propertyInstance
+                      Id="54ed8c33-e1ca-4185-ac54-424b3209b47d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c8ed660f-6c06-49eb-9e0a-e85bf443f1e4">
+                    <propertyInstance
+                      Id="7379d6f7-9f92-4a37-9a43-e0242aa11699"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c299c7fe-fef6-43d0-9bd8-ccfcb103f270">
+                    <propertyInstance
+                      Id="cef3252a-613d-4f72-b30f-83598103c24f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97a2e269-feff-4cf8-85a7-d0a85d96d9b3">
+                    <propertyInstance
+                      Id="4c71dfc0-cb54-4553-a017-8a4d2d321537"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1dd42399-de12-411e-aaf8-c981c656c3cb">
+                    <propertyInstance
+                      Id="2e02c97c-c469-4cdb-ab8a-777f84a3ff70"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="549cd154-7c98-4ada-8165-88aac09d58d1">
+                    <propertyInstance
+                      Id="d71865b2-1d30-411a-b91a-fe9e5f3298fb"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2dd8c49f-4179-4151-8973-d2bb400b2719">
+                    <propertyInstance
+                      Id="6221a3ae-9819-477d-8a18-068661a60787"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="SoundScapeUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9c9d9e02-db17-4a59-91d4-2d47a39e76b2"
+            name="ActiveMenuItem"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="01b5acdc-1f2d-4592-83f6-0c2ab17c5ba4"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DActiveMenuItem"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b22776c9-415e-4d75-8e16-2c6e9c4dde52"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d035990-b501-456e-b9fd-23978afda005">
+                    <propertyInstance
+                      Id="6eeec57d-0d81-462b-99f8-d633f3440be6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb8f36ac-95cd-4ef7-9b02-d60b00e38291">
+                    <propertyInstance
+                      Id="1225e41d-7355-4fdf-878a-7cd659494200"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a17c54a2-114c-4816-a0d0-3c097acd150c">
+                    <propertyInstance
+                      Id="cd8a664b-44a5-4b55-8b53-e5ae892d9273"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf1fc596-1711-439b-ae02-4ee96a0e17d6">
+                    <propertyInstance
+                      Id="a0ff3dba-6183-45f0-a66c-255b4ba8e3d6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c49d1060-2e22-48b7-9b42-0d17ebfb4517">
+                    <propertyInstance
+                      Id="626df3cd-650b-49d8-a7ec-eaa1d117df08"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fef203b-5bff-40d3-b6f8-cc096364a9cf">
+                    <propertyInstance
+                      Id="3685585a-c95e-4a53-bce6-f7b83ce73037"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29d1f0f3-1f99-4317-a02a-4485f62875df">
+                    <propertyInstance
+                      Id="f78b622f-775e-4a67-9f88-0b5dd951af36"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="2e8de6e4-a7cc-4884-9a68-0ef73bd73af8"
+                LastKnownName="MenuItem"
+                LastKnownLocation="Package6_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="567864e9-3f4e-416b-acda-f79a5521aad7"
+            name="menuIndex"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0f0ad01c-3e3d-4b0e-ae59-29a112b5960b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DmenuIndex"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d3bdf97d-1a9d-44ed-8d0d-3569f1695d8e"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3498059-f01e-4e62-9027-b4ea221b0762">
+                    <propertyInstance
+                      Id="f14deb55-8f2c-4924-8b59-d3c9b6205f99"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90eeee9a-9205-41d2-a81f-955250098d5f">
+                    <propertyInstance
+                      Id="ae8cbe81-2904-462a-900f-aa768fbe7ebb"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69803887-2afe-436d-a0b2-9fcd8098dfca">
+                    <propertyInstance
+                      Id="cd393dd2-7a76-4eab-b5ba-d4c82f0f592f"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1ba4a2f-d91f-4e6f-91eb-134f6ac2b19a">
+                    <propertyInstance
+                      Id="ac82b306-9ee0-4df9-87ee-78bb8f3f7a38"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d598a0e-3c08-474d-9458-f45095ea7b23">
+                    <propertyInstance
+                      Id="575c0619-f25a-43cb-8d7c-df7abf717e1a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="SoundScapeUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5b79e4b4-3ded-4ba1-a008-1df31f3bb98a"
+            name="menuItems"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="daac4404-2a2f-489a-a2c8-8ed8588b8702"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DmenuItems"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fd52acc2-d2d4-4c72-929f-7a9d031e698c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e5be922-52f8-43f1-a24e-43971a93b604">
+                    <propertyInstance
+                      Id="c6367f28-f580-43b5-86cd-53e62f6409cf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ba62dda8-4528-4a8b-a162-763b947cea6b">
+                    <propertyInstance
+                      Id="f9132efb-11b1-4adc-8837-0fde9822d227"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="896740ca-c07f-4627-9eda-a9d4ff854d7a">
+                    <propertyInstance
+                      Id="5dbb13af-be28-4f05-9c89-6b63cbbdeb93"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b4be976-e039-472e-9036-92f0ecfe7c95">
+                    <propertyInstance
+                      Id="db743490-c0ca-405b-8115-464af29a9883"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0bd66b2-ffb1-46f9-b501-b92e0e5898b0">
+                    <propertyInstance
+                      Id="a38fa43a-5477-40e8-8378-26d0607421f5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="503fb6fe-93ac-45f9-9048-41a2d7b21d86"
+                LastKnownName="List&lt;MenuItem‎&gt;"
+                LastKnownLocation="Package9_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9e4234c6-75c6-43ea-b56d-e5acf93a0169"
+            name="spritebatch"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0f6f0f90-d055-472b-b8fe-958904eb0cdc"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3Dspritebatch"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f9dc62e6-04d6-43d7-aa35-bcb34a530392"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5a85b78-1457-406f-818b-41d1afe97ebd">
+                    <propertyInstance
+                      Id="e385a9b9-75e6-4f38-8d48-094907a9f923"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ccd63fe7-4d0b-4e4a-8fb0-5cf8dd5906ad">
+                    <propertyInstance
+                      Id="082f4029-92aa-4152-9d08-f33e6d9dbdcd"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d898dee-87a3-4ba6-8925-dc36a37ce578">
+                    <propertyInstance
+                      Id="c75903af-ca08-4a2a-8366-a4b8bbaaa820"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e44b99e8-f1f5-4989-8238-105bd2331c5a">
+                    <propertyInstance
+                      Id="9c9a8fd6-9ec2-4d19-a990-6a268286186d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83c201e9-476a-4162-a2ef-644b51ea773d">
+                    <propertyInstance
+                      Id="4125e732-b068-4ba1-8f8a-bf9394436bea"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                LastKnownName="SpriteBatch"
+                LastKnownLocation="Package5_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a6e1907f-71bc-47d9-89ea-791ffdd4218b"
+            name="colourNormal"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9c1edd26-da6d-47d6-8106-bdae5e1d62f7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DcolourNormal"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="da14d809-3d89-42d5-b892-32e90bfdb8df"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4ad89e9-4dd0-4b28-9600-df8ed2aa0015">
+                    <propertyInstance
+                      Id="af3ad01f-a876-4d1c-be8e-281c5f252077"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ffdeb7d-e1db-45fa-afcf-091bdb6952ac">
+                    <propertyInstance
+                      Id="17a78b4d-5b3b-4528-b9b3-1da3e5b7bc0f"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="223a1f18-2df1-4cef-98cf-470ed987318a">
+                    <propertyInstance
+                      Id="4471f440-9288-45c7-a9bf-05c0db8eb342"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="238143dc-b2fe-4ec8-97c1-f05ce47ed386">
+                    <propertyInstance
+                      Id="847f38f3-84e8-48ee-be0c-ffd7662c718e"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fba98914-9d2b-4129-b8ba-44025d448534">
+                    <propertyInstance
+                      Id="e506d5a2-2884-4641-b28f-aae86f4aaf67"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                LastKnownName="Color"
+                LastKnownLocation="Package4_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f379af22-0fff-4151-b62a-bddc5c367536"
+            name="colourHighlighted"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="33131eda-82fa-4598-85bd-b8cb950f4e83"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DcolourHighlighted"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0c100ebe-91ea-4c7d-b8d1-0b0e1d6b4aaa"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4e911a3-e129-46db-bec3-450bef089337">
+                    <propertyInstance
+                      Id="e73a3933-bc3f-4323-95b9-74dad6b1c6b2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a81778b-d7a7-4343-a208-742369f22c6c">
+                    <propertyInstance
+                      Id="9e87e682-39ef-41ec-88c6-d57708d1bcc1"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1552ff29-7f19-4202-9d74-8a17c804a3a3">
+                    <propertyInstance
+                      Id="44a612b2-a575-4871-9003-15c88c0fa272"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d810e5a-580b-44a8-9901-a7f0d8be2e1c">
+                    <propertyInstance
+                      Id="9014837c-76dc-4234-a88d-a3cee497c6cf"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04f81f75-8d14-444f-98cd-6ef81aa34ddd">
+                    <propertyInstance
+                      Id="8ecfcafb-bce8-4bf0-8b04-ac12b1755ee7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                LastKnownName="Color"
+                LastKnownLocation="Package4_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5f3dbc75-4c4d-4fdd-9aa4-d49a577c96e9"
+            name="fontNormal"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="dfe0f701-9635-4e21-bf28-35eebd554d74"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DfontNormal"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="82314ed7-b0da-4c1b-83a6-652b6b10f598"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd1ad94e-b98c-4edc-9921-23df0bb5fd55">
+                    <propertyInstance
+                      Id="60611c7d-95b3-418f-bf00-c3d05db53a92"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b968eb9-6e3b-4ef0-b0cf-6f96c9b2a296">
+                    <propertyInstance
+                      Id="eb9f6e82-fa24-4856-87bb-e804ef9433b7"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbd1c462-8349-4fc0-a91a-0053a1bf4802">
+                    <propertyInstance
+                      Id="96bea954-80fd-47ff-a594-d1625c41c454"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="451042d6-a9ed-4061-b8e4-78ba5e3e80ce">
+                    <propertyInstance
+                      Id="4c9a89cf-de6f-4ed5-b369-f37d2568abc7"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e565506-defd-486a-bc94-21accf714526">
+                    <propertyInstance
+                      Id="ae37a7f1-c93e-4f1a-98f4-c39d52ee9417"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                LastKnownName="SpriteFont"
+                LastKnownLocation="Package5_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="935a72ff-160e-49e5-aa5f-0ad1a4dea07b"
+            name="fontHighlighted"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="0bb3ce17-dcf0-45d5-876e-2457af3d8d2d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3DfontHighlighted"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="85f39149-d3c3-4586-a26f-720cf7bbd907"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13e83dcc-f182-4294-ae9f-ddd89d0dcd1a">
+                    <propertyInstance
+                      Id="b7146374-891a-4c2c-b9ed-9a3866f69369"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6981b7a7-dfca-4c7f-b001-d5c6a9cb4135">
+                    <propertyInstance
+                      Id="9a0cf3db-c26f-4455-a3c8-b1f53aa4888b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ff22d0f-7625-4063-a436-adf9dfa5cec6">
+                    <propertyInstance
+                      Id="da959424-6c77-42a2-9665-1d1a08c1b29c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e06ee74a-8be5-4142-b566-a115df8203ce">
+                    <propertyInstance
+                      Id="9a10abd4-cbf9-40c3-82e9-9021ec372fed"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="334b3efb-a1ad-4bf4-bdd9-fe8e43c3b696">
+                    <propertyInstance
+                      Id="3cc94865-67cf-4c1e-bb8f-12a2b4631cbf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                LastKnownName="SpriteFont"
+                LastKnownLocation="Package5_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="cace6c59-7bb8-459a-908b-747eefe5ce21"
+            name="position"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="dc5d07fd-1b3a-4a47-b889-f31c4f73bf45"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3Dposition"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="976600c3-8d40-4152-92fa-a4a0c97d7a9d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d50926f2-4ae4-4562-b012-eabcc4bbf9eb">
+                    <propertyInstance
+                      Id="cf8cf92f-a326-45bb-9a9a-ca1931d83f00"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="478c5ec1-75ce-48b2-a4ac-8d3e70ac4df4">
+                    <propertyInstance
+                      Id="490ee9ff-7540-411f-9f79-af71b523bdb3"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="404aa198-a1e6-4451-9fd5-c9ff2e19c623">
+                    <propertyInstance
+                      Id="ddfff4a6-9afe-4a26-9ffa-3ba42539c880"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fade1e0-cc58-4d4b-b41d-7efe67452e18">
+                    <propertyInstance
+                      Id="444dc516-ed6c-40d5-a48c-e314db3e8f4b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14b033e3-d317-46b9-9e91-bfb1100938ec">
+                    <propertyInstance
+                      Id="b74a54fd-9a92-4be7-9d41-446570302c2e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                LastKnownName="Vector2"
+                LastKnownLocation="Package4_1347.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a6a0b116-d39c-4084-b5f1-5f1c0cf8c145"
+            name="Add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="18741438-3d05-48af-994e-643ea0a0a4f0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DAdd OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DDrawableGameComponent)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b1f037f4-66e6-4f2c-bf3a-67c53e889293"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a429078b-2048-4919-bcf1-9a4f8450ed2d">
+                    <propertyInstance
+                      Id="8d45e3cf-1e6c-419a-904f-677b37a8de6a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c69ecec0-346f-4959-9c5b-55d933ab9851">
+                    <propertyInstance
+                      Id="d0ec3d5c-3d3c-42e5-bba1-2876eda6d261"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83131b22-82af-4251-9693-09ba846c7018">
+                    <propertyInstance
+                      Id="7961861c-a624-442a-8a22-13b56dba7962"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a8c79f9-6f2c-4431-9655-2b6fe8f26772">
+                    <propertyInstance
+                      Id="0a98991e-6579-4807-a100-d0fba48f6cc2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4d43dda-5eda-458b-aa0a-bbfcf7f878c0">
+                    <propertyInstance
+                      Id="eed4bc8a-1c5d-446f-bf2c-a27160e3e8a8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10352eaf-181c-499d-84cd-2d2de5862f9f">
+                    <propertyInstance
+                      Id="280c28bf-92cc-4179-8898-9158ca6cc236"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fd8862b1-41a2-45cd-81af-33ad58a62d4f"
+                  name="menuItemName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5f5e8bdf-43b6-4411-bdca-706e6bbc3d88"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DAdd OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DDrawableGameComponent)]) ParameterIdentifier%3DmenuItemName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="SoundScapeUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f0ab6fce-2122-45c8-8db9-779c07fd8476"
+                  name="menuItemComponent"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="24116c11-8604-4047-8118-48317a911f28"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DAdd OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DDrawableGameComponent)]) ParameterIdentifier%3DmenuItemComponent"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4f9fc22c-a85c-4732-b1da-180491256c2b"
+                      LastKnownName="DrawableGameComponent"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="21a9bd14-e1d1-4b3f-8362-1210b0dc0edc"
+            name="MenuComponent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9cb7351b-6427-41cc-bbf9-93cb87b68ed6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4935dede-b37d-4298-bef1-072b401f37c4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35b4e86d-2c98-44c0-aaf8-ec06a305980d">
+                    <propertyInstance
+                      Id="ee77facb-b4a9-479a-87f7-f076ec2eae16"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d9eeece-9ebd-4b0c-9c5c-b604e8870994">
+                    <propertyInstance
+                      Id="352c4baf-707c-4d99-a46d-d5f7169788eb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f059bc93-16e1-4dc5-b9b2-eb06e4e1c3bf">
+                    <propertyInstance
+                      Id="9ed3f5e8-d4de-450f-9fba-f82311dcc419"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="751bec3c-c8c9-4cf3-8ebd-5f4805a63fa9">
+                    <propertyInstance
+                      Id="d9fcd467-029d-45be-bc01-22dc9a2fe1d1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f140eba8-6f41-45a1-b7fa-cf8f3ecf0d4c">
+                    <propertyInstance
+                      Id="62c82b17-8233-4e0b-a302-435fa8b05713"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b69a52c-5a1f-45f2-96f3-f6612e3f28f6">
+                    <propertyInstance
+                      Id="505bd613-fd51-475e-a537-a80fcb96db3d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="57596316-8c81-4dc0-831c-7165ae486e51"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3a5c8921-fc02-47c2-ab0f-8797c2294451"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1a91c3df-9644-4230-9e7b-656283ed48c8"
+                      LastKnownName="Game"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5784e6d5-d765-4ae7-900c-57d677b725ab"
+                  name="spritebatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b3231f87-bb69-4a36-8a17-37ffdd042a78"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dspritebatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fbe091f6-6406-4c14-af0d-d2b233b9affc"
+                  name="colourNormal"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c7831134-d8d6-4f1b-9be7-332791123f38"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3DcolourNormal"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6ccf5f09-9c89-432c-b351-413371ce14ba"
+                  name="colourHighlighted"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fe03db5e-946b-4c0f-b7b2-08158a73846c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3DcolourHighlighted"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3a8876be-6965-489a-ac34-a58e472488d4"
+                  name="fontNormal"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="85c11c4f-2d8d-4ca2-8399-380b25852a10"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3DfontNormal"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                      LastKnownName="SpriteFont"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d330fba8-b4e2-4c1c-9ff1-c5179b6fd15f"
+                  name="fontHighlighted"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f80dd173-0ed6-4d88-91ca-de08a47d3ec9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3DfontHighlighted"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                      LastKnownName="SpriteFont"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="076ecd8c-c5a6-4aaf-ad0b-b541231a8432"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7abcb780-faac-4f26-a1cf-3764cb150cae"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f2860c15-f64d-4318-9c7d-7249d165f8e2"
+            name="MenuComponent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ad8d63d0-c80b-4faf-9ae2-dfb249c4d2eb"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="56e885af-caf4-446e-87f1-768f43c1866c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04a60173-e4fc-4bc5-9af2-3788981579ee">
+                    <propertyInstance
+                      Id="f9bca156-19d6-48c2-a069-6b0ff591e60b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3f7ad66-2eba-4b2b-b999-10ac9489ebc2">
+                    <propertyInstance
+                      Id="dc99836c-3d71-4618-aef6-e5fcf672ed3e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="173c554d-a022-485e-93b9-7c4217c3f54d">
+                    <propertyInstance
+                      Id="f2f466a9-b9b3-4274-9d9f-2a7d3a5d4e2a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1eb04a7d-f95b-460a-803a-eaa66123b900">
+                    <propertyInstance
+                      Id="c7e9702a-42dc-4e3f-bca8-8d1b6a330b84"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0d59fa2-e411-4f1f-9773-2831a75be659">
+                    <propertyInstance
+                      Id="8df28021-7a95-4314-9461-d130ac203e83"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d62cbf83-d8f6-494d-a1b0-52cbb1a151a8">
+                    <propertyInstance
+                      Id="5947c055-e10d-4fce-995c-015119aa29c1"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0372be7e-aa00-412a-b13c-42f1fc366e10"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="80325cc5-838d-469f-8eeb-18991afc2798"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1a91c3df-9644-4230-9e7b-656283ed48c8"
+                      LastKnownName="Game"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c2184116-d0d2-4bd7-b55a-f4171c7ee427"
+                  name="spritebatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="36eec7f1-725b-4180-bc43-a556c97cef22"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3Dspritebatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a842c23e-fcf4-4762-b0b5-88cec3aa2946"
+                  name="colourNormal"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4dd75783-7599-46db-bfa6-cfc868819129"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3DcolourNormal"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="eac801cf-949f-4955-9b46-6da8859be82f"
+                  name="colourHighlighted"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a4fab94a-8260-496d-8338-71b5671c1ffc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3DcolourHighlighted"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72c10e66-9357-44f2-bba1-5cdb4fb5f659"
+                  name="fontNormal"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c31c3b05-514a-494d-9d9a-b68168b6be8a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3DfontNormal"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                      LastKnownName="SpriteFont"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="571bdcdc-2ef4-4dc7-a0b7-4a0a23e5c776"
+                  name="fontHighlighted"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a6a94662-6da6-46c5-9fb1-f569ab066cb8"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3DfontHighlighted"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d49df9c-0532-4748-a3d1-4c86eef3cf05"
+                      LastKnownName="SpriteFont"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5775f32-ad45-4f80-a555-e2bfd6a3d54c"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="70e473f2-0c7d-44f2-ad8d-9e2fa381e01e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="91390525-136f-42fb-8fb5-214115ed7086"
+                  name="menuItems"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8098df53-adf1-4629-b3f3-17515ae4388e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem.Collections.Generic Type%3D(Name%3DList GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem)]))]) ParameterIdentifier%3DmenuItems"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="503fb6fe-93ac-45f9-9048-41a2d7b21d86"
+                      LastKnownName="List&lt;MenuItem‎&gt;"
+                      LastKnownLocation="Package9_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="93f2393f-7448-4d67-a4b3-d4d6d08d899b"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="98bb641b-7f32-47ab-a373-b7107433c83b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="befef890-ffb5-485e-8ca8-e3ff3722eecd"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c48e5496-ddb9-4bbc-9056-edbcd02223d3">
+                    <propertyInstance
+                      Id="d61238a7-69ea-494c-bd8c-2df77fa7295d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19b42bca-a401-45f2-b510-17ad239d86af">
+                    <propertyInstance
+                      Id="711c7374-ae28-44d3-b9e8-c8148d74b962"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4ae1d9d-1cac-4a75-a590-3db0c26844ad">
+                    <propertyInstance
+                      Id="3fcae972-fc3a-4686-a8ba-b4c56d920434"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87dc1135-8cfb-4e48-b47d-b1190601f11e">
+                    <propertyInstance
+                      Id="2a7f1608-7659-4ca7-9db5-92cb1a08623e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e405158-0cf0-4be8-92ed-4eaab0f107f0">
+                    <propertyInstance
+                      Id="a4bf4653-d37e-46f4-83f4-f0c9db5b3ee4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bcd55f56-6782-42b2-8496-46aef2ed4ba2">
+                    <propertyInstance
+                      Id="4a9969b6-2f7c-45fc-b539-956dc7f4eaeb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bd63fda4-9010-4f8c-8599-2988c2adda8b"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c128b36a-2338-41fe-9546-2f05645a446f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="64296ff8-e77a-4e79-9435-89267e8ebec5"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3d7aecec-a6eb-437a-9a6a-a487da298455"
+            name="this"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="71bd8ab7-86d2-4189-8fa9-79518ec33398"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DItem OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e16dfc74-1b49-419f-84d1-6b9fcfee0b01"
+                name="indexer"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1112b8f7-50b9-4c35-8c2a-a5044d80195c">
+                    <propertyInstance
+                      Id="ddc0ec9f-32af-42ab-90fb-6f90291bf06a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45a2afaa-de0b-4ea6-9650-ea605eeb2d42">
+                    <propertyInstance
+                      Id="15497015-aaea-4b5a-8c41-8f1736ad9713"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a10b7a9-e4ea-4532-81d2-bb45813dd111">
+                    <propertyInstance
+                      Id="62ae700b-a324-4f64-9cf9-e8caad78d7da"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aba14b11-9f1e-438b-8575-18b6474b6181">
+                    <propertyInstance
+                      Id="eb1ceacc-4e29-4d59-bc36-94b2f415edb6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="67af9a8f-7602-4668-8c14-f174109dbc1f">
+                    <propertyInstance
+                      Id="90c79f97-a1ab-4534-84aa-06a42ffc0e2b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8020b698-ee55-4051-8d7c-41678f574b42">
+                    <propertyInstance
+                      Id="91112cb7-2c15-45e2-92c4-5f1c732c6b3f"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cdd685f4-10eb-4b7d-91a7-6d30a818c402"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="4f9fc22c-a85c-4732-b1da-180491256c2b"
+                      LastKnownName="DrawableGameComponent"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e57a3f69-3be5-4252-b23b-835c5621209a"
+                  name="index"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3588f86d-bdfb-4eb4-82cf-a20b8090edbf"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuComponent Member%3D(Name%3DItem OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dindex"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="SoundScapeUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2e8de6e4-a7cc-4884-9a68-0ef73bd73af8"
+        name="MenuItem"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c24323f1-1817-4b0d-90c4-82eb128ab72e"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Menus Type%3DMenuItem"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="cf63beaa-7d76-436a-8d8d-a1effd01f43b"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="500fd0b7-0ebf-4b15-8275-f07671138ff9">
+                <propertyInstance
+                  Id="8fddecbd-4422-4bda-a2e5-a6f1cda87b28"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a580529d-ee95-4e28-ba5a-1cc40b33da95">
+                <propertyInstance
+                  Id="b975e068-60c1-4ec8-8f06-d6cfe3e88c54"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0dc778d0-03f5-4da7-ae66-cf4ca3aa6392">
+                <propertyInstance
+                  Id="e20f025c-ab56-4c90-9341-15175d43d381"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="55c70f5f-df3e-4d1d-9606-1cd499bf2279">
+                <propertyInstance
+                  Id="f67b8a6c-6d54-4d5a-8c09-f224faffa121"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

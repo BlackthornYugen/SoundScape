@@ -1,0 +1,1481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="427e81d0-7858-4271-8648-3ca6270d0e11"
+  name="Enemies"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="2e6efa63-c528-4360-8a92-f68343d58748"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSoundScape.GameplaySceneComponents.Enemies"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="3d0e4d7a-4444-4d95-837b-0f3f8a702dd4"
+        name="Bouncer"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="dcab55e9-1c98-45d6-8e38-667c03f826d7"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="44f2b1b8-908e-47b8-94ce-48bba0bd8488"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d38ebabc-c326-4101-99b0-6727e1052295">
+                <propertyInstance
+                  Id="4576689a-9b2b-438f-8794-eff1c92a6c8f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6848620d-fc67-438b-b565-e77f1b4aafea">
+                <propertyInstance
+                  Id="9af585cc-9e0a-4aff-aaea-61d1995cd142"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7467e78a-0e72-4993-b3be-c6f7d63cdf85">
+                <propertyInstance
+                  Id="b32613aa-e01b-4b77-86d9-b47eacded3b0"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bebe3c86-e3da-4a92-9cbb-4b1d90a3c212">
+                <propertyInstance
+                  Id="a946fe4b-b834-4a67-8be6-3d793122f673"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8d5e1005-9eeb-4075-8b9c-9e58235d080a">
+                <propertyInstance
+                  Id="cbf5ac6e-dda1-40ed-a1e9-8f2a47b365b4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="4b24b65d-9f0f-4c97-8787-d3e9446e51f2"
+            isSubstitutable="false">
+            <classMoniker
+              Id="ade07776-b317-4eb8-acca-34bf7f28857c"
+              LastKnownName="Enemy"
+              LastKnownLocation="Package_1402.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a9015ee0-4175-4bc1-8195-454cdfce9fd9"
+            name="Bouncer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4a119549-3e75-437a-9557-bfe19df05007"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="379b5198-f5e7-4bd4-a20d-1c1f00aa3023"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0773ff07-7a13-4e5a-903f-b32c41419a56">
+                    <propertyInstance
+                      Id="9d528e36-7e6b-46c3-a94d-6c88a5faca01"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6274765d-1773-45d0-be59-625bed98fa07">
+                    <propertyInstance
+                      Id="c1cd79fd-67bf-43af-9761-45cafea596ee"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c37b5fc6-151c-4181-aecd-2bc58e96c1b9">
+                    <propertyInstance
+                      Id="45241ec8-3d33-4eaa-9bdb-0dfe6b351b49"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd3041fc-2ea1-4d12-9025-c4e990b4fbcb">
+                    <propertyInstance
+                      Id="978eb4f0-3d57-4d8c-b7bc-f1f2e2022cb2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd0f0db6-167c-439b-87e6-91350785f329">
+                    <propertyInstance
+                      Id="5949285c-6374-4a4f-9af2-d274b1e81cb1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dfdfd241-40ef-44cb-9bce-3d45b8bf0da4">
+                    <propertyInstance
+                      Id="728eac38-be4e-40ac-89ae-78af40c88ff3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5aa4e1b4-3a87-4bdd-b524-2eea6bd04fec"
+                  name="scene"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="00cba09b-12f4-4f1d-8ef4-6baa129da399"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dscene"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b57e71db-6e92-416b-8633-b0fd7b8a3658"
+                      LastKnownName="GameplayScene"
+                      LastKnownLocation="Package_1348.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6bdfe02e-f367-4b8e-be0f-020c615503f0"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9e5d154c-c354-4c50-9b10-49cdc505a5f0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e4d74614-6932-44de-b308-42f72b8bdc88"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="045fcf14-d301-46b0-8aeb-fd8483cd2dd0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f320a9e-0880-4aa1-b711-54bf9df63028"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4b65c6ab-cef3-4b03-b23f-71996347134e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="db1a8df8-eb02-419a-8a38-d321925317a8"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fe2d9508-a68e-4ed4-a343-a4f64bf554c0"
+                  name="soundEffect"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e6f9d90e-4641-4333-b96d-2e3560ac14c7"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3DsoundEffect"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="abe621f3-732d-4e42-b550-491ff4ae3a97"
+                      LastKnownName="SoundEffect"
+                      LastKnownLocation="Package_1349.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3631564a-4323-414c-b6b6-4086dfe8062a"
+            name="Bouncer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8ba8e86e-e861-401c-a070-8429d6352643"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e8f8ab27-3c94-4fbc-b458-40e716d0bb28"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81c9df8d-a654-4b84-8038-093920b6a960">
+                    <propertyInstance
+                      Id="3ed98b09-cd56-49ad-8373-8005eae3ea0f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f31b0903-e026-4ff4-a57e-5cb1e8de1fa1">
+                    <propertyInstance
+                      Id="04c39df4-52d6-44e7-8555-2c62b0ddb597"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c24251bd-0049-4f4f-bf42-0c8f02685ecf">
+                    <propertyInstance
+                      Id="3cb812cf-b4cd-438f-9c7a-b0959e9f2998"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="249f413c-b908-4c7f-b1ff-36b1a94a1677">
+                    <propertyInstance
+                      Id="e64ce853-a024-45c0-a243-b34ca2eb7533"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5dd3fdae-c7b3-44a6-acd4-c37b48234126">
+                    <propertyInstance
+                      Id="82d71d4f-482b-49fa-85f9-b8888da2c7a1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16a253c7-d67f-4103-9dad-14d8112c67ec">
+                    <propertyInstance
+                      Id="c129a1e0-7ad7-4e16-99ee-620454d2666e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fd6be09c-3f44-47b0-805f-872fd5b64aa2"
+                  name="scene"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="812b6e0a-4931-4a06-b8f4-4ed4973c9a35"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dscene"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b57e71db-6e92-416b-8633-b0fd7b8a3658"
+                      LastKnownName="GameplayScene"
+                      LastKnownLocation="Package_1348.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bb338335-386f-4385-ba2b-140efd6d2942"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a5cebba5-a858-4e01-982e-2e4269811c42"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1d2adf78-9948-48c4-9063-be7d43c078fd"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ed90315d-1f6f-479d-b005-7e191b3c072a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3e5af24-fe11-456a-832d-b87546e9a773"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="eb1511f7-9b32-4910-a04b-a6f95ba4eb4e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="db1a8df8-eb02-419a-8a38-d321925317a8"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fb6a48ab-2e8f-4fe5-bcb2-40c9ca6793fd"
+                  name="soundEffect"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2c5f4915-282b-423e-aeae-a0e69806849a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DsoundEffect"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="abe621f3-732d-4e42-b550-491ff4ae3a97"
+                      LastKnownName="SoundEffect"
+                      LastKnownLocation="Package_1349.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="57cbe0dc-364e-4ac4-a72b-a76d923bb9fc"
+                  name="colour"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="52d23bb9-c5ec-4f72-9fed-752979e1880a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dcolour"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b6970746-8f94-4f8c-9687-bc5b3a977b5b"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ec23173e-f576-42c7-9321-e2eda80de73c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d5458e4c-66b5-41c7-80c1-a0593c68eba0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4896b093-6b9e-4053-ae9c-711998d2c49d">
+                    <propertyInstance
+                      Id="d5396206-f112-4ea0-bf73-a68af34ed4dc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d27c633-afd8-405a-a715-2d5e71693142">
+                    <propertyInstance
+                      Id="5c9e4812-0cbc-44c0-b877-4001e7b097e6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f2b21f0-353f-428d-8c78-5ecd6e9799a0">
+                    <propertyInstance
+                      Id="caf9a98e-aa41-4e52-b1e8-ea3366033b70"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5cb45b8-4df1-436a-913a-2704555f501b">
+                    <propertyInstance
+                      Id="5dfd3fa0-5b9c-4c11-a29d-6884816df49d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f82804c8-7f89-4069-8fd8-2691cf4257a4">
+                    <propertyInstance
+                      Id="3681b27b-5b24-4fbd-a08d-343b4bcf80b0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b768098e-1975-4241-be38-53bb8cd0b444">
+                    <propertyInstance
+                      Id="5a17cb96-73d5-487e-b50c-a4e647fbc4d9"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26bd3005-6c05-4783-bde3-a1b20795db0c"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f7b166e0-1946-4502-8aac-6e7c0ad5262a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DBouncer Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="64296ff8-e77a-4e79-9435-89267e8ebec5"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a945b30b-8bb0-4a1c-9fb2-16e6bc2c65b8"
+        name="Circler"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="cff4a2ab-ac92-4ce6-b09a-7df98e77da7f"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="38acdd6a-51f9-4c7b-b48d-b247e2f1fe7e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c40a7c78-b9eb-4172-ae87-2ed67577e655">
+                <propertyInstance
+                  Id="ef3c4871-8dad-4b3c-abee-6f6acf237f41"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6b17ca17-09a7-41d4-aaee-032aabe4259e">
+                <propertyInstance
+                  Id="83324935-90c1-49ea-90c7-6605c1950bed"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="806f554d-9177-4cac-8a00-b591d2a90f9f">
+                <propertyInstance
+                  Id="21beb973-3428-4a90-ab96-15f14f7cd02c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3596596a-3fad-4d1c-97ad-9577e1898430">
+                <propertyInstance
+                  Id="0aa4be0e-603c-4e95-8687-7097e82b21f9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4bdef962-9084-4685-82ba-17075e81af7a">
+                <propertyInstance
+                  Id="51cd7a17-d8df-4568-bcf1-faa375a8d4a3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="66806ed1-711d-418f-9f4b-a3e3845bd46a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="ade07776-b317-4eb8-acca-34bf7f28857c"
+              LastKnownName="Enemy"
+              LastKnownLocation="Package_1402.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="2c7b8424-a618-4e6e-9135-86ce7b2cabf6"
+            name="Score"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="bb6a223b-16ed-40b3-bec3-cf5047c16b36"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3DScore"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="11077b93-5188-4358-ad83-669e71dfdd64"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eee3eb4e-4527-4a68-9173-87658e7a06d4">
+                    <propertyInstance
+                      Id="453819d1-1830-4329-b263-91f5c81770b3"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cefe5f6-b88f-411d-8caf-ab9969be467b">
+                    <propertyInstance
+                      Id="67ed1d05-58aa-4dfa-9c19-cc30c9cf9723"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30f0cd37-d85f-4377-8ace-e642dc170426">
+                    <propertyInstance
+                      Id="c01342be-4eeb-409c-a2fd-3117895a5f44"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ca7dfb6-a072-462a-875e-f664b27cf5f6">
+                    <propertyInstance
+                      Id="89fcff17-e3e1-452d-8c6e-7bd7bb89cd64"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d27f35a-18a9-476d-9504-6b0f7c9138e1">
+                    <propertyInstance
+                      Id="b65f16bf-ed11-46b2-b3e8-0784179877cc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac4ce63b-e464-4a22-83ba-3ef8384fa765">
+                    <propertyInstance
+                      Id="19ac3b01-36be-42a0-a724-579359dcf4c9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75886d55-765f-420d-babd-dddd4a4e0c27">
+                    <propertyInstance
+                      Id="ea7bfe12-9066-4f53-b4e5-5db5e0f76f64"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="SoundScapeUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="38bd048d-c640-4ddc-9818-64e803b3f983"
+            name="SCORE_ADJUSTMENT"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="cf861475-0ef3-4db3-b1b7-1fba5e83ad76"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3DSCORE_ADJUSTMENT"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c4a5308b-8157-4583-b456-d9f80d78577e"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71148b75-df40-4f4c-a2b3-11a4a6da7da7">
+                    <propertyInstance
+                      Id="d7d8df70-9ca1-4130-b244-543e9b392d87"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="192e8322-515c-4c21-af41-56f169cb68a4">
+                    <propertyInstance
+                      Id="8be1ef06-519b-4b4d-b9d1-6d7d3342b8d2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c7aab6a-c96e-4ad2-b033-2a45835ae1b6">
+                    <propertyInstance
+                      Id="63bb23dd-2f56-4c54-99b0-58fe04a5f880"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6e072a5-2c14-40e7-9346-24aee771ebe3">
+                    <propertyInstance
+                      Id="1e38e908-b0ea-4cda-abe6-5a77bb7e32cc"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71a81225-cdc8-4e00-a84d-f8dc640a96c5">
+                    <propertyInstance
+                      Id="aa6069fa-7d35-415e-9c41-7cb5d8f07192"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="8b648573-fd56-4882-8dd5-7ae926f46827"
+            name="SPEED_FACTOR"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="19dc845e-1519-4bb9-a647-0b9f4f0acbc9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3DSPEED_FACTOR"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="aa1afab8-4f05-4cae-ab43-ff431ff695e1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08a7be73-09ef-41bc-90cf-9d423c5a4350">
+                    <propertyInstance
+                      Id="36354286-ea27-4d48-9896-efa40c7bd618"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8ccc112-2cc4-4ef4-961c-9ef1ae7a2b28">
+                    <propertyInstance
+                      Id="8cd32a9a-8476-4dae-a0e0-8a8999c426ae"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9080efa9-4445-4f26-8e3b-17a61db4932e">
+                    <propertyInstance
+                      Id="1b2f0d48-baf4-45f9-ad2c-0ca6da729e06"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="764414ad-c9a6-4cd0-b97e-a9ca66e7880f">
+                    <propertyInstance
+                      Id="40904447-cbf9-424e-b7fa-e145f2eae093"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="569f7a5e-0a7c-46cd-8518-b41b60280120">
+                    <propertyInstance
+                      Id="b9f0993c-8b81-4da5-b004-6b5e6d96165a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="4473412d-85d9-4e46-9067-432eb9c8139e"
+            name="FULL_CIRCLE_FRAMES"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="17bb4a1e-3a39-42a0-bf60-ed320d7da927"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3DFULL_CIRCLE_FRAMES"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="256b55fd-cba9-45d2-82ed-0da15e7295c1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6722bac6-8055-4ee1-8ddd-008f02edfadb">
+                    <propertyInstance
+                      Id="55478fe7-b6ef-45b5-8d52-23b15118305a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0e26094-270a-4173-a520-5127397583e2">
+                    <propertyInstance
+                      Id="f4b46bff-f290-4e52-9702-453a80b87aae"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f983a585-5e68-4054-a94c-ef2c571d84d8">
+                    <propertyInstance
+                      Id="dc69eef6-3cb0-46ae-a83e-ced905fd73f1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8aafa07-0657-43e1-9dd1-980c34d90ea8">
+                    <propertyInstance
+                      Id="2d846207-4659-4078-8d1d-80dcae5e311a"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1262ec7c-53a9-49f9-8fb2-ead339da7434">
+                    <propertyInstance
+                      Id="62cc9b1b-4e06-4dd4-8b3b-f340cef9091d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="66eeef7a-f085-4191-9493-439025902704"
+            name="_angle"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e840ea82-c7d0-4208-b1ad-180c4fc4bcb2"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D_angle"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="31b9ddde-81bf-4f5d-81cc-cdeadf1a60ec"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efa5427c-7b7b-4c5c-bdcc-084c43ae5340">
+                    <propertyInstance
+                      Id="2754c7c3-b8cc-4411-9240-78f51c56d44f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f939c251-3554-4c79-a523-79618e9c74e2">
+                    <propertyInstance
+                      Id="042295a5-0d3a-4a19-926b-8a1a77a989d0"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0566ea66-f4d1-4ef1-846c-77c7801a1760">
+                    <propertyInstance
+                      Id="fd2ece44-4cd8-40b3-817b-b687e9392e42"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a17f804-01ce-42f6-8aff-8404b9452fd3">
+                    <propertyInstance
+                      Id="6452014a-ea20-4da4-b069-3899e9cd8355"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7adc7cc-496d-46ff-9539-36b87fee5570">
+                    <propertyInstance
+                      Id="ccbc7980-46ed-40c8-b7d9-5a969210f4c7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="abbbed97-4926-45d0-a926-d29220b7f7ef"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="49e6b870-0abf-410d-b02c-1dfd1ec90e5d"
+            name="_offsetX"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="172fd8cd-ebc2-421e-bc8c-c1d922146fba"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D_offsetX"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5bf00a7a-8654-430d-a678-75c297c949ac"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bf46e94-aff8-4bae-a290-fe5269fce069">
+                    <propertyInstance
+                      Id="95ab020f-872b-4ad7-8880-be06a7409cf6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9645d927-bdef-471c-8478-d7c1f3def73d">
+                    <propertyInstance
+                      Id="3a5efad5-e6e2-44d4-a055-e7623784c207"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b5573b18-9b46-4e9c-a6a9-99c797461c57">
+                    <propertyInstance
+                      Id="cae65a4b-1905-45eb-bfe4-37145bee060b"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8706ef3f-927e-4ce5-a961-24b3501f77ec">
+                    <propertyInstance
+                      Id="119fe2b2-9e63-4a97-a055-800154bf24af"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e332bd2-793b-4519-9834-5a132d875120">
+                    <propertyInstance
+                      Id="ce4af9f3-f43e-4f92-a1b5-ef6d5e14a196"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="abbbed97-4926-45d0-a926-d29220b7f7ef"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4141c242-2812-45ec-9eeb-0b940478c22d"
+            name="_offsetY"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="1a6203f9-3c62-4fe3-99c5-92d5a60d7a8c"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D_offsetY"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2f4b4abc-4e12-4088-a9a8-dfd7d11d17d5"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af3770b8-8887-4454-8b8c-ac31ce063ab4">
+                    <propertyInstance
+                      Id="4a45cfda-800d-4a16-b51d-01e546115683"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a238429-ec4f-4b09-a617-c2316869c7f1">
+                    <propertyInstance
+                      Id="40af71d7-f606-4841-b0d0-e80fa88c594c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8deacae5-9ffd-4d8d-84a5-267f444c4a81">
+                    <propertyInstance
+                      Id="feec7433-8635-43ee-bfb5-ff90cad0384c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9782a67-ecc2-446c-afcb-2785893baa72">
+                    <propertyInstance
+                      Id="ebf22bd4-31db-48ed-8fa6-84212a2f6cdd"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="604622e6-5eb7-410f-b32a-527c600e4b1f">
+                    <propertyInstance
+                      Id="afbcbded-9dd7-4422-ad94-3f86f1f0e2a7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="abbbed97-4926-45d0-a926-d29220b7f7ef"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1347.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="e0c0fdaf-b09f-41eb-872c-503f0041875f"
+            name="Circler"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="382d694a-101b-4f91-84ca-aacef28089a5"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="77c4ff6f-d08e-4b15-b90b-96f7fc2fd93d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97e73627-cbb9-4a4f-8cd1-81747a814a62">
+                    <propertyInstance
+                      Id="019ccd6e-57b8-4ee0-a051-5d636cd6e459"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24864291-7ee4-4d3b-9166-2eed38beede1">
+                    <propertyInstance
+                      Id="497db1a4-cee0-4d76-9ba9-b483426f1b68"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8d05e0a-af45-4ed3-8994-b857cc908594">
+                    <propertyInstance
+                      Id="79bf13dc-da02-470a-b77c-d6542aea040b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e0d266c-cff7-49f0-b8e8-cf27497331ac">
+                    <propertyInstance
+                      Id="1fb63d2c-2fbf-403c-8e91-74ae9d6891b1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90df86bb-019c-4f90-8659-c7af664549a7">
+                    <propertyInstance
+                      Id="65c396fc-b5f7-41b0-bb65-eb863184f65b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ba0c6ea-55ae-448d-bec8-c595221faed1">
+                    <propertyInstance
+                      Id="a3185a08-5c7f-4473-809d-34cd01adf984"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f04b2d1-e297-4053-8087-2cc84bc5e17a"
+                  name="scene"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1f39489f-a552-4693-94c0-8d214d9f3e25"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dscene"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b57e71db-6e92-416b-8633-b0fd7b8a3658"
+                      LastKnownName="GameplayScene"
+                      LastKnownLocation="Package_1348.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f0d101c-0500-4e14-bb34-1a2907bf8c0d"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f56e363f-fba5-4e49-ae61-9d5f2e8a8859"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f275875b-3d54-4056-b645-9a8fe3d045a2"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6c264910-9d9a-4bf8-944d-e5ba72b53254"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="11cb9ffd-657c-4795-9ca0-5acb774e1b58"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4c147926-c9d8-425e-af3d-4f75a670d71f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="db1a8df8-eb02-419a-8a38-d321925317a8"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0346241d-d482-45b6-983b-e25cb97ad634"
+                  name="soundEffect"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="22851732-bec2-46b3-8ce2-80f7fab49e6e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)]) ParameterIdentifier%3DsoundEffect"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="abe621f3-732d-4e42-b550-491ff4ae3a97"
+                      LastKnownName="SoundEffect"
+                      LastKnownLocation="Package_1349.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="aebc0e6d-3707-44f1-9a52-acdd3247f265"
+            name="Circler"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6fa8a90d-1b66-4e05-8952-dc54c08a800d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="824d95dd-3281-4951-a7e7-aeef89f0cf7f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c57d5551-49e4-4ef0-ae83-7c78ef638cf2">
+                    <propertyInstance
+                      Id="792d74f5-3412-4fec-a2db-9b9a53dbe8db"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc893f27-5b18-445f-8c0f-7bd832765b97">
+                    <propertyInstance
+                      Id="378db6e2-c186-400a-a9dd-a3753b4956a4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f82703d-3706-4842-8e50-62869e22e8b6">
+                    <propertyInstance
+                      Id="f902dc94-b5a9-4a30-aab0-e6a2e1932752"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01ebdef8-41f9-4be8-a6fa-66b51eecdf52">
+                    <propertyInstance
+                      Id="f0d4a6a1-d7fc-411a-9fd9-9039bc8b7500"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="176399b8-17d3-4803-9d2f-ea9963cc5222">
+                    <propertyInstance
+                      Id="f2f68821-fb9f-4005-ad88-483b48c43952"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8832aa4-e9a6-4d1f-b194-ece9da9407db">
+                    <propertyInstance
+                      Id="6b00f72b-2727-4836-bb4c-464a5d18560b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="59652744-525b-43b5-a93d-903bd848b13e"
+                  name="scene"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="27368807-0bba-4c90-80f4-c953898498e4"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dscene"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b57e71db-6e92-416b-8633-b0fd7b8a3658"
+                      LastKnownName="GameplayScene"
+                      LastKnownLocation="Package_1348.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="09c6103a-684e-4676-8294-9a45a38ff2dd"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0ea02e52-c771-40d7-a01f-3a6782632b8e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01372cf7-c749-44b2-a7a8-1e04adef6f5f"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="34511df6-e36e-498f-bf3e-6003c4c23fbb"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3b8a3a3c-f068-49aa-86bd-084adbbe2948"
+                      LastKnownName="Vector2"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bfccd462-7ae2-4a21-9c51-6a59f5e293b1"
+                  name="texture"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="25daa759-2ade-4a21-8c68-f250986ea358"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dtexture"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="db1a8df8-eb02-419a-8a38-d321925317a8"
+                      LastKnownName="Texture2D"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="917b112d-9e3b-454d-85c0-fd7dc5a44beb"
+                  name="soundEffect"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0710d660-00a3-493c-bcfc-f58131485976"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DsoundEffect"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="abe621f3-732d-4e42-b550-491ff4ae3a97"
+                      LastKnownName="SoundEffect"
+                      LastKnownLocation="Package_1349.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b5e9bb4a-7dc7-4a2d-a33e-72ee6e8668d1"
+                  name="colour"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="eb69a80c-b3a6-49c1-a589-23ffb647a40e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape Type%3DGameplayScene)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DTexture2D)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Audio Type%3DSoundEffect)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dcolour"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3a97d9f-5496-4fcf-beb3-2d7fc94cb506"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="075c777b-1db9-4e56-8dba-b6226daf59a5"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="24487bbf-afc3-4952-b824-e0007b058f18"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5f9d6c96-2bb5-4eba-9cf7-2d343d54bbce"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8897b9db-0569-4e48-842e-9cc99b60d262">
+                    <propertyInstance
+                      Id="3828179b-badf-45a5-81ab-edd4216b40ce"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c1b18e13-b7e8-4433-b337-71642a2e0800">
+                    <propertyInstance
+                      Id="25128c6b-25c7-4b89-9a5f-302d1a0486a8"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="407203ed-4802-40c8-aba4-f11ff62b522b">
+                    <propertyInstance
+                      Id="be59fd61-bf49-4c71-9c56-767b7ad65cfb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c9b07c9-6650-4f20-9821-b18d64734fc6">
+                    <propertyInstance
+                      Id="4912bc44-dae1-47db-92fa-f419c2ae6d5d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="31c42445-fd43-4a40-a058-b5b2db095aff">
+                    <propertyInstance
+                      Id="f2f71172-be97-4bcc-bacf-12110385f9dc"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f488d71-31ec-4094-9135-5b4327c3bb0d">
+                    <propertyInstance
+                      Id="7874db02-5fe0-43f7-935f-d3d2b16f0870"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9ee08069-a476-42fb-876c-93dba5012205"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="10f713c9-3cd6-43fd-bf10-ae63034b3dd4"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FSoundScape%2Fbin%2Fx86%2FDebug%2FSoundScape.exe Namespace%3DSoundScape.GameplaySceneComponents.Enemies Type%3DCircler Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="64296ff8-e77a-4e79-9435-89267e8ebec5"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

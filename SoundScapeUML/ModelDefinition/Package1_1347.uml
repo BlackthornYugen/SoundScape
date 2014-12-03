@@ -1,0 +1,776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="52b58fe8-e0ea-4676-880a-a925c28f3e7f"
+  name="Scenes"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="1b8a25ea-bb5d-4246-b900-3a94fdb4c1cd"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DXNALib.Scenes"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="f9845de9-1400-4ff7-9ca7-5b143c765ee0"
+        name="GameScene"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="41402205-6713-4ac7-8744-ee0c270949e0"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0623c9a4-a77d-4914-ae9f-1bb8e47735d2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c71609d0-933c-46f7-9f86-4777980a5bf6">
+                <propertyInstance
+                  Id="5db7e0ee-b35a-48aa-96b0-44e506edbbfa"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6338c8dc-9dd8-4632-81dc-db2f20b4094b">
+                <propertyInstance
+                  Id="b742e8a3-302c-4f7b-899c-4559f6152462"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1afdbeaf-3859-4431-87be-7f66320de8bb">
+                <propertyInstance
+                  Id="99a3c715-c585-4ed7-8547-5fa31d90b38a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="871e4b73-0a76-46d7-b335-f153986635ab">
+                <propertyInstance
+                  Id="70329ed8-e8d1-4d6d-9a46-44e0ee9e69b5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0daa8bd7-89b9-4732-be1e-a8ca49a0736e">
+                <propertyInstance
+                  Id="6e8cb3cd-cab3-492c-8f8f-893cbdc3eb95"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="dc8382b3-bb7e-4e34-9722-6da1f0eceec1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="4f9fc22c-a85c-4732-b1da-180491256c2b"
+              LastKnownName="DrawableGameComponent"
+              LastKnownLocation="Package4_1347.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="4095a741-4df7-4aa1-8ce2-3c08b48ead27"
+            isDerived="false"
+            sourceEndRoleName="GameScene"
+            targetEndRoleName="Components"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a20f25c2-043b-4521-bc9f-745517bcb5e6"
+              LastKnownName="GameComponentCollection"
+              LastKnownLocation="Package4_1347.uml" />
+            <description>Property Components references type GameComponentCollection.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1aadb500-af81-48df-8c76-b56a061f829f"
+                  name="GameScene"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2ffc3d88-4367-4120-bca9-b1179c610890"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f2a1212f-172b-43e1-8d47-b98998fafbde"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1084909-07c6-4e7d-8d7f-5553dfcc9091"
+                  name="Components"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5926daff-73a9-476a-b604-bf7d7a664282"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d158ccc2-8ca6-48cb-956e-d33cb24dc6e9"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="62c709fc-cf52-4f6b-aded-fcac2b5e8300"
+            name="Components"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9f1eaaba-ab51-4a3a-af61-97eb2448a228"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3DComponents"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1bce9194-38d4-4be4-8394-fc43494c704c"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="485e36f6-5727-403e-b909-bc43541c0dd1">
+                    <propertyInstance
+                      Id="92eefd34-4dab-47e2-92d4-c1bc5a0b7742"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb27b13c-9a5e-40c3-8b5b-be09d8642c26">
+                    <propertyInstance
+                      Id="1342a65d-ac40-4ea7-aa04-3d7b7803821a"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2090aa07-d31b-4d58-9949-5183c27e121b">
+                    <propertyInstance
+                      Id="bcc52b22-8d77-4ed6-b183-0e01789823e9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f99ac497-e072-481c-8bcf-8dda4119d063">
+                    <propertyInstance
+                      Id="de77ddd1-76b7-44a7-88c5-04f019dfa131"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="206aa35a-7bee-4b51-b831-b1255ba4cb9c">
+                    <propertyInstance
+                      Id="8f38fe10-b6b7-4999-8910-74bcd7481a9d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca935216-fe12-40b7-bb1c-6e7167c5b0b6">
+                    <propertyInstance
+                      Id="93aeb389-efcc-4ffd-91c2-d41678dfac58"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29274163-b93a-4a95-b760-47fe6300d4e3">
+                    <propertyInstance
+                      Id="aeb4a84a-f0b7-4526-9212-ce8ede92187c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="a20f25c2-043b-4521-bc9f-745517bcb5e6"
+                LastKnownName="GameComponentCollection"
+                LastKnownLocation="Package4_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0043ab65-3165-41e3-ac75-edac22a61b7d"
+            name="_components"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e943f9b2-4fc3-4e89-8797-aa8196991027"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D_components"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="724bfe86-cbac-451e-9f70-5a0b61f3fff3"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f783cbde-6275-4627-a7cd-680f8b731633">
+                    <propertyInstance
+                      Id="9602f854-74df-4e5f-bb49-77e7fe93ff59"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36ea55d0-98c3-49a1-86ab-1dbe18b4ccec">
+                    <propertyInstance
+                      Id="ae723789-0ea5-438a-af21-e17a87a21f5e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fc7ab16-aba6-46a6-b04a-5869c524d616">
+                    <propertyInstance
+                      Id="202113ff-811b-4774-84b8-28cc9e7a3f60"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bfe65071-c26a-49b2-84e7-3e5a21d48796">
+                    <propertyInstance
+                      Id="9188a105-5cc8-4fd3-a0d5-25876cc57c3a"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d668906-558b-408c-a757-06ddc1625997">
+                    <propertyInstance
+                      Id="b4311ff5-34a3-4c98-beb6-0dbdf27c5c74"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="a20f25c2-043b-4521-bc9f-745517bcb5e6"
+                LastKnownName="GameComponentCollection"
+                LastKnownLocation="Package4_1347.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="51e7ccf3-9779-4fa8-bef5-a16755f06a45"
+            name="_spritebatch"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5b623aab-6c21-4dfc-b48c-93e0ead9b0ab"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D_spritebatch"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="94ac51d2-ea9c-4260-8b8c-c48df912f0a0"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3753d5c4-f476-485b-83bd-67fa7ef40ead">
+                    <propertyInstance
+                      Id="afc20f5a-1789-4de3-bbe1-d566b23815b1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db7d0787-043f-47e8-98a6-d17831fc6763">
+                    <propertyInstance
+                      Id="217d4243-e3e6-41e8-855c-557d47b85174"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="826c1ab6-0bd2-4c58-8863-2ca7405681d7">
+                    <propertyInstance
+                      Id="57197b32-c00e-4368-93d8-876716129c89"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10d49b74-8599-473d-8133-db4b88029d6e">
+                    <propertyInstance
+                      Id="1b6b7872-e081-4799-8e9e-4f375f7ee415"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ee471cc-494b-473a-98da-5d48d8185d7c">
+                    <propertyInstance
+                      Id="fd488169-d849-4d21-b389-d79f0c7de502"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                LastKnownName="SpriteBatch"
+                LastKnownLocation="Package5_1347.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ad251e02-0a9c-4ef7-ba0e-8054decfd13d"
+            name="Show"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8f022328-7754-43f8-a4cf-c31789fc5654"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3DShow"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f714d95e-ba45-42f4-9aca-10a221adf657"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44b10992-0f84-4fac-abe6-1db14da685fc">
+                    <propertyInstance
+                      Id="40256179-6edb-4af0-9f8b-63fa53b47f63"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38a4125c-e49f-4386-9fc4-7d25925086aa">
+                    <propertyInstance
+                      Id="99521209-b8b8-471f-8562-224bcd3bdca7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e59b019-be9b-4eac-8549-137946008fe0">
+                    <propertyInstance
+                      Id="c1295c35-062d-492d-b98b-5f02ded76acb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd7530ac-5a29-4f0d-b375-978734953075">
+                    <propertyInstance
+                      Id="468ae4a8-6ab8-4bbc-8239-13fe4aa432ea"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a39c18f2-692a-4bfb-825d-2fffd4d1fb28">
+                    <propertyInstance
+                      Id="13eb293f-09e6-4fb8-b43a-8fcf1fbc656d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6d1c07e-1258-4ba3-8f42-39beb3e6c88e">
+                    <propertyInstance
+                      Id="81d5bf9e-bb0f-46cb-b8da-83b98040d4f7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="1369a41b-e9d8-480a-a96b-6054ac4e3378"
+            name="Hide"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="01878b36-d09a-4865-96f3-f8c0846b4135"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3DHide"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="90b4edee-af84-4db6-91f4-da21609dfa68"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="118aafa7-7835-483c-9a4a-4addbcb2a4b0">
+                    <propertyInstance
+                      Id="c0bec624-53ce-4fdd-9834-374998774874"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f4a7a4b-66e5-4f1b-a3f7-1e17d88ad054">
+                    <propertyInstance
+                      Id="352b5e36-ac9a-49ad-b0aa-473a64e2d156"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b5f97b7-4d18-4203-8f88-46d6bad7d6d8">
+                    <propertyInstance
+                      Id="b999be97-7aff-4dae-8061-5ad0cc9e0508"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d4225f1-8914-4472-b231-72913348b66f">
+                    <propertyInstance
+                      Id="30a43213-d755-4552-b693-2cfa43568776"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68127715-33a1-48c7-b860-7b2f74d0ee10">
+                    <propertyInstance
+                      Id="1527cc67-13cc-47b2-839e-4e6b470c4f9b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1021e6d0-7f25-4fbb-8815-915777252c11">
+                    <propertyInstance
+                      Id="f13be2ad-eb72-4d86-9259-800ff141fe0f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="dcbd141d-13e6-4b06-9355-2ccb7c42bcff"
+            name="GameScene"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e59f67f6-d330-44d0-91db-15b3f3b3b695"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5af14476-cdd0-4851-ab46-5b97b2b09dfb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ffd909a-9598-47ef-904a-6c802158be43">
+                    <propertyInstance
+                      Id="f4899d52-1e3d-4a9a-baf1-f99d48dd2c71"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e666a1d-0bbf-4c62-b5d7-2ba2c999973f">
+                    <propertyInstance
+                      Id="dda4d718-069e-484a-b887-b746a7633ab3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c32422fa-7d63-44da-904d-883717c6c86d">
+                    <propertyInstance
+                      Id="407c0aa8-3ebe-4f7d-9714-24ffedd8d93a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="59bfb407-1feb-4462-810e-7554505ea773">
+                    <propertyInstance
+                      Id="701b02d3-29f9-4f1d-a18a-2ffcdf724844"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8af0b7f-d9e1-4d98-8c50-13374f93173c">
+                    <propertyInstance
+                      Id="d86a471f-e544-44e4-8e0b-2dd6b061a95b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e0b967b-771e-4ead-a2aa-6c7d910bc025">
+                    <propertyInstance
+                      Id="31bc1dea-b586-4827-a144-30455e177022"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2b2859f7-8c2c-4d7e-9199-6ce0fdd88b48"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f9a1a6c1-df8c-43ef-9ab2-f94fd3fe692c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1a91c3df-9644-4230-9e7b-656283ed48c8"
+                      LastKnownName="Game"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dfa68a38-9c50-4feb-a1b2-b644e07436af"
+                  name="spritebatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="da24294e-67db-4191-92e7-af9ebaf74f54"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGame)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)]) ParameterIdentifier%3Dspritebatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="186bd23a-1717-4b2f-9772-3cd26aebe46a"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package5_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="05444993-ef65-468a-954d-311f1574c4bd"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="44277f1f-9311-4387-99de-455625f5093d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="77d40d3e-5110-41a1-ba5d-cf8e54e3f56b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b39e6e3-2784-44c0-95f4-83578da8b6e9">
+                    <propertyInstance
+                      Id="9f96c15f-359d-45da-a26c-2fd59a39bb5c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ead820d-b309-464f-9bc6-e2bf860e26a7">
+                    <propertyInstance
+                      Id="aaa82864-1b3f-46ab-8daf-1b298d2214d6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7700ec19-f541-4847-9b6f-ae6c386734d8">
+                    <propertyInstance
+                      Id="3292bf8c-8883-4eb0-9ceb-de8ac8d5c963"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2795b509-9826-4c71-9a9f-c89a616119af">
+                    <propertyInstance
+                      Id="e45da99e-5481-44f2-9523-4c3f135e34be"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7397b278-1293-4ecc-ac10-c1398e056dea">
+                    <propertyInstance
+                      Id="634f2803-3788-4059-a90e-a1cd54580688"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c6dab26-7cd3-4a05-b6c6-7c4f951668c6">
+                    <propertyInstance
+                      Id="203e8f88-f678-47c8-86ff-e47b14441bcf"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ebdb7eca-ece4-427b-ac97-9e04a1ebc37c"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b662971b-3f51-42ac-a737-cc33287e8497"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="64296ff8-e77a-4e79-9435-89267e8ebec5"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e8be9d3a-7176-4793-827e-25ee60482583"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="34f48fc7-5db7-48e2-9891-fe0522df2d2f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ae2f6bfb-fef2-4057-b684-ff0a6431fb23"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86aaf83b-c261-4918-84d3-2fbf245c7d1d">
+                    <propertyInstance
+                      Id="3a00bee4-311e-4a08-8c89-4fa19a5e0de2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18423ea5-9e08-43b9-9184-dd696080804a">
+                    <propertyInstance
+                      Id="9a118cb4-ff3f-47fc-8326-f81ff0fe4461"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17dd7425-0807-4258-b2c1-4de490cc74cc">
+                    <propertyInstance
+                      Id="091ea8c6-3a4a-487f-90aa-03191efa47c1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30a621a3-278b-44b4-8c8c-059b3c13b708">
+                    <propertyInstance
+                      Id="41683721-f9aa-49e7-874a-cbb8f53427c2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d36d686-ab13-4827-81ba-6559b2d3aab4">
+                    <propertyInstance
+                      Id="fde07d10-8778-4909-aa5f-c5fa8f9a4316"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e94e511d-f6df-46a1-9213-3db195f62abf">
+                    <propertyInstance
+                      Id="af3a2fa6-9744-48f6-8265-30019d7ef604"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7c27075-ab5c-420f-87db-989c56e07edf"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="856eb3c1-51a1-4110-9191-5345222c6f66"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2Fvs%2FSoundScape%2FSoundScape%2FXnaMenusAndScenes%2Fbin%2Fx86%2FDebug%2FXnaMenusAndScenes.dll Namespace%3DXNALib.Scenes Type%3DGameScene Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="64296ff8-e77a-4e79-9435-89267e8ebec5"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package4_1347.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e14383a4-c393-4ab0-95a6-4f3f0e9fb668"
+  name="Synthesis"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="282b7fe8-5c81-4163-898d-c10472bee78c"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Speech.Synthesis"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="a53552c2-e6d3-4ffe-8bd0-ea3dcf20827f"
+        name="SpeechSynthesizer"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6b15e185-0c1d-4cb6-979d-6af12ba6363a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2FSystem.Speech.dll&quot; Namespace%3DSystem.Speech.Synthesis Type%3DSpeechSynthesizer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b0c9e922-99a2-4992-aebf-d053c372dd5e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ad15333b-cdb7-4a8e-a799-43476d5567f2">
+                <propertyInstance
+                  Id="88447a46-4e7f-4790-bf6d-e8038558a2c7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f189aac4-b7c6-47a0-b862-697a634b328f">
+                <propertyInstance
+                  Id="ec745508-fc0b-4d48-a869-c3f1dab3f2bd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9fb5d950-c179-4b75-97aa-51db4722bf01">
+                <propertyInstance
+                  Id="7540f9ef-4e73-4a5a-9af7-03b93e5ec7bc"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fe5e4422-f336-4cc1-9db4-f994805c2c2e">
+                <propertyInstance
+                  Id="020d4e57-1e3c-42d6-8eff-f05d7914848f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f7835bfd-5102-479e-87b3-d283b73da993">
+                <propertyInstance
+                  Id="3250b80f-3249-4183-9e16-02fe60c800c5"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
