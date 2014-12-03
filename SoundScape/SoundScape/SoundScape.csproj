@@ -88,6 +88,7 @@
     <Compile Include="GameplaySceneComponents\Wall.cs" />
     <Compile Include="HighScore.cs" />
     <Compile Include="InfoScene.cs" />
+    <Compile Include="Levels\LevelDataTransfer.cs" />
     <Compile Include="Levels\MultiplayerCampaign.cs" />
     <Compile Include="Levels\MultiplayerLevel3.cs" />
     <Compile Include="Levels\MultiplayerLevel2.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
 using SoundScape.GameplaySceneComponents;
 using SoundScape.GameplaySceneComponents.Enemies;
 
@@ -9,9 +10,30 @@ namespace SoundScape.Levels
 {
     class MultiplayerLevel1 : GameplayScene
     {
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
+        }
+
         public MultiplayerLevel1(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
+            var dt = new LevelDataTransfer(){
+                Entities = new List<LevelDataTransfer.LevelEntity>()
+                {
+                    new LevelDataTransfer.LevelEntity {Speed = Vector2.One, Type = typeof (Bouncer)}
+                },
+                StartPositions = new List<LevelDataTransfer.LevelStartPosition>()
+                {
+                    new LevelDataTransfer.LevelStartPosition()
+                    {
+                        Anchor = LevelDataTransfer.Anchor.North | LevelDataTransfer.Anchor.West, 
+                        OffsetPosition = Vector2.Zero
+                    }
+                }
+            };
+
+            var jsonString = JsonConvert.SerializeObject(dt);
         }
 
         protected override void LoadContent()
