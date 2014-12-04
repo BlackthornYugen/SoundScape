@@ -10,12 +10,16 @@ namespace SoundScape
     /// </summary>
     public class InfoScene : GameScene
     {
-        private readonly Texture2D _texture;
+        //TODO: background
+        protected Texture2D _backGround;
 
-        public InfoScene(GameLoop game, Texture2D texture)
+
+        private readonly Texture2D _texture;
+        public InfoScene(GameLoop game, Texture2D texture, Texture2D backGround)
             : base(game, game.SpriteBatch)
         {
             _texture = texture;
+            _backGround = backGround;
         }
 
         protected Texture2D Texture
@@ -47,6 +51,10 @@ namespace SoundScape
         public override void Draw(GameTime gameTime)
         {
             _spritebatch.Begin();
+            if (_backGround != null)
+            {
+                _spritebatch.Draw(_backGround, new Vector2(), Color.White);
+            }
             _spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
             _spritebatch.End();
             base.Draw(gameTime);

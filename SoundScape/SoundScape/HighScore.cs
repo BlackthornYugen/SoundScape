@@ -10,20 +10,17 @@ namespace SoundScape
     public class HighScore : InfoScene
     {
         int _score;
-
         public int Score
         {
             get { return _score; }
-            set
-            {
-                _score = value;
-            }
+            set{_score = value;}
         }
 
-        public HighScore(GameLoop game, Texture2D texture, int score)
-            : base(game, texture)
+        public HighScore(GameLoop game, Texture2D texture, Texture2D backGround, int score)
+            : base(game, texture, backGround)
         {
             _score = score;
+
         }
 
         /// <summary>
@@ -53,6 +50,13 @@ namespace SoundScape
 
             string msg = "";
             _spritebatch.Begin();
+            
+            //TODO: background
+            if (_backGround != null)
+            {
+                _spritebatch.Draw(_backGround, new Vector2(), Color.White);
+            }
+            
             _spritebatch.Draw(Texture, Vector2.Zero, Color.White);
             msg = _score.ToString();
 

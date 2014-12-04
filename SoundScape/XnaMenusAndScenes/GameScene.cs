@@ -2,11 +2,17 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
 namespace XNALib.Scenes
 {
     public abstract class GameScene : DrawableGameComponent
     {
+        //TODO: background
+        private Texture2D _backGround;
+        public Texture2D BackGround
+        {
+            set { _backGround = value; }
+        }
+
         private GameComponentCollection _components;
         protected SpriteBatch _spritebatch;
 
@@ -15,6 +21,9 @@ namespace XNALib.Scenes
             get { return _components; }
             set { _components = value; }
         }
+
+
+
 
         public void Show()
         {
@@ -50,6 +59,14 @@ namespace XNALib.Scenes
 
         public override void Draw(GameTime gameTime)
         {
+            //TODO: background
+            if (_backGround != null)
+            {
+                _spritebatch.Begin();
+                _spritebatch.Draw(_backGround, new Vector2(), Color.White);
+                _spritebatch.End();
+            }
+
             IGameComponent[] components = Components.ToArray();
             foreach (IGameComponent gameComponent in components)
             {

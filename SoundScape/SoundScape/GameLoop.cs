@@ -5,6 +5,7 @@
  * 
  */
 using System;
+using System.Collections.Generic;
 using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +15,8 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
+
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -34,6 +37,9 @@ namespace SoundScape
         private GameScene _highScore;
         private GameScene _credit;
         private GameScene _gameplay;
+        private List<InfoScene> _allScenes = new List<InfoScene>();
+
+        private Texture2D _backGroundGamePlay;
 
         public GameLoop()
         {
@@ -100,20 +106,27 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            this.Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] 
-                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" }));
+            // TODO: set backgrounds
+            Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
+            _backGroundGamePlay = Content.Load<Texture2D>("images/back/deep");
 
-            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help")));
-            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay")));
+            _menu = new StartScene(this, _spriteBatch, new string[] 
+                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" });
+            _menu.BackGround = backGround;
+
+            this.Components.Add(_menu);
+            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), backGround));
+            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), backGround));
 
             int tempHigh = 3;
-            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), tempHigh));
-                
-            this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits")));
+            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), backGround, tempHigh));
+            
+            this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
+                backGround));
 
             MultiplayerCampaign.NewCampaign(this);
             _menu.Show();
-            
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -161,7 +174,6 @@ namespace SoundScape
                 }
             }
 
-            // { "Start Game", "How To Play", "Help", "High Score", "Credit", "Quit" }));
             if (_menu.Enabled
                 && (
                     ks.IsKeyDown(Keys.Enter)
@@ -171,7 +183,6 @@ namespace SoundScape
                     && _oldPadState.IsButtonUp(Buttons.Start)
                     )
                 )
-
             {
                 switch (_menu.SelectedItem.Name)
                 {
@@ -183,7 +194,9 @@ namespace SoundScape
                             Components.Remove(_gameplay);
                             _gameplay.Dispose();
                         }
-                        Components.Add(_gameplay = MultiplayerCampaign.NextLevel());
+                        _gameplay = MultiplayerCampaign.NextLevel();
+                        _gameplay.BackGround = _backGroundGamePlay;
+                        Components.Add(_gameplay);
                         _gameplay.Show();
                         _gameplay.Enabled = true;
                         break;
@@ -222,7 +235,6 @@ namespace SoundScape
                         break;
                 }
             }
-
 
             if (ks.IsKeyUp(Keys.Down) && _oldKeyboardState.IsKeyDown(Keys.Down) ||
                 ps.IsButtonDown(Buttons.DPadDown) && _oldPadState.IsButtonUp(Buttons.DPadDown))

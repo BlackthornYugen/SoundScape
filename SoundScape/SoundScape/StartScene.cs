@@ -40,11 +40,14 @@ namespace SoundScape
             : base(game, sb)
         {
             _menuItems = menuItems.ToList();
+
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+
+
             _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
