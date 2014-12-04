@@ -5,7 +5,6 @@
  * 
  */
 using System;
-using System.Collections.Generic;
 using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,19 +21,10 @@ namespace SoundScape
     /// </summary>
     public class GameLoop : Game
     {
-        SpriteBatch _spriteBatch;
-        KeyboardState _oldKeyboardState;
-        GamePadState _oldPadState;
+        private SpriteBatch _spriteBatch;
+        private KeyboardState _oldKeyboardState;
+        private GamePadState _oldPadState;
         private SpeechSynthesizer speechSynthesizer;
-        public SpriteBatch SpriteBatch
-        {
-            get { return _spriteBatch; }
-        }
-
-        public GameScene HighScore
-        {
-            get { return _highScore; }
-        }
 
         private StartScene _menu;
         private GameScene _howToPlay;
@@ -42,9 +32,6 @@ namespace SoundScape
         private GameScene _highScore;
         private GameScene _credit;
         private GameScene _gameplay;
-        private List<InfoScene> _allScenes = new List<InfoScene>();
-
-        private Texture2D _backGroundGamePlay;
 
         public GameLoop()
         {
@@ -64,6 +51,16 @@ namespace SoundScape
             // End of xna borderless hack ( http://gamedev.stackexchange.com/questions/37109/ )
 
             speechSynthesizer = new SpeechSynthesizer();
+        }
+
+        public SpriteBatch SpriteBatch
+        {
+            get { return _spriteBatch; }
+        }
+
+        public GameScene HighScore
+        {
+            get { return _highScore; }
         }
 
         public void Speak(string textToSpeak)
@@ -114,15 +111,16 @@ namespace SoundScape
             Texture2D dimensions = Content.Load<Texture2D>("images/Help");
             //All images for menus should have same size 
             Vector2 centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2 - dimensions.Width / 2,
-                GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2n);
+                GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2);
 
             // TODO: set backgrounds
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
-            _backGroundGamePlay = Content.Load<Texture2D>("images/back/deep");
 
             _menu = new StartScene(this, _spriteBatch, new string[] 
-                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" });
-            _menu.BackGround = backGround;
+                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
+            {
+                Background = backGround
+            };
 
             this.Components.Add(_menu);
             this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
@@ -207,7 +205,6 @@ namespace SoundScape
                             _gameplay.Dispose();
                         }
                         _gameplay = MultiplayerCampaign.NextLevel();
-                        _gameplay.BackGround = _backGroundGamePlay;
                         Components.Add(_gameplay);
                         _gameplay.Show();
                         _gameplay.Enabled = true;

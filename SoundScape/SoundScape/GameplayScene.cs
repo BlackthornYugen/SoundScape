@@ -139,6 +139,9 @@ namespace SoundScape
                 {Entity.EnemyBouncer, contentMgr.Load<Texture2D>("images/gsc/enemy")},
                 {Entity.EnemyCircler, contentMgr.Load<Texture2D>("images/gsc/enemy2")},
             };
+
+            // Default background texture
+            _backgroundTexture = _backgroundTexture ?? contentMgr.Load<Texture2D>("images/back/deep");
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
         }
