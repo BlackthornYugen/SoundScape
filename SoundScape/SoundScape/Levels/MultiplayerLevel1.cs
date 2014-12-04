@@ -48,17 +48,11 @@ namespace SoundScape.Levels
         {
             base.LoadContent();
             var cb = Game.Window.ClientBounds;
-            var colours = new Color[]
-            {
-                Color.Red,
-                Color.Blue,
-            };
 
             int startIndex;
-            var pWidth = Textures[Entity.Player].Width;
-            var pHeight = Textures[Entity.Player].Height;
+            var pWidth = Textures[Entity.PlayerOne].Width;
+            var pHeight = Textures[Entity.PlayerOne].Height;
 
-            #region Players
             var startingPositions = new List<Vector2>()
             {
                 new Vector2(
@@ -77,23 +71,36 @@ namespace SoundScape.Levels
 
             var r = new Random();
 
-            for (int i = 0; i < colours.Length; i++)
+            #region Players
+            startIndex = r.Next(startingPositions.Count);
+            Components.Add(new Player(
+                scene: this,
+                spriteBatch: _spritebatch,
+                position: startingPositions[startIndex],
+                texture: Textures[Entity.PlayerOne],
+                soundEffect: SFX[Entity.PlayerOne],
+                pan: 1f,
+                weaponSoundEffect: SFX[Entity.Item],
+                colour: Color.Red)
             {
-                startIndex = r.Next(startingPositions.Count);
-                Components.Add(new Player(
-                    scene: this, 
-                    spriteBatch: _spritebatch, 
-                    position: startingPositions[startIndex], 
-                    texture: Textures[Entity.Player], 
-                    soundEffect: SFX[Entity.Player], 
-                    pan: i % 2 == 0 ? 1f : -1f, 
-                    weaponSoundEffect: SFX[Entity.Item], 
-                    colour: colours[i % colours.Length])
-                {
-                    ControllerIndex = (PlayerIndex)i
-                });
-                startingPositions.RemoveAt(startIndex);
-            }
+                ControllerIndex = PlayerIndex.One
+            });
+
+            startingPositions.RemoveAt(startIndex);
+            startIndex = r.Next(startingPositions.Count);
+            Components.Add(new Player(
+                scene: this,
+                spriteBatch: _spritebatch,
+                position: startingPositions[startIndex],
+                texture: Textures[Entity.PlayerTwo],
+                soundEffect: SFX[Entity.PlayerTwo],
+                pan: -1f,
+                weaponSoundEffect: SFX[Entity.Item],
+                colour: Color.Blue)
+            {
+                ControllerIndex = PlayerIndex.Two
+            });
+            startingPositions.RemoveAt(startIndex);
             #endregion
 
             #region Enemies
@@ -102,8 +109,8 @@ namespace SoundScape.Levels
                 scene: this,
                 spriteBatch: _spritebatch,
                 position: startingPositions[startIndex],
-                texture: Textures[Entity.Enemy],
-                soundEffect: SFX[Entity.Enemy],
+                texture: Textures[Entity.EnemyCircler],
+                soundEffect: SFX[Entity.EnemyCircler],
                 colour: Color.Green)
             {
                 Speed = Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
@@ -116,8 +123,8 @@ namespace SoundScape.Levels
                 scene: this,
                 spriteBatch: _spritebatch,
                 position: startingPositions[startIndex],
-                texture: Textures[Entity.Enemy],
-                soundEffect: SFX[Entity.Enemy],
+                texture: Textures[Entity.EnemyBouncer],
+                soundEffect: SFX[Entity.EnemyBouncer],
                 colour: Color.Green)
             {
                 Speed = Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
