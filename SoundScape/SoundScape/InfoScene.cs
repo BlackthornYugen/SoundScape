@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using XNALib.Scenes;
 
-
 namespace SoundScape
 {
     /// <summary>
@@ -12,19 +11,20 @@ namespace SoundScape
     {
         //TODO: background
         protected Texture2D _backGround;
-
-
-        private readonly Texture2D _texture;
-        public InfoScene(GameLoop game, Texture2D texture, Texture2D backGround)
+        private readonly Texture2D _mainTexture;
+        protected Vector2 _mainTexPos;
+        
+        public InfoScene(GameLoop game, Texture2D mainTexture, Texture2D backGround, Vector2 mainTexPos)
             : base(game, game.SpriteBatch)
         {
-            _texture = texture;
+            _mainTexture = mainTexture;
             _backGround = backGround;
+            _mainTexPos = mainTexPos;
         }
 
         protected Texture2D Texture
         {
-            get { return _texture; }
+            get { return _mainTexture; }
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace SoundScape
             {
                 _spritebatch.Draw(_backGround, new Vector2(), Color.White);
             }
-            _spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
+            _spritebatch.Draw(_mainTexture, _mainTexPos,  Color.White);
             _spritebatch.End();
             base.Draw(gameTime);
         }

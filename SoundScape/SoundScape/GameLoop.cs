@@ -111,6 +111,11 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Texture2D dimensions = Content.Load<Texture2D>("images/Help");
+            //All images for menus should have same size 
+            Vector2 centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2 - dimensions.Width / 2,
+                GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2);
+
             // TODO: set backgrounds
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
             _backGroundGamePlay = Content.Load<Texture2D>("images/back/deep");
@@ -120,14 +125,16 @@ namespace SoundScape
             _menu.BackGround = backGround;
 
             this.Components.Add(_menu);
-            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), backGround));
-            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), backGround));
+            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
+                backGround, centerScreen));
+            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
+                backGround, centerScreen));
 
             int tempHigh = 3;
-            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), backGround, tempHigh));
-            
+            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), 
+                backGround, centerScreen, tempHigh));
             this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
-                backGround));
+                backGround, centerScreen));
 
             MultiplayerCampaign.NewCampaign(this);
             _menu.Show();

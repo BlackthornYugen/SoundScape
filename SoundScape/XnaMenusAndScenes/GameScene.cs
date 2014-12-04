@@ -22,9 +22,6 @@ namespace XNALib.Scenes
             set { _components = value; }
         }
 
-
-
-
         public void Show()
         {
             Enabled = true;

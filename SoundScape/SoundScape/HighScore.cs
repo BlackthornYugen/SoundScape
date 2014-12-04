@@ -16,8 +16,8 @@ namespace SoundScape
             set{_score = value;}
         }
 
-        public HighScore(GameLoop game, Texture2D texture, Texture2D backGround, int score)
-            : base(game, texture, backGround)
+        public HighScore(GameLoop game, Texture2D texture, Texture2D backGround, Vector2 centerScreen, int score)
+            : base(game, texture, backGround, centerScreen)
         {
             _score = score;
 
@@ -47,7 +47,6 @@ namespace SoundScape
         public override void Draw(GameTime gameTime)
         {
             SpriteFont regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
-
             string msg = "";
             _spritebatch.Begin();
             
@@ -56,12 +55,11 @@ namespace SoundScape
             {
                 _spritebatch.Draw(_backGround, new Vector2(), Color.White);
             }
-            
-            _spritebatch.Draw(Texture, Vector2.Zero, Color.White);
+
+            _spritebatch.Draw(Texture, _mainTexPos, Color.White);
             msg = _score.ToString();
 
-            _spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
-                new Vector2(), 1f, SpriteEffects.None, 0);
+            _spritebatch.DrawString(regularFont, msg, _mainTexPos + new Vector2(60, 90), Color.CornflowerBlue, 0, new Vector2(), 1f, SpriteEffects.None, 0);
             _spritebatch.End();
         }
     }

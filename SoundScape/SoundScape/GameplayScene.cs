@@ -134,10 +134,10 @@ namespace SoundScape
                 {Entity.Item, contentMgr.Load<Texture2D>("images/gsc/item")},
 
                 {Entity.PlayerOne, contentMgr.Load<Texture2D>("images/gsc/player")},
-                {Entity.PlayerTwo, contentMgr.Load<Texture2D>("images/gsc/player")},
+                {Entity.PlayerTwo, contentMgr.Load<Texture2D>("images/gsc/player2")},
 
                 {Entity.EnemyBouncer, contentMgr.Load<Texture2D>("images/gsc/enemy")},
-                {Entity.EnemyCircler, contentMgr.Load<Texture2D>("images/gsc/enemy")},
+                {Entity.EnemyCircler, contentMgr.Load<Texture2D>("images/gsc/enemy2")},
             };
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
