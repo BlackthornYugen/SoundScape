@@ -51,7 +51,7 @@ namespace SoundScape
         public enum Entity
         {
             Wall,
-            Item,
+            Sonar,
             PlayerOne,
             PlayerTwo,
             EnemyBouncer,
@@ -121,7 +121,7 @@ namespace SoundScape
             SFX = new Dictionary<Entity, SoundEffect>
             {
                 {Entity.Wall, contentMgr.Load<SoundEffect>("sounds/click")},
-                {Entity.Item, contentMgr.Load<SoundEffect>("sounds/ding")},
+                {Entity.Sonar, contentMgr.Load<SoundEffect>("sounds/ding")},
                 {Entity.PlayerOne, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
                 {Entity.PlayerTwo, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
                 {Entity.EnemyBouncer, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")},
@@ -131,7 +131,7 @@ namespace SoundScape
             Textures = new Dictionary<Entity, Texture2D>
             {
                 {Entity.Wall, contentMgr.Load<Texture2D>("images/gsc/wall")},
-                {Entity.Item, contentMgr.Load<Texture2D>("images/gsc/item")},
+                {Entity.Sonar, contentMgr.Load<Texture2D>("images/gsc/sonar")},
 
                 {Entity.PlayerOne, contentMgr.Load<Texture2D>("images/gsc/player")},
                 {Entity.PlayerTwo, contentMgr.Load<Texture2D>("images/gsc/player2")},
@@ -195,13 +195,13 @@ namespace SoundScape
 
         private void Victory()
         {
-            Game.Speak("You have been defeated.");
+            Game.Speak("You are Victorious!");
             GameOver();           
         }
 
         private void Defeat()
         {
-            Game.Speak("You are Victorious!");
+            Game.Speak("You have been defeated.");
             GameOver();
         }
 

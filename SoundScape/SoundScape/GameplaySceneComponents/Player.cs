@@ -257,16 +257,14 @@ namespace SoundScape.GameplaySceneComponents
             Color vColor = Colour;
             SpriteBatch.Begin();
             if (_aimVectors != null)
-                foreach (Vector2 aimVector in _aimVectors)
-                {
-                    if (aimVector != Vector2.Zero)
-                    {
-                        SpriteBatch.Draw(Texture, aimVector - new Vector2(Texture.Width / 2f, Texture.Height / 2f), vColor);
-                        vColor.R = (byte)(vColor.R / 1.1);
-                        vColor.G = (byte)(vColor.G / 1.1);
-                        vColor.B = (byte)(vColor.B / 1.1);
-                    }
-                }
+            for (int i = 5; i < _aimVectors.Length; i++)
+            {
+                Vector2 aimVector = _aimVectors[i];
+                SpriteBatch.Draw(SonarTexture, aimVector - new Vector2(SonarTexture.Width / 2f, SonarTexture.Height / 2f), vColor);
+                vColor.R = (byte)(vColor.R / 1.1);
+                vColor.G = (byte)(vColor.G / 1.1);
+                vColor.B = (byte)(vColor.B / 1.1);
+            }
             SpriteBatch.End();
             base.Draw(gameTime);
         }
@@ -364,5 +362,7 @@ namespace SoundScape.GameplaySceneComponents
         {
             get { return SCORE; }
         }
+
+        public Texture2D SonarTexture { get; set; }
     }
 }

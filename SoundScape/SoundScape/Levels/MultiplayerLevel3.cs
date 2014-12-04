@@ -51,11 +51,9 @@ namespace SoundScape.Levels
             {
                 startIndex = r.Next(startingPositions.Count);
                 player = new Player(this, _spritebatch, startingPositions[startIndex], Textures[Entity.PlayerOne], SFX[Entity.PlayerOne],
-                    i % 2 == 0 ? 1f : -1f, SFX[Entity.Item], colours[i % colours.Length]);
+                    i % 2 == 0 ? 1f : -1f, SFX[Entity.Sonar], colours[i % colours.Length]) {ControllerIndex = (PlayerIndex)i, SonarTexture = Textures[Entity.Sonar]};
                 startingPositions.RemoveAt(startIndex);
                 Components.Add(player);
-
-                player.ControllerIndex = (PlayerIndex)i;
             }
             Wall wall;
 
