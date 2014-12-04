@@ -6,13 +6,7 @@ namespace XNALib.Scenes
 {
     public abstract class GameScene : DrawableGameComponent
     {
-        //TODO: background
-        private Texture2D _backGround;
-        public Texture2D BackGround
-        {
-            set { _backGround = value; }
-        }
-
+        protected Texture2D _background;
         private GameComponentCollection _components;
         protected SpriteBatch _spritebatch;
 
@@ -22,8 +16,10 @@ namespace XNALib.Scenes
             set { _components = value; }
         }
 
-
-
+        public Texture2D Background
+        {
+            set { _background = value; }
+        }
 
         public void Show()
         {
@@ -59,11 +55,10 @@ namespace XNALib.Scenes
 
         public override void Draw(GameTime gameTime)
         {
-            //TODO: background
-            if (_backGround != null)
+            if (_background != null)
             {
                 _spritebatch.Begin();
-                _spritebatch.Draw(_backGround, new Vector2(), Color.White);
+                _spritebatch.Draw(_background, Vector2.Zero, Color.White);
                 _spritebatch.End();
             }
 
