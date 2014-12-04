@@ -18,7 +18,6 @@ namespace SoundScape
         private int _score = 0;
         private DateTime _startTime;
         private TimeSpan _runTime;
-        private Texture2D _backgroundTexture;
 
         public override void Update(GameTime gameTime)
         {
@@ -51,7 +50,7 @@ namespace SoundScape
         public enum Entity
         {
             Wall,
-            Item,
+            Sonar,
             PlayerOne,
             PlayerTwo,
             EnemyBouncer,
@@ -104,8 +103,8 @@ namespace SoundScape
 
         public Texture2D BackgroundTexture
         {
-            get { return _backgroundTexture; }
-            set { _backgroundTexture = value; }
+            get { return _background; }
+            set { _background = value; }
         }
 
         public HighScore Scoreboard
@@ -121,7 +120,7 @@ namespace SoundScape
             SFX = new Dictionary<Entity, SoundEffect>
             {
                 {Entity.Wall, contentMgr.Load<SoundEffect>("sounds/click")},
-                {Entity.Item, contentMgr.Load<SoundEffect>("sounds/ding")},
+                {Entity.Sonar, contentMgr.Load<SoundEffect>("sounds/ding")},
                 {Entity.PlayerOne, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
                 {Entity.PlayerTwo, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
                 {Entity.EnemyBouncer, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")},
@@ -131,7 +130,7 @@ namespace SoundScape
             Textures = new Dictionary<Entity, Texture2D>
             {
                 {Entity.Wall, contentMgr.Load<Texture2D>("images/gsc/wall")},
-                {Entity.Item, contentMgr.Load<Texture2D>("images/gsc/item")},
+                {Entity.Sonar, contentMgr.Load<Texture2D>("images/gsc/sonar")},
 
                 {Entity.PlayerOne, contentMgr.Load<Texture2D>("images/gsc/player")},
                 {Entity.PlayerTwo, contentMgr.Load<Texture2D>("images/gsc/player2")},
@@ -141,20 +140,9 @@ namespace SoundScape
             };
 
             // Default background texture
-            _backgroundTexture = _backgroundTexture ?? contentMgr.Load<Texture2D>("images/back/deep");
+            _background = _background ?? contentMgr.Load<Texture2D>("images/back/deep");
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
-        }
-
-        public override void Draw(GameTime gameTime)
-        {
-            if (_backgroundTexture != null)
-            {   // TODO: Test this
-                _spritebatch.Begin();
-                _spritebatch.Draw(_backgroundTexture, Game.Window.ClientBounds, Color.White);
-                _spritebatch.End();
-            }
-            base.Draw(gameTime);
         }
 
         /// <summary>
@@ -195,13 +183,13 @@ namespace SoundScape
 
         private void Victory()
         {
-            Game.Speak("You have been defeated.");
+            Game.Speak("You are Victorious!");
             GameOver();           
         }
 
         private void Defeat()
         {
-            Game.Speak("You are Victorious!");
+            Game.Speak("You have been defeated.");
             GameOver();
         }
 
@@ -210,7 +198,7 @@ namespace SoundScape
             Enabled = false;
             Visible = true;
             // TODO: Call something on _scoreboard to let it know our score. 
-            _scoreboard.updateScore(Score);
+            _scoreboard.Score = Score;
         }
     }
 }

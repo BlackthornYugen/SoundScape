@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace SoundScape
 {
 #if WINDOWS || XBOX
@@ -8,7 +10,7 @@ namespace SoundScape
         /// </summary>
         static void Main(string[] args)
         {
-            using (GameLoop game = new GameLoop())
+            using (GameLoop game = new GameLoop(args.FirstOrDefault()))
             {
                 game.Run();
             }

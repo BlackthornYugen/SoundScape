@@ -14,8 +14,10 @@ namespace SoundScape
             get { return _score; }
             set
             {
-                 _score = value;
-
+                if (value > _score)
+                {
+                    _score = value;
+                }
             }
         }
 
@@ -24,14 +26,6 @@ namespace SoundScape
             : base(game, texture, background, centerScreen)
         {
             _score = score;
-        }
-
-        public void updateScore(int score)
-        {
-            if (score > _score)
-            {
-                _score = score;
-            }
         }
 
         public override void Draw(GameTime gameTime)

@@ -79,11 +79,12 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerOne],
                 soundEffect: SFX[Entity.PlayerOne],
-                pan: 1f,
-                weaponSoundEffect: SFX[Entity.Item],
+                pan: -1f,
+                weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Red)
             {
-                ControllerIndex = PlayerIndex.One
+                Controller = Game.PlayerOne,
+                SonarTexture = Textures[Entity.Sonar],
             });
 
             startingPositions.RemoveAt(startIndex);
@@ -94,11 +95,12 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerTwo],
                 soundEffect: SFX[Entity.PlayerTwo],
-                pan: -1f,
-                weaponSoundEffect: SFX[Entity.Item],
+                pan: 1f,
+                weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Blue)
             {
-                ControllerIndex = PlayerIndex.Two
+                Controller = Game.PlayerTwo,
+                SonarTexture = Textures[Entity.Sonar],
             });
             startingPositions.RemoveAt(startIndex);
             #endregion

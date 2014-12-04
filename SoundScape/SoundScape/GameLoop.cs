@@ -5,6 +5,7 @@
  * 
  */
 using System;
+using System.Linq;
 using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,7 +25,7 @@ namespace SoundScape
         private SpriteBatch _spriteBatch;
         private KeyboardState _oldKeyboardState;
         private GamePadState _oldPadState;
-        private SpeechSynthesizer speechSynthesizer;
+        private readonly SpeechSynthesizer _speechSynthesizer;
 
         private StartScene _menu;
         private GameScene _howToPlay;
@@ -33,14 +34,37 @@ namespace SoundScape
         private GameScene _credit;
         private GameScene _gameplay;
 
-        public GameLoop()
+        public readonly VirtualController PlayerOne;
+        public readonly VirtualController PlayerTwo;
+
+        public GameLoop(string monitor = null)
         {
-            GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
+            PlayerOne = new VirtualController(this, PlayerIndex.One);
 
+            PlayerTwo = new VirtualController(this, PlayerIndex.Two)
+            {
+                MovementUpKeys = new[] { Keys.Up },
+                MovementDownKeys = new[] { Keys.Down },
+                MovementLeftKeys = new[] { Keys.Left },
+                MovementRightKeys = new[] { Keys.Right },
+
+                AimUpKeys = new[] { Keys.NumPad8 },
+                AimDownKeys = new[] { Keys.NumPad2 },
+                AimLeftKeys = new[] { Keys.NumPad4 },
+                AimRightKeys = new[] { Keys.NumPad6 },
+
+                GameFireKeys = new[] { Keys.Add, Keys.Subtract, Keys.Delete, Keys.Insert, }
+            };
+
+            GraphicsDeviceManager graphics;
+            if (monitor == null)
+                graphics = new GraphicsDeviceManager(this);
+            else
+                graphics = new TargetedGraphicsDeviceManager(this, monitor);
+            
             Content.RootDirectory = "Content";
-
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.Adapters.Last().CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.Adapters.Last().CurrentDisplayMode.Height;
             graphics.ApplyChanges();
 
             // The next 4 lines are apparently the only way to get borderless in xna. 
@@ -48,9 +72,10 @@ namespace SoundScape
             var control = System.Windows.Forms.Control.FromHandle(hWnd);
             var form = control.FindForm();
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.Left = 200;
             // End of xna borderless hack ( http://gamedev.stackexchange.com/questions/37109/ )
 
-            speechSynthesizer = new SpeechSynthesizer();
+            _speechSynthesizer = new SpeechSynthesizer();
         }
 
         public SpriteBatch SpriteBatch
@@ -65,8 +90,8 @@ namespace SoundScape
 
         public void Speak(string textToSpeak)
         {
-            speechSynthesizer.SpeakAsyncCancelAll();
-            speechSynthesizer.SpeakAsync(textToSpeak);
+            _speechSynthesizer.SpeakAsyncCancelAll();
+            _speechSynthesizer.SpeakAsync(textToSpeak);
         }
 
         private void HideAllScene()
@@ -137,7 +162,9 @@ namespace SoundScape
             MultiplayerCampaign.NewCampaign(this);
             _menu.Show();
 
-            // TODO: use this.Content to load your game content here
+            // TODO: get rid of this test
+            Components.Add(PlayerOne);
+            Components.Add(PlayerTwo);
         }
 
         /// <summary>
@@ -171,11 +198,10 @@ namespace SoundScape
             GamePadState ps = GamePad.GetState(0);
 
             // Allows the game to exit
-            if (ks.IsKeyDown(Keys.Escape) && _oldKeyboardState.IsKeyUp(Keys.Escape) ||
-                ps.IsButtonDown(Buttons.Back) && _oldPadState.IsButtonUp(Buttons.Back))
+            if (PlayerOne.ActionBack || PlayerTwo.ActionBack)
             {
                 if (_menu.Enabled)
-                    this.Exit();
+                    Exit();
                 else
                 {
                     HideAllScene();
@@ -184,15 +210,7 @@ namespace SoundScape
                 }
             }
 
-            if (_menu.Enabled
-                && (
-                    ks.IsKeyDown(Keys.Enter)
-                    && _oldKeyboardState.IsKeyUp(Keys.Enter) ||
-
-                    ps.IsButtonDown(Buttons.Start) 
-                    && _oldPadState.IsButtonUp(Buttons.Start)
-                    )
-                )
+            if (_menu.Enabled && (PlayerOne.ActionSelect || PlayerTwo.ActionSelect))
             {
                 switch (_menu.SelectedItem.Name)
                 {
