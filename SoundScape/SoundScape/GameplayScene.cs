@@ -13,6 +13,7 @@ namespace SoundScape
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
+        private HighScore _scoreboard;
         private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
@@ -107,6 +108,12 @@ namespace SoundScape
             set { _backgroundTexture = value; }
         }
 
+        public HighScore Scoreboard
+        {
+            get { return _scoreboard; }
+            set { _scoreboard = value; }
+        }
+
         protected override void LoadContent()
         {
             Console.WriteLine("{0} is being loaded.", this);
@@ -199,6 +206,7 @@ namespace SoundScape
         {
             Enabled = false;
             Visible = true;
+            // TODO: Call something on _scoreboard to let it know our score. 
         }
     }
 }
