@@ -12,7 +12,11 @@ namespace SoundScape
         public int Score
         {
             get { return _score; }
-            set{_score = value;}
+            set
+            {
+                 _score = value;
+
+            }
         }
 
         public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen,
@@ -20,6 +24,14 @@ namespace SoundScape
             : base(game, texture, background, centerScreen)
         {
             _score = score;
+        }
+
+        public void updateScore(int score)
+        {
+            if (score > _score)
+            {
+                _score = score;
+            }
         }
 
         public override void Draw(GameTime gameTime)
