@@ -97,6 +97,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="GameLoop.cs" />
     <Compile Include="StartScene.cs" />
+    <Compile Include="VirtualController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
