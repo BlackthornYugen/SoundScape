@@ -53,16 +53,11 @@ namespace SoundScape
 
             string msg = "";
             _spritebatch.Begin();
-
             _spritebatch.Draw(Texture, Vector2.Zero, Color.White);
-
-
             msg = _score.ToString();
-
 
             _spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
                 new Vector2(), 1f, SpriteEffects.None, 0);
-
             _spritebatch.End();
         }
     }
