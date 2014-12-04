@@ -99,6 +99,12 @@ namespace SoundScape
             get { return (DateTime.Now - _startTime + _runTime).Seconds; }
         }
 
+        public Texture2D BackgroundTexture
+        {
+            get { return _backgroundTexture; }
+            set { _backgroundTexture = value; }
+        }
+
         protected override void LoadContent()
         {
             Console.WriteLine("{0} is being loaded.", this);
@@ -120,7 +126,17 @@ namespace SoundScape
             };
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
-            
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            if (_backgroundTexture != null)
+            {   // TODO: Test this
+                _spritebatch.Begin();
+                _spritebatch.Draw(_backgroundTexture, Game.Window.ClientBounds, Color.White);
+                _spritebatch.End();
+            }
+            base.Draw(gameTime);
         }
 
         /// <summary>
