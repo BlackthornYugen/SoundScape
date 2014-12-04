@@ -47,14 +47,37 @@ namespace SoundScape.Levels
             var r = new Random();
 
             int startIndex;
-            for (int i = 0; i < colours.Length; i++)
+            startIndex = r.Next(startingPositions.Count);
+            Components.Add(new Player(
+                scene: this,
+                spriteBatch: _spritebatch,
+                position: startingPositions[startIndex],
+                texture: Textures[Entity.PlayerOne],
+                soundEffect: SFX[Entity.PlayerOne],
+                pan: 1f,
+                weaponSoundEffect: SFX[Entity.Sonar],
+                colour: Color.Red)
             {
-                startIndex = r.Next(startingPositions.Count);
-                player = new Player(this, _spritebatch, startingPositions[startIndex], Textures[Entity.PlayerOne], SFX[Entity.PlayerOne],
-                    i % 2 == 0 ? 1f : -1f, SFX[Entity.Sonar], colours[i % colours.Length]) {ControllerIndex = (PlayerIndex)i, SonarTexture = Textures[Entity.Sonar]};
-                startingPositions.RemoveAt(startIndex);
-                Components.Add(player);
-            }
+                Controller = Game.PlayerOne,
+                SonarTexture = Textures[Entity.Sonar],
+            });
+
+            startingPositions.RemoveAt(startIndex);
+            startIndex = r.Next(startingPositions.Count);
+            Components.Add(new Player(
+                scene: this,
+                spriteBatch: _spritebatch,
+                position: startingPositions[startIndex],
+                texture: Textures[Entity.PlayerTwo],
+                soundEffect: SFX[Entity.PlayerTwo],
+                pan: -1f,
+                weaponSoundEffect: SFX[Entity.Sonar],
+                colour: Color.Blue)
+            {
+                Controller = Game.PlayerTwo,
+                SonarTexture = Textures[Entity.Sonar],
+            });
+            startingPositions.RemoveAt(startIndex);
             Wall wall;
 
             // North Wall

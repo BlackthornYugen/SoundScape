@@ -83,7 +83,7 @@ namespace SoundScape.Levels
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Red)
             {
-                ControllerIndex = PlayerIndex.One,
+                Controller = Game.PlayerOne,
                 SonarTexture = Textures[Entity.Sonar],
             });
 
@@ -99,7 +99,7 @@ namespace SoundScape.Levels
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Blue)
             {
-                ControllerIndex = PlayerIndex.Two,
+                Controller = Game.PlayerTwo,
                 SonarTexture = Textures[Entity.Sonar],
             });
             startingPositions.RemoveAt(startIndex);

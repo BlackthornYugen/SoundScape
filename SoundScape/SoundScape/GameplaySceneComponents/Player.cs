@@ -18,6 +18,7 @@ namespace SoundScape.GameplaySceneComponents
 
         private PlayerIndex _controllerIndex;
         private GamePadState _padOldState;
+        private VirtualController _controller;
         private Vector2 _arrow;
         private Vector2[] _aimVectors;
         private float _pan;
@@ -92,7 +93,7 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            var _padState = GamePad.GetState(ControllerIndex);
+            var _padState = GamePad.GetState(_controllerIndex);
             
             // Toggle Visibility
             if (_padState.Buttons.Y == ButtonState.Released &&
@@ -115,8 +116,8 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             // Movement
-            float deltaX = _padState.ThumbSticks.Left.X;
-            float deltaY = -_padState.ThumbSticks.Left.Y;
+            float deltaX = Controller.AxisX;
+            float deltaY = -Controller.AxisY;
             var oldPosition = Position;
             Position += new Vector2(deltaX*3, deltaY*3);
             
@@ -269,16 +270,6 @@ namespace SoundScape.GameplaySceneComponents
             base.Draw(gameTime);
         }
 
-
-        /// <summary>
-        /// The controler used for this player.
-        /// </summary>
-        public PlayerIndex ControllerIndex
-        {
-            get { return _controllerIndex; }
-            set { _controllerIndex = value; }
-        }
-
         /// <summary>
         /// The left motor's rumble percentage.
         /// </summary>
@@ -364,5 +355,15 @@ namespace SoundScape.GameplaySceneComponents
         }
 
         public Texture2D SonarTexture { get; set; }
+
+        public VirtualController Controller
+        {
+            get { return _controller; }
+            set
+            {
+                _controller = value;
+                _controllerIndex = _controller.PlayerIndex;
+            }
+        }
     }
 }

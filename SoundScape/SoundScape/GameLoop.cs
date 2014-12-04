@@ -9,6 +9,7 @@ using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SoundScape.GameplaySceneComponents;
 using SoundScape.Levels;
 using XNALib.Scenes;
 
@@ -33,10 +34,21 @@ namespace SoundScape
         private GameScene _credit;
         private GameScene _gameplay;
 
-        private VirtualController a;
+        public VirtualController PlayerOne;
+        public VirtualController PlayerTwo;
 
         public GameLoop()
         {
+            PlayerOne = new VirtualController(this, PlayerIndex.One);
+
+            PlayerTwo = new VirtualController(this, PlayerIndex.Two)
+            {
+                MovementUpKeys = new[] { Keys.Up },
+                MovementDownKeys = new[] { Keys.Down },
+                MovementLeftKeys = new[] { Keys.Left },
+                MovementRightKeys = new[] { Keys.Right },
+            };
+
             GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
 
             Content.RootDirectory = "Content";
@@ -140,7 +152,8 @@ namespace SoundScape
             _menu.Show();
 
             // TODO: get rid of this test
-            Components.Add(a = new VirtualController(this, PlayerIndex.One));
+            Components.Add(PlayerOne);
+            Components.Add(PlayerTwo);
         }
 
         /// <summary>
@@ -170,25 +183,14 @@ namespace SoundScape
         /// </summary>
         void ControlInput()
         {
-            if (a.ActionMenuUp)
-            {
-                Console.WriteLine("UP");
-            }
-            if (a.ActionMenuDown)
-            {
-                Console.WriteLine("DOWN");
-            }
-
-
             KeyboardState ks = Keyboard.GetState();
             GamePadState ps = GamePad.GetState(0);
 
             // Allows the game to exit
-            if (ks.IsKeyDown(Keys.Escape) && _oldKeyboardState.IsKeyUp(Keys.Escape) ||
-                ps.IsButtonDown(Buttons.Back) && _oldPadState.IsButtonUp(Buttons.Back))
+            if (PlayerOne.ActionBack || PlayerTwo.ActionBack)
             {
                 if (_menu.Enabled)
-                    this.Exit();
+                    Exit();
                 else
                 {
                     HideAllScene();
@@ -197,15 +199,7 @@ namespace SoundScape
                 }
             }
 
-            if (_menu.Enabled
-                && (
-                    ks.IsKeyDown(Keys.Enter)
-                    && _oldKeyboardState.IsKeyUp(Keys.Enter) ||
-
-                    ps.IsButtonDown(Buttons.Start) 
-                    && _oldPadState.IsButtonUp(Buttons.Start)
-                    )
-                )
+            if (_menu.Enabled && (PlayerOne.ActionSelect || PlayerTwo.ActionSelect))
             {
                 switch (_menu.SelectedItem.Name)
                 {

@@ -30,7 +30,7 @@ namespace SoundScape.GameplaySceneComponents
             var p = this as Player;
             if (p != null)
             {
-                itemName += " " + p.ControllerIndex;
+                itemName += " " + p.Controller.PlayerIndex;
             }
             else if (this is Enemy)
             {
