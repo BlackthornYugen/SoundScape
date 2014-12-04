@@ -15,12 +15,13 @@ namespace SoundScape.Levels
 
         protected MultiplayerCampaign(GameLoop game)
         {
+            var scoreboard = _game.HighScore as HighScore;
             _game = game;
             _gameplayScenes = new List<GameplayScene>()
-            {
-                new MultiplayerLevel1(game, game.SpriteBatch),
-                new MultiplayerLevel2(game, game.SpriteBatch),
-                new MultiplayerLevel3(game, game.SpriteBatch)
+            {   // TODO: Find a better way to ref scoreboard or update constructor
+                new MultiplayerLevel1(game, game.SpriteBatch) {Scoreboard = scoreboard},
+                new MultiplayerLevel2(game, game.SpriteBatch) {Scoreboard = scoreboard},
+                new MultiplayerLevel3(game, game.SpriteBatch) {Scoreboard = scoreboard},
             };
         }
 

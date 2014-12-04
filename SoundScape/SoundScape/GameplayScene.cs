@@ -13,6 +13,7 @@ namespace SoundScape
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
+        private HighScore _scoreboard;
         private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
@@ -51,8 +52,10 @@ namespace SoundScape
         {
             Wall,
             Item,
-            Player,
-            Enemy
+            PlayerOne,
+            PlayerTwo,
+            EnemyBouncer,
+            EnemyCircler,
         }
 
         public GameplayScene(GameLoop game, SpriteBatch sb)
@@ -105,6 +108,12 @@ namespace SoundScape
             set { _backgroundTexture = value; }
         }
 
+        public HighScore Scoreboard
+        {
+            get { return _scoreboard; }
+            set { _scoreboard = value; }
+        }
+
         protected override void LoadContent()
         {
             Console.WriteLine("{0} is being loaded.", this);
@@ -113,16 +122,22 @@ namespace SoundScape
             {
                 {Entity.Wall, contentMgr.Load<SoundEffect>("sounds/click")},
                 {Entity.Item, contentMgr.Load<SoundEffect>("sounds/ding")},
-                {Entity.Player, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
-                {Entity.Enemy, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")}
+                {Entity.PlayerOne, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
+                {Entity.PlayerTwo, contentMgr.Load<SoundEffect>("sounds/777__vitriolix__808-kick")},
+                {Entity.EnemyBouncer, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")},
+                {Entity.EnemyCircler, contentMgr.Load<SoundEffect>("sounds/406__tictacshutup__click-1-d")},
             };
 
             Textures = new Dictionary<Entity, Texture2D>
             {
                 {Entity.Wall, contentMgr.Load<Texture2D>("images/gsc/wall")},
                 {Entity.Item, contentMgr.Load<Texture2D>("images/gsc/item")},
-                {Entity.Player, contentMgr.Load<Texture2D>("images/gsc/player")},
-                {Entity.Enemy, contentMgr.Load<Texture2D>("images/gsc/enemy")},
+
+                {Entity.PlayerOne, contentMgr.Load<Texture2D>("images/gsc/player")},
+                {Entity.PlayerTwo, contentMgr.Load<Texture2D>("images/gsc/player")},
+
+                {Entity.EnemyBouncer, contentMgr.Load<Texture2D>("images/gsc/enemy")},
+                {Entity.EnemyCircler, contentMgr.Load<Texture2D>("images/gsc/enemy")},
             };
             Console.WriteLine("{0} finished loading.\n", this);
             base.LoadContent();
@@ -191,6 +206,7 @@ namespace SoundScape
         {
             Enabled = false;
             Visible = true;
+            // TODO: Call something on _scoreboard to let it know our score. 
         }
     }
 }

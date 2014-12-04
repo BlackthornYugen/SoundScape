@@ -26,8 +26,8 @@ namespace SoundScape.Levels
 
             Player player;
 
-            var pWidth = Textures[Entity.Player].Width;
-            var pHeight = Textures[Entity.Player].Height;
+            var pWidth = Textures[Entity.PlayerOne].Width;
+            var pHeight = Textures[Entity.PlayerOne].Height;
             List<Vector2> startingPositions = new List<Vector2>()
             {
                 new Vector2(
@@ -50,7 +50,7 @@ namespace SoundScape.Levels
             for (int i = 0; i < colours.Length; i++)
             {
                 startIndex = r.Next(startingPositions.Count);
-                player = new Player(this, _spritebatch, startingPositions[startIndex], Textures[Entity.Player], SFX[Entity.Player],
+                player = new Player(this, _spritebatch, startingPositions[startIndex], Textures[Entity.PlayerOne], SFX[Entity.PlayerOne],
                     i % 2 == 0 ? 1f : -1f, SFX[Entity.Item], colours[i % colours.Length]);
                 startingPositions.RemoveAt(startIndex);
                 Components.Add(player);
@@ -109,8 +109,8 @@ namespace SoundScape.Levels
                 scene: this,
                 spriteBatch: _spritebatch,
                 position: startingPositions[startIndex],
-                texture: Textures[Entity.Enemy],
-                soundEffect: SFX[Entity.Enemy],
+                texture: Textures[Entity.EnemyBouncer],
+                soundEffect: SFX[Entity.EnemyBouncer],
                 colour: Color.Green);
             enemy.Speed =
                 Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
@@ -123,8 +123,8 @@ namespace SoundScape.Levels
                 scene: this,
                 spriteBatch: _spritebatch,
                 position: startingPositions[startIndex],
-                texture: Textures[Entity.Enemy],
-                soundEffect: SFX[Entity.Enemy],
+                texture: Textures[Entity.EnemyBouncer],
+                soundEffect: SFX[Entity.EnemyBouncer],
                 colour: Color.Green);
             enemy.Speed =
                 Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
@@ -136,8 +136,8 @@ namespace SoundScape.Levels
                 scene: this,
                 spriteBatch: _spritebatch,
                 position: new Vector2(cb.Width / 2, cb.Height / 2), 
-                texture: Textures[Entity.Enemy],
-                soundEffect: SFX[Entity.Enemy],
+                texture: Textures[Entity.EnemyBouncer],
+                soundEffect: SFX[Entity.EnemyBouncer],
                 colour: Color.Green);
             enemy.Speed =
                 Vector2.UnitX * (r.Next(2) == 0 ? -3 : 3) +

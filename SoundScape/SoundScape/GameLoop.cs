@@ -31,6 +31,11 @@ namespace SoundScape
             get { return _spriteBatch; }
         }
 
+        public GameScene HighScore
+        {
+            get { return _highScore; }
+        }
+
         private StartScene _menu;
         private GameScene _howToPlay;
         private GameScene _help;
@@ -213,7 +218,7 @@ namespace SoundScape
                     case "High Score":
                         HideAllScene();
                         SetTitle("High Score");
-                        _highScore.Show();
+                        HighScore.Show();
                         break;
                     case "Credits":
                         HideAllScene();
