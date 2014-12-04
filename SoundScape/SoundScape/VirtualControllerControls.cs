@@ -35,9 +35,15 @@ namespace SoundScape
                 return KeyPressed(MenuSelectKeys) || ButtonPressed(MenuSelectButtons);
             }
         }
+
+        public Keys[] GameFireKeys { get; set; }
+        public Buttons[] GameFireButtons { get; set; }
         public bool ActionFire
         {
-            get { return ActionSelect; }
+            get
+            {
+                return KeyPressed(GameFireKeys) || ButtonPressed(GameFireButtons);
+            }
         }
 
         public Keys[] MenuBackKeys { get; set; }
@@ -54,7 +60,7 @@ namespace SoundScape
         public Keys[] MovementRightKeys { get; set; }
         public Keys[] MovementLeftKeys { get; set; }
 
-        public float AxisX
+        public float MovementAxisX
         {
             get
             {
@@ -66,7 +72,7 @@ namespace SoundScape
                     if (KeyDown(MovementRightKeys))
                         return 1;
 
-                    return _padState.ThumbSticks.Left.X;
+                    return PadState.ThumbSticks.Left.X;
                 }
                 catch (Exception ex)
                 {
@@ -78,7 +84,7 @@ namespace SoundScape
 
         public Keys[] MovementUpKeys { get; set; }
         public Keys[] MovementDownKeys { get; set; }
-        public float AxisY
+        public float MovementAxisY
         {
             get
             {
@@ -90,7 +96,57 @@ namespace SoundScape
                     if (KeyDown(MovementDownKeys))
                         return -1;
 
-                    return _padState.ThumbSticks.Left.Y;
+                    return PadState.ThumbSticks.Left.Y;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    return 0;
+                }
+            }
+        }
+
+        public Keys[] AimUpKeys { get; set; }
+        public Keys[] AimDownKeys { get; set; }
+        public float AimAxisY
+        {
+            get
+            {
+                try
+                {
+                    float factor = KeyDown(AimLeftKeys) || KeyDown(AimRightKeys) ? 0.7f : 1f;
+                    if (KeyDown(AimUpKeys))
+                        return factor;
+
+                    if (KeyDown(AimDownKeys))
+                        return -factor;
+
+                    return PadState.ThumbSticks.Right.Y;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    return 0;
+                }
+            }
+        }
+
+        public Keys[] AimLeftKeys { get; set; }
+        public Keys[] AimRightKeys { get; set; }
+        public float AimAxisX
+        {
+            get
+            {
+                try
+                {
+                    float factor = KeyDown(AimUpKeys) || KeyDown(AimDownKeys) ? 0.55f : 1f;
+                    if (KeyDown(AimLeftKeys))
+                        return -factor;
+
+                    if (KeyDown(AimRightKeys))
+                        return factor;
+
+                    return PadState.ThumbSticks.Right.X;
                 }
                 catch (Exception ex)
                 {

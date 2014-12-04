@@ -5,11 +5,11 @@
  * 
  */
 using System;
+using System.Linq;
 using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SoundScape.GameplaySceneComponents;
 using SoundScape.Levels;
 using XNALib.Scenes;
 
@@ -25,7 +25,7 @@ namespace SoundScape
         private SpriteBatch _spriteBatch;
         private KeyboardState _oldKeyboardState;
         private GamePadState _oldPadState;
-        private SpeechSynthesizer speechSynthesizer;
+        private readonly SpeechSynthesizer _speechSynthesizer;
 
         private StartScene _menu;
         private GameScene _howToPlay;
@@ -34,10 +34,10 @@ namespace SoundScape
         private GameScene _credit;
         private GameScene _gameplay;
 
-        public VirtualController PlayerOne;
-        public VirtualController PlayerTwo;
+        public readonly VirtualController PlayerOne;
+        public readonly VirtualController PlayerTwo;
 
-        public GameLoop()
+        public GameLoop(string monitor = null)
         {
             PlayerOne = new VirtualController(this, PlayerIndex.One);
 
@@ -47,14 +47,24 @@ namespace SoundScape
                 MovementDownKeys = new[] { Keys.Down },
                 MovementLeftKeys = new[] { Keys.Left },
                 MovementRightKeys = new[] { Keys.Right },
+
+                AimUpKeys = new[] { Keys.NumPad8 },
+                AimDownKeys = new[] { Keys.NumPad2 },
+                AimLeftKeys = new[] { Keys.NumPad4 },
+                AimRightKeys = new[] { Keys.NumPad6 },
+
+                GameFireKeys = new[] { Keys.Add, Keys.Subtract, Keys.Delete, Keys.Insert, }
             };
 
-            GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
-
+            GraphicsDeviceManager graphics;
+            if (monitor == null)
+                graphics = new GraphicsDeviceManager(this);
+            else
+                graphics = new TargetedGraphicsDeviceManager(this, monitor);
+            
             Content.RootDirectory = "Content";
-
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.Adapters.Last().CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.Adapters.Last().CurrentDisplayMode.Height;
             graphics.ApplyChanges();
 
             // The next 4 lines are apparently the only way to get borderless in xna. 
@@ -62,9 +72,10 @@ namespace SoundScape
             var control = System.Windows.Forms.Control.FromHandle(hWnd);
             var form = control.FindForm();
             form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.Left = 200;
             // End of xna borderless hack ( http://gamedev.stackexchange.com/questions/37109/ )
 
-            speechSynthesizer = new SpeechSynthesizer();
+            _speechSynthesizer = new SpeechSynthesizer();
         }
 
         public SpriteBatch SpriteBatch
@@ -79,8 +90,8 @@ namespace SoundScape
 
         public void Speak(string textToSpeak)
         {
-            speechSynthesizer.SpeakAsyncCancelAll();
-            speechSynthesizer.SpeakAsync(textToSpeak);
+            _speechSynthesizer.SpeakAsyncCancelAll();
+            _speechSynthesizer.SpeakAsync(textToSpeak);
         }
 
         private void HideAllScene()

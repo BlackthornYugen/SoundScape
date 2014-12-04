@@ -18,17 +18,10 @@ namespace SoundScape.Levels
         {
             base.LoadContent();
             var cb = Game.Window.ClientBounds;
-            Color[] colours = new Color[]
-            {
-                Color.Red,
-                Color.Blue,
-            };
-
-            Player player;
 
             var pWidth = Textures[Entity.PlayerOne].Width;
             var pHeight = Textures[Entity.PlayerOne].Height;
-            List<Vector2> startingPositions = new List<Vector2>()
+            var startingPositions = new List<Vector2>()
             {
                 new Vector2(
                     x: pWidth, 
@@ -54,7 +47,7 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerOne],
                 soundEffect: SFX[Entity.PlayerOne],
-                pan: 1f,
+                pan: -1f,
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Red)
             {
@@ -70,7 +63,7 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerTwo],
                 soundEffect: SFX[Entity.PlayerTwo],
-                pan: -1f,
+                pan: 1f,
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Blue)
             {

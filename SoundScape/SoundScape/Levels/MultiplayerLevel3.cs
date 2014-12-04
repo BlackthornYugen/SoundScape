@@ -24,11 +24,9 @@ namespace SoundScape.Levels
                 Color.Blue,
             };
 
-            Player player;
-
             var pWidth = Textures[Entity.PlayerOne].Width;
             var pHeight = Textures[Entity.PlayerOne].Height;
-            List<Vector2> startingPositions = new List<Vector2>()
+            var startingPositions = new List<Vector2>()
             {
                 new Vector2(
                     x: pWidth, 
@@ -54,7 +52,7 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerOne],
                 soundEffect: SFX[Entity.PlayerOne],
-                pan: 1f,
+                pan: -1f,
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Red)
             {
@@ -70,7 +68,7 @@ namespace SoundScape.Levels
                 position: startingPositions[startIndex],
                 texture: Textures[Entity.PlayerTwo],
                 soundEffect: SFX[Entity.PlayerTwo],
-                pan: -1f,
+                pan: 1f,
                 weaponSoundEffect: SFX[Entity.Sonar],
                 colour: Color.Blue)
             {
@@ -156,7 +154,7 @@ namespace SoundScape.Levels
             enemy = new Circler(
                 scene: this,
                 spriteBatch: _spritebatch,
-                position: new Vector2(cb.Width / 2, cb.Height / 2), 
+                position: new Vector2(cb.Width / 2f, cb.Height / 2f), 
                 texture: Textures[Entity.EnemyBouncer],
                 soundEffect: SFX[Entity.EnemyBouncer],
                 colour: Color.Green);

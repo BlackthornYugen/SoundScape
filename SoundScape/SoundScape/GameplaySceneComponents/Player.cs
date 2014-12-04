@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
 namespace SoundScape.GameplaySceneComponents
 {
@@ -93,11 +95,10 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            var _padState = GamePad.GetState(_controllerIndex);
+            var _padState = Controller.PadState;
             
             // Toggle Visibility
-            if (_padState.Buttons.Y == ButtonState.Released &&
-                _padOldState.Buttons.Y == ButtonState.Pressed)
+            if (Controller.ButtonPressed(Buttons.Y))
             {
                 Scene.Visible = !Scene.Visible;
             }
@@ -116,8 +117,8 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             // Movement
-            float deltaX = Controller.AxisX;
-            float deltaY = -Controller.AxisY;
+            float deltaX = Controller.MovementAxisX;
+            float deltaY = -Controller.MovementAxisY;
             var oldPosition = Position;
             Position += new Vector2(deltaX*3, deltaY*3);
             
@@ -170,9 +171,7 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            else if (_weaponState == WeaponState.Discharged &&
-                _padState.Buttons.RightShoulder == ButtonState.Released &&
-                _padOldState.Buttons.RightShoulder == ButtonState.Pressed)
+            else if (_weaponState == WeaponState.Discharged && Controller.ActionFire)
             {
                 _weaponSoundEffectInstance.Pitch = -1;
                 _weaponSoundEffectInstance.Play();
@@ -183,7 +182,7 @@ namespace SoundScape.GameplaySceneComponents
 
 
             // Sound Wave
-            _arrow = new Vector2(_padState.ThumbSticks.Right.X, -_padState.ThumbSticks.Right.Y) * DISTANCE_FACTOR;
+            _arrow = new Vector2(_controller.AimAxisX, -_controller.AimAxisY) * DISTANCE_FACTOR;
 
 
             bool hitSomething = false;

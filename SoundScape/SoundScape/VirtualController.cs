@@ -10,40 +10,54 @@ namespace SoundScape
     public partial class VirtualController : GameComponent
     {
         private PlayerIndex _playerIndex;
-        private GamePadState _padState;
-        private KeyboardState _keyState;
-        private MouseState _ratState;
+        private GamePadState _padStateNew, _padStateOld;
+        private KeyboardState _keyStateNew, _keyStateOld;
+        private MouseState _ratStateNew, _ratStateOld;
 
         public VirtualController(Game game, PlayerIndex playerIndex) : base(game)
         {
             _playerIndex = playerIndex;
-            _padState = GamePad.GetState(PlayerIndex);
-            _ratState = Mouse.GetState();
+            _keyStateNew = Keyboard.GetState();
+            _padStateNew = GamePad.GetState(PlayerIndex);
+            _ratStateNew = Mouse.GetState();
 
 
             // Set Default keys
-            MenuUpKeys = new [] { Keys.Up, Keys.OemPlus, Keys.PageUp };
-            MenuDownKeys = new [] { Keys.Down, Keys.OemMinus, Keys.PageDown };
+            MenuUpKeys = new[] { Keys.Up, Keys.OemPlus, Keys.PageUp };
+            MenuDownKeys = new[] { Keys.Down, Keys.OemMinus, Keys.PageDown };
             MenuSelectKeys = new[] { Keys.Enter };
             MenuBackKeys = new[] { Keys.Escape };
             MovementUpKeys = new[] { Keys.W };
-            MovementDownKeys = new [] { Keys.S };
-            MovementLeftKeys = new [] { Keys.A };
-            MovementRightKeys = new [] { Keys.D };
-
+            MovementDownKeys = new[] { Keys.S };
+            MovementLeftKeys = new[] { Keys.A };
+            MovementRightKeys = new[] { Keys.D };
+            AimUpKeys = new[] { Keys.U };
+            AimDownKeys = new[] { Keys.J };
+            AimLeftKeys = new[] { Keys.H };
+            AimRightKeys = new[] { Keys.K };
+            GameFireKeys = new[] { Keys.Enter };
 
             // Set Default buttons
-            MenuSelectButtons = new [] { Buttons.Start };
-            MenuBackButtons = new [] { Buttons.Start };
-            MenuUpButtons = new [] {Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp};
-            MenuDownButtons = new [] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickUp };
+            MenuSelectButtons = new[] { Buttons.Start };
+            MenuBackButtons = new[] { Buttons.Back };
+            MenuUpButtons = new[] { Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp };
+            MenuDownButtons = new[] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickUp };
+            GameFireButtons = new[] { Buttons.RightShoulder, Buttons.RightTrigger };
         }
 
         public override void Update(GameTime gameTime)
         {
-            _padState = GamePad.GetState(PlayerIndex);
-            _keyState = Keyboard.GetState();
-            _ratState = Mouse.GetState();
+            if (ActionFire)
+            {
+                Console.WriteLine("Fire");
+            }
+            _padStateOld = _padStateNew;
+            _keyStateOld = _keyStateNew;
+            _ratStateOld = _ratStateNew;
+
+            _padStateNew = GamePad.GetState(PlayerIndex);
+            _keyStateNew = Keyboard.GetState();
+            _ratStateNew = Mouse.GetState();
             base.Update(gameTime);
         }
 
@@ -52,52 +66,36 @@ namespace SoundScape
             get { return _playerIndex; }
         }
 
-        public bool KeyPressed(Keys key, KeyboardState? ks = null)
+        public GamePadState PadState
         {
-            KeyboardState keystate = ks ?? Keyboard.GetState();
-            return keystate.IsKeyDown(key) && _keyState.IsKeyUp(key);
+            get { return _padStateNew; }
         }
 
-        public bool KeyPressed(IEnumerable<Keys> keys, KeyboardState? ks = null)
+        public bool KeyPressed(IEnumerable<Keys> keys)
         {
-            KeyboardState keystate = ks ?? Keyboard.GetState();
-            return keys.Any(key => keystate.IsKeyDown(key) && _keyState.IsKeyUp(key));
+            return keys.Any(key => _keyStateNew.IsKeyDown(key) && _keyStateOld.IsKeyUp(key));
         }
 
-        public bool KeyDown(Keys key, KeyboardState? ks = null)
+        public bool KeyDown(IEnumerable<Keys> keys)
         {
-            KeyboardState keystate = ks ?? Keyboard.GetState();
-            return keystate.IsKeyDown(key);
+            return keys.Any(_keyStateNew.IsKeyDown);
         }
 
-        public bool KeyDown(IEnumerable<Keys> keys, KeyboardState? ks = null)
+        public bool ButtonPressed(IEnumerable<Buttons> buttons)
         {
-            KeyboardState keystate = ks ?? Keyboard.GetState();
-            return keys.Any(keystate.IsKeyDown);
+            return buttons.Any(button => _padStateNew.IsButtonDown(button) && _padStateOld.IsButtonUp(button));
         }
 
-        public bool ButtonPressed(Buttons button, GamePadState? gs = null)
+        public bool ButtonDown(IEnumerable<Buttons> buttons)
         {
-            GamePadState padState = gs ?? GamePad.GetState(PlayerIndex);
-            return padState.IsButtonDown(button) && _padState.IsButtonUp(button);
+            return buttons.Any(PadState.IsButtonDown);
         }
 
-        public bool ButtonPressed(IEnumerable<Buttons> buttons, GamePadState? gs = null)
-        {
-            GamePadState padState = gs ?? GamePad.GetState(PlayerIndex);
-            return buttons.Any(button => padState.IsButtonDown(button) && _padState.IsButtonUp(button));
-        }
 
-        public bool ButtonDown(Buttons button, GamePadState? gs = null)
+        // Overloads for non-arrays
+        internal bool ButtonPressed(Buttons button)
         {
-            GamePadState padState = gs ?? GamePad.GetState(PlayerIndex);
-            return padState.IsButtonDown(button);
-        }
-
-        public bool ButtonDown(IEnumerable<Buttons> buttons, GamePadState? gs = null)
-        {
-            GamePadState padState = gs ?? GamePad.GetState(PlayerIndex);
-            return buttons.Any(padState.IsButtonDown);
+            return ButtonPressed(new[] {button});
         }
     }
 }
