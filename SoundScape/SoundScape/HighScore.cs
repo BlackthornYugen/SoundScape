@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-
 namespace SoundScape
 {
     /// <summary>
@@ -16,11 +15,11 @@ namespace SoundScape
             set{_score = value;}
         }
 
-        public HighScore(GameLoop game, Texture2D texture, Texture2D background, int score)
-            : base(game, texture, background)
+        public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen,
+            int score)
+            : base(game, texture, background, centerScreen)
         {
             _score = score;
-
         }
 
         public override void Draw(GameTime gameTime)
@@ -31,10 +30,10 @@ namespace SoundScape
             string msg = "";
             _spritebatch.Begin();
             
-            _spritebatch.Draw(Texture, Vector2.Zero, Color.White);
+            _spritebatch.Draw(Texture, _centerScreen, Color.White);
             msg = _score.ToString();
 
-            _spritebatch.DrawString(regularFont, msg, new Vector2(60, 90), Color.CornflowerBlue, 0,
+            _spritebatch.DrawString(regularFont, msg, _centerScreen + new Vector2(60, 90), Color.CornflowerBlue, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();
         }

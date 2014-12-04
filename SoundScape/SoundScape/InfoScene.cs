@@ -11,11 +11,14 @@ namespace SoundScape
     public class InfoScene : GameScene
     {
         private readonly Texture2D _texture;
-        public InfoScene(GameLoop game, Texture2D texture, Texture2D background)
+        protected Vector2 _centerScreen;
+
+        public InfoScene(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen)
             : base(game, game.SpriteBatch)
         {
             _texture = texture;
             _background = background;
+            _centerScreen = centerScreen;
         }
 
         protected Texture2D Texture
@@ -27,7 +30,7 @@ namespace SoundScape
         {
             base.Draw(gameTime);
             _spritebatch.Begin();
-            _spritebatch.Draw(_texture, Vector2.Zero,  Color.White);
+            _spritebatch.Draw(_texture, _centerScreen, Color.White);
             _spritebatch.End();
         }
     }
