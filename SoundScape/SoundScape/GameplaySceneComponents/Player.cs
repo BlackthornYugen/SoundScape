@@ -17,7 +17,6 @@ namespace SoundScape.GameplaySceneComponents
         private const int SCORE = -50;
 
         private PlayerIndex _controllerIndex;
-        private GamePadState _padState;
         private GamePadState _padOldState;
         private Vector2 _arrow;
         private Vector2[] _aimVectors;
@@ -93,12 +92,11 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            _padState = GamePad.GetState(ControllerIndex);
-
-
+            var _padState = GamePad.GetState(ControllerIndex);
+            
             // Toggle Visibility
-            if ((_padState.Buttons.Y == ButtonState.Released &&
-                _padOldState.Buttons.Y == ButtonState.Pressed))
+            if (_padState.Buttons.Y == ButtonState.Released &&
+                _padOldState.Buttons.Y == ButtonState.Pressed)
             {
                 Scene.Visible = !Scene.Visible;
             }
