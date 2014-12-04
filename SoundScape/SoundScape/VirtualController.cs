@@ -18,6 +18,8 @@ namespace SoundScape
         public VirtualController(Game game, PlayerIndex playerIndex) : base(game)
         {
             _playerIndex = playerIndex;
+            _padState = GamePad.GetState(_playerIndex);
+            _ratState = Mouse.GetState();
         }
 
         public override void Update(GameTime gameTime)
@@ -34,7 +36,7 @@ namespace SoundScape
             {
                 Keys[] keys = { Keys.Up, Keys.OemPlus, Keys.PageUp };
                 Buttons[] button = { Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp };
-                return keys.Any(key => _keyState.IsKeyDown(key));
+                return KeyPressed(keys) || ButtonPressed(button);
             }
         }
 
@@ -51,13 +53,13 @@ namespace SoundScape
         public bool KeyPressed(Keys key, KeyboardState? ks = null)
         {
             ks = ks ?? Keyboard.GetState();
-            return ks.Value.IsKeyDown(key) && ks.Value.IsKeyUp(key);
+            return ks.Value.IsKeyDown(key) && _keyState.IsKeyUp(key);
         }
 
         public bool KeyPressed(Keys[] keys, KeyboardState? ks = null)
         {
             ks = ks ?? Keyboard.GetState();
-            return keys.Any(key => ks.Value.IsKeyDown(key) && ks.Value.IsKeyUp(key));
+            return keys.Any(key => ks.Value.IsKeyDown(key) && _keyState.IsKeyUp(key));
         }
 
         public bool KeyDown(Keys key)

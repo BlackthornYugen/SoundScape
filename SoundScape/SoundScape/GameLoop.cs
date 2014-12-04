@@ -33,6 +33,8 @@ namespace SoundScape
         private GameScene _credit;
         private GameScene _gameplay;
 
+        private VirtualController a;
+
         public GameLoop()
         {
             GraphicsDeviceManager graphics = new GraphicsDeviceManager(this);
@@ -137,7 +139,8 @@ namespace SoundScape
             MultiplayerCampaign.NewCampaign(this);
             _menu.Show();
 
-            // TODO: use this.Content to load your game content here
+            // TODO: get rid of this test
+            Components.Add(a = new VirtualController(this, PlayerIndex.One));
         }
 
         /// <summary>
@@ -167,6 +170,16 @@ namespace SoundScape
         /// </summary>
         void ControlInput()
         {
+            if (a.ActionMenuUp)
+            {
+                Console.WriteLine("UP");
+            }
+            if (a.ActionMenuDown)
+            {
+                Console.WriteLine("DOWN");
+            }
+
+
             KeyboardState ks = Keyboard.GetState();
             GamePadState ps = GamePad.GetState(0);
 
