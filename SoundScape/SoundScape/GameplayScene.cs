@@ -16,8 +16,8 @@ namespace SoundScape
         private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
-        private int _livingPlayers;
-        private int _livingEnemies;
+        private TimeSpan _runTime;
+        private Texture2D _backgroundTexture;
 
         public override void Update(GameTime gameTime)
         {
@@ -34,21 +34,11 @@ namespace SoundScape
                     playerCount++;
             }
 
-            _livingPlayers = playerCount;
-            _livingEnemies = enemyCount;
-            // TODO: Make victory/defeat code better (maybe raise an event?)
             if (playerCount == 0)
-            {
-                Game.Speak("You have been defeated.");
-                Enabled = false;
-                Visible = true;
-            }
+                Defeat();
             else if (enemyCount == 0)
-            {
-                Game.Speak("You are Victorious!");
-                Enabled = false;
-                Visible = true;
-            }
+                Victory();
+
             base.Update(gameTime);
         }
 
@@ -68,6 +58,7 @@ namespace SoundScape
         public GameplayScene(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
+            _runTime = TimeSpan.Zero;
         }
 
         protected Dictionary<Entity, SoundEffect> SFX
@@ -105,7 +96,7 @@ namespace SoundScape
 
         public int RunningSeconds
         {
-            get { return (DateTime.Now - _startTime).Seconds; }
+            get { return (DateTime.Now - _startTime + _runTime).Seconds; }
         }
 
         protected override void LoadContent()
@@ -155,13 +146,35 @@ namespace SoundScape
             }
         }
 
-        protected override void OnVisibleChanged(object sender, EventArgs args)
+        protected override void OnEnabledChanged(object sender, EventArgs args)
         {
-            if (Visible && DateTime.MinValue == _startTime)
+            if (Enabled)
             {
                 _startTime = DateTime.Now;
             }
-            base.OnVisibleChanged(sender, args);
+            else
+            {
+                _runTime = DateTime.Now - _startTime;
+            }
+            base.OnEnabledChanged(sender, args);
+        }
+
+        private void Victory()
+        {
+            Game.Speak("You have been defeated.");
+            GameOver();           
+        }
+
+        private void Defeat()
+        {
+            Game.Speak("You are Victorious!");
+            GameOver();
+        }
+
+        private void GameOver()
+        {
+            Enabled = false;
+            Visible = true;
         }
     }
 }
