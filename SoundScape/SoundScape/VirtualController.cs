@@ -97,5 +97,10 @@ namespace SoundScape
         {
             return ButtonPressed(new[] {button});
         }
+
+        public bool ButtonDown(Buttons button)
+        {
+            return ButtonDown(new[] { button });
+        }
     }
 }

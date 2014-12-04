@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
 namespace SoundScape.GameplaySceneComponents
 {
@@ -18,8 +16,6 @@ namespace SoundScape.GameplaySceneComponents
         private const float TOLLERENCE = 0.01f;
         private const int SCORE = -50;
 
-        private PlayerIndex _controllerIndex;
-        private GamePadState _padOldState;
         private VirtualController _controller;
         private Vector2 _arrow;
         private Vector2[] _aimVectors;
@@ -27,7 +23,6 @@ namespace SoundScape.GameplaySceneComponents
         private SoundEffectInstance _activeSound;
         private float _rumbleLeft, _rumbleRight;
         private DateTime _rumbleLeftTime, _rumbleRightTime;
-        private SoundEffect _weaponSoundEffect;
         private readonly SoundEffectInstance _weaponSoundEffectInstance;
         private WeaponState _weaponState = WeaponState.Discharged;
 
@@ -37,28 +32,6 @@ namespace SoundScape.GameplaySceneComponents
             Charging,
             Discharged,
             Cooldown
-        }
-
-        /// <summary>
-        /// Construct a player
-        /// </summary>
-        /// <param name="scene">A reference to the scene that the player 
-        /// will inhabit.</param>
-        /// <param name="spriteBatch">A reference to a spritebatch 
-        /// object.</param>
-        /// <param name="position">The starting position of the player.
-        /// </param>
-        /// <param name="texture">The player's texture.</param>
-        /// <param name="soundEffect">The soundeffect that identifies this 
-        /// player.</param>
-        /// <param name="pan">The audio channel that sound is played on for 
-        /// this player where -1 is full left and 1 is full right.</param>
-        /// <param name="weaponSoundEffect">The sound used for the player's
-        /// weapon.</param>
-        public Player(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, 
-            SoundEffect soundEffect, float pan, SoundEffect weaponSoundEffect)
-            : this(scene, spriteBatch, position, texture, soundEffect, pan, weaponSoundEffect, Color.White)
-        {
         }
 
         /// <summary>
@@ -83,7 +56,6 @@ namespace SoundScape.GameplaySceneComponents
             : base(scene, spriteBatch, position, texture, soundEffect, colour)
         {
             _pan = pan;
-            _weaponSoundEffect = weaponSoundEffect;
             _weaponSoundEffectInstance = weaponSoundEffect.CreateInstance();
             _weaponSoundEffectInstance.Pan = pan;
             _weaponSoundEffectInstance.Pitch = -1;
@@ -95,8 +67,6 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            var _padState = Controller.PadState;
-            
             // Toggle Visibility
             if (Controller.ButtonPressed(Buttons.Y))
             {
@@ -128,14 +98,12 @@ namespace SoundScape.GameplaySceneComponents
                 if (gsc != this && gsc != null)
                 {
                     // TODO: Stop ignoring collision when right sholder is pressed. 
-                    if (_padState.Buttons.A == ButtonState.Released 
+                    if (!Controller.ButtonDown(Buttons.A)
                         && gsc.Enabled
-                        && gsc.Hitbox.Intersects(this.Hitbox))
+                        && gsc.Hitbox.Intersects(Hitbox))
                     {
                         // TODO: Remove godmode when left sholder is pressed. 
-                        if (_padState.Buttons.LeftShoulder == ButtonState.Released
-                            && gsc is Enemy)
-                            Kill();
+                        if (gsc is Enemy) Kill();
                         else
                         {
                             Position = oldPosition;
@@ -179,15 +147,12 @@ namespace SoundScape.GameplaySceneComponents
                 Colour = new Color(Colour.R / 2, Colour.G / 2, Colour.B / 2);
             }
 
-
-
             // Sound Wave
             _arrow = new Vector2(_controller.AimAxisX, -_controller.AimAxisY) * DISTANCE_FACTOR;
 
-
             bool hitSomething = false;
 
-            int arrowLength = (int)_arrow.Length();
+            var arrowLength = (int)_arrow.Length();
 
             if (_weaponState == WeaponState.Charged ||
                 _weaponState == WeaponState.Charging)
@@ -209,7 +174,6 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            _padOldState = _padState;
             base.Update(gameTime);
         }
 
@@ -280,7 +244,7 @@ namespace SoundScape.GameplaySceneComponents
                 if (Math.Abs(_rumbleLeft - value) > TOLLERENCE)
                 {
                     _rumbleLeft = value;
-                    GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
+                    GamePad.SetVibration(Controller.PlayerIndex, _rumbleLeft, _rumbleRight);
                 }
             }
         }
@@ -296,7 +260,7 @@ namespace SoundScape.GameplaySceneComponents
                 if (Math.Abs(_rumbleRight - value) > TOLLERENCE)
                 {
                     _rumbleRight = value;
-                    GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
+                    GamePad.SetVibration(Controller.PlayerIndex, _rumbleLeft, _rumbleRight);
                 }
             }
         }
@@ -336,7 +300,7 @@ namespace SoundScape.GameplaySceneComponents
 
             if (Enabled)
             {
-                GamePad.SetVibration(_controllerIndex, _rumbleLeft, _rumbleRight);
+                GamePad.SetVibration(Controller.PlayerIndex, _rumbleLeft, _rumbleRight);
             }
         }
 
@@ -344,7 +308,7 @@ namespace SoundScape.GameplaySceneComponents
         {
             _rumbleLeft = 0;
             _rumbleRight = 0;
-            GamePad.SetVibration(_controllerIndex, 0, 0);
+            GamePad.SetVibration(Controller.PlayerIndex, 0, 0);
             base.OnEnabledChanged(sender, args);
         }
 
@@ -358,11 +322,15 @@ namespace SoundScape.GameplaySceneComponents
         public VirtualController Controller
         {
             get { return _controller; }
-            set
-            {
-                _controller = value;
-                _controllerIndex = _controller.PlayerIndex;
-            }
+            set { _controller = value; }
+        }
+
+        public override void Kill()
+        {
+            if (Controller.ButtonDown(Buttons.LeftShoulder))
+                RumbleFor(miliseconds: 75, leftMotor: 1);
+            else
+                base.Kill();
         }
     }
 }
