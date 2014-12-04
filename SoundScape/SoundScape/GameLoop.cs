@@ -114,7 +114,7 @@ namespace SoundScape
             Texture2D dimensions = Content.Load<Texture2D>("images/Help");
             //All images for menus should have same size 
             Vector2 centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2 - dimensions.Width / 2,
-                GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2);
+                GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2n);
 
             // TODO: set backgrounds
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
