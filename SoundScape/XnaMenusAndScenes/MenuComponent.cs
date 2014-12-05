@@ -90,7 +90,6 @@ namespace XNALib.Menus
             spritebatch.Draw(logo, new Vector2(500, 250), Color.White);
             for (int i = 0; i < menuItems.Count; i++)
             {
-
                 if (i != menuIndex)
                 {
                     colour = colourNormal;
@@ -101,7 +100,7 @@ namespace XNALib.Menus
                     colour = colourHighlighted;
                     font = fontHighlighted;
                 }
-                spritebatch.DrawString(font, menuItems[i].Name, position + new Vector2(100, i * font.LineSpacing), colour);
+                spritebatch.DrawString(font, menuItems[i].Name, position + new Vector2(100, 100 + i * font.LineSpacing), colour);
             }
             spritebatch.End();
             base.Draw(gameTime);
