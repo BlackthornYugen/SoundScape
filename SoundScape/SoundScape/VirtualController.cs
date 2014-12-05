@@ -35,7 +35,7 @@ namespace SoundScape
             AimDownKeys = new[] { Keys.J };
             AimLeftKeys = new[] { Keys.H };
             AimRightKeys = new[] { Keys.K };
-            GameFireKeys = new[] { Keys.Enter };
+            GameFireKeys = new[] { Keys.Space };
 
             // Set Default buttons
             MenuSelectButtons = new[] { Buttons.Start, Buttons.A, Buttons.RightTrigger,  };
@@ -47,10 +47,6 @@ namespace SoundScape
 
         public override void Update(GameTime gameTime)
         {
-            if (ActionFire)
-            {
-                Console.WriteLine("Fire");
-            }
             _padStateOld = _padStateNew;
             _keyStateOld = _keyStateNew;
             _ratStateOld = _ratStateNew;

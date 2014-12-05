@@ -157,7 +157,7 @@ namespace SoundScape
             this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
 
-            MultiplayerCampaign.NewCampaign(this);
+            Campaign.New(this);
             _menu.Show();
 
             // TODO: get rid of this test
@@ -221,7 +221,7 @@ namespace SoundScape
                                 Components.Remove(_gameplay);
                                 _gameplay.Dispose();
                             }
-                            _gameplay = MultiplayerCampaign.GetInstance().NextLevel();
+                            _gameplay = Campaign.Instance().NextLevel();
                             Components.Add(_gameplay);
                             _gameplay.Show();
                             _gameplay.Enabled = true;
