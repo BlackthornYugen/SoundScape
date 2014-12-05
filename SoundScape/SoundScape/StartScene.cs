@@ -47,7 +47,7 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-            _controllerStats = new ControllerStatus(Game, _spritebatch){Visible = true};
+            _controllerStats = new ControllerStatus(Game, _spritebatch);
             _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
@@ -59,6 +59,7 @@ namespace SoundScape
             }
             Components.Add(_menu);
             Components.Add(_controllerStats);
+            _controllerStats.Show();
             _controllerStats.Initialize();
             base.LoadContent();
         }
