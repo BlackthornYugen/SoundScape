@@ -6,15 +6,15 @@ using XNALib.Scenes;
 
 namespace SoundScape.Levels
 {
-    class MultiplayerCampaign
+    class Campaign
     {
         private static GameLoop _game;
         private static List<GameplayScene> _gameplayScenes;
-        private static MultiplayerCampaign _instance;
+        private static Campaign _instance;
         private static int _currentLevel = -1;
         private HighScore _scoreboard;
 
-        protected MultiplayerCampaign(GameLoop game)
+        protected Campaign(GameLoop game)
         {
             _game = game;
             _scoreboard = _game.HighScore as HighScore;
@@ -34,18 +34,23 @@ namespace SoundScape.Levels
             }
         }
 
-        public static MultiplayerCampaign NewCampaign(GameLoop game)
+        public static Campaign New(GameLoop game = null)
         {
-            return _instance ?? (_instance = new MultiplayerCampaign(game));
+            return _instance ?? (_instance = new Campaign(game));
         }
 
-        public static GameScene NextLevel()
+        public static Campaign Instance()
+        {
+            return _instance;
+        }
+
+        public GameScene NextLevel()
         {
             if (_instance == null)
                 throw new Exception("No campaign started!");
             if (++_currentLevel >= _gameplayScenes.Count)
             {   // There are no more levels. Restart campaign.
-                _instance = new MultiplayerCampaign(_game);
+                _instance = new Campaign(_game);
                 _currentLevel = 0;
             }
             return _gameplayScenes[_currentLevel];

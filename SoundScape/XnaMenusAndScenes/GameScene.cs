@@ -7,14 +7,9 @@ namespace XNALib.Scenes
     public abstract class GameScene : DrawableGameComponent
     {
         protected Texture2D _background;
-        private GameComponentCollection _components;
         protected SpriteBatch _spritebatch;
 
-        public GameComponentCollection Components
-        {
-            get { return _components; }
-            set { _components = value; }
-        }
+        public GameComponentCollection Components { get; set; }
 
         public Texture2D Background
         {
@@ -36,7 +31,7 @@ namespace XNALib.Scenes
         public GameScene(Game game, SpriteBatch spritebatch)
             : base(game)
         {
-            _components = new GameComponentCollection();
+            Components = new GameComponentCollection();
             _spritebatch = spritebatch;
             Hide();
         }
