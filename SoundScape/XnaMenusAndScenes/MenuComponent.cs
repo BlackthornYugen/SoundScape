@@ -1,21 +1,51 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 
 namespace XNALib.Menus
 {
     public class MenuComponent : DrawableGameComponent
     {
-        private int _menuIndex;
-        private List<MenuItem> _menuItems;
-        private SpriteBatch _spritebatch;
-        private Color _colourNormal;
-        private Color _colourHighlighted;
-        private SpriteFont _fontNormal;
-        private SpriteFont _fontHighlighted;
-        private Vector2 _position;
-        private Texture2D _logo;
+        private readonly Color _colourHighlighted;
+        private readonly Color _colourNormal;
+        private readonly SpriteFont _fontHighlighted;
+        private readonly SpriteFont _fontNormal;
+        private readonly List<MenuItem> _menuItems;
+        private readonly Vector2 _position;
+        private readonly SpriteBatch _spritebatch;
         private Vector2 _logoPosition;
+        private int _menuIndex;
+
+        public MenuComponent(Game game,
+            SpriteBatch spritebatch,
+            Color colourNormal,
+            Color colourHighlighted,
+            SpriteFont fontNormal,
+            SpriteFont fontHighlighted,
+            Vector2 position)
+            : base(game)
+        {
+            _spritebatch = spritebatch;
+            _colourNormal = colourNormal;
+            _colourHighlighted = colourHighlighted;
+            _fontNormal = fontNormal;
+            _fontHighlighted = fontHighlighted;
+            _position = position;
+            _menuItems = new List<MenuItem>();
+        }
+
+        public MenuComponent(Game game,
+            SpriteBatch spritebatch,
+            Color colourNormal,
+            Color colourHighlighted,
+            SpriteFont fontNormal,
+            SpriteFont fontHighlighted,
+            Vector2 position,
+            List<MenuItem> menuItems)
+            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position)
+        {
+            _menuItems = menuItems;
+        }
 
         public List<MenuItem> MenuItems
         {
@@ -33,11 +63,7 @@ namespace XNALib.Menus
             get { return _menuItems[_menuIndex]; }
         }
 
-        public Texture2D Logo
-        {
-            get { return _logo; }
-            set { _logo = value; }
-        }
+        public Texture2D Logo { get; set; }
 
         public Vector2 LogoPosition
         {
@@ -47,10 +73,7 @@ namespace XNALib.Menus
 
         public DrawableGameComponent this[int index]
         {
-            get
-            {
-                return _menuItems[index].Component;
-            }
+            get { return _menuItems[index].Component; }
         }
 
         public void Add(string menuItemName, DrawableGameComponent menuItemComponent)
@@ -58,44 +81,13 @@ namespace XNALib.Menus
             var newItem = new MenuItem();
             newItem.Name = menuItemName;
             newItem.Component = menuItemComponent;
-            this._menuItems.Add(newItem);
-        }
-
-        public MenuComponent(Game game,
-            SpriteBatch spritebatch, 
-            Color colourNormal, 
-            Color colourHighlighted, 
-            SpriteFont fontNormal, 
-            SpriteFont fontHighlighted,
-            Vector2 position)
-            : base(game)
-        {
-            this._spritebatch = spritebatch;
-            this._colourNormal = colourNormal;
-            this._colourHighlighted = colourHighlighted;
-            this._fontNormal = fontNormal;
-            this._fontHighlighted = fontHighlighted;
-            this._position = position;
-            this._menuItems = new List<MenuItem>();
-        }
-
-        public MenuComponent(Game game,
-            SpriteBatch spritebatch, 
-            Color colourNormal, 
-            Color colourHighlighted, 
-            SpriteFont fontNormal, 
-            SpriteFont fontHighlighted,
-            Vector2 position,
-            List<MenuItem> menuItems)
-            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position)
-        {
-            this._menuItems = menuItems;
+            _menuItems.Add(newItem);
         }
 
         public override void Draw(GameTime gameTime)
         {
             _spritebatch.Begin();
-            if(Logo != null && LogoPosition != Vector2.Zero)
+            if (Logo != null && LogoPosition != Vector2.Zero)
                 _spritebatch.Draw(Logo, LogoPosition, Color.White);
             for (int i = 0; i < _menuItems.Count; i++)
             {
@@ -111,7 +103,7 @@ namespace XNALib.Menus
                     colour = _colourHighlighted;
                     font = _fontHighlighted;
                 }
-                _spritebatch.DrawString(font, _menuItems[i].Name, _position + (Vector2.UnitY * i * font.LineSpacing), colour);
+                _spritebatch.DrawString(font, _menuItems[i].Name, _position + (Vector2.UnitY*i*font.LineSpacing), colour);
             }
             _spritebatch.End();
             base.Draw(gameTime);
