@@ -119,7 +119,7 @@ namespace SoundScape
             
             _spritebatch.Draw(Texture, _centerScreen, Color.White);
 
-            _spritebatch.DrawString(regularFont, _msg, _centerScreen + new Vector2(60, 90), Color.CornflowerBlue, 0,
+            _spritebatch.DrawString(regularFont, _msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();
         }

@@ -32,8 +32,8 @@ namespace SoundScape
             get { return _menu.ActiveMenuItem; }
         }
         
-        private Color _regularColour = Color.CornflowerBlue;
-        private Color _highlightColor = Color.Green;
+        private Color _regularColour = Color.LightYellow;
+        private Color _highlightColor = Color.Yellow;
         private List<string> _menuItems;
 
         public StartScene(Game game, SpriteBatch sb, string[] menuItems)
@@ -46,8 +46,6 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-
-
             _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
