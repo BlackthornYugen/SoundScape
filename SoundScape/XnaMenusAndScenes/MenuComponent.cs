@@ -6,37 +6,50 @@ namespace XNALib.Menus
 {
     public class MenuComponent : DrawableGameComponent
     {
-        private int menuIndex;
-        private List<MenuItem> menuItems;
-        private SpriteBatch spritebatch;
-        private Color colourNormal;
-        private Color colourHighlighted;
-        private SpriteFont fontNormal;
-        private SpriteFont fontHighlighted;
-        private Vector2 position;
-        private Texture2D logo;
+        private int _menuIndex;
+        private List<MenuItem> _menuItems;
+        private SpriteBatch _spritebatch;
+        private Color _colourNormal;
+        private Color _colourHighlighted;
+        private SpriteFont _fontNormal;
+        private SpriteFont _fontHighlighted;
+        private Vector2 _position;
+        private Texture2D _logo;
+        private Vector2 _logoPosition;
 
         public List<MenuItem> MenuItems
         {
-            get { return menuItems; }
+            get { return _menuItems; }
         }
 
         public int MenuIndex
         {
-            get { return menuIndex; }
-            set { menuIndex = value; }
+            get { return _menuIndex; }
+            set { _menuIndex = value; }
         }
 
         public MenuItem ActiveMenuItem
         {
-            get { return menuItems[menuIndex]; }
+            get { return _menuItems[_menuIndex]; }
+        }
+
+        public Texture2D Logo
+        {
+            get { return _logo; }
+            set { _logo = value; }
+        }
+
+        public Vector2 LogoPosition
+        {
+            get { return _logoPosition; }
+            set { _logoPosition = value; }
         }
 
         public DrawableGameComponent this[int index]
         {
             get
             {
-                return menuItems[index].Component;
+                return _menuItems[index].Component;
             }
         }
 
@@ -45,7 +58,7 @@ namespace XNALib.Menus
             var newItem = new MenuItem();
             newItem.Name = menuItemName;
             newItem.Component = menuItemComponent;
-            this.menuItems.Add(newItem);
+            this._menuItems.Add(newItem);
         }
 
         public MenuComponent(Game game,
@@ -54,17 +67,16 @@ namespace XNALib.Menus
             Color colourHighlighted, 
             SpriteFont fontNormal, 
             SpriteFont fontHighlighted,
-            Vector2 position, Texture2D logo)
+            Vector2 position)
             : base(game)
         {
-            this.spritebatch = spritebatch;
-            this.colourNormal = colourNormal;
-            this.colourHighlighted = colourHighlighted;
-            this.fontNormal = fontNormal;
-            this.fontHighlighted = fontHighlighted;
-            this.position = position;
-            this.menuItems = new List<MenuItem>();
-            this.logo = logo;
+            this._spritebatch = spritebatch;
+            this._colourNormal = colourNormal;
+            this._colourHighlighted = colourHighlighted;
+            this._fontNormal = fontNormal;
+            this._fontHighlighted = fontHighlighted;
+            this._position = position;
+            this._menuItems = new List<MenuItem>();
         }
 
         public MenuComponent(Game game,
@@ -74,55 +86,41 @@ namespace XNALib.Menus
             SpriteFont fontNormal, 
             SpriteFont fontHighlighted,
             Vector2 position,
-            List<MenuItem> menuItems, Texture2D logo)
-            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position, logo)
+            List<MenuItem> menuItems)
+            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position)
         {
-            this.menuItems = menuItems;
-            this.logo = logo;
+            this._menuItems = menuItems;
         }
 
         public override void Draw(GameTime gameTime)
         {
-            
-            SpriteFont font;
-            Color colour;
-            spritebatch.Begin();
-            spritebatch.Draw(logo, new Vector2(500, 250), Color.White);
-            for (int i = 0; i < menuItems.Count; i++)
+            _spritebatch.Begin();
+            if(Logo != null && LogoPosition != Vector2.Zero)
+                _spritebatch.Draw(Logo, LogoPosition, Color.White);
+            for (int i = 0; i < _menuItems.Count; i++)
             {
-
-                if (i != menuIndex)
+                Color colour;
+                SpriteFont font;
+                if (i != _menuIndex)
                 {
-                    colour = colourNormal;
-                    font = fontNormal;
+                    colour = _colourNormal;
+                    font = _fontNormal;
                 }
                 else
                 {
-                    colour = colourHighlighted;
-                    font = fontHighlighted;
+                    colour = _colourHighlighted;
+                    font = _fontHighlighted;
                 }
-                spritebatch.DrawString(font, menuItems[i].Name, position + new Vector2(100, i * font.LineSpacing), colour);
+                _spritebatch.DrawString(font, _menuItems[i].Name, _position + (Vector2.UnitY * i * font.LineSpacing), colour);
             }
-            spritebatch.End();
+            _spritebatch.End();
             base.Draw(gameTime);
         }
     }
 
     public struct MenuItem
     {
-        string name;
-        DrawableGameComponent component;
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public DrawableGameComponent Component
-        {
-            get { return component; }
-            set { component = value; }
-        }
+        public string Name { get; set; }
+        public DrawableGameComponent Component { get; set; }
     }
 }
