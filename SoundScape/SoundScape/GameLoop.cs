@@ -23,8 +23,6 @@ namespace SoundScape
     public class GameLoop : Game
     {
         private SpriteBatch _spriteBatch;
-        private KeyboardState _oldKeyboardState;
-        private GamePadState _oldPadState;
         private readonly SpeechSynthesizer _speechSynthesizer;
 
         private StartScene _menu;
@@ -194,9 +192,6 @@ namespace SoundScape
         /// </summary>
         void ControlInput()
         {
-            KeyboardState ks = Keyboard.GetState();
-            GamePadState ps = GamePad.GetState(0);
-
             // Allows the game to exit
             if (PlayerOne.ActionBack || PlayerTwo.ActionBack)
             {
@@ -207,71 +202,71 @@ namespace SoundScape
                     HideAllScene();
                     SetTitle();
                     _menu.Show();
+                    GamePad.SetVibration(PlayerOne.PlayerIndex, 0, 0);
+                    GamePad.SetVibration(PlayerTwo.PlayerIndex, 0, 0);
                 }
             }
 
-            if (_menu.Enabled && (PlayerOne.ActionSelect || PlayerTwo.ActionSelect))
+            if (_menu.Enabled)
             {
-                switch (_menu.SelectedItem.Name)
+                if (PlayerOne.ActionSelect || PlayerTwo.ActionSelect)
                 {
-                    case "Start Game":
-                        HideAllScene();
-                        SetTitle("Game thing");
-                        if(_gameplay!= null)
-                        {
-                            Components.Remove(_gameplay);
-                            _gameplay.Dispose();
-                        }
-                        _gameplay = MultiplayerCampaign.NextLevel();
-                        Components.Add(_gameplay);
-                        _gameplay.Show();
-                        _gameplay.Enabled = true;
-                        break;
-                    case "How To Play":
-                        HideAllScene();
-                        SetTitle("How To Play");
-                        _howToPlay.Show();
-                        break;
-                    case "Help":
-                        HideAllScene();
-                        SetTitle("Help");
-                        _help.Show();
-                        break;
-                    case "High Score":
-                        HideAllScene();
-                        SetTitle("High Score");
-                        HighScore.Show();
-                        break;
-                    case "Credits":
-                        HideAllScene();
-                        SetTitle("Credit");
-                        _credit.Show();
-                        break;
-                    case "Quit":
-                        this.Exit();
-                        break;
-                    default:
-                        if (_menu.SelectedItem.Component == null)
-                        {
-                            SetTitle(string.Format("\"{0}\" cannot be opened.", _menu.SelectedItem.Name));
-                        }
-                        else
-                        {
-                            SetTitle(_menu.SelectedItem.Name);
-                        }
-                        break;
+                    switch (_menu.SelectedItem.Name)
+                    {
+                        case "Start Game":
+                            HideAllScene();
+                            SetTitle("Game thing");
+                            if (_gameplay != null)
+                            {
+                                Components.Remove(_gameplay);
+                                _gameplay.Dispose();
+                            }
+                            _gameplay = MultiplayerCampaign.GetInstance().NextLevel();
+                            Components.Add(_gameplay);
+                            _gameplay.Show();
+                            _gameplay.Enabled = true;
+                            break;
+                        case "How To Play":
+                            HideAllScene();
+                            SetTitle("How To Play");
+                            _howToPlay.Show();
+                            break;
+                        case "Help":
+                            HideAllScene();
+                            SetTitle("Help");
+                            _help.Show();
+                            break;
+                        case "High Score":
+                            HideAllScene();
+                            SetTitle("High Score");
+                            HighScore.Show();
+                            break;
+                        case "Credits":
+                            HideAllScene();
+                            SetTitle("Credit");
+                            _credit.Show();
+                            break;
+                        case "Quit":
+                            Exit();
+                            break;
+                        default:
+                            if (_menu.SelectedItem.Component == null)
+                            {
+                                SetTitle(string.Format("\"{0}\" cannot be opened.", _menu.SelectedItem.Name));
+                            }
+                            else
+                            {
+                                SetTitle(_menu.SelectedItem.Name);
+                            }
+                            break;
+                    }
                 }
+
+                if (PlayerOne.ActionMenuDown || PlayerTwo.ActionMenuDown)
+                    _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
+                else if (PlayerOne.ActionMenuUp || PlayerTwo.ActionMenuUp)
+                    _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
             }
-
-            if (ks.IsKeyUp(Keys.Down) && _oldKeyboardState.IsKeyDown(Keys.Down) ||
-                ps.IsButtonDown(Buttons.DPadDown) && _oldPadState.IsButtonUp(Buttons.DPadDown))
-                _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
-            else if (ks.IsKeyUp(Keys.Up) && _oldKeyboardState.IsKeyDown(Keys.Up) ||
-                ps.IsButtonDown(Buttons.DPadUp) && _oldPadState.IsButtonUp(Buttons.DPadUp))
-                _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
-
-            _oldKeyboardState = ks;
-            _oldPadState = ps;
         }
 
         /// <summary>
@@ -281,7 +276,6 @@ namespace SoundScape
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            // TODO: Add your drawing code here
             base.Draw(gameTime);
         }
     }

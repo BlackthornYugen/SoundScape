@@ -34,12 +34,17 @@ namespace SoundScape.Levels
             }
         }
 
-        public static MultiplayerCampaign NewCampaign(GameLoop game)
+        public static MultiplayerCampaign NewCampaign(GameLoop game = null)
         {
             return _instance ?? (_instance = new MultiplayerCampaign(game));
         }
 
-        public static GameScene NextLevel()
+        public static MultiplayerCampaign GetInstance()
+        {
+            return _instance;
+        }
+
+        public GameScene NextLevel()
         {
             if (_instance == null)
                 throw new Exception("No campaign started!");

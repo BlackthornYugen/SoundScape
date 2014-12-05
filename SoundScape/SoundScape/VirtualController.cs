@@ -38,8 +38,8 @@ namespace SoundScape
             GameFireKeys = new[] { Keys.Enter };
 
             // Set Default buttons
-            MenuSelectButtons = new[] { Buttons.Start };
-            MenuBackButtons = new[] { Buttons.Back };
+            MenuSelectButtons = new[] { Buttons.Start, Buttons.A, Buttons.RightTrigger,  };
+            MenuBackButtons = new[] { Buttons.Back, Buttons.B, };
             MenuUpButtons = new[] { Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp };
             MenuDownButtons = new[] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickUp };
             GameFireButtons = new[] { Buttons.RightShoulder, Buttons.RightTrigger };
