@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SoundScape.GameplaySceneComponents;
@@ -7,9 +8,9 @@ using SoundScape.GameplaySceneComponents.Enemies;
 
 namespace SoundScape.Levels
 {
-    class MultiplayerLevel2 : GameplayScene
+    class Level3 : GameplayScene
     {
-        public MultiplayerLevel2(GameLoop game, SpriteBatch sb)
+        public Level3(GameLoop game, SpriteBatch sb)
             : base(game, sb)
         {
         }
@@ -18,33 +19,32 @@ namespace SoundScape.Levels
         {
             base.LoadContent();
             var cb = Game.Window.ClientBounds;
+            var r = new Random();
 
             var pWidth = Textures[Entity.PlayerOne].Width;
             var pHeight = Textures[Entity.PlayerOne].Height;
-            var startingPositions = new List<Vector2>()
+
+            var startingPositions = new Queue<Vector2>((new[]
             {
                 new Vector2(
-                    x: pWidth, 
-                    y: pHeight), 
+                    x: pWidth,
+                    y: pHeight),
                 new Vector2(
-                    x: cb.Width - pWidth, 
-                    y: pHeight), 
+                    x: cb.Width - pWidth,
+                    y: pHeight),
                 new Vector2(
-                    x: cb.Width-pWidth, 
-                    y: cb.Height-pHeight), 
+                    x: cb.Width - pWidth,
+                    y: cb.Height - pHeight),
                 new Vector2(
-                    x: pWidth, 
-                    y: cb.Height-pHeight),
-            };
+                    x: pWidth,
+                    y: cb.Height - pHeight),
+            }).OrderBy((a) => r.Next()));
 
-            var r = new Random();
 
-            int startIndex;
-            startIndex = r.Next(startingPositions.Count);
             Components.Add(new Player(
                 scene: this,
                 spriteBatch: _spritebatch,
-                position: startingPositions[startIndex],
+                position: startingPositions.Dequeue(),
                 texture: Textures[Entity.PlayerOne],
                 soundEffect: SFX[Entity.PlayerOne],
                 pan: -1f,
@@ -55,12 +55,10 @@ namespace SoundScape.Levels
                 SonarTexture = Textures[Entity.Sonar],
             });
 
-            startingPositions.RemoveAt(startIndex);
-            startIndex = r.Next(startingPositions.Count);
             Components.Add(new Player(
                 scene: this,
                 spriteBatch: _spritebatch,
-                position: startingPositions[startIndex],
+                position: startingPositions.Dequeue(),
                 texture: Textures[Entity.PlayerTwo],
                 soundEffect: SFX[Entity.PlayerTwo],
                 pan: 1f,
@@ -70,81 +68,88 @@ namespace SoundScape.Levels
                 Controller = Game.PlayerTwo,
                 SonarTexture = Textures[Entity.Sonar],
             });
-            startingPositions.RemoveAt(startIndex);
-            Wall wall;
 
             // North Wall
-            wall = new Wall(
+            Components.Add(new Wall(
                 scene: this,
                 spriteBatch: _spritebatch,
                 texture: Textures[Entity.Wall],
                 soundEffect: SFX[Entity.Wall],
-                hitbox: new Rectangle(0, -WallThickness, cb.Width, 100));
-            Components.Add(wall);
+                hitbox: new Rectangle(0, -WallThickness, cb.Width, 100)));
 
             // West Wall
-            wall = new Wall(
+            Components.Add(new Wall(
                 scene: this,
                 spriteBatch: _spritebatch,
                 texture: Textures[Entity.Wall],
                 soundEffect: SFX[Entity.Wall],
-                hitbox: new Rectangle(-WallThickness, 0, WallThickness, cb.Height));
-            Components.Add(wall);
+                hitbox: new Rectangle(-WallThickness, 0, WallThickness, cb.Height)));
 
             // East Wall
-            wall = new Wall(
+            Components.Add(new Wall(
                  scene: this,
                  spriteBatch: _spritebatch,
                  texture: Textures[Entity.Wall],
                  soundEffect: SFX[Entity.Wall],
-                 hitbox: new Rectangle(cb.Width, 0, WallThickness, cb.Height));
-            Components.Add(wall);
+                 hitbox: new Rectangle(cb.Width, 0, WallThickness, cb.Height)));
 
             // South Wall
-            wall = new Wall(
+            Components.Add(new Wall(
                  scene: this,
                  spriteBatch: _spritebatch,
                  texture: Textures[Entity.Wall],
                  soundEffect: SFX[Entity.Wall],
-                 hitbox: new Rectangle(0, cb.Height, cb.Width, WallThickness));
-            Components.Add(wall);
+                 hitbox: new Rectangle(0, cb.Height, cb.Width, WallThickness)));
 
             // Middle Wall
-            wall = new Wall(
+            Components.Add(new Wall(
                  scene: this,
                  spriteBatch: _spritebatch,
                  texture: Textures[Entity.Wall],
                  soundEffect: SFX[Entity.Wall],
-                 hitbox: new Rectangle(cb.Width / 2 - WallThickness * 2, cb.Height / 2 - WallThickness * 2 , WallThickness * 4, WallThickness * 4));
-            Components.Add(wall);
+                 hitbox: new Rectangle(cb.Width / 2 - WallThickness, cb.Height / 2 - WallThickness, WallThickness * 2, WallThickness * 2)));
 
-            startIndex = r.Next(startingPositions.Count);
-            Enemy enemy = new Bouncer(
+            Components.Add(new Bouncer(
                 scene: this,
                 spriteBatch: _spritebatch,
-                position: startingPositions[startIndex],
+                position: startingPositions.Dequeue(),
                 texture: Textures[Entity.EnemyBouncer],
                 soundEffect: SFX[Entity.EnemyBouncer],
-                colour: Color.Green);
-            enemy.Speed =
-                Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
-                Vector2.UnitY * (r.Next(2) == 0 ? -1 : 1);
-            startingPositions.RemoveAt(startIndex);
-            Components.Add(enemy);
+                colour: Color.Green)
+            {
+                Speed = new Vector2(
+                    r.Next(2) == 0 ? -1 : 1,
+                    r.Next(2) == 0 ? -1 : 1
+                    )
+            });
 
-            startIndex = r.Next(startingPositions.Count);
-            enemy = new Bouncer(
+            Components.Add(new Bouncer(
                 scene: this,
                 spriteBatch: _spritebatch,
-                position: startingPositions[startIndex],
+                position: startingPositions.Dequeue(),
                 texture: Textures[Entity.EnemyBouncer],
                 soundEffect: SFX[Entity.EnemyBouncer],
-                colour: Color.Green);
-            enemy.Speed =
-                Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
-                Vector2.UnitY * (r.Next(2) == 0 ? -1 : 1);
-            startingPositions.RemoveAt(startIndex);
-            Components.Add(enemy);
+                colour: Color.Green)
+                {
+                    Speed = new Vector2(
+                        r.Next(2) == 0 ? -1 : 1,
+                        r.Next(2) == 0 ? -1 : 1
+                        )
+                });
+
+            Components.Add(new Circler(
+                scene: this,
+                spriteBatch: _spritebatch,
+                position: new Vector2(cb.Width / 2f, cb.Height / 2f), 
+                texture: Textures[Entity.EnemyBouncer],
+                soundEffect: SFX[Entity.EnemyBouncer],
+                colour: Color.Green)
+                {
+                    Speed = new Vector2(
+                        r.Next(2) == 0 ? -1 : 1,
+                        r.Next(2) == 0 ? -1 : 1
+                        )
+                });
         }
     }
 }
