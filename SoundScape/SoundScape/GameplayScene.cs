@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using SoundScape.GameplaySceneComponents;
+using SoundScape.Levels;
 using XNALib.Scenes;
 
 
@@ -17,12 +19,34 @@ namespace SoundScape
         private const int WALL_THICKNESS = 100;
         private int _score = 0;
         private DateTime _startTime;
+        private DateTime _gameOverTime;
         private TimeSpan _runTime;
+        private GameState _gameState;
+
+        [Flags]
+        private enum GameState
+        {
+            None = 0x0,
+            Victory = 0x1,
+            Defeat = 0x2,
+            Gameover = 0x4,
+        }
 
         public override void Update(GameTime gameTime)
         {
             int playerCount = 0;
             int enemyCount = 0;
+
+
+            if (_gameState != GameState.None)
+            {
+                if (DateTime.Now > _gameOverTime)
+                {
+                    GameOver(_gameState.HasFlag(GameState.Victory));
+                    return;
+                }
+                return;
+            }
 
             foreach (var c in Components)
             {
@@ -152,7 +176,7 @@ namespace SoundScape
         /// <param name="sPosition">The position of the sound</param>
         /// <param name="sPitch">The pitch to play the sound at</param>
         public void PlayBounceSound(SoundEffect sEffect, Vector2 sPosition, float sPitch = 1f)
-        {   return; // TODO: Temp disabled because I don't know if I still want it.
+        {   //return; // TODO: Temp disabled because I don't know if I still want it.
             foreach (IGameComponent component in Components)
             {
                 if (component is Player)
@@ -184,21 +208,80 @@ namespace SoundScape
         private void Victory()
         {
             Game.Speak("You are Victorious!");
-            GameOver();           
+            _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
+            _gameState |= GameState.Victory;
         }
 
         private void Defeat()
         {
             Game.Speak("You have been defeated.");
-            GameOver();
+            _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
+            _gameState |= GameState.Defeat;
         }
 
-        private void GameOver()
+        private void GameOver(bool nextLevel)
         {
+            _gameState |= GameState.Gameover;
+            var campaign = Campaign.Instance();
             Enabled = false;
             Visible = true;
+            if (nextLevel)
+            {
+                if (campaign.OnLastLevel)
+                {
+                    Hide();
+                    Game.HighScore.Show();
+                }
+                else if (!campaign.OnLastLevel)
+                {
+                    var nextLevelScene = campaign.NextLevel();
+                    Hide();
+                    Game.Components.Remove(this);
+                    Game.Components.Add(nextLevelScene);
+                    nextLevelScene.Show();
+                }
+            }
             // TODO: Call something on _scoreboard to let it know our score. 
             //_scoreboard.Score = Score;
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+            if (_gameState != GameState.None)
+            {
+                int scale = 3;
+                int margin = 8;
+                bool lastLevel = Campaign.Instance().OnLastLevel;
+                string[] messageStrings;
+                Rectangle cb = Game.Window.ClientBounds;
+                SpriteFont font = Game.DefaultGameFont;
+                Vector2 position = new Vector2(cb.Width / 2, cb.Height / 2);
+
+                if (_gameState.HasFlag(GameState.Defeat))
+                    messageStrings = new[] { "Maybe next time..." };
+                if (lastLevel && _gameState.HasFlag(GameState.Victory))
+                {
+                    messageStrings = new[] { "You win!" };
+                }
+                else
+                {
+                    messageStrings = new[]
+                    {
+                        "Get ready!", "Next level in...",
+                        String.Format("{0}...", (_gameOverTime - DateTime.Now).Seconds + 1)
+                    };
+                }
+                position -= (Vector2.UnitY * (font.LineSpacing * scale + margin)) / 2;
+                _spritebatch.Begin();
+                foreach (string s in messageStrings)
+                {
+                    _spritebatch.DrawString(font, s, position - Vector2.One * 2, Color.Black, 0, font.MeasureString(s) / 2, scale, SpriteEffects.None, 0);
+                    _spritebatch.DrawString(font, s, position - Vector2.One * 0, Color.White, 0, font.MeasureString(s) / 2, scale, SpriteEffects.None, 0);
+                    position += Vector2.UnitY * (font.LineSpacing * scale + margin);
+                }
+                _spritebatch.End();
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SoundScape.GameplaySceneComponents
         private const int SCORE = -25;
         public Wall(GameplayScene scene, SpriteBatch spriteBatch, Texture2D texture,
             SoundEffect soundEffect, Rectangle hitbox)
-            : this(scene, spriteBatch, texture, soundEffect, hitbox, Color.White)
+            : this(scene, spriteBatch, texture, soundEffect, hitbox, Color.DarkSalmon)
         {
         }
 

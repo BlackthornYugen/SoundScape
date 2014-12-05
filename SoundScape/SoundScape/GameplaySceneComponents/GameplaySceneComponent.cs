@@ -30,7 +30,6 @@ namespace SoundScape.GameplaySceneComponents
         {
             _scoreAtDeath = Score;
             _deathColour = killedByColour ?? Color.Black;
-            //_deathColour.A = (byte)128;
             string itemName = ToString().Split('.').Reverse().First();
             var p = this as Player;
             if (p != null)
@@ -133,7 +132,10 @@ namespace SoundScape.GameplaySceneComponents
 
             SpriteBatch.Begin();
             SpriteBatch.Draw(_texture, Position - new Vector2(Texture.Width / 2f, Texture.Height / 2f), Colour);
-            _highlightScore = (_highlightScore + 0.1f) % 10;
+
+            if(!Enabled)
+                _highlightScore = (_highlightScore + 0.1f) % 10;
+
             if (message != null && _highlightScore < 5)
             {
                 float f = 1;

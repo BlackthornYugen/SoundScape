@@ -55,5 +55,10 @@ namespace SoundScape.Levels
             }
             return _gameplayScenes[_currentLevel];
         }
+
+        public bool OnLastLevel
+        {
+            get { return _currentLevel + 1 >= _gameplayScenes.Count(); }
+        }
     }
 }

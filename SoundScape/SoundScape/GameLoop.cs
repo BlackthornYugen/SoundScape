@@ -93,6 +93,12 @@ namespace SoundScape
             get { return _highScore; }
         }
 
+        public GameScene Gameplay
+        {
+            get { return _gameplay; }
+            set { _gameplay = value; }
+        }
+
         public void Speak(string textToSpeak)
         {
             _speechSynthesizer.SpeakAsyncCancelAll();
@@ -229,15 +235,15 @@ namespace SoundScape
                         case "Start Game":
                             HideAllScene();
                             SetTitle("Game thing");
-                            if (_gameplay != null)
+                            if (Gameplay != null)
                             {
-                                Components.Remove(_gameplay);
-                                _gameplay.Dispose();
+                                Components.Remove(Gameplay);
+                                Gameplay.Dispose();
                             }
-                            _gameplay = Campaign.Instance().NextLevel();
-                            Components.Add(_gameplay);
-                            _gameplay.Show();
-                            _gameplay.Enabled = true;
+                            Gameplay = Campaign.Instance().NextLevel();
+                            Components.Add(Gameplay);
+                            Gameplay.Show();
+                            Gameplay.Enabled = true;
                             break;
                         case "How To Play":
                             HideAllScene();
