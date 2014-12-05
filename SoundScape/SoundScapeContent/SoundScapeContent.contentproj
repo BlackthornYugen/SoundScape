@@ -209,13 +209,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="images\controller\ControllerConnected.png">
-      <Name>ControllerConnected</Name>
+    <Compile Include="images\controller\connected.png">
+      <Name>connected</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="images\controller\ControllerDesconnected.png">
-      <Name>ControllerDesconnected</Name>
+    <Compile Include="images\controller\disconnected.png">
+      <Name>disconnected</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

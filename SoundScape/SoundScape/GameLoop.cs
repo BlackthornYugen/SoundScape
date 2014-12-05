@@ -7,12 +7,14 @@
 using System;
 using System.Linq;
 using System.Speech.Synthesis;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SoundScape.Levels;
 using XNALib.Scenes;
 using Microsoft.Xna.Framework.Audio;
+using Keys = Microsoft.Xna.Framework.Input.Keys;
 
 namespace SoundScape
 {
@@ -69,10 +71,10 @@ namespace SoundScape
             graphics.ApplyChanges();
 
             // The next 4 lines are apparently the only way to get borderless in xna. 
-            IntPtr hWnd = this.Window.Handle;
-            var control = System.Windows.Forms.Control.FromHandle(hWnd);
+            IntPtr hWnd = Window.Handle;
+            var control = Control.FromHandle(hWnd);
             var form = control.FindForm();
-            form.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            form.FormBorderStyle = FormBorderStyle.None;
             form.Left = 200;
             // End of xna borderless hack ( http://gamedev.stackexchange.com/questions/37109/ )
 
@@ -145,13 +147,19 @@ namespace SoundScape
             // TODO: set backgrounds
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
 
-            _menu = new StartScene(this, _spriteBatch, new string[] 
-                { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
+            Random r = new Random();
+            Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
             {
                 Background = backGround
-            };
-            Random r = new Random();
-            var scores = new[]
+            });
+            Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
+                backGround, centerScreen));
+            Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
+                backGround, centerScreen));
+            Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
+                backGround, centerScreen));
+            Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
+                backGround, centerScreen, new[]
             {
                 new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
                 new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(30,3000)},
@@ -163,22 +171,10 @@ namespace SoundScape
                 new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
                 new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
                 new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
-            };
-
-            this.Components.Add(_menu);
-            this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
-                backGround, centerScreen));
-            this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
-                backGround, centerScreen));
-            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
-                backGround, centerScreen, scores));
-            this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
-                backGround, centerScreen));
-
+            }));
             Campaign.New(this);
             _menu.Show();
 
-            // TODO: get rid of this test
             Components.Add(PlayerOne);
             Components.Add(PlayerTwo);
         }
@@ -189,7 +185,6 @@ namespace SoundScape
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
         /// <summary>
@@ -200,8 +195,6 @@ namespace SoundScape
         protected override void Update(GameTime gameTime)
         {
             ControlInput();
-
-            // TODO: Add your update logic here
             base.Update(gameTime);
         }
 
@@ -268,14 +261,9 @@ namespace SoundScape
                             Exit();
                             break;
                         default:
-                            if (_menu.SelectedItem.Component == null)
-                            {
-                                SetTitle(string.Format("\"{0}\" cannot be opened.", _menu.SelectedItem.Name));
-                            }
-                            else
-                            {
-                                SetTitle(_menu.SelectedItem.Name);
-                            }
+                            SetTitle(_menu.SelectedItem.Component == null
+                                ? string.Format("\"{0}\" cannot be opened.", _menu.SelectedItem.Name)
+                                : _menu.SelectedItem.Name);
                             break;
                     }
                     _beep4.Play();

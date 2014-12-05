@@ -57,6 +57,11 @@ namespace SoundScape
             base.Update(gameTime);
         }
 
+        public bool Connected
+        {
+            get { return PadState.IsConnected; }
+        }
+
         public PlayerIndex PlayerIndex
         {
             get { return _playerIndex; }

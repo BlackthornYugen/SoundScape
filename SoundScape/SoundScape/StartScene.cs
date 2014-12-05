@@ -12,6 +12,7 @@ namespace SoundScape
     {
         private SpriteFont _regularFont, _highlightFont;
         private MenuComponent _menu;
+        private GameScene _controllerStats;
 
         public int SelectedIndex
         {
@@ -46,6 +47,7 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
+            _controllerStats = new ControllerStatus(Game, _spritebatch){Visible = true};
             _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
@@ -56,6 +58,8 @@ namespace SoundScape
                 _menu.Add(item, null);
             }
             Components.Add(_menu);
+            Components.Add(_controllerStats);
+            _controllerStats.Initialize();
             base.LoadContent();
         }
     }
