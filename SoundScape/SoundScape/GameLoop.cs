@@ -37,6 +37,8 @@ namespace SoundScape
         private GameScene _credit;
         private GameScene _gameplay;
 
+        public SpriteFont DefaultGameFont { get; private set; }
+
         public readonly VirtualController PlayerOne;
         public readonly VirtualController PlayerTwo;
 
@@ -146,7 +148,7 @@ namespace SoundScape
 
             // TODO: set backgrounds
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
-
+            DefaultGameFont = Content.Load<SpriteFont>("fonts/regularFont");
             Random r = new Random();
             Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
             {

@@ -163,7 +163,7 @@ namespace SoundScape.GameplaySceneComponents
                         && gsc.Hitbox.Intersects(Hitbox))
                     {
                         // TODO: Remove godmode when left sholder is pressed. 
-                        if (gsc is Enemy) Kill();
+                        if (gsc is Enemy) Kill(Colour);
                         else
                         {
                             Position = oldPosition;
@@ -250,7 +250,7 @@ namespace SoundScape.GameplaySceneComponents
                     _weaponSoundEffectInstance.Play();
                     _weaponState = WeaponState.Cooldown;
                     Colour = new Color(Colour.R*2, Colour.G*2, Colour.B*2);
-                    gsc.Kill();
+                    gsc.Kill(Colour);
                 }
                 else if (_weaponState != WeaponState.Charging &&
                          _weaponState != WeaponState.Cooldown)
@@ -338,12 +338,12 @@ namespace SoundScape.GameplaySceneComponents
             base.OnEnabledChanged(sender, args);
         }
 
-        public override void Kill()
+        public override void Kill(Color? killedByColour = null)
         {
             if (Controller.ButtonDown(Buttons.LeftShoulder))
                 RumbleFor(75, 1);
             else
-                base.Kill();
+                base.Kill(killedByColour);
         }
 
         private enum WeaponState

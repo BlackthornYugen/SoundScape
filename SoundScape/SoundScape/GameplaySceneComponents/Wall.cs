@@ -28,7 +28,7 @@ namespace SoundScape.GameplaySceneComponents
             SpriteBatch.End();
         }
 
-        public override void Kill()
+        public override void Kill(Color? killedByColour = null)
         {
             int scoreChange = Score;
             Scene.Score += scoreChange;

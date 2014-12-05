@@ -32,6 +32,11 @@ namespace SoundScape
         {
             get { return _menu.ActiveMenuItem; }
         }
+
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
+        }
         
         private Color _regularColour = Color.LightYellow;
         private Color _highlightColor = Color.Yellow;
@@ -48,7 +53,7 @@ namespace SoundScape
         protected override void LoadContent()
         {
             _controllerStats = new ControllerStatus(Game, _spritebatch);
-            _regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
+            _regularFont = Game.DefaultGameFont;
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
             _menu = new MenuComponent(Game, _spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont,
