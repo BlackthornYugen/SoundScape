@@ -198,7 +198,7 @@ namespace SoundScape
             Enabled = false;
             Visible = true;
             // TODO: Call something on _scoreboard to let it know our score. 
-            _scoreboard.Score = Score;
+            //_scoreboard.Score = Score;
         }
     }
 }

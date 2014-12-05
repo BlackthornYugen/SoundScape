@@ -152,10 +152,8 @@ namespace SoundScape
                 backGround, centerScreen));
             this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
                 backGround, centerScreen));
-
-            int tempHigh = 3;
             this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), 
-                backGround, centerScreen, tempHigh));
+                backGround, centerScreen));
             this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
 
