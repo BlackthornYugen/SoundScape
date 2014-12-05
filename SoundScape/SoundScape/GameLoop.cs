@@ -144,14 +144,28 @@ namespace SoundScape
             {
                 Background = backGround
             };
+            Random r = new Random();
+            var scores = new[]
+            {
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
+            };
 
             this.Components.Add(_menu);
             this.Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
                 backGround, centerScreen));
             this.Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
                 backGround, centerScreen));
-            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"), 
-                backGround, centerScreen));
+            this.Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
+                backGround, centerScreen, scores));
             this.Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
 

@@ -8,8 +8,8 @@ namespace SoundScape
 {
     public struct HighScoreSaved
     {
-        public string playerName;
-        public int score;
+        public string PlayerName;
+        public int Score;
     }
 
     /// <summary>
@@ -20,27 +20,11 @@ namespace SoundScape
         string _msg = "";
         List<HighScoreSaved> lines = new List<HighScoreSaved>();
 
-        public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen
+        public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
             )
             : base(game, texture, background, centerScreen)
         {
-            hardCoded();
-        }
-
-        void hardCoded()
-        {
-            HighScoreSaved ana = new HighScoreSaved();
-            ana.playerName = "Ana";
-            ana.score = 100;
-            lines.Add(ana);
-            ana.playerName = "Tom10";
-            ana.score = 10;
-            lines.Add(ana);
-            ana.playerName = "Best";
-            ana.score = 1000;
-            lines.Add(ana);
-
-            lines = bubbleSort(lines);
+            lines = bubbleSort(oldScores.ToList());
             defineMsg();
         }
 
@@ -55,7 +39,7 @@ namespace SoundScape
                 List<int> tempScores = new List<int>();
                 for (int i = 0; i < lines.Count; i++)
                 {
-                    tempScores.Add(lines[i].score);
+                    tempScores.Add(lines[i].Score);
                 }
                 int min = ReturnMinimum(tempScores);
                 if (newScore > min)
@@ -69,8 +53,8 @@ namespace SoundScape
         public void updateHighScore(string name, int score)
         {
             HighScoreSaved temp = new HighScoreSaved();
-            temp.playerName = name;
-            temp.score = score;
+            temp.PlayerName = name;
+            temp.Score = score;
             lines.Add(temp);
             lines = bubbleSort(lines);
 
@@ -87,7 +71,7 @@ namespace SoundScape
             {
                 for (int j = 0; j < list.Count; j++)
                 {
-                    if (list[j].score < list[i].score)
+                    if (list[j].Score < list[i].Score)
                     {
                         HighScoreSaved temp = list[i];
                         list[i] = list[j];
@@ -115,13 +99,13 @@ namespace SoundScape
         {
             for (int i = 0; i < lines.Count; i++)
             {
-                _msg += lines[i].playerName;
-                int namePadding = 25 - lines[i].playerName.ToCharArray().Count();
+                _msg += lines[i].PlayerName;
+                int namePadding = 25 - lines[i].PlayerName.ToCharArray().Count();
                 for (int j = 0; j < namePadding; j++)
                 {
                     _msg += " ";
                 }
-                _msg += lines[i].score + "\n";
+                _msg += lines[i].Score + "\n";
             }
         }
 
