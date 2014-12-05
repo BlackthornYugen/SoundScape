@@ -20,9 +20,9 @@ namespace SoundScape.Levels
             _scoreboard = _game.HighScore as HighScore;
             _gameplayScenes = new List<GameplayScene>()
             {   // TODO: Find a better way to ref scoreboard or update constructor
-                new MultiplayerLevel1(game, game.SpriteBatch) {Scoreboard = _scoreboard},
-                new MultiplayerLevel2(game, game.SpriteBatch) {Scoreboard = _scoreboard},
-                new MultiplayerLevel3(game, game.SpriteBatch) {Scoreboard = _scoreboard},
+                new Level1(game, game.SpriteBatch) {Scoreboard = _scoreboard},
+                new Level2(game, game.SpriteBatch) {Scoreboard = _scoreboard},
+                new Level3(game, game.SpriteBatch) {Scoreboard = _scoreboard},
             };
         }
 
