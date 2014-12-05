@@ -14,6 +14,7 @@ namespace XNALib.Menus
         private SpriteFont fontNormal;
         private SpriteFont fontHighlighted;
         private Vector2 position;
+        private Texture2D logo;
 
         public List<MenuItem> MenuItems
         {
@@ -53,7 +54,7 @@ namespace XNALib.Menus
             Color colourHighlighted, 
             SpriteFont fontNormal, 
             SpriteFont fontHighlighted,
-            Vector2 position)
+            Vector2 position, Texture2D logo)
             : base(game)
         {
             this.spritebatch = spritebatch;
@@ -63,6 +64,7 @@ namespace XNALib.Menus
             this.fontHighlighted = fontHighlighted;
             this.position = position;
             this.menuItems = new List<MenuItem>();
+            this.logo = logo;
         }
 
         public MenuComponent(Game game,
@@ -72,19 +74,23 @@ namespace XNALib.Menus
             SpriteFont fontNormal, 
             SpriteFont fontHighlighted,
             Vector2 position,
-            List<MenuItem> menuItems)
-            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position)
+            List<MenuItem> menuItems, Texture2D logo)
+            : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position, logo)
         {
             this.menuItems = menuItems;
+            this.logo = logo;
         }
 
         public override void Draw(GameTime gameTime)
         {
+            
             SpriteFont font;
             Color colour;
             spritebatch.Begin();
+            spritebatch.Draw(logo, new Vector2(500, 250), Color.White);
             for (int i = 0; i < menuItems.Count; i++)
             {
+
                 if (i != menuIndex)
                 {
                     colour = colourNormal;
