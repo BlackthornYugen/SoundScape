@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="SoundScape.StartScene">
-    <Position X="1" Y="8.5" Width="2" />
+    <Position X="0.5" Y="9" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -11,7 +11,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.HighScore">
-    <Position X="3.5" Y="11" Width="1.75" />
+    <Position X="3.75" Y="12" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -21,7 +21,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.InfoScene">
-    <Position X="3.5" Y="8.5" Width="1.75" />
+    <Position X="3.75" Y="9" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplayScene">
-    <Position X="1" Y="11.75" Width="2" />
+    <Position X="0.5" Y="12" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -54,60 +54,56 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameLoop">
-    <Position X="1" Y="1.75" Width="2" />
+    <Position X="0.5" Y="1.75" Width="3" />
     <TypeIdentifier>
       <HashCode>ACQAEAAECAACAwECAAAgQACIAAAAIAAAwIAAEiAgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level1">
-    <Position X="3.5" Y="15.75" Width="1.75" />
+    <Position X="3.75" Y="16.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level2">
-    <Position X="3.5" Y="17.75" Width="1.75" />
+    <Position X="3.75" Y="18.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level2.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level3">
-    <Position X="3.5" Y="19.25" Width="1.75" />
+    <Position X="3.75" Y="19.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level3.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.LevelDebug">
-    <Position X="3.5" Y="14.25" Width="1.75" />
+    <Position X="3.75" Y="14.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\LevelDebug.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.GameplaySceneComponents.Wall" Collapsed="true">
-    <Position X="10.5" Y="10" Width="1.25" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+  <Class Name="SoundScape.GameplaySceneComponents.Wall">
+    <Position X="10.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAggAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemy">
-    <Position X="10.5" Y="11.75" Width="1.75" />
+    <Position X="10.5" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAgAAAAAAAABAAAAAAAAhAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.GameplaySceneComponent">
-    <Position X="8.75" Y="4.75" Width="3" />
+    <Position X="8" Y="7.75" Width="2.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -116,15 +112,8 @@
       <FileName>GameplaySceneComponents\GameplaySceneComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.GameplaySceneComponents.Item" Collapsed="true">
-    <Position X="10.5" Y="9" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameplaySceneComponents\Item.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Player">
-    <Position X="8" Y="11.75" Width="2.25" />
+    <Position X="8" Y="12" Width="2.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -142,45 +131,58 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Bouncer">
-    <Position X="12.5" Y="13" Width="2" />
+    <Position X="12.25" Y="13.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Bouncer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Circler">
-    <Position X="10.5" Y="15" Width="1.75" />
+    <Position X="10.5" Y="15.25" Width="2.25" />
+    <InheritanceLine Type="SoundScape.GameplaySceneComponents.Enemy" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="14.905" />
+        <Point X="11.25" Y="15.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAQAACAACAAEAAgAAAEAABAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Circler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.Xna.Framework.DrawableGameComponent" Collapsed="true">
-    <Position X="7" Y="3.25" Width="2" />
+    <Position X="8" Y="1.75" Width="2.25" />
     <TypeIdentifier />
     <Lollipop Position="1.273" />
   </Class>
   <Class Name="Microsoft.Xna.Framework.GameComponent" Collapsed="true">
-    <Position X="7" Y="1.75" Width="2" />
+    <Position X="8" Y="0.75" Width="2.25" />
     <TypeIdentifier />
     <Lollipop Position="1.286" />
   </Class>
   <Class Name="SoundScape.VirtualController">
-    <Position X="12.5" Y="3" Width="2" />
+    <Position X="12.25" Y="3" Width="2.75" />
+    <InheritanceLine Type="Microsoft.Xna.Framework.GameComponent" FixedFromPoint="true">
+      <Path>
+        <Point X="10.25" Y="1.063" />
+        <Point X="13.625" Y="1.063" />
+        <Point X="13.625" Y="3" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>cAZwAABMACBQwBBAAUAIIGkAAEABAAAFBkIEQAhgBAY=</HashCode>
       <FileName>VirtualController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="XNALib.Scenes.GameScene">
-    <Position X="5.75" Y="4.75" Width="2" />
+    <Position X="4" Y="5.5" Width="3.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier />
   </Class>
   <Class Name="SoundScape.ControllerStatus">
-    <Position X="5.75" Y="11.75" Width="2" />
+    <Position X="5.75" Y="12" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -201,7 +203,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.NewHighscore">
-    <Position X="5.75" Y="8.5" Width="2" />
+    <Position X="5.75" Y="9" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -211,20 +213,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.Xna.Framework.Game" Collapsed="true">
-    <Position X="1" Y="0.5" Width="2" />
+    <Position X="0.5" Y="0.75" Width="3" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="System.Object" Collapsed="true">
-    <Position X="5" Y="0.5" Width="2.5" />
+    <Position X="4" Y="0.75" Width="3.25" />
     <TypeIdentifier />
   </Class>
   <Class Name="SoundScape.Levels.Campaign">
-    <Position X="3.5" Y="1.75" Width="2" />
+    <Position X="4" Y="1.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAFAAAEAAAAACgAAAAAAAACAAAAAAAAQAAAAAgAAAQ=</HashCode>
       <FileName>Levels\Campaign.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="XNALib.Menus.MenuComponent&lt;T&gt;">
+    <Position X="9.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="XNALib.Menus.MenuItem&lt;T&gt;">
+    <Position X="10.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
