@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using SoundScape.Levels;
 using XNALib.Menus;
 using XNALib.Scenes;
@@ -50,16 +51,17 @@ namespace SoundScape
             for (int i = 0; i < MAX_LETTERS; i++)
             {
                 _letterMenuComponents[i] = new MenuComponent<char>(Game, _spritebatch, _regularColour, _highlightColumn, _font, _font,
-                    startingPos + Vector2.UnitX * 75 * i)
+                    startingPos + Vector2.UnitX * (75 * i) - Vector2.UnitY * MAX_LETTERS * _font.LineSpacing)
                 {
                     ColourHighlighted = _highlightColumn,
                     ColourNormal = _regularColour,
                 };
+                alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), '0'));
                 _letterMenuComponents[i].Add(" ", ' ');
                 alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), c));
-                alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), c));
-                alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), c));
-
+                _letterMenuComponents[i].Add(" ", ' ');
+                alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), '0'));
+                _letterMenuComponents[i].MenuIndex = alphabit.Length;
                 Components.Add(_letterMenuComponents[i]);
             }
             _letterMenuComponents.First().ColourNormal = _highlightColumn;
@@ -70,14 +72,24 @@ namespace SoundScape
         public override void Update(GameTime gameTime)
         {
             var inputs = new[] { Game.PlayerOne, Game.PlayerTwo };
-            if (inputs.Any(p => p.ActionSelect))
+
+            /*o*/if (inputs.Any(p => p.ButtonPressed(Buttons.RightShoulder)))
+                MoveRow(10);
+            else if (inputs.Any(p => p.ButtonPressed(Buttons.LeftShoulder)))
+                MoveRow(-10);
+            else if (inputs.Any(p => p.ButtonPressed(Buttons.RightTrigger)))
+                MoveRow(5);
+            else if (inputs.Any(p => p.ButtonPressed(Buttons.LeftTrigger)))
+                MoveRow(-5);
+            else if (inputs.Any(p => p.ActionSelect))
                 MoveColumn(1);
-            if (inputs.Any(p => p.ActionBack))
+            else if (inputs.Any(p => p.ActionBack))
                 MoveColumn(-1);
-            if (inputs.Any(p => p.ActionMenuDown))
+            else if (inputs.Any(p => p.ActionMenuDown))
                 MoveRow(1);
-            if (inputs.Any(p => p.ActionMenuUp))
+            else if (inputs.Any(p => p.ActionMenuUp))
                 MoveRow(-1);
+
             base.Update(gameTime);
         }
 
@@ -104,8 +116,9 @@ namespace SoundScape
             Game.MenuEffects[0].Play();
             var active = _letterMenuComponents[_activePosition];
             active.MenuIndex = active.MenuIndex + i;
-            active.MenuIndex = Math.Max(0, active.MenuIndex);
-            active.MenuIndex = Math.Min(MAX_LETTERS, active.MenuIndex);
+            //active.MenuIndex = Math.Max(0, active.MenuIndex);
+            //active.MenuIndex = Math.Min(MAX_LETTERS, active.MenuIndex);
+            active.Position -= _font.LineSpacing*i*Vector2.UnitY;
         }
 
         public override void Draw(GameTime gameTime)
@@ -119,7 +132,7 @@ namespace SoundScape
             foreach (string s in title)
             {
                 Vector2 adjustedVector2 = posVector2 + Vector2.UnitX*(-font.MeasureString(s).X/2f);
-                posVector2 += font.MeasureString(s).Y*Vector2.UnitY;
+                posVector2 -= Vector2.UnitY * font.MeasureString(s).Y;
                 _spritebatch.DrawString(font, string.Format(s, Campaign.CurrentScore), adjustedVector2, _regularColour);                
             }
             _spritebatch.End();

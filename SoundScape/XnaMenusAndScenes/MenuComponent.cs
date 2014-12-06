@@ -11,7 +11,7 @@ namespace XNALib.Menus
         private readonly SpriteFont _fontHighlighted;
         private readonly SpriteFont _fontNormal;
         private readonly List<MenuItem<T>> _menuItems;
-        private readonly Vector2 _position;
+        private Vector2 _position;
         private readonly SpriteBatch _spritebatch;
         private Vector2 _logoPosition;
         private int _menuIndex;
@@ -83,6 +83,12 @@ namespace XNALib.Menus
             set { _colourNormal = value; }
         }
 
+        public Vector2 Position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+
         public T this[int index]
         {
             get { return _menuItems[index].Component; }
@@ -115,7 +121,7 @@ namespace XNALib.Menus
                     colour = _colourHighlighted;
                     font = _fontHighlighted;
                 }
-                _spritebatch.DrawString(font, _menuItems[i].Name, _position + (Vector2.UnitY*i*font.LineSpacing), colour);
+                _spritebatch.DrawString(font, _menuItems[i].Name, Position + (Vector2.UnitY*i*font.LineSpacing), colour);
             }
             _spritebatch.End();
             base.Draw(gameTime);
