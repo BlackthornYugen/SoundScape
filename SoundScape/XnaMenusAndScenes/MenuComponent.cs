@@ -6,8 +6,8 @@ namespace XNALib.Menus
 {
     public class MenuComponent<T> : DrawableGameComponent
     {
-        private readonly Color _colourHighlighted;
-        private readonly Color _colourNormal;
+        private Color _colourHighlighted;
+        private Color _colourNormal;
         private readonly SpriteFont _fontHighlighted;
         private readonly SpriteFont _fontNormal;
         private readonly List<MenuItem<T>> _menuItems;
@@ -69,6 +69,18 @@ namespace XNALib.Menus
         {
             get { return _logoPosition; }
             set { _logoPosition = value; }
+        }
+
+        public Color ColourHighlighted
+        {
+            get { return _colourHighlighted; }
+            set { _colourHighlighted = value; }
+        }
+
+        public Color ColourNormal
+        {
+            get { return _colourNormal; }
+            set { _colourNormal = value; }
         }
 
         public T this[int index]

@@ -14,7 +14,6 @@ namespace SoundScape
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
-        private HighScore _scoreboard;
         private const int WALL_THICKNESS = 100;
         private int _score;
         private DateTime _startTime;
@@ -129,12 +128,6 @@ namespace SoundScape
         {
             get { return _background; }
             set { _background = value; }
-        }
-
-        public HighScore Scoreboard
-        {
-            get { return _scoreboard; }
-            set { _scoreboard = value; }
         }
 
         protected override void LoadContent()

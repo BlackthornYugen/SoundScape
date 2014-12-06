@@ -10,10 +10,6 @@ namespace SoundScape.Levels
 {
     class Level1 : GameplayScene
     {
-        public new GameLoop Game
-        {
-            get { return base.Game as GameLoop; }
-        }
 
         public Level1(GameLoop game, SpriteBatch sb)
             : base(game, sb)

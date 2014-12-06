@@ -8,6 +8,7 @@ namespace XNALib.Scenes
     {
         protected Texture2D _background;
         protected SpriteBatch _spritebatch;
+        public bool AllowExit { get; protected set; }
 
         public GameComponentCollection Components { get; set; }
 
@@ -33,6 +34,7 @@ namespace XNALib.Scenes
         {
             Components = new GameComponentCollection();
             _spritebatch = spritebatch;
+            AllowExit = true;
             Hide();
         }
 

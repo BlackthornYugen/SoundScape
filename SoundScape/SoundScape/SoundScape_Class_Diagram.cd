@@ -11,7 +11,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.HighScore">
-    <Position X="3.75" Y="12" Width="1.75" />
+    <Position X="3.75" Y="12.25" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplayScene">
-    <Position X="0.5" Y="12" Width="3" />
+    <Position X="0.5" Y="12.25" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -49,40 +49,46 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AgSBgAAAIRAAAglAAAAAACAAAAiAEAgCAAAQAgAAAAc=</HashCode>
+      <HashCode>AgSAgAAAIRAAAglAAAAAACAAAAgAEAgCAAAQAgAAAAc=</HashCode>
       <FileName>GameplayScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameLoop">
     <Position X="0.5" Y="1.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACQAEAAECAACAwECAAAgQACIAAAAIAAAwIAAEiAgAAQ=</HashCode>
+      <HashCode>ACQAEAAECAACAwECAAAgQACIAAAAIAAAwIAAAiBgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level1">
-    <Position X="3.75" Y="16.25" Width="1.75" />
+    <Position X="4" Y="17.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level1.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level2">
-    <Position X="3.75" Y="18.25" Width="1.75" />
+    <Position X="6" Y="19" Width="1.75" />
+    <InheritanceLine Type="SoundScape.GameplayScene" FixedFromPoint="true">
+      <Path>
+        <Point X="3.5" Y="19.375" />
+        <Point X="6" Y="19.375" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level2.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.Level3">
-    <Position X="3.75" Y="19.75" Width="1.75" />
+    <Position X="4" Y="19.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\Level3.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.Levels.LevelDebug">
-    <Position X="3.75" Y="14.75" Width="1.75" />
+    <Position X="6" Y="17.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Levels\LevelDebug.cs</FileName>
@@ -182,7 +188,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="SoundScape.ControllerStatus">
-    <Position X="5.75" Y="12" Width="2" />
+    <Position X="5.75" Y="12.25" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -208,7 +214,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAEAAEAAQAAiAAAAAAAQAAAAAAAQ=</HashCode>
+      <HashCode>AAQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAACBAAAQ=</HashCode>
       <FileName>NewHighscore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -233,7 +239,7 @@
     <TypeIdentifier />
   </Class>
   <Struct Name="XNALib.Menus.MenuItem&lt;T&gt;">
-    <Position X="10.5" Y="6" Width="1.5" />
+    <Position X="10.5" Y="6.25" Width="1.5" />
     <TypeIdentifier />
   </Struct>
   <Font Name="Segoe UI" Size="9" />

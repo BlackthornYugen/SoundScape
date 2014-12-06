@@ -25,7 +25,7 @@ namespace SoundScape
     /// </summary>
     public class GameLoop : Game
     {
-        private SoundEffect[] _menuEffects; 
+        public SoundEffect[] MenuEffects; 
         private SpriteBatch _spriteBatch;
         private SpeechSynthesizer _speechSynthesizer;
 
@@ -143,7 +143,7 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _menuEffects = new[]
+            MenuEffects = new[]
             {
                 Content.Load<SoundEffect>("sounds/Beep2"),
                 Content.Load<SoundEffect>("sounds/Beep4"),
@@ -213,13 +213,18 @@ namespace SoundScape
         /// </summary>
         void ControlInput()
         {
+            var inputs = new[] {PlayerOne, PlayerTwo};
             // Allows the game to exit
-            if (PlayerOne.ActionBack || PlayerTwo.ActionBack)
+            if ((_gameplay == null || _gameplay.AllowExit) && inputs.Any(p=>p.ActionBack))
             {
                 if (_menu.Enabled)
+                {
+                    MenuEffects[0].Play();
                     Exit();
+                }
                 else
                 {
+                    MenuEffects[0].Play();
                     HideAllScene();
                     SetTitle();
                     _menu.Show();
@@ -230,7 +235,7 @@ namespace SoundScape
 
             if (_menu.Enabled)
             {
-                if (PlayerOne.ActionSelect || PlayerTwo.ActionSelect)
+                if (inputs.Any(p=>p.ActionSelect))
                 {
                     switch (_menu.SelectedItem.Name)
                     {
@@ -276,18 +281,18 @@ namespace SoundScape
                                 : _menu.SelectedItem.Name);
                             break;
                     }
-                    _menuEffects[1].Play();
+                    MenuEffects[1].Play();
                 }
 
-                if (PlayerOne.ActionMenuDown || PlayerTwo.ActionMenuDown)
+                if (inputs.Any(p=>p.ActionMenuDown))
                 {
                     _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
-                    _menuEffects[0].Play();
+                    MenuEffects[0].Play();
                 }
-                else if (PlayerOne.ActionMenuUp || PlayerTwo.ActionMenuUp)
+                else if (inputs.Any(p=>p.ActionMenuUp))
                 {
                     _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
-                    _menuEffects[0].Play();
+                    MenuEffects[0].Play();
                 }
             }
         }
