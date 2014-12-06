@@ -95,7 +95,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Wall">
-    <Position X="10.5" Y="7.75" Width="1.5" />
+    <Position X="10.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAggAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Wall.cs</FileName>
@@ -214,7 +214,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAACBAAAQ=</HashCode>
+      <HashCode>AAQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAAShAAAQ=</HashCode>
       <FileName>NewHighscore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -239,7 +239,7 @@
     <TypeIdentifier />
   </Class>
   <Struct Name="XNALib.Menus.MenuItem&lt;T&gt;">
-    <Position X="10.5" Y="6.25" Width="1.5" />
+    <Position X="10.5" Y="6.5" Width="1.5" />
     <TypeIdentifier />
   </Struct>
   <Font Name="Segoe UI" Size="9" />

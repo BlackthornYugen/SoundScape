@@ -17,6 +17,8 @@ namespace SoundScape
         private Color _highlightColumn;
         private Color _highlightChar;
         private SpriteFont _font;
+        private const char INITIAL_CHAR = 'A';
+        private const int ALPHABET_LENGTH = 26;
         const int MAX_LETTERS = 15;
         private MenuComponent<char>[] _letterMenuComponents;
         private int _activePosition;
@@ -39,11 +41,11 @@ namespace SoundScape
         protected override void LoadContent()
         {
             _letterMenuComponents = new MenuComponent<char>[MAX_LETTERS];
-            var alphabit = new char[26];
+            var alphabit = new char[ALPHABET_LENGTH];
             {
-                for (int i = 0; i < alphabit.Length; i++)
+                for (int i = 0; i < ALPHABET_LENGTH; i++)
                 {
-                    alphabit[i] = (char)('A' + i);
+                    alphabit[i] = (char)(INITIAL_CHAR + i);
                 }   
             }
 
@@ -51,7 +53,7 @@ namespace SoundScape
             for (int i = 0; i < MAX_LETTERS; i++)
             {
                 _letterMenuComponents[i] = new MenuComponent<char>(Game, _spritebatch, _regularColour, _highlightColumn, _font, _font,
-                    startingPos + Vector2.UnitX * (75 * i) - Vector2.UnitY * MAX_LETTERS * _font.LineSpacing)
+                    startingPos + Vector2.UnitX * (75 * i) - Vector2.UnitY * ALPHABET_LENGTH * _font.LineSpacing)
                 {
                     ColourHighlighted = _highlightColumn,
                     ColourNormal = _regularColour,
@@ -61,7 +63,7 @@ namespace SoundScape
                 alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), c));
                 _letterMenuComponents[i].Add(" ", ' ');
                 alphabit.ForEach(c => _letterMenuComponents[i].Add(c.ToString(), '0'));
-                _letterMenuComponents[i].MenuIndex = alphabit.Length;
+                _letterMenuComponents[i].MenuIndex = ALPHABET_LENGTH;
                 Components.Add(_letterMenuComponents[i]);
             }
             _letterMenuComponents.First().ColourNormal = _highlightColumn;
@@ -116,8 +118,16 @@ namespace SoundScape
             Game.MenuEffects[0].Play();
             var active = _letterMenuComponents[_activePosition];
             active.MenuIndex = active.MenuIndex + i;
-            //active.MenuIndex = Math.Max(0, active.MenuIndex);
-            //active.MenuIndex = Math.Min(MAX_LETTERS, active.MenuIndex);
+            if (active.MenuIndex < ALPHABET_LENGTH)
+            {
+                active.MenuIndex += ALPHABET_LENGTH +1;
+                active.Position -= _font.LineSpacing * (ALPHABET_LENGTH + 1) * Vector2.UnitY;
+            }
+            else if (active.MenuIndex > ALPHABET_LENGTH*2)
+            {
+                active.MenuIndex -= ALPHABET_LENGTH + 1;
+                active.Position += _font.LineSpacing * (ALPHABET_LENGTH + 1) * Vector2.UnitY;            
+            }
             active.Position -= _font.LineSpacing*i*Vector2.UnitY;
         }
 
