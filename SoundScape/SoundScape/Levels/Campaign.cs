@@ -11,7 +11,7 @@ namespace SoundScape.Levels
         private static GameLoop _game;
         private static List<GameplayScene> _gameplayScenes;
         private static Campaign _instance;
-        private static int _currentLevel = -1;
+        private static int _currentLevel;
         private HighScore _scoreboard;
 
         protected Campaign(GameLoop game)
@@ -36,7 +36,8 @@ namespace SoundScape.Levels
 
         public static Campaign New(GameLoop game = null)
         {
-            return _instance ?? (_instance = new Campaign(game));
+            _currentLevel = -1;
+            return _instance = new Campaign(game ?? _game);
         }
 
         public static Campaign Instance()

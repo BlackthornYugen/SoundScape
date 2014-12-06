@@ -236,6 +236,7 @@ namespace SoundScape
                 {
                     var nextLevelScene = campaign.NextLevel();
                     Hide();
+                    Console.WriteLine(new string('\n', 4) + (this == nextLevelScene) + new string('\n', 4));
                     Game.Components.Remove(this);
                     Game.Components.Add(nextLevelScene);
                     nextLevelScene.Show();

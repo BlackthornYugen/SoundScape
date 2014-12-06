@@ -240,7 +240,7 @@ namespace SoundScape
                                 Components.Remove(Gameplay);
                                 Gameplay.Dispose();
                             }
-                            Gameplay = Campaign.Instance().NextLevel();
+                            Gameplay = Campaign.New().NextLevel();
                             Components.Add(Gameplay);
                             Gameplay.Show();
                             Gameplay.Enabled = true;
