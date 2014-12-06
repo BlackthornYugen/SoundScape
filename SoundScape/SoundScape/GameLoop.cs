@@ -25,10 +25,9 @@ namespace SoundScape
     /// </summary>
     public class GameLoop : Game
     {
-        public static SoundEffect _beep2; 
-        public static SoundEffect _beep4;
+        private SoundEffect[] _menuEffects; 
         private SpriteBatch _spriteBatch;
-        private readonly SpeechSynthesizer _speechSynthesizer;
+        private SpeechSynthesizer _speechSynthesizer;
 
         private StartScene _menu;
         private GameScene _howToPlay;
@@ -144,8 +143,11 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _beep2 = Content.Load<SoundEffect>("sounds/Beep2");
-            _beep4 = Content.Load<SoundEffect>("sounds/Beep4");
+            _menuEffects = new[]
+            {
+                Content.Load<SoundEffect>("sounds/Beep2"),
+                Content.Load<SoundEffect>("sounds/Beep4"),
+            }; 
 
             Texture2D dimensions = Content.Load<Texture2D>("images/Help");
             //All images for menus should have same size 
@@ -274,18 +276,18 @@ namespace SoundScape
                                 : _menu.SelectedItem.Name);
                             break;
                     }
-                    _beep4.Play();
+                    _menuEffects[1].Play();
                 }
 
                 if (PlayerOne.ActionMenuDown || PlayerTwo.ActionMenuDown)
                 {
                     _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
-                    _beep2.Play();
+                    _menuEffects[0].Play();
                 }
                 else if (PlayerOne.ActionMenuUp || PlayerTwo.ActionMenuUp)
                 {
                     _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
-                    _beep2.Play();
+                    _menuEffects[0].Play();
                 }
             }
         }

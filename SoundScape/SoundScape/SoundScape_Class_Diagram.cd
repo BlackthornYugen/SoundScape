@@ -1,32 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SoundScape.StartScene">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="1" Y="8.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAEAAAAQQAAAAAIAAAJAAACAAAAQ=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAQEAAAAQQAAgAAIAAAJAAACAAAAQ=</HashCode>
       <FileName>StartScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.HighScore">
-    <Position X="15" Y="6" Width="1.5" />
+    <Position X="3.5" Y="11" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAwgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAIAAACAgAAAAAAAAAAAAIAEAAIAAQAAAAAAAA=</HashCode>
       <FileName>HighScore.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.InfoScene">
-    <Position X="13" Y="6" Width="1.5" />
+    <Position X="3.5" Y="8.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAQAAAwAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAIAAABAAAA=</HashCode>
       <FileName>InfoScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplayScene">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="1" Y="11.75" Width="2" />
     <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
+      <Enum Name="SoundScape.GameplayScene.GameState">
+        <TypeIdentifier>
+          <NewMemberFileName>GameplayScene.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
       <Enum Name="SoundScape.GameplayScene.Entity">
         <TypeIdentifier>
           <NewMemberFileName>GameplayScene.cs</NewMemberFileName>
@@ -34,89 +49,84 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAIQAAAgtAAAAAACAAAAAAAAACAAAAAgAAAAU=</HashCode>
+      <HashCode>AgSBgAAAIRAAAglAAAAAACAAAAiAEAgCAAAQAgAAAAc=</HashCode>
       <FileName>GameplayScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameLoop">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="1" Y="1.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>ACQAEAAEEAAAAwACAAAAQACIAAACAAAAwIAAACAgAAQ=</HashCode>
+      <HashCode>ACQAEAAECAACAwECAAAgQACIAAAAIAAAwIAAEiAgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.Levels.MultiplayerCampaign">
-    <Position X="0.5" Y="6.75" Width="1.5" />
+  <Class Name="SoundScape.Levels.Level1">
+    <Position X="3.5" Y="15.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAEAAAAAAgAIAAAAAAAAAAAAAAAQAAAAAgAAAQ=</HashCode>
-      <FileName>Levels\MultiplayerCampaign.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Levels\Level1.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.Levels.MultiplayerLevel1">
-    <Position X="2.25" Y="2.25" Width="1.75" />
-    <InheritanceLine Type="SoundScape.GameplayScene" FixedFromPoint="true">
-      <Path>
-        <Point X="2" Y="2.625" />
-        <Point X="2.25" Y="2.625" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="SoundScape.Levels.Level2">
+    <Position X="3.5" Y="17.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Levels\MultiplayerLevel1.cs</FileName>
+      <FileName>Levels\Level2.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.Levels.MultiplayerLevel2">
-    <Position X="2.25" Y="4" Width="1.75" />
+  <Class Name="SoundScape.Levels.Level3">
+    <Position X="3.5" Y="19.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Levels\MultiplayerLevel2.cs</FileName>
+      <FileName>Levels\Level3.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.Levels.MultiplayerLevel3">
-    <Position X="2.25" Y="5.75" Width="1.75" />
+  <Class Name="SoundScape.Levels.LevelDebug">
+    <Position X="3.5" Y="14.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Levels\MultiplayerLevel3.cs</FileName>
+      <FileName>Levels\LevelDebug.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.Levels.SinglePlayerLevel1">
-    <Position X="2.25" Y="0.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>Levels\SinglePlayerLevel1.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SoundScape.GameplaySceneComponents.Wall">
-    <Position X="4.25" Y="2" Width="2.25" />
+  <Class Name="SoundScape.GameplaySceneComponents.Wall" Collapsed="true">
+    <Position X="10.5" Y="10" Width="1.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAggAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemy">
-    <Position X="4.25" Y="4.75" Width="2.25" />
+    <Position X="10.5" Y="11.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAACEAAAAAAAAAgAAAAAAAABAAAAAAAAhAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.GameplaySceneComponent">
-    <Position X="7" Y="0.5" Width="3" />
+    <Position X="8.75" Y="4.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAEAgUAEAgggggAAAAAAAAAAgAAAQIIAgBAAAAA=</HashCode>
+      <HashCode>AAAAQAEAgUAEAgggggAAAAAAAAgAwAAAQIIAgBAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\GameplaySceneComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.GameplaySceneComponents.Item">
-    <Position X="4.25" Y="0.5" Width="2.25" />
+  <Class Name="SoundScape.GameplaySceneComponents.Item" Collapsed="true">
+    <Position X="10.5" Y="9" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Player">
-    <Position X="10.25" Y="0.5" Width="2.25" />
+    <Position X="8" Y="11.75" Width="2.25" />
     <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
@@ -127,22 +137,93 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AkQQAgDAAYAACghgRIQAQAAwAEAAQAAACQAAAAUgAAA=</HashCode>
+      <HashCode>AkQAAADAAcAACghgQIQAQAAwAMAAQAAACQAAAEQgAAA=</HashCode>
       <FileName>GameplaySceneComponents\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Bouncer">
-    <Position X="4.25" Y="8.25" Width="2.25" />
+    <Position X="12.5" Y="13" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Bouncer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplaySceneComponents.Enemies.Circler">
-    <Position X="7" Y="5.75" Width="2" />
+    <Position X="10.5" Y="15" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAACAACAAEAAgAAAEAABAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>GameplaySceneComponents\Enemies\Circler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.DrawableGameComponent" Collapsed="true">
+    <Position X="7" Y="3.25" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="1.273" />
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.GameComponent" Collapsed="true">
+    <Position X="7" Y="1.75" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="1.286" />
+  </Class>
+  <Class Name="SoundScape.VirtualController">
+    <Position X="12.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>cAZwAABMACBQwBBAAUAIIGkAAEABAAAFBkIEQAhgBAY=</HashCode>
+      <FileName>VirtualController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="XNALib.Scenes.GameScene">
+    <Position X="5.75" Y="4.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SoundScape.ControllerStatus">
+    <Position X="5.75" Y="11.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SoundScape.ControllerStatus.ControllerData">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>ControllerStatus.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAAQAQ=</HashCode>
+      <FileName>ControllerStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundScape.NewHighscore">
+    <Position X="5.75" Y="8.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAEAAEAAQAAiAAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>NewHighscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.Game" Collapsed="true">
+    <Position X="1" Y="0.5" Width="2" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="5" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SoundScape.Levels.Campaign">
+    <Position X="3.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAEAAAAACgAAAAAAAACAAAAAAAAQAAAAAgAAAQ=</HashCode>
+      <FileName>Levels\Campaign.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
