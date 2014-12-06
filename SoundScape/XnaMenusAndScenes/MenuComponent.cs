@@ -4,13 +4,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace XNALib.Menus
 {
-    public class MenuComponent : DrawableGameComponent
+    public class MenuComponent<T> : DrawableGameComponent
     {
         private readonly Color _colourHighlighted;
         private readonly Color _colourNormal;
         private readonly SpriteFont _fontHighlighted;
         private readonly SpriteFont _fontNormal;
-        private readonly List<MenuItem> _menuItems;
+        private readonly List<MenuItem<T>> _menuItems;
         private readonly Vector2 _position;
         private readonly SpriteBatch _spritebatch;
         private Vector2 _logoPosition;
@@ -31,7 +31,7 @@ namespace XNALib.Menus
             _fontNormal = fontNormal;
             _fontHighlighted = fontHighlighted;
             _position = position;
-            _menuItems = new List<MenuItem>();
+            _menuItems = new List<MenuItem<T>>();
         }
 
         public MenuComponent(Game game,
@@ -41,13 +41,13 @@ namespace XNALib.Menus
             SpriteFont fontNormal,
             SpriteFont fontHighlighted,
             Vector2 position,
-            List<MenuItem> menuItems)
+            List<MenuItem<T>> menuItems)
             : this(game, spritebatch, colourNormal, colourHighlighted, fontNormal, fontHighlighted, position)
         {
             _menuItems = menuItems;
         }
 
-        public List<MenuItem> MenuItems
+        public List<MenuItem<T>> MenuItems
         {
             get { return _menuItems; }
         }
@@ -58,7 +58,7 @@ namespace XNALib.Menus
             set { _menuIndex = value; }
         }
 
-        public MenuItem ActiveMenuItem
+        public MenuItem<T> ActiveMenuItem
         {
             get { return _menuItems[_menuIndex]; }
         }
@@ -71,14 +71,14 @@ namespace XNALib.Menus
             set { _logoPosition = value; }
         }
 
-        public DrawableGameComponent this[int index]
+        public T this[int index]
         {
             get { return _menuItems[index].Component; }
         }
 
-        public void Add(string menuItemName, DrawableGameComponent menuItemComponent)
+        public void Add(string menuItemName, T menuItemComponent)
         {
-            var newItem = new MenuItem();
+            var newItem = new MenuItem<T>();
             newItem.Name = menuItemName;
             newItem.Component = menuItemComponent;
             _menuItems.Add(newItem);
@@ -110,9 +110,9 @@ namespace XNALib.Menus
         }
     }
 
-    public struct MenuItem
+    public struct MenuItem<T>
     {
         public string Name { get; set; }
-        public DrawableGameComponent Component { get; set; }
+        public T Component { get; set; }
     }
 }

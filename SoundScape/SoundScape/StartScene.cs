@@ -11,7 +11,7 @@ namespace SoundScape
     public class StartScene : GameScene
     {
         private SpriteFont _regularFont, _highlightFont;
-        private MenuComponent _menu;
+        private MenuComponent<DrawableGameComponent> _menu;
         private GameScene _controllerStats;
 
         public int SelectedIndex
@@ -28,7 +28,7 @@ namespace SoundScape
             }
         }
 
-        public MenuItem SelectedItem
+        public MenuItem<DrawableGameComponent> SelectedItem
         {
             get { return _menu.ActiveMenuItem; }
         }
@@ -56,7 +56,7 @@ namespace SoundScape
             _regularFont = Game.DefaultGameFont;
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
-            _menu = new MenuComponent(Game, _spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont,
+            _menu = new MenuComponent<DrawableGameComponent>(Game, _spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont,
                 Vector2.One * 100) { Logo = Game.Content.Load<Texture2D>("logo"), LogoPosition = new Vector2(500, 250) };
             foreach (string item in _menuItems)
             {

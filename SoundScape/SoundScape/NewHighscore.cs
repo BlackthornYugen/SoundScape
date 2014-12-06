@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SoundScape.Levels;
 using XNALib.Menus;
@@ -8,10 +9,11 @@ namespace SoundScape
 {
     class NewHighscore : GameScene
     {
-        private MenuComponent _menu;
         private Color _regularColour;
         private Color _highlightColor;
         private SpriteFont _font;
+        const int MAX_LETTERS = 15;
+        private MenuComponent<char>[] _letterMenuComponents;
 
         public NewHighscore(GameLoop game, SpriteBatch sb) : base(game, sb)
         {
@@ -27,16 +29,29 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-
-            _menu = new MenuComponent(Game, _spritebatch, _regularColour, _highlightColor, _font, _font,
-                Vector2.One * 100) { Logo = Game.Content.Load<Texture2D>("logo"), LogoPosition = Vector2.Zero };
-
-            for (char c = 'A'; c < 'Z'; c++)
+            _letterMenuComponents = new MenuComponent<char>[MAX_LETTERS];
+            Vector2 startingPos = Vector2.One*100;
+            for (int i = 0; i < MAX_LETTERS; i++)
             {
-                _menu.Add(c.ToString(), new DrawableGameComponent(Game));
+                _letterMenuComponents[i] = new MenuComponent<char>(Game, _spritebatch, _regularColour, _highlightColor, _font, _font,
+                    startingPos + Vector2.UnitX * 75 * i) { Logo = Game.Content.Load<Texture2D>("logo"), LogoPosition = Vector2.Zero };
+                _letterMenuComponents[i].Add(" ", ' ');
+                for (char c = 'A'; c < 'Z'; c++)
+                {
+                    _letterMenuComponents[i].Add(c.ToString(), c);
+                }
+                Components.Add(_letterMenuComponents[i]);
             }
-            Components.Add(_menu);
             base.LoadContent();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            if (Game.PlayerOne.ActionSelect || Game.PlayerTwo.ActionSelect)
+            {
+                
+            }
         }
 
         public override void Draw(GameTime gameTime)
