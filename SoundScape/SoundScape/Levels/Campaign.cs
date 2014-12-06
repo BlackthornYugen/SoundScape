@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 using XNALib.Scenes;
 
 namespace SoundScape.Levels
@@ -14,15 +15,15 @@ namespace SoundScape.Levels
         private static int _currentLevel;
         private HighScore _scoreboard;
 
-        protected Campaign(GameLoop game)
+        private Campaign(GameLoop game)
         {
             _game = game;
             _scoreboard = _game.HighScore as HighScore;
             _gameplayScenes = new List<GameplayScene>()
             {   // TODO: Find a better way to ref scoreboard or update constructor
-                new Level1(game, game.SpriteBatch) {Scoreboard = _scoreboard},
-                new Level2(game, game.SpriteBatch) {Scoreboard = _scoreboard},
-                new Level3(game, game.SpriteBatch) {Scoreboard = _scoreboard},
+                new Level1(game, game.SpriteBatch),
+                new Level2(game, game.SpriteBatch),
+                new Level3(game, game.SpriteBatch),
             };
         }
 
@@ -47,6 +48,10 @@ namespace SoundScape.Levels
 
         public GameScene NextLevel()
         {
+            // Todo: remove the code below. It disables the whole game.
+            _gameplayScenes.ForEach(l => l.Score = 500);
+            return new NewHighscore(_game, _game.SpriteBatch); 
+            // Todo: remove the code above. It disables the whole game.
             if (_instance == null)
                 throw new Exception("No campaign started!");
             if (++_currentLevel >= _gameplayScenes.Count)
