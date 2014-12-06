@@ -267,10 +267,13 @@ namespace SoundScape.GameplaySceneComponents
 
         private void SonarHit(GameplaySceneComponent gsc, float volume)
         {
-            _activeSound = gsc.SoundEffect.CreateInstance();
-            _activeSound.Volume = volume;
-            _activeSound.Pan = _pan;
-            _activeSound.Play();
+            if (gsc.SoundEffect != null)
+            {
+                _activeSound = gsc.SoundEffect.CreateInstance();
+                _activeSound.Volume = volume;
+                _activeSound.Pan = _pan;
+                _activeSound.Play();
+            }
         }
 
         /// <summary>

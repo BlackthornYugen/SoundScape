@@ -88,9 +88,9 @@ namespace SoundScape
             get { return _spriteBatch; }
         }
 
-        public GameScene HighScore
+        public HighScore HighScore
         {
-            get { return _highScore; }
+            get { return _highScore as HighScore; }
         }
 
         public GameScene Gameplay
@@ -169,16 +169,16 @@ namespace SoundScape
             Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, new[]
             {
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(30,3000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(30,3000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
             }));
             Campaign.New(this);
             _menu.Show();

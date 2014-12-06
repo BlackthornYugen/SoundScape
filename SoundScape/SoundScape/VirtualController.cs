@@ -41,7 +41,7 @@ namespace SoundScape
             MenuSelectButtons = new[] { Buttons.Start, Buttons.A, Buttons.RightTrigger,  };
             MenuBackButtons = new[] { Buttons.Back, Buttons.B, };
             MenuUpButtons = new[] { Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp };
-            MenuDownButtons = new[] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickUp };
+            MenuDownButtons = new[] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickDown };
             GameFireButtons = new[] { Buttons.RightShoulder, Buttons.RightTrigger };
         }
 

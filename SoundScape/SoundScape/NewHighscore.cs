@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SoundScape.Levels;
 using XNALib.Menus;
 using XNALib.Scenes;
 
@@ -19,6 +20,11 @@ namespace SoundScape
             _highlightColor = Color.MediumVioletRed;
         }
 
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
+        }
+
         protected override void LoadContent()
         {
 
@@ -31,6 +37,23 @@ namespace SoundScape
             }
             Components.Add(_menu);
             base.LoadContent();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+            var cb = Game.Window.ClientBounds;
+            var font = Game.DefaultGameFont;
+            string[] title = {"Congratulations", "{0:n0} points is a new record!"};
+            Vector2 posVector2 = Vector2.UnitX*(cb.Width/2f);
+            _spritebatch.Begin();
+            foreach (string s in title)
+            {
+                Vector2 adjustedVector2 = posVector2 + Vector2.UnitX*(-font.MeasureString(s).X/2f);
+                posVector2 += font.MeasureString(s).Y*Vector2.UnitY;
+                _spritebatch.DrawString(font, string.Format(s, Campaign.CurrentScore), adjustedVector2, _regularColour);                
+            }
+            _spritebatch.End();
         }
     }
 }

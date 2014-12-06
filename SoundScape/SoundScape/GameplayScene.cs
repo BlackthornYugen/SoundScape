@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -30,6 +29,7 @@ namespace SoundScape
             Victory = 0x1,
             Defeat = 0x2,
             Gameover = 0x4,
+            NewRecord = 0x8,
         }
 
         public override void Update(GameTime gameTime)
@@ -211,6 +211,9 @@ namespace SoundScape
             Game.Speak("You are Victorious!");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
+
+            if (Game.HighScore.isANewHighScore(Campaign.CurrentScore))
+                _gameState |= GameState.NewRecord;
         }
 
         private void Defeat()
@@ -219,18 +222,22 @@ namespace SoundScape
             Game.Speak("You have been defeated.");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Defeat;
+
+            if (Game.HighScore.isANewHighScore(Campaign.CurrentScore))
+                _gameState |= GameState.NewRecord;
         }
 
         private void GameOver()
         {
-            _gameState |= GameState.Gameover;
-            var highscore = (HighScore) Game.HighScore;
             var campaign = Campaign.Instance();
-            Enabled = false;
+
+            _gameState |= GameState.Gameover;
+
+            Enabled = false; // Pause game since it's over.
 
             if (_gameState.HasFlag(GameState.Defeat))
             {
-                if (highscore.isANewHighScore(Campaign.CurrentScore))
+                if (_gameState.HasFlag(GameState.NewRecord))
                 {   // We died before finishing but we have a high score
                     NewHighscore();
                 }
@@ -242,7 +249,7 @@ namespace SoundScape
                 if (campaign.OnLastLevel)
                 {
                     // We are on the last level
-                    if (highscore.isANewHighScore(Campaign.CurrentScore))
+                    if (_gameState.HasFlag(GameState.NewRecord))
                     {
                         // And we got a highscore! Go us!
                         NewHighscore();
@@ -273,33 +280,36 @@ namespace SoundScape
             newScore.Show();
         }
 
+        /// <summary>
+        /// This draw is only used in the last moments of a game
+        /// after victory or defeat.
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
             if (_gameState != GameState.None)
             {
-                int scale = 3;
-                int margin = 8;
+                const int scale = 3;
+                const int margin = 8;
                 bool lastLevel = Campaign.Instance().OnLastLevel;
-                string[] messageStrings;
-                Rectangle cb = Game.Window.ClientBounds;
-                SpriteFont font = Game.DefaultGameFont;
-                Vector2 position = new Vector2(cb.Width / 2f, cb.Height / 2f);
+                var score = (string) Campaign.CurrentScore.ToString("n0");
+                var cb = (Rectangle) Game.Window.ClientBounds;
+                var font = (SpriteFont) Game.DefaultGameFont;
+                var position = new Vector2(cb.Width / 2f, cb.Height / 2f);
+                string[] messageStrings = new[] { null, score };
 
                 if (_gameState.HasFlag(GameState.Defeat))
-                    messageStrings = new[] { "Maybe next time..." };
-                if (lastLevel && _gameState.HasFlag(GameState.Victory))
-                {
-                    messageStrings = new[] { "You win!" };
-                }
+                    messageStrings[0] = _gameState.HasFlag(GameState.NewRecord) ? "New Record!" : "Maybe next time...";
+                else if (lastLevel && _gameState.HasFlag(GameState.Victory))
+                    messageStrings[0] = _gameState.HasFlag(GameState.NewRecord) ? "New Record!" : "You win!";
                 else
-                {
                     messageStrings = new[]
                     {
                         "Get ready!", "Next level in...",
                         String.Format("{0}...", (_gameOverTime - DateTime.Now).Seconds + 1)
                     };
-                }
+
                 position -= (Vector2.UnitY * (font.LineSpacing * scale + margin)) / 2;
                 _spritebatch.Begin();
                 foreach (string s in messageStrings)
