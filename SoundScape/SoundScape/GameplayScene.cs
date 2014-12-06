@@ -17,7 +17,7 @@ namespace SoundScape
         private Dictionary<Entity, Texture2D> _textures;
         private HighScore _scoreboard;
         private const int WALL_THICKNESS = 100;
-        private int _score = 0;
+        private int _score;
         private DateTime _startTime;
         private DateTime _gameOverTime;
         private TimeSpan _runTime;
@@ -42,7 +42,7 @@ namespace SoundScape
             {
                 if (DateTime.Now > _gameOverTime)
                 {
-                    GameOver(_gameState.HasFlag(GameState.Victory));
+                    GameOver();
                     return;
                 }
                 return;
@@ -207,6 +207,7 @@ namespace SoundScape
 
         private void Victory()
         {
+            Visible = true;
             Game.Speak("You are Victorious!");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
@@ -214,35 +215,62 @@ namespace SoundScape
 
         private void Defeat()
         {
+            Visible = true;
             Game.Speak("You have been defeated.");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Defeat;
         }
 
-        private void GameOver(bool nextLevel)
+        private void GameOver()
         {
             _gameState |= GameState.Gameover;
+            var highscore = (HighScore) Game.HighScore;
             var campaign = Campaign.Instance();
             Enabled = false;
-            Visible = true;
-            if (nextLevel)
+
+            if (_gameState.HasFlag(GameState.Defeat))
+            {
+                if (highscore.isANewHighScore(Campaign.CurrentScore))
+                {   // We died before finishing but we have a high score
+                    NewHighscore();
+                }
+                return;
+            }
+            
+            if (_gameState.HasFlag(GameState.Victory))
             {
                 if (campaign.OnLastLevel)
                 {
-                    Hide();
-                    Game.HighScore.Show();
+                    // We are on the last level
+                    if (highscore.isANewHighScore(Campaign.CurrentScore))
+                    {
+                        // And we got a highscore! Go us!
+                        NewHighscore();
+                    }
                 }
-                else if (!campaign.OnLastLevel)
-                {
-                    var nextLevelScene = campaign.NextLevel();
+                else
+                {   // Onwards to the Next level
+                    GameScene nextLevelScene = campaign.NextLevel();
                     Hide();
                     Game.Components.Remove(this);
                     Game.Components.Add(nextLevelScene);
                     nextLevelScene.Show();
                 }
+                return;
             }
-            // TODO: Call something on _scoreboard to let it know our score. 
-            //_scoreboard.Score = Score;
+            
+            // We didn't get a highscore. Lets see who did...
+            Hide();
+            Game.HighScore.Show();
+        }
+
+        private void NewHighscore()
+        {
+            var newScore = new NewHighscore(Game, _spritebatch);
+            Hide();
+            Game.Components.Remove(this);
+            Game.Components.Add(newScore);
+            newScore.Show();
         }
 
         public override void Draw(GameTime gameTime)
@@ -256,7 +284,7 @@ namespace SoundScape
                 string[] messageStrings;
                 Rectangle cb = Game.Window.ClientBounds;
                 SpriteFont font = Game.DefaultGameFont;
-                Vector2 position = new Vector2(cb.Width / 2, cb.Height / 2);
+                Vector2 position = new Vector2(cb.Width / 2f, cb.Height / 2f);
 
                 if (_gameState.HasFlag(GameState.Defeat))
                     messageStrings = new[] { "Maybe next time..." };
