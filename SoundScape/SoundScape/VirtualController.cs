@@ -25,6 +25,8 @@ namespace SoundScape
             // Set Default keys
             MenuUpKeys = new[] { Keys.Up, Keys.OemPlus, Keys.PageUp };
             MenuDownKeys = new[] { Keys.Down, Keys.OemMinus, Keys.PageDown };
+            MenuLeftKeys = new[] { Keys.Left };
+            MenuRightKeys = new[] { Keys.Right };
             MenuSelectKeys = new[] { Keys.Enter };
             MenuBackKeys = new[] { Keys.Escape };
             MovementUpKeys = new[] { Keys.W };
@@ -38,10 +40,12 @@ namespace SoundScape
             GameFireKeys = new[] { Keys.Space };
 
             // Set Default buttons
-            MenuSelectButtons = new[] { Buttons.Start, Buttons.A, Buttons.RightTrigger,  };
-            MenuBackButtons = new[] { Buttons.Back, Buttons.B, };
+            MenuSelectButtons = new[] { Buttons.Start, Buttons.A, Buttons.RightTrigger, };
+            MenuBackButtons = new[] { Buttons.Back, Buttons.B };
             MenuUpButtons = new[] { Buttons.DPadUp, Buttons.LeftThumbstickUp, Buttons.RightThumbstickUp };
             MenuDownButtons = new[] { Buttons.DPadDown, Buttons.LeftThumbstickDown, Buttons.RightThumbstickDown };
+            MenuLeftButtons = new[] { Buttons.DPadLeft, Buttons.LeftThumbstickLeft, Buttons.RightThumbstickLeft };
+            MenuRightButtons = new[] { Buttons.DPadRight, Buttons.LeftThumbstickRight, Buttons.RightThumbstickRight };
             GameFireButtons = new[] { Buttons.RightShoulder, Buttons.RightTrigger };
         }
 
@@ -59,7 +63,7 @@ namespace SoundScape
 
         public bool Connected
         {
-            get { return PadState.IsConnected; }
+            get { return _padStateNew.IsConnected; }
         }
 
         public PlayerIndex PlayerIndex
@@ -70,6 +74,16 @@ namespace SoundScape
         public GamePadState PadState
         {
             get { return _padStateNew; }
+        }
+
+        public KeyboardState KeyStateNew
+        {
+            get { return _keyStateNew; }
+        }
+
+        public KeyboardState KeyStateOld
+        {
+            get { return _keyStateOld; }
         }
 
         public bool KeyPressed(IEnumerable<Keys> keys)
@@ -103,5 +117,11 @@ namespace SoundScape
         {
             return ButtonDown(new[] { button });
         }
+
+        public bool KeyPressed(Keys key)
+        {
+            return KeyPressed(new[] { key });
+        }
+
     }
 }

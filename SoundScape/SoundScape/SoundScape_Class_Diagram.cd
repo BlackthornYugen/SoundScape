@@ -16,7 +16,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>gAAAAAAIAAACAgAAAAAAAAAAAAIAEAAIAAQAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAIAAACAgAAAAAAAAAAAAIAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>HighScore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -56,7 +56,7 @@
   <Class Name="SoundScape.GameLoop">
     <Position X="0.5" Y="1.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACQAEAAECAACAwECAAAgQACIAAAAIAAAwIAAAiBgAAQ=</HashCode>
+      <HashCode>ACQAEAAECAACEwECAAAgQACIAAAAIAAAwIAAAiFgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -176,7 +176,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>cAZwAABMACBQwBBAAUAIIGkAAEABAAAFBkIEQAhgBAY=</HashCode>
+      <HashCode>cQZwAABMACBQwBTAAUAIIGkAAEABAAAlDkYEQAhgpAY=</HashCode>
       <FileName>VirtualController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -214,7 +214,7 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAAShAAAQ=</HashCode>
+      <HashCode>IgQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAAShAAAQ=</HashCode>
       <FileName>NewHighscore.cs</FileName>
     </TypeIdentifier>
   </Class>

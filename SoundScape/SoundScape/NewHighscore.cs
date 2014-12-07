@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -30,7 +31,6 @@ namespace SoundScape
             _regularColour = Color.WhiteSmoke;
             _highlightColumn = Color.MediumVioletRed;
             _highlightChar = Color.Yellow;
-            _activePosition = 0;
             Hide();
         }
 
@@ -67,16 +67,29 @@ namespace SoundScape
                 _letterMenuComponents[i].MenuIndex = ALPHABET_LENGTH;
                 Components.Add(_letterMenuComponents[i]);
             }
-            _letterMenuComponents.First().ColourNormal = _highlightColumn;
-            _letterMenuComponents.First().ColourHighlighted = _highlightChar;
             base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             var inputs = new[] { Game.PlayerOne, Game.PlayerTwo };
-
-            /*o*/if (inputs.Any(p => p.ButtonPressed(Buttons.RightShoulder)))
+            string letterKeyPressed = inputs.First()
+                .KeyStateNew.GetPressedKeys()
+                .Where(k => inputs.First().KeyStateOld.IsKeyUp(k))
+                .FirstOrDefault(k => Regex.IsMatch(k.ToString(), "^[A-Za-z]$")).ToString();
+            /*o*/
+            if (letterKeyPressed.ToLower() != "none")
+            {
+                Console.WriteLine(letterKeyPressed);
+                int maxLoops = ALPHABET_LENGTH + 1;
+                while (letterKeyPressed != _letterMenuComponents[_activePosition].ActiveMenuItem.Name && maxLoops > 0)
+                {
+                    maxLoops--;
+                    MoveRow(1);
+                }
+                MoveColumn(1);
+            }
+            else if (inputs.Any(p => p.ButtonPressed(Buttons.RightShoulder)))
                 MoveRow(10);
             else if (inputs.Any(p => p.ButtonPressed(Buttons.LeftShoulder)))
                 MoveRow(-10);
@@ -84,9 +97,13 @@ namespace SoundScape
                 MoveRow(5);
             else if (inputs.Any(p => p.ButtonPressed(Buttons.LeftTrigger)))
                 MoveRow(-5);
+            else if (inputs.Any(p => p.ActionMenuLeft))
+                MoveColumn(-1, false);
+            else if (inputs.Any(p => p.ActionMenuRight))
+                MoveColumn(1, false);
             else if (inputs.Any(p => p.ActionSelect))
                 MoveColumn(1);
-            else if (inputs.Any(p => p.ActionBack))
+            else if (inputs.Any(p => p.ActionBack) || inputs.First().KeyPressed(Keys.Back))
                 MoveColumn(-1);
             else if (inputs.Any(p => p.ActionMenuDown))
                 MoveRow(1);
@@ -96,22 +113,25 @@ namespace SoundScape
             base.Update(gameTime);
         }
 
-        private void MoveColumn(int i)
+        private void MoveColumn(int i, bool save = true)
         {
             Game.MenuEffects[1].Play();
             _activePosition += i;
-            if (_activePosition >= _letterMenuComponents.Length || _activePosition < 0 ||
-                (i > 0 && _letterMenuComponents[_activePosition - i].ActiveMenuItem.Component == ' '))
-            {
+
+            if (save && (_activePosition >= _letterMenuComponents.Length || _activePosition < 0 ||
+                (i > 0 && _letterMenuComponents[_activePosition - i].ActiveMenuItem.Component == ' ')))
                 SaveScore();
-            }
-            else
-            {
-                MenuComponent<char> active = _letterMenuComponents[_activePosition];
-                active.ColourNormal = _highlightColumn;
-                active.ColourHighlighted = _highlightChar;
-                _letterMenuComponents.Where(m => m != active).ForEach(m => m.ColourNormal = _regularColour);
-            }
+
+            _activePosition = Math.Min(_letterMenuComponents.Length-1, Math.Max(0, _activePosition));
+            Recolour();
+        }
+
+        private void Recolour()
+        {
+            MenuComponent<char> active = _letterMenuComponents[_activePosition];
+            active.ColourNormal = _highlightColumn;
+            active.ColourHighlighted = _highlightChar;
+            _letterMenuComponents.Where(m => m != active).ForEach(m => m.ColourNormal = _regularColour);
         }
 
         private void MoveRow(int i)
@@ -158,6 +178,16 @@ namespace SoundScape
             Campaign.New(); // Reset the score
             Game.HighScore.Show();
             Hide();
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            base.OnEnabledChanged(sender, args);
+            if (Enabled && _letterMenuComponents != null)
+            {
+                _activePosition = 0;
+                Recolour();
+            }
         }
     }
 

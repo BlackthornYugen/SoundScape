@@ -26,6 +26,28 @@ namespace SoundScape
             }
         }
 
+        public Keys[] MenuLeftKeys { get; set; }
+
+        public Buttons[] MenuLeftButtons { get; set; }
+        public bool ActionMenuLeft
+        {
+            get
+            {
+                return KeyPressed(MenuLeftKeys) || ButtonPressed(MenuLeftButtons);
+            }
+        }
+
+        public Keys[] MenuRightKeys { get; set; }
+
+        public Buttons[] MenuRightButtons { get; set; }
+        public bool ActionMenuRight
+        {
+            get
+            {
+                return KeyPressed(MenuRightKeys) || ButtonPressed(MenuRightButtons);
+            }
+        }
+
         public Keys[] MenuSelectKeys { get; set; }
         public Buttons[] MenuSelectButtons { get; set; }
         public bool ActionSelect
