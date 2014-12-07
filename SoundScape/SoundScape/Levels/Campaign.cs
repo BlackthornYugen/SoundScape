@@ -19,14 +19,19 @@ namespace SoundScape.Levels
         {
             _game = game;
             _scoreboard = _game.HighScore as HighScore;
+#if DEBUG
             _gameplayScenes = new List<GameplayScene>()
-            {   // TODO: Find a better way to ref scoreboard or update constructor
+            {   
+                new Level1(game, game.SpriteBatch)
+            };
+#else
+            _gameplayScenes = new List<GameplayScene>()
+            {   
                 new Level1(game, game.SpriteBatch),
-#if !DEBUG
                 new Level2(game, game.SpriteBatch),
                 new Level3(game, game.SpriteBatch),
-#endif
             };
+#endif
         }
 
         public static int CurrentScore
