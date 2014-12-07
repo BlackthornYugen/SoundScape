@@ -222,8 +222,6 @@ namespace SoundScape
 
         private void GameOver()
         {
-            var campaign = Campaign.Instance();
-
             _gameState |= GameState.Gameover;
 
             Enabled = false; // Pause game since it's over.
@@ -239,7 +237,7 @@ namespace SoundScape
             
             if (_gameState.HasFlag(GameState.Victory))
             {
-                if (campaign.OnLastLevel)
+                if (Campaign.OnLastLevel)
                 {
                     // We are on the last level
                     if (_gameState.HasFlag(GameState.NewRecord))
@@ -250,7 +248,7 @@ namespace SoundScape
                 }
                 else
                 {   // Onwards to the Next level
-                    GameScene nextLevelScene = campaign.NextLevel();
+                    GameScene nextLevelScene = Campaign.Instance().NextLevel();
                     Hide();
                     Components.Remove(this);
                     Game.Components.Add(nextLevelScene);
@@ -282,7 +280,7 @@ namespace SoundScape
             {
                 const int scale = 3;
                 const int margin = 8;
-                bool lastLevel = Campaign.Instance().OnLastLevel;
+                bool lastLevel = Campaign.OnLastLevel;
                 var score = (string) Campaign.CurrentScore.ToString("n0");
                 var cb = (Rectangle) Game.Window.ClientBounds;
                 var font = (SpriteFont) Game.DefaultGameFont;
