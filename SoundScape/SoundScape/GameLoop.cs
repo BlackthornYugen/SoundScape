@@ -191,6 +191,7 @@ namespace SoundScape
             }));
 
             Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch) { Background = backGround });
+            _newHighScore.Initialize();
             Campaign.New(this);
             _menu.Show();
 

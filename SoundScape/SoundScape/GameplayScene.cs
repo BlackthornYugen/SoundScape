@@ -267,7 +267,7 @@ namespace SoundScape
         private void NewHighscore()
         {
             Hide();
-            Game.HighScore.Show();
+            Game.NewHighScore.Show();
         }
 
         /// <summary>
