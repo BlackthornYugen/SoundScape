@@ -48,10 +48,10 @@ namespace SoundScape.Levels
 
         public GameScene NextLevel()
         {
-            // Todo: remove the code below. It disables the whole game.
+#if DEBUG
             _gameplayScenes.ForEach(l => l.Score = 500);
             return new NewHighscore(_game, _game.SpriteBatch); 
-            // Todo: remove the code above. It disables the whole game.
+#endif
             if (_instance == null)
                 throw new Exception("No campaign started!");
             if (++_currentLevel >= _gameplayScenes.Count)

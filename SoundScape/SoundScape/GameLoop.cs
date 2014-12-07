@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json;
 using SoundScape.Levels;
 using XNALib.Scenes;
 using Microsoft.Xna.Framework.Audio;
@@ -171,17 +172,18 @@ namespace SoundScape
             Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, new[]
             {
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Sam", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Greg", Score = r.Next(1000)},
-                new HighScoreSaved() {PlayerName = "Joe", Score = r.Next(1000)},
+                new HighScoreSaved() {PlayerName = "DAVE", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "MANUEL", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "JOHN", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "DAN", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "JOSH", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "MIMI", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "ANDREW", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "LUC", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "CHARLOTTE", Score = r.Next(25)},
+                new HighScoreSaved() {PlayerName = "KAT", Score = r.Next(25)},
             }));
+
             Campaign.New(this);
             _menu.Show();
 

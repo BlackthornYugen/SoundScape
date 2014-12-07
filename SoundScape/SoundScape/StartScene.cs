@@ -57,7 +57,7 @@ namespace SoundScape
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
             _menu = new MenuComponent<DrawableGameComponent>(Game, _spritebatch, _regularColour, _highlightColor, _regularFont, _highlightFont,
-                Vector2.One * 100) { Logo = Game.Content.Load<Texture2D>("logo"), LogoPosition = new Vector2(500, 250) };
+                Vector2.One * 100) { Logo = Game.Content.Load<Texture2D>("images/logo"), LogoPosition = new Vector2(500, 250) };
             foreach (string item in _menuItems)
             {
                 _menu.Add(item, null);

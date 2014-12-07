@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -17,7 +18,6 @@ namespace SoundScape
     /// </summary>
     public class HighScore : InfoScene
     {
-        string _msg = "";
         List<HighScoreSaved> lines = new List<HighScoreSaved>();
 
         public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
@@ -25,7 +25,6 @@ namespace SoundScape
             : base(game, texture, background, centerScreen)
         {
             lines = bubbleSort(oldScores.ToList());
-            defineMsg();
         }
 
         public bool isANewHighScore(int newScore)
@@ -62,7 +61,6 @@ namespace SoundScape
             {
                 lines.RemoveAt(lines.Count - 1);
             }
-            defineMsg();
         }
 
         public List<HighScoreSaved> bubbleSort(List<HighScoreSaved> list)
@@ -95,20 +93,6 @@ namespace SoundScape
             return min;
         }
 
-        private void defineMsg()
-        {
-            for (int i = 0; i < lines.Count; i++)
-            {
-                _msg += lines[i].PlayerName;
-                int namePadding = 25 - lines[i].PlayerName.ToCharArray().Count();
-                for (int j = 0; j < namePadding; j++)
-                {
-                    _msg += " ";
-                }
-                _msg += lines[i].Score + "\n";
-            }
-        }
-
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
@@ -118,8 +102,9 @@ namespace SoundScape
             _spritebatch.Begin();
             
             _spritebatch.Draw(Texture, _centerScreen, Color.White);
-
-            _spritebatch.DrawString(regularFont, _msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
+            StringBuilder msg = new StringBuilder();
+            lines.ForEach(line => msg.Append(string.Format("{0,-25} {1}\n", line.PlayerName, line.Score)));
+            _spritebatch.DrawString(regularFont, msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();
         }

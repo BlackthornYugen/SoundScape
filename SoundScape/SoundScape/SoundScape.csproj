@@ -107,7 +107,6 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SoundScapeContent\SoundScapeContent.contentproj">

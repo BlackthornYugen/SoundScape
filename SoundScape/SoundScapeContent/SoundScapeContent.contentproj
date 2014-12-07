@@ -30,13 +30,6 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bat.png">
-      <Name>Bat</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="fonts\regularFont.spritefont">
       <Name>regularFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -223,7 +216,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="logo.png">
+    <Compile Include="images\logo.png">
       <Name>logo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
