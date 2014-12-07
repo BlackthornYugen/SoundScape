@@ -56,7 +56,7 @@
   <Class Name="SoundScape.GameLoop">
     <Position X="0.5" Y="1.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACQAEAAECAACEwECAAAgQACIAAAAIAAAwIAAAiFgAAQ=</HashCode>
+      <HashCode>ACQAEAAECAQCEwECAAAgQACIAAAAIAAAyIAAEiEgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -168,11 +168,11 @@
   </Class>
   <Class Name="SoundScape.VirtualController">
     <Position X="12.25" Y="3" Width="2.75" />
-    <InheritanceLine Type="Microsoft.Xna.Framework.GameComponent" FixedFromPoint="true">
+    <InheritanceLine Type="Microsoft.Xna.Framework.GameComponent" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.25" Y="1.063" />
-        <Point X="13.625" Y="1.063" />
-        <Point X="13.625" Y="3" />
+        <Point X="10.25" Y="1.062" />
+        <Point X="12.562" Y="1.062" />
+        <Point X="12.562" Y="3" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -237,6 +237,13 @@
   <Class Name="XNALib.Menus.MenuComponent&lt;T&gt;">
     <Position X="9.5" Y="3" Width="2.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="SoundScape.Toolbox">
+    <Position X="13.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Toolbox.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Struct Name="XNALib.Menus.MenuItem&lt;T&gt;">
     <Position X="10.5" Y="6.5" Width="1.5" />

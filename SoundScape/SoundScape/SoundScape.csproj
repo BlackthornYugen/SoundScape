@@ -99,6 +99,7 @@
     <Compile Include="GameLoop.cs" />
     <Compile Include="StartScene.cs" />
     <Compile Include="TargetedGraphicsDeviceManager.cs" />
+    <Compile Include="Toolbox.cs" />
     <Compile Include="VirtualController.cs" />
     <Compile Include="VirtualControllerControls.cs" />
   </ItemGroup>

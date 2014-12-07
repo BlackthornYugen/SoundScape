@@ -26,7 +26,7 @@ namespace SoundScape
     /// </summary>
     public class GameLoop : Game
     {
-        public SoundEffect[] MenuEffects; 
+        private SoundEffect[] _menuEffects; 
         private SpriteBatch _spriteBatch;
         private SpeechSynthesizer _speechSynthesizer;
 
@@ -150,7 +150,7 @@ namespace SoundScape
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            MenuEffects = new[]
+            _menuEffects = new[]
             {
                 Content.Load<SoundEffect>("sounds/Beep2"),
                 Content.Load<SoundEffect>("sounds/Beep4"),
@@ -214,6 +214,7 @@ namespace SoundScape
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            AllowExit = !_newHighScore.Enabled;
             ControlInput();
             base.Update(gameTime);
         }
@@ -225,21 +226,20 @@ namespace SoundScape
         {
             var inputs = new[] {PlayerOne, PlayerTwo};
             // Allows the game to exit
-            if (!_newHighScore.Enabled && inputs.Any(p => p.ActionBack))
+            if (AllowExit && inputs.Any(p => p.ActionBack))
             {
                 if (_menu.Enabled)
                 {
-                    MenuEffects[0].Play();
+                    PlayMenuSound(0);
                     Exit();
                 }
                 else
                 {
-                    MenuEffects[0].Play();
+                    PlayMenuSound(0);
                     HideAllScene();
                     SetTitle();
                     _menu.Show();
-                    GamePad.SetVibration(PlayerOne.PlayerIndex, 0, 0);
-                    GamePad.SetVibration(PlayerTwo.PlayerIndex, 0, 0);
+                    inputs.ForEach(p => GamePad.SetVibration(p.PlayerIndex, 0, 0));
                 }
             }
 
@@ -291,20 +291,28 @@ namespace SoundScape
                                 : _menu.SelectedItem.Name);
                             break;
                     }
-                    MenuEffects[1].Play();
+                    PlayMenuSound(1);
                 }
 
                 if (inputs.Any(p=>p.ActionMenuDown))
                 {
                     _menu.SelectedIndex = Math.Min(_menu.SelectedIndex + 1, _menu.Count - 1);
-                    MenuEffects[0].Play();
+                    PlayMenuSound(0);
                 }
                 else if (inputs.Any(p=>p.ActionMenuUp))
                 {
                     _menu.SelectedIndex = Math.Max(_menu.SelectedIndex - 1, 0);
-                    MenuEffects[0].Play();
+                    PlayMenuSound(0);
                 }
             }
+        }
+
+        public void PlayMenuSound(int i)
+        {
+            var menuSound = _menuEffects[i.Mid(_menuEffects.Length - 1)];
+            //if (menuSound.State == SoundState.Playing) 
+            //    menuSound.Stop();
+            menuSound.Play();
         }
 
         /// <summary>
@@ -316,5 +324,7 @@ namespace SoundScape
             GraphicsDevice.Clear(Color.Black);
             base.Draw(gameTime);
         }
+
+        public bool AllowExit { get; set; }
     }
 }

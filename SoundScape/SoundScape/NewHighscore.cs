@@ -113,14 +113,13 @@ namespace SoundScape
 
         private void MoveColumn(int i, bool save = true)
         {
-            Game.MenuEffects[1].Play();
+            Game.PlayMenuSound(1);
             _activePosition += i;
 
             if (save && (_activePosition >= _letterMenuComponents.Length || _activePosition < 0 ||
                 (i > 0 && _letterMenuComponents[_activePosition - i].ActiveMenuItem.Component == ' ')))
                 SaveScore();
-
-            _activePosition = Math.Min(_letterMenuComponents.Length-1, Math.Max(0, _activePosition));
+            _activePosition = _activePosition.Mid(_letterMenuComponents.Length - 1);
             Recolour();
         }
 
@@ -134,7 +133,7 @@ namespace SoundScape
 
         private void MoveRow(int i)
         {
-            Game.MenuEffects[0].Play();
+            Game.PlayMenuSound(0);
             var active = _letterMenuComponents[_activePosition];
             active.MenuIndex = active.MenuIndex + i;
             if (active.MenuIndex < ALPHABET_LENGTH)
@@ -185,17 +184,6 @@ namespace SoundScape
             {
                 _activePosition = 0;
                 Recolour();
-            }
-        }
-    }
-
-    internal static class Toolbox
-    {
-        public static void ForEach<T>(this IEnumerable<T> value, Action<T> action)
-        {
-            foreach (T item in value)
-            {
-                action(item);
             }
         }
     }
