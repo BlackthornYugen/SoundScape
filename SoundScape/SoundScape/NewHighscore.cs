@@ -77,10 +77,8 @@ namespace SoundScape
                 .KeyStateNew.GetPressedKeys()
                 .Where(k => inputs.First().KeyStateOld.IsKeyUp(k))
                 .FirstOrDefault(k => Regex.IsMatch(k.ToString(), "^[A-Za-z]$")).ToString();
-            /*o*/
             if (letterKeyPressed.ToLower() != "none")
             {
-                Console.WriteLine(letterKeyPressed);
                 int maxLoops = ALPHABET_LENGTH + 1;
                 while (letterKeyPressed != _letterMenuComponents[_activePosition].ActiveMenuItem.Name && maxLoops > 0)
                 {
