@@ -5,6 +5,7 @@
  * 
  */
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
@@ -176,19 +177,19 @@ namespace SoundScape
             Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
             Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
-                backGround, centerScreen, new[]
-            {
-                new HighScoreSaved() {PlayerName = "DAVE", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "MANUEL", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "JOHN", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "DAN", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "JOSH", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "MIMI", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "ANDREW", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "LUC", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "CHARLOTTE", Score = r.Next(25)},
-                new HighScoreSaved() {PlayerName = "KAT", Score = r.Next(25)},
-            }));
+                backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
+            //{
+            //    new HighScoreSaved() {PlayerName = "DAVE", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "MANUEL", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "JOHN", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "DAN", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "JOSH", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "MIMI", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "ANDREW", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "LUC", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "CHARLOTTE", Score = r.Next(25)},
+            //    new HighScoreSaved() {PlayerName = "KAT", Score = r.Next(25)},
+            //}));
 
             Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch) { Background = backGround });
             _newHighScore.Initialize();

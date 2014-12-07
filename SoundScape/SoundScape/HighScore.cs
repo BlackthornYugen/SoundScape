@@ -18,27 +18,27 @@ namespace SoundScape
     /// </summary>
     public class HighScore : InfoScene
     {
-        List<HighScoreSaved> lines = new List<HighScoreSaved>();
+        List<HighScoreSaved> _highscores = new List<HighScoreSaved>();
 
         public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
             )
             : base(game, texture, background, centerScreen)
         {
-            lines = bubbleSort(oldScores.ToList());
+            _highscores = BubbleSort(oldScores.ToList());
         }
 
-        public bool isANewHighScore(int newScore)
+        public bool IsHighScore(int newScore)
         {
-            if (lines.Count < 10)
+            if (_highscores.Count < 10)
             {
                 return true;
             }
             else
             {
                 List<int> tempScores = new List<int>();
-                for (int i = 0; i < lines.Count; i++)
+                for (int i = 0; i < _highscores.Count; i++)
                 {
-                    tempScores.Add(lines[i].Score);
+                    tempScores.Add(_highscores[i].Score);
                 }
                 int min = ReturnMinimum(tempScores);
                 if (newScore > min)
@@ -49,21 +49,23 @@ namespace SoundScape
             return false;
         }
 
-        public void updateHighScore(string name, int score)
+        public void UpdateHighScore(string name, int score)
         {
-            HighScoreSaved temp = new HighScoreSaved();
-            temp.PlayerName = name;
-            temp.Score = score;
-            lines.Add(temp);
-            lines = bubbleSort(lines);
+            var highScore = new HighScoreSaved();
+            highScore.PlayerName = name;
+            highScore.Score = score;
+            _highscores.Add(highScore);
+            _highscores = BubbleSort(_highscores);
 
-            if (lines.Count >= 10)
+            if (_highscores.Count >= 10)
             {
-                lines.RemoveAt(lines.Count - 1);
+                _highscores.RemoveAt(_highscores.Count - 1);
             }
+
+            Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
         }
 
-        public List<HighScoreSaved> bubbleSort(List<HighScoreSaved> list)
+        private static List<HighScoreSaved> BubbleSort(List<HighScoreSaved> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -80,7 +82,7 @@ namespace SoundScape
             return list;
         }
 
-        private int ReturnMinimum(List<int> list)
+        private static int ReturnMinimum(List<int> list)
         {
             int min = list[0];
             for (int i = 0; i < list.Count; i++)
@@ -96,14 +98,14 @@ namespace SoundScape
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            SpriteFont regularFont = Game.Content.Load<SpriteFont>("fonts/regularFont");
+            var regularFont = Game.DefaultGameFont;
+            var msg = new StringBuilder();
 
 
             _spritebatch.Begin();
             
             _spritebatch.Draw(Texture, _centerScreen, Color.White);
-            StringBuilder msg = new StringBuilder();
-            lines.ForEach(line => msg.Append(string.Format("{0,-25} {1}\n", line.PlayerName, line.Score)));
+            _highscores.ForEach(line => msg.Append(string.Format("{0,-25} {1}\n", line.PlayerName, line.Score)));
             _spritebatch.DrawString(regularFont, msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();

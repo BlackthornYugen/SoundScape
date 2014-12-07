@@ -171,7 +171,7 @@ namespace SoundScape
             StringBuilder name = new StringBuilder(MAX_LETTERS);
             _letterMenuComponents.ForEach(l => name.Append(l.ActiveMenuItem.Component));
 
-            Game.HighScore.updateHighScore(name.ToString().Trim(), Campaign.CurrentScore);
+            Game.HighScore.UpdateHighScore(name.ToString().Trim(), Campaign.CurrentScore);
             Campaign.New(); // Reset the score
             Game.HighScore.Show();
             Hide();

@@ -21,6 +21,11 @@ namespace SoundScape
             _centerScreen = centerScreen;
         }
 
+        public new GameLoop Game
+        {
+            get { return base.Game as GameLoop; }
+        }
+
         protected Texture2D Texture
         {
             get { return _texture; }

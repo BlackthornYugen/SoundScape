@@ -205,7 +205,7 @@ namespace SoundScape
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
 
-            if (Game.HighScore.isANewHighScore(Campaign.CurrentScore))
+            if (Game.HighScore.IsHighScore(Campaign.CurrentScore))
                 _gameState |= GameState.NewRecord;
         }
 
@@ -216,7 +216,7 @@ namespace SoundScape
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Defeat;
 
-            if (Game.HighScore.isANewHighScore(Campaign.CurrentScore))
+            if (Game.HighScore.IsHighScore(Campaign.CurrentScore))
                 _gameState |= GameState.NewRecord;
         }
 
