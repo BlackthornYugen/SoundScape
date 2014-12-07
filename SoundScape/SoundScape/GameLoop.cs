@@ -34,6 +34,7 @@ namespace SoundScape
         private GameScene _howToPlay;
         private GameScene _help;
         private GameScene _highScore;
+        private GameScene _newHighScore;
         private GameScene _credit;
         private GameScene _gameplay;
 
@@ -97,6 +98,11 @@ namespace SoundScape
         {
             get { return _gameplay; }
             set { _gameplay = value; }
+        }
+
+        public GameScene NewHighScore
+        {
+            get { return _newHighScore; }
         }
 
         public void Speak(string textToSpeak)
@@ -184,6 +190,7 @@ namespace SoundScape
                 new HighScoreSaved() {PlayerName = "KAT", Score = r.Next(25)},
             }));
 
+            Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch) { Background = backGround });
             Campaign.New(this);
             _menu.Show();
 
@@ -217,7 +224,7 @@ namespace SoundScape
         {
             var inputs = new[] {PlayerOne, PlayerTwo};
             // Allows the game to exit
-            if ((_gameplay == null || _gameplay.AllowExit) && inputs.Any(p=>p.ActionBack))
+            if (!_newHighScore.Enabled && inputs.Any(p => p.ActionBack))
             {
                 if (_menu.Enabled)
                 {

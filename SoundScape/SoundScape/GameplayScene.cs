@@ -252,7 +252,7 @@ namespace SoundScape
                 {   // Onwards to the Next level
                     GameScene nextLevelScene = campaign.NextLevel();
                     Hide();
-                    Game.Components.Remove(this);
+                    Components.Remove(this);
                     Game.Components.Add(nextLevelScene);
                     nextLevelScene.Show();
                 }
@@ -266,11 +266,8 @@ namespace SoundScape
 
         private void NewHighscore()
         {
-            var newScore = new NewHighscore(Game, _spritebatch);
             Hide();
-            Game.Components.Remove(this);
-            Game.Components.Add(newScore);
-            newScore.Show();
+            Game.HighScore.Show();
         }
 
         /// <summary>

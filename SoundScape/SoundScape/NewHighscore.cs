@@ -19,6 +19,7 @@ namespace SoundScape
         private SpriteFont _font;
         private const char INITIAL_CHAR = 'A';
         private const int ALPHABET_LENGTH = 26;
+        private const int HORAZONTAL_SPACING = 50;
         const int MAX_LETTERS = 15;
         private MenuComponent<char>[] _letterMenuComponents;
         private int _activePosition;
@@ -30,7 +31,7 @@ namespace SoundScape
             _highlightColumn = Color.MediumVioletRed;
             _highlightChar = Color.Yellow;
             _activePosition = 0;
-            AllowExit = false;
+            Hide();
         }
 
         public new GameLoop Game
@@ -49,11 +50,11 @@ namespace SoundScape
                 }   
             }
 
-            Vector2 startingPos = Vector2.One*100;
+            Vector2 startingPos = Vector2.UnitX * (Game.Window.ClientBounds.Width / 2 - (HORAZONTAL_SPACING * MAX_LETTERS - HORAZONTAL_SPACING) / 2) + Vector2.UnitY * Game.Window.ClientBounds.Height / 2;
             for (int i = 0; i < MAX_LETTERS; i++)
             {
                 _letterMenuComponents[i] = new MenuComponent<char>(Game, _spritebatch, _regularColour, _highlightColumn, _font, _font,
-                    startingPos + Vector2.UnitX * (75 * i) - Vector2.UnitY * ALPHABET_LENGTH * _font.LineSpacing)
+                    startingPos + Vector2.UnitX * (HORAZONTAL_SPACING * i) - Vector2.UnitY * ALPHABET_LENGTH * _font.LineSpacing)
                 {
                     ColourHighlighted = _highlightColumn,
                     ColourNormal = _regularColour,
@@ -155,7 +156,6 @@ namespace SoundScape
 
             Game.HighScore.updateHighScore(name.ToString().Trim(), Campaign.CurrentScore);
             Campaign.New(); // Reset the score
-            AllowExit = true;
             Game.HighScore.Show();
             Hide();
         }

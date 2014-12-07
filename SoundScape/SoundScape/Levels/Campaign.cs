@@ -22,8 +22,10 @@ namespace SoundScape.Levels
             _gameplayScenes = new List<GameplayScene>()
             {   // TODO: Find a better way to ref scoreboard or update constructor
                 new Level1(game, game.SpriteBatch),
+#if !DEBUG
                 new Level2(game, game.SpriteBatch),
                 new Level3(game, game.SpriteBatch),
+#endif
             };
         }
 
@@ -48,10 +50,6 @@ namespace SoundScape.Levels
 
         public GameScene NextLevel()
         {
-#if DEBUG
-            _gameplayScenes.ForEach(l => l.Score = 500);
-            return new NewHighscore(_game, _game.SpriteBatch); 
-#endif
             if (_instance == null)
                 throw new Exception("No campaign started!");
             if (++_currentLevel >= _gameplayScenes.Count)
