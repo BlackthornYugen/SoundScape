@@ -13,7 +13,7 @@ namespace SoundScape
         {
             public static Texture2D ConnectedTexture;
             public static Texture2D DisconnectedTexture;
-            public const int Scale = 3;
+            public const int Scale = 1;
             public bool Connected;
             public Color Colour;
             public Vector2 Position;
