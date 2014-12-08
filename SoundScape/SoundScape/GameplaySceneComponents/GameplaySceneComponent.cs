@@ -15,6 +15,7 @@ namespace SoundScape.GameplaySceneComponents
         private Texture2D _texture;
         private SoundEffect _soundEffect;
         private Rectangle _hitbox;
+        private Color _originalColour;
         private Color _colour;
         private int _scoreAtDeath;
         private Color _deathColour;
@@ -62,13 +63,13 @@ namespace SoundScape.GameplaySceneComponents
             _texture = texture;
             _soundEffect = sound;
             _hitbox = new Rectangle((int)_position.X - texture.Width/2, (int)_position.Y - texture.Width/2, texture.Width, texture.Height);
-            _colour = Color.White;
+            _originalColour = _colour = Color.White;
         }
 
         protected GameplaySceneComponent(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture, SoundEffect sound,
             Color colour) : this(scene, spriteBatch, position, texture, sound)
         {
-            _colour = colour;
+            _originalColour = _colour = colour;
         }
 
         protected GameplayScene Scene
@@ -117,39 +118,45 @@ namespace SoundScape.GameplaySceneComponents
             set { _hitbox = value; }
         }
 
-        protected Color Colour
+        public Color Colour
         {
             get { return _colour; }
             set { _colour = value; }
         }
 
+        public void ResetColour()
+        {
+            _colour = _originalColour;
+        }
+
         public override void Draw(GameTime gameTime)
         {
-            Vector2 fontAdjustment = Game.DefaultGameFont.MeasureString(_scoreAtDeath.ToString()) / 2;
+            var font = Game.BigFont;
+            Vector2 fontAdjustment = font.MeasureString(_scoreAtDeath.ToString()) / 2;
             string message = null;
             if (_scoreAtDeath > 0) message = _scoreAtDeath.ToString();
             if (_scoreAtDeath < 0) message = String.Format("-{0}", Math.Abs((int)_scoreAtDeath));
 
-            SpriteBatch.Begin();
+            SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             SpriteBatch.Draw(_texture, Position - new Vector2(Texture.Width / 2f, Texture.Height / 2f), Colour);
 
-            if(!Enabled)
-                _highlightScore = (_highlightScore + 0.1f) % 10;
+            if(!Enabled && _highlightScore < 7)
+                _highlightScore = (_highlightScore + 0.04f) % 10;
 
-            if (message != null && _highlightScore < 5)
+            if (message != null && _highlightScore < 7)
             {
-                float f = 1;
-                for (; f < 3; f += 0.01f)
+                float f = 0.01f;
+                for (; f < 1; f += 0.02f)
                 {
                     Color drawColour;
                     if (Math.Abs(f - _highlightScore) < 0.3)
                         drawColour = _deathColour;
                     else 
-                        drawColour = Color.White;
-                    SpriteBatch.DrawString(Game.DefaultGameFont, message, Position, drawColour, 0, fontAdjustment, f, SpriteEffects.None, 0);
+                        drawColour = Colour;
+                    SpriteBatch.DrawString(font, message, Position, drawColour, 0, fontAdjustment, f, SpriteEffects.None, 0);
                     if (f > _highlightScore) break;
                 }
-                SpriteBatch.DrawString(Game.DefaultGameFont, message, Position, _deathColour, 0, fontAdjustment, f, SpriteEffects.None, 0);
+                SpriteBatch.DrawString(font, message, Position, _deathColour, 0, fontAdjustment, f, SpriteEffects.None, 0);
             } 
             SpriteBatch.End();
             base.Draw(gameTime);

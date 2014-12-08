@@ -11,8 +11,8 @@ namespace SoundScape.Levels
     class Level1 : GameplayScene
     {
 
-        public Level1(GameLoop game, SpriteBatch sb)
-            : base(game, sb)
+        public Level1(GameLoop game, SpriteBatch sb, bool spectatorMode)
+            : base(game, sb, spectatorMode)
         {
         }
 

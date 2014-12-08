@@ -66,6 +66,12 @@ namespace SoundScape.GameplaySceneComponents
             _weaponSoundEffectInstance.Pitch = -1;
         }
 
+
+        private bool CanShoot
+        {
+            get { return Scene.RunningSeconds > 1 && !Scene.State.HasFlag(GameplayScene.GameState.Gameover); }
+        }
+
         /// <summary>
         ///     The left motor's rumble percentage.
         /// </summary>
@@ -200,7 +206,7 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            else if (_weaponState == WeaponState.Discharged && Controller.ActionFire)
+            else if (CanShoot &&_weaponState == WeaponState.Discharged && Controller.ActionFire)
             {
                 _weaponSoundEffectInstance.Pitch = -1;
                 _weaponSoundEffectInstance.Play();
@@ -220,17 +226,20 @@ namespace SoundScape.GameplaySceneComponents
                 // Shots fired go DISTANCE_FACTOR further than sonar.
                 arrowLength *= DISTANCE_FACTOR;
 
-            _aimVectors = new Vector2[arrowLength];
-
-            for (int i = 0; i < arrowLength && !hitSomething; i++)
+            if (CanShoot)
             {
-                _aimVectors[i] = Position + _arrow*i;
-                foreach (IGameComponent gameComponent in Scene.Components)
+                _aimVectors = new Vector2[arrowLength];
+
+                for (int i = 0; i < arrowLength && !hitSomething; i++)
                 {
-                    var gsc = gameComponent as GameplaySceneComponent;
-                    if (gsc != this && gsc != null && gsc.Enabled)
+                    _aimVectors[i] = Position + _arrow * i;
+                    foreach (IGameComponent gameComponent in Scene.Components)
                     {
-                        hitSomething = HitSomething(gsc, i, arrowLength);
+                        var gsc = gameComponent as GameplaySceneComponent;
+                        if (gsc != this && gsc != null && gsc.Enabled)
+                        {
+                            hitSomething = HitSomething(gsc, i, arrowLength);
+                        }
                     }
                 }
             }
@@ -243,8 +252,8 @@ namespace SoundScape.GameplaySceneComponents
             bool hitSomething = false;
             if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
             {
-                if (_weaponState == WeaponState.Charged ||
-                    _weaponState == WeaponState.Charging)
+                if (CanShoot && (_weaponState == WeaponState.Charged ||
+                    _weaponState == WeaponState.Charging))
                 {
                     _weaponSoundEffectInstance.Pitch = 1;
                     _weaponSoundEffectInstance.Play();
@@ -284,7 +293,7 @@ namespace SoundScape.GameplaySceneComponents
         {
             Color vColor = Colour;
             SpriteBatch.Begin();
-            if (_aimVectors != null)
+            if (_aimVectors != null && Enabled)
                 for (int i = 5; i < _aimVectors.Length; i++)
                 {
                     Vector2 aimVector = _aimVectors[i];

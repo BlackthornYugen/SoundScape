@@ -10,8 +10,8 @@ namespace SoundScape.Levels
 {
     class Level3 : GameplayScene
     {
-        public Level3(GameLoop game, SpriteBatch sb)
-            : base(game, sb)
+        public Level3(GameLoop game, SpriteBatch sb, bool spectatorMode)
+            : base(game, sb, spectatorMode)
         {
         }
 
@@ -146,8 +146,8 @@ namespace SoundScape.Levels
                 colour: Color.Green)
                 {
                     Speed = new Vector2(
-                        r.Next(2) == 0 ? -1 : 1,
-                        r.Next(2) == 0 ? -1 : 1
+                        r.Next(2) == 0 ? -3 : 3,
+                        r.Next(2) == 0 ? -3 : 3
                         )
                 });
         }

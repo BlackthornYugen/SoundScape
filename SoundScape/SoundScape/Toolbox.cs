@@ -83,7 +83,7 @@ namespace SoundScape
             try
             {
                 conn.Open();
-                const string query = "SELECT name, score FROM highscore;";
+                const string query = @"SELECT name, score FROM highscore ORDER BY score desc LIMIT 10;";
                 var cmd = new MySqlCommand(query, conn);
                 reader = cmd.ExecuteReader();
             }

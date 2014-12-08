@@ -19,7 +19,9 @@ namespace SoundScape
     /// </summary>
     public class HighScore : InfoScene
     {
-        List<HighScoreSaved> _highscores = new List<HighScoreSaved>();
+        private List<HighScoreSaved> _highscores = new List<HighScoreSaved>();
+        private List<HighScoreSaved> _highscoresOnline = new List<HighScoreSaved>();
+        private bool _showOnline;
 
         public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
             )
@@ -97,25 +99,43 @@ namespace SoundScape
             return min;
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            var inputs = new[] { Game.PlayerOne, Game.PlayerTwo };
+            if (inputs.Any(i => i.ActionSelect) && Enabled)
+            {
+                // Flip online/offline scores
+                _showOnline = !_showOnline;
+                Game.PlayMenuSound(1);
+            }
+        }
+
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            var regularFont = Game.DefaultGameFont;
-            var msg = new StringBuilder();
+            SpriteFont font = Game.DefaultGameFont;
+            StringBuilder msg = new StringBuilder(new string(' ', 10));
 
+            msg.Append(_showOnline ? "(Global Scores)\n" : "(Local Scores)\n");
+            List<HighScoreSaved> drawScore = _showOnline ? _highscoresOnline : _highscores;
 
             _spritebatch.Begin();
-            
             _spritebatch.Draw(Texture, _centerScreen, Color.White);
-            _highscores.ForEach(line => msg.Append(string.Format("{0,-25} {1}\n", line.PlayerName, line.Score)));
-            _spritebatch.DrawString(regularFont, msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
+            drawScore.ForEach(line => msg.Append(string.Format("{0,-25} {1}\n", line.PlayerName, line.Score)));
+            _spritebatch.DrawString(font, msg, _centerScreen - Vector2.UnitY * font.LineSpacing + new Vector2(60, 90), Color.Yellow, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();
         }
 
         protected override void OnEnabledChanged(object sender, EventArgs args)
         {
-            if (Enabled) _highscores = Toolbox.LoadScoresFromDatabase().ToList();
+            var loadedScores = Toolbox.LoadScoresFromDatabase().ToList();
+            if (Enabled)
+            {
+                _showOnline = !_showOnline;
+                _highscoresOnline = loadedScores.Any() ? loadedScores : _highscoresOnline;
+            }
             base.OnEnabledChanged(sender, args);
         }
     }
