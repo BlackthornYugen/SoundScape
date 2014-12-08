@@ -37,9 +37,9 @@ namespace SoundScape
         private GameScene _highScore;
         private GameScene _newHighScore;
         private GameScene _credit;
-        private GameScene _gameplay;
 
         public SpriteFont DefaultGameFont { get; private set; }
+        public SpriteFont BigFont { get; private set; }
 
         public readonly VirtualController PlayerOne;
         public readonly VirtualController PlayerTwo;
@@ -95,11 +95,7 @@ namespace SoundScape
             get { return _highScore as HighScore; }
         }
 
-        public GameScene Gameplay
-        {
-            get { return _gameplay; }
-            set { _gameplay = value; }
-        }
+        public GameScene Gameplay { get; set; }
 
         public GameScene NewHighScore
         {
@@ -162,11 +158,11 @@ namespace SoundScape
             Vector2 centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2 - dimensions.Width / 2,
                 GraphicsDevice.Viewport.Height / 2 - dimensions.Height / 2);
 
-            // TODO: set backgrounds
-            Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
             DefaultGameFont = Content.Load<SpriteFont>("fonts/regularFont");
+            BigFont = Content.Load<SpriteFont>("fonts/bigFont");
+            Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
             Random r = new Random();
-            Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] { "Start Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
+            Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] { "New Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
             {
                 Background = backGround
             });
@@ -178,18 +174,6 @@ namespace SoundScape
                 backGround, centerScreen));
             Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
-            //{
-            //    new HighScoreSaved() {PlayerName = "DAVE", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "MANUEL", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "JOHN", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "DAN", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "JOSH", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "MIMI", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "ANDREW", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "LUC", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "CHARLOTTE", Score = r.Next(25)},
-            //    new HighScoreSaved() {PlayerName = "KAT", Score = r.Next(25)},
-            //}));
 
             Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch) { Background = backGround });
             _newHighScore.Initialize();
@@ -248,9 +232,9 @@ namespace SoundScape
             {
                 if (inputs.Any(p=>p.ActionSelect))
                 {
-                    switch (_menu.SelectedItem.Name)
+                    switch (_menu.SelectedIndex)
                     {
-                        case "Start Game":
+                        case 0:
                             HideAllScene();
                             SetTitle("Game thing");
                             if (Gameplay != null)
@@ -258,32 +242,32 @@ namespace SoundScape
                                 Components.Remove(Gameplay);
                                 Gameplay.Dispose();
                             }
-                            Gameplay = Campaign.New().NextLevel();
+                            Gameplay = Campaign.New(spectatorMode:false).NextLevel();
                             Components.Add(Gameplay);
                             Gameplay.Show();
                             Gameplay.Enabled = true;
                             break;
-                        case "How To Play":
+                        case 1:
                             HideAllScene();
                             SetTitle("How To Play");
                             _howToPlay.Show();
                             break;
-                        case "Help":
+                        case 2:
                             HideAllScene();
                             SetTitle("Help");
                             _help.Show();
                             break;
-                        case "High Score":
+                        case 3:
                             HideAllScene();
                             SetTitle("High Score");
                             HighScore.Show();
                             break;
-                        case "Credits":
+                        case 4:
                             HideAllScene();
                             SetTitle("Credit");
                             _credit.Show();
                             break;
-                        case "Quit":
+                        case 5:
                             Exit();
                             break;
                         default:

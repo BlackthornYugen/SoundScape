@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,9 +21,10 @@ namespace SoundScape
         private DateTime _gameOverTime;
         private TimeSpan _runTime;
         private GameState _gameState;
+        private bool _spectatorMode;
 
         [Flags]
-        private enum GameState
+        public enum GameState
         {
             None = 0x0,
             Victory = 0x1,
@@ -31,13 +33,33 @@ namespace SoundScape
             NewRecord = 0x8,
         }
 
+        public GameState State
+        {
+            get { return _gameState; }
+        }
+
         public override void Update(GameTime gameTime)
         {
             int playerCount = 0;
             int enemyCount = 0;
 
-
-            if (_gameState != GameState.None)
+            if (_gameState == GameState.None)
+            {
+                // Hide all non-walls
+                Components.Where(c => !(c is Wall)).ForEach(c =>
+                {
+                    var gsc = c as GameplaySceneComponent;
+                    if (gsc != null && gsc.Visible && !_spectatorMode)
+                    {
+                        var colour = gsc.Colour;
+                        if (colour.A != 0)
+                        {
+                            gsc.Colour = new Color(colour.R - 2, colour.G - 2, colour.B - 2, colour.A - 2);
+                        }
+                    }
+                });
+            }
+            else
             {
                 if (DateTime.Now > _gameOverTime)
                 {
@@ -80,9 +102,10 @@ namespace SoundScape
             EnemyCircler,
         }
 
-        public GameplayScene(GameLoop game, SpriteBatch sb)
+        public GameplayScene(GameLoop game, SpriteBatch sb, bool spectatorMode)
             : base(game, sb)
         {
+            _spectatorMode = spectatorMode;
             _runTime = TimeSpan.Zero;
         }
 
@@ -200,7 +223,14 @@ namespace SoundScape
 
         private void Victory()
         {
-            Visible = true;
+            Components.Where(c => c is Player).ForEach(c =>
+            {
+                var gsc = c as GameplaySceneComponent;
+                if (gsc != null)
+                {
+                    gsc.ResetColour();
+                }
+            });
             Game.Speak("You are Victorious!");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
@@ -211,7 +241,14 @@ namespace SoundScape
 
         private void Defeat()
         {
-            Visible = true;
+            Components.Where(c => c is Player).ForEach(c =>
+            {
+                var gsc = c as GameplaySceneComponent;
+                if (gsc != null)
+                {
+                    gsc.ResetColour();
+                }
+            });
             Game.Speak("You have been defeated.");
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Defeat;

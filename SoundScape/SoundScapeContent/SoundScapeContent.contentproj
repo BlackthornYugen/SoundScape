@@ -228,6 +228,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fonts\bigFont.spritefont">
+      <Name>bigFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="highscores.json">
       <Name>highscores</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
