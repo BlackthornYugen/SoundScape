@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -63,6 +64,7 @@ namespace SoundScape
             }
 
             Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
+            bool saved = highScore.SaveScoreToDatabase();
         }
 
         private static List<HighScoreSaved> BubbleSort(List<HighScoreSaved> list)
@@ -109,6 +111,12 @@ namespace SoundScape
             _spritebatch.DrawString(regularFont, msg, _centerScreen + new Vector2(60, 90), Color.Yellow, 0,
                 Vector2.Zero, 1f, SpriteEffects.None, 0);
             _spritebatch.End();
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            if (Enabled) _highscores = Toolbox.LoadScoresFromDatabase().ToList();
+            base.OnEnabledChanged(sender, args);
         }
     }
 }
