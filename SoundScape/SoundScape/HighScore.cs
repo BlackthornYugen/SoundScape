@@ -19,6 +19,7 @@ namespace SoundScape
     /// </summary>
     public class HighScore : InfoScene
     {
+        public const int HIGH_SCORE_LIMIT = 10;
         private List<HighScoreSaved> _highscores = new List<HighScoreSaved>();
         private List<HighScoreSaved> _highscoresOnline = new List<HighScoreSaved>();
         private bool _showOnline;
@@ -32,24 +33,20 @@ namespace SoundScape
 
         public bool IsHighScore(int newScore)
         {
-            if (_highscores.Count < 10)
+            var scoreLists = new[] {_highscores, _highscoresOnline};
+            return scoreLists.Where(list => list != null).Any( list =>
             {
-                return true;
-            }
-            else
-            {
-                List<int> tempScores = new List<int>();
-                for (int i = 0; i < _highscores.Count; i++)
-                {
-                    tempScores.Add(_highscores[i].Score);
-                }
-                int min = ReturnMinimum(tempScores);
-                if (newScore > min)
-                {
+                // If the scoreboard isn't full
+                if (_highscores.Count < HIGH_SCORE_LIMIT)
                     return true;
-                }
-            }
-            return false;
+
+                // if newScore is higher than any of the current scores
+                if (_highscores.Any(s => s.Score < newScore))
+                    return true;
+
+                // If we get here; newscore isn't a highscore on this list. 
+                return false;
+            });
         }
 
         public void UpdateHighScore(string name, int score)
