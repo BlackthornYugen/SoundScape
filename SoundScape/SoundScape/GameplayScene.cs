@@ -322,12 +322,12 @@ namespace SoundScape
             base.Draw(gameTime);
             if (_gameState != GameState.None)
             {
-                const int scale = 3;
+                const int scale = 1;
                 const int margin = 8;
                 bool lastLevel = Campaign.OnLastLevel;
                 var score = (string) Campaign.CurrentScore.ToString("n0");
                 var cb = (Rectangle) Game.Window.ClientBounds;
-                var font = (SpriteFont) Game.DefaultGameFont;
+                var font = (SpriteFont) Game.BigFont;
                 var position = new Vector2(cb.Width / 2f, cb.Height / 2f);
                 string[] messageStrings = new[] { null, score };
 
@@ -346,7 +346,7 @@ namespace SoundScape
                 _spritebatch.Begin();
                 foreach (string s in messageStrings)
                 {
-                    _spritebatch.DrawString(font, s, position - Vector2.One * 2, Color.Black, 0, font.MeasureString(s) / 2, scale, SpriteEffects.None, 0);
+                    _spritebatch.DrawString(font, s, position - Vector2.One * 10, Color.Black, 0, font.MeasureString(s) / 2, scale, SpriteEffects.None, 0);
                     _spritebatch.DrawString(font, s, position - Vector2.One * 0, Color.White, 0, font.MeasureString(s) / 2, scale, SpriteEffects.None, 0);
                     position += Vector2.UnitY * (font.LineSpacing * scale + margin);
                 }
