@@ -91,7 +91,7 @@ namespace SoundScape.Levels
                 position: startingPositions.Dequeue(),
                 texture: Textures[Entity.EnemyBouncer],
                 soundEffect: SFX[Entity.EnemyBouncer],
-                colour: Color.Green)
+                colour: Color.Purple)
             {
                 Speed = Vector2.UnitX * (r.Next(2) == 0 ? -1 : 1) +
                         Vector2.UnitY * (r.Next(2) == 0 ? -1 : 1)

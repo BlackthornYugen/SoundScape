@@ -115,10 +115,20 @@ namespace SoundScape
         {
             Game.PlayMenuSound(1);
             _activePosition += i;
-
-            if (save && (_activePosition >= _letterMenuComponents.Length || _activePosition < 0 ||
-                (i > 0 && _letterMenuComponents[_activePosition - i].ActiveMenuItem.Component == ' ')))
-                SaveScore();
+            var letters = _letterMenuComponents;
+            if (save)
+            {
+                if (_activePosition < 0)
+                {
+                    Game.HighScore.Show();
+                    Hide();
+                }
+                else if (_activePosition == letters.Length ||
+                    (i > 0 && letters[_activePosition - i].ActiveMenuItem.Component == ' '))
+                {
+                    SaveScore();
+                }
+            }
             _activePosition = _activePosition.Mid(_letterMenuComponents.Length - 1);
             Recolour();
         }

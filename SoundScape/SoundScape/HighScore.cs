@@ -83,19 +83,6 @@ namespace SoundScape
             return list;
         }
 
-        private static int ReturnMinimum(List<int> list)
-        {
-            int min = list[0];
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i] < min)
-                {
-                    min = list[i];
-                }
-            }
-            return min;
-        }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

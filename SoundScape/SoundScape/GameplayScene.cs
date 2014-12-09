@@ -263,7 +263,7 @@ namespace SoundScape
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Defeat;
 
-            if (Game.HighScore.IsHighScore(Campaign.CurrentScore))
+            if (Game.HighScore.IsHighScore(Campaign.CurrentScore) && !Options.HasFlag(GameOptions.SpectatorMode))
                 _gameState |= GameState.NewRecord;
         }
 
