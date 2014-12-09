@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using SoundScape.GameplaySceneComponents;
 using XNALib.Scenes;
+using GameOptions = SoundScape.GameplayScene.GameOptions;
 
 namespace SoundScape.Levels
 {
@@ -15,7 +16,7 @@ namespace SoundScape.Levels
         private static Campaign _instance;
         private static int _currentLevel;
         private HighScore _scoreboard;
-        private static bool _spectatorMode;
+        private static GameOptions _options;
 
         private Campaign(GameLoop game)
         {
@@ -29,9 +30,9 @@ namespace SoundScape.Levels
 #else
             _gameplayScenes = new List<GameplayScene>()
             {   
-                new Level1(game, game.SpriteBatch, _spectatorMode),
-                new Level2(game, game.SpriteBatch, _spectatorMode),
-                new Level3(game, game.SpriteBatch, _spectatorMode),
+                new Level1(game, game.SpriteBatch, _options),
+                new Level2(game, game.SpriteBatch, _options),
+                new Level3(game, game.SpriteBatch, _options),
             };
 #endif
         }
@@ -44,10 +45,10 @@ namespace SoundScape.Levels
             }
         }
 
-        public static Campaign New(GameLoop game = null, bool spectatorMode = false)
+        public static Campaign New(GameLoop game = null, GameOptions options = GameOptions.None)
         {
             _currentLevel = -1;
-            _spectatorMode = spectatorMode;
+            _options = options;
             return _instance = new Campaign(game ?? _game);
         }
 

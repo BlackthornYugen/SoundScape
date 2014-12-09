@@ -21,7 +21,7 @@ namespace SoundScape
         private DateTime _gameOverTime;
         private TimeSpan _runTime;
         private GameState _gameState;
-        private bool _spectatorMode;
+        private GameOptions _options;
 
         [Flags]
         public enum GameState
@@ -31,6 +31,13 @@ namespace SoundScape
             Defeat = 0x2,
             Gameover = 0x4,
             NewRecord = 0x8,
+        }
+
+        [Flags]
+        public enum GameOptions
+        {
+            None = 0x0,
+            SpectatorMode = 0x1,
         }
 
         public GameState State
@@ -49,7 +56,7 @@ namespace SoundScape
                 Components.Where(c => !(c is Wall)).ForEach(c =>
                 {
                     var gsc = c as GameplaySceneComponent;
-                    if (gsc != null && gsc.Visible && !_spectatorMode)
+                    if (gsc != null && gsc.Visible && !_options.HasFlag(GameOptions.SpectatorMode))
                     {
                         var colour = gsc.Colour;
                         if (colour.A != 0)
@@ -102,10 +109,10 @@ namespace SoundScape
             EnemyCircler,
         }
 
-        public GameplayScene(GameLoop game, SpriteBatch sb, bool spectatorMode)
+        public GameplayScene(GameLoop game, SpriteBatch sb, GameOptions options)
             : base(game, sb)
         {
-            _spectatorMode = spectatorMode;
+            _options = options;
             _runTime = TimeSpan.Zero;
         }
 
@@ -235,7 +242,7 @@ namespace SoundScape
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
 
-            if (Game.HighScore.IsHighScore(Campaign.CurrentScore))
+            if (Game.HighScore.IsHighScore(Campaign.CurrentScore) && !_options.HasFlag(GameOptions.SpectatorMode))
                 _gameState |= GameState.NewRecord;
         }
 

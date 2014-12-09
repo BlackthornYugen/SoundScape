@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace XNALib.Menus
 {
-    public class MenuComponent<T> : DrawableGameComponent
+    public class MenuComponent<T> : DrawableGameComponent, IEnumerable
     {
         private Color _colourHighlighted;
         private Color _colourNormal;
@@ -125,6 +126,23 @@ namespace XNALib.Menus
             }
             _spritebatch.End();
             base.Draw(gameTime);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return _menuItems.GetEnumerator();
+        }
+
+        public void Hide()
+        {
+            Visible = false;
+            Enabled = false;
+        }
+
+        public void Show()
+        {
+            Visible = true;
+            Enabled = true;
         }
     }
 

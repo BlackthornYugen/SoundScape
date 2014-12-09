@@ -7,16 +7,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Newtonsoft.Json;
 using SoundScape.Levels;
+using XNALib.Menus;
 using XNALib.Scenes;
 using Microsoft.Xna.Framework.Audio;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
+using GameOptions = SoundScape.GameplayScene.GameOptions;
 
 namespace SoundScape
 {
@@ -37,6 +39,8 @@ namespace SoundScape
         private GameScene _highScore;
         private GameScene _newHighScore;
         private GameScene _credit;
+
+        private MenuComponent<GameOptions> _gametypeMenu;  
 
         public SpriteFont DefaultGameFont { get; private set; }
         public SpriteFont BigFont { get; private set; }
@@ -162,10 +166,19 @@ namespace SoundScape
             BigFont = Content.Load<SpriteFont>("fonts/bigFont");
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
             Random r = new Random();
-            Components.Add(_menu = new StartScene(this, _spriteBatch, new string[] { "New Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
+            Components.Add(_menu = new StartScene(this, _spriteBatch, new[] { "New Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
             {
                 Background = backGround
             });
+
+            Components.Add(_gametypeMenu = new MenuComponent<GameOptions>(this, _spriteBatch, Color.LightYellow, Color.Yellow, DefaultGameFont, DefaultGameFont, Vector2.One * 100 + Vector2.UnitX * 400)
+            {
+                {"Normal Mode", GameOptions.None},
+                {"Spectator Mode (Score not saved)", GameOptions.SpectatorMode}
+            });
+
+            _gametypeMenu.Hide();
+
             Components.Add(_help = new InfoScene(this, Content.Load<Texture2D>("images/Help"), 
                 backGround, centerScreen));
             Components.Add(_howToPlay = new InfoScene(this, Content.Load<Texture2D>("images/HowToPlay"), 
@@ -200,16 +213,23 @@ namespace SoundScape
         protected override void Update(GameTime gameTime)
         {
             AllowExit = !_newHighScore.Enabled;
-            ControlInput();
+            MainMenuInput();
             base.Update(gameTime);
         }
 
         /// <summary>
         /// Handles the user input for the menu
         /// </summary>
-        void ControlInput()
+        void MainMenuInput()
         {
             var inputs = new[] {PlayerOne, PlayerTwo};
+
+            if (_gametypeMenu.Enabled)
+            {
+                GameTypeMenuInput(inputs);
+                return;
+            }
+
             // Allows the game to exit
             if (AllowExit && inputs.Any(p => p.ActionBack))
             {
@@ -235,17 +255,7 @@ namespace SoundScape
                     switch (_menu.SelectedIndex)
                     {
                         case 0:
-                            HideAllScene();
-                            SetTitle("Game thing");
-                            if (Gameplay != null)
-                            {
-                                Components.Remove(Gameplay);
-                                Gameplay.Dispose();
-                            }
-                            Gameplay = Campaign.New(spectatorMode:false).NextLevel();
-                            Components.Add(Gameplay);
-                            Gameplay.Show();
-                            Gameplay.Enabled = true;
+                            _gametypeMenu.Show();
                             break;
                         case 1:
                             HideAllScene();
@@ -290,6 +300,51 @@ namespace SoundScape
                     PlayMenuSound(0);
                 }
             }
+        }
+
+        private void GameTypeMenuInput(IEnumerable<VirtualController> inputs)
+        {
+            var menu = _gametypeMenu;
+
+            if (inputs.Any(c => c.ActionMenuDown))
+            {
+                menu.MenuIndex++;
+                PlayMenuSound(0);
+            }
+
+            if (inputs.Any(c => c.ActionMenuUp))
+            {
+                menu.MenuIndex += 1 + menu.MenuItems.Count;
+                PlayMenuSound(0);
+            }
+            menu.MenuIndex %= menu.MenuItems.Count;
+
+            if (inputs.Any(c => c.ActionBack))
+            {
+                menu.Hide();
+                PlayMenuSound(0);
+            }
+
+            if (inputs.Any(c => c.ActionSelect))
+            {
+                menu.Hide();
+                PlayMenuSound(1);
+                HideAllScene();
+                StartGame(menu.ActiveMenuItem.Component);
+            }
+        }
+
+        private void StartGame(GameOptions options)
+        {
+            SetTitle("Game thing");
+            if (Gameplay != null)
+            {
+                Components.Remove(Gameplay);
+                Gameplay.Dispose();
+            }
+            Gameplay = Campaign.New(options: options).NextLevel();
+            Components.Add(Gameplay);
+            Gameplay.Show();
         }
 
         public void PlayMenuSound(int i)
