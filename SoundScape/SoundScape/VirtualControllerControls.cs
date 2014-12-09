@@ -64,6 +64,7 @@ namespace SoundScape
         {
             get
             {
+                if (Math.Abs(Math.Abs(AimAxisX) + Math.Abs(AimAxisY)) < 0.1f) return false;
                 return KeyPressed(GameFireKeys) || ButtonPressed(GameFireButtons);
             }
         }

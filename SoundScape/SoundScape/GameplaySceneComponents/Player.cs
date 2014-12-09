@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,13 +21,12 @@ namespace SoundScape.GameplaySceneComponents
 
         private Vector2[] _aimVectors;
         private Vector2 _arrow;
-        private VirtualController _controller;
         private float _pan;
         private float _rumbleLeft;
         private DateTime _rumbleLeftTime;
         private float _rumbleRight;
         private DateTime _rumbleRightTime;
-        private WeaponState _weaponState = WeaponState.Discharged;
+        private WeaponState _weaponState = WeaponState.Idle;
 
         /// <summary>
         ///     Construct a player with a specific colour
@@ -121,11 +121,7 @@ namespace SoundScape.GameplaySceneComponents
 
         public Texture2D SonarTexture { get; set; }
 
-        public VirtualController Controller
-        {
-            get { return _controller; }
-            set { _controller = value; }
-        }
+        public VirtualController Controller { get; set; }
 
         /// <summary>
         ///     Update movement, handle collision and handle rumbling
@@ -184,19 +180,11 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             // Weapon
-            if (_weaponState == WeaponState.Charging)
-            {
-                if (_weaponSoundEffectInstance.State == SoundState.Stopped)
-                    _weaponState = WeaponState.Charged;
-                else
-                    _weaponSoundEffectInstance.Pitch = Math.Min(_weaponSoundEffectInstance.Pitch + PITCH_VELOCITY, 1);
-            }
-
             if (_weaponState == WeaponState.Cooldown)
             {
                 if (_weaponSoundEffectInstance.Pitch < 0)
                 {
-                    _weaponState = WeaponState.Discharged;
+                    _weaponState = WeaponState.Idle;
                 }
                 else
                 {
@@ -204,11 +192,9 @@ namespace SoundScape.GameplaySceneComponents
                 }
             }
 
-            else if (CanShoot &&_weaponState == WeaponState.Discharged && Controller.ActionFire)
+            else if (CanShoot && !_weaponState.HasFlag(WeaponState.Cooldown) && Controller.ActionFire)
             {
-                _weaponSoundEffectInstance.Pitch = -1;
-                _weaponSoundEffectInstance.Play();
-                _weaponState = WeaponState.Charging;
+                _weaponState = WeaponState.Ready;
                 Colour = new Color(Colour.R/2, Colour.G/2, Colour.B/2);
             }
 
@@ -219,8 +205,7 @@ namespace SoundScape.GameplaySceneComponents
 
             var arrowLength = (int) _arrow.Length();
 
-            if (_weaponState == WeaponState.Charged ||
-                _weaponState == WeaponState.Charging)
+            if (_weaponState == WeaponState.Ready)
                 // Shots fired go DISTANCE_FACTOR further than sonar.
                 arrowLength *= DISTANCE_FACTOR;
 
@@ -250,8 +235,7 @@ namespace SoundScape.GameplaySceneComponents
             bool hitSomething = false;
             if (gsc.Hitbox.Contains((int) _aimVectors[i].X, (int) _aimVectors[i].Y))
             {
-                if (CanShoot && (_weaponState == WeaponState.Charged ||
-                    _weaponState == WeaponState.Charging))
+                if (CanShoot && _weaponState == WeaponState.Ready)
                 {
                     _weaponSoundEffectInstance.Pitch = 1;
                     _weaponSoundEffectInstance.Play();
@@ -259,8 +243,7 @@ namespace SoundScape.GameplaySceneComponents
                     Colour = new Color(Colour.R*2, Colour.G*2, Colour.B*2);
                     gsc.Kill(Colour);
                 }
-                else if (_weaponState != WeaponState.Charging &&
-                         _weaponState != WeaponState.Cooldown)
+                else if (_weaponState != WeaponState.Cooldown)
                 {
                     hitSomething = true;
                     if (_activeSound == null || _activeSound.State == SoundState.Stopped)
@@ -356,9 +339,8 @@ namespace SoundScape.GameplaySceneComponents
 
         private enum WeaponState
         {
-            Charged,
-            Charging,
-            Discharged,
+            Ready,
+            Idle,
             Cooldown
         }
     }
