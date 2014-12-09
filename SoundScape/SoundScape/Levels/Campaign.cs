@@ -15,17 +15,15 @@ namespace SoundScape.Levels
         private static List<GameplayScene> _gameplayScenes;
         private static Campaign _instance;
         private static int _currentLevel;
-        private HighScore _scoreboard;
         private static GameOptions _options;
 
         private Campaign(GameLoop game)
         {
             _game = game;
-            _scoreboard = _game.HighScore as HighScore;
 #if DEBUG
             _gameplayScenes = new List<GameplayScene>()
             {   
-                new Level1(game, game.SpriteBatch, _spectatorMode)
+                new Level1(game, game.SpriteBatch, _options)
             };
 #else
             _gameplayScenes = new List<GameplayScene>()
