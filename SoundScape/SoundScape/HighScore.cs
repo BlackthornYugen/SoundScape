@@ -63,7 +63,7 @@ namespace SoundScape
             }
 
             Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
-            bool saved = highScore.SaveScoreToDatabase();
+            highScore.SaveScoreToDatabase();
         }
 
         private static List<HighScoreSaved> BubbleSort(List<HighScoreSaved> list)

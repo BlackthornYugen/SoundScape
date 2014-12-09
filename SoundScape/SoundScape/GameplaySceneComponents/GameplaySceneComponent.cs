@@ -27,9 +27,9 @@ namespace SoundScape.GameplaySceneComponents
             get { return 0; }
         }
 
-        public virtual void Kill(Color? killedByColour = null)
+        public virtual void Kill(Color? killedByColour = null, bool alterScore = true)
         {
-            _scoreAtDeath = Score;
+            _scoreAtDeath = alterScore ? Score : 0;
             _deathColour = killedByColour ?? Color.Black;
             string itemName = ToString().Split('.').Reverse().First();
             var p = this as Player;

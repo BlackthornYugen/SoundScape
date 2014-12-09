@@ -23,7 +23,7 @@ namespace SoundScape.Levels
 #if DEBUG
             _gameplayScenes = new List<GameplayScene>()
             {   
-                new Level1(game, game.SpriteBatch, _options)
+                new LevelDebug(game, game.SpriteBatch, _options)
             };
 #else
             _gameplayScenes = new List<GameplayScene>()

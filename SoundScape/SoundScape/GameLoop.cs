@@ -7,7 +7,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Permissions;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
@@ -166,7 +165,7 @@ namespace SoundScape
             BigFont = Content.Load<SpriteFont>("fonts/bigFont");
             Texture2D backGround = Content.Load<Texture2D>("images/back/earth");
             Random r = new Random();
-            Components.Add(_menu = new StartScene(this, _spriteBatch, new[] { "New Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
+            Components.Add(_menu = new StartScene(this, _spriteBatch, new[] { "One Player Game", "Two Player Game", "How To Play", "Help", "High Score", "Credits", "Quit" })
             {
                 Background = backGround
             });
@@ -258,26 +257,29 @@ namespace SoundScape
                             _gametypeMenu.Show();
                             break;
                         case 1:
+                            _gametypeMenu.Show();
+                            break;
+                        case 2:
                             HideAllScene();
                             SetTitle("How To Play");
                             _howToPlay.Show();
                             break;
-                        case 2:
+                        case 3:
                             HideAllScene();
                             SetTitle("Help");
                             _help.Show();
                             break;
-                        case 3:
+                        case 4:
                             HideAllScene();
                             SetTitle("High Score");
                             HighScore.Show();
                             break;
-                        case 4:
+                        case 5:
                             HideAllScene();
                             SetTitle("Credit");
                             _credit.Show();
                             break;
-                        case 5:
+                        case 6:
                             Exit();
                             break;
                         default:
@@ -302,9 +304,10 @@ namespace SoundScape
             }
         }
 
-        private void GameTypeMenuInput(IEnumerable<VirtualController> inputs)
+        private void GameTypeMenuInput(VirtualController[] inputs)
         {
             var menu = _gametypeMenu;
+            GameOptions options = _menu.SelectedIndex == 0 ? GameOptions.None : GameOptions.Multiplayer;
 
             if (inputs.Any(c => c.ActionMenuDown))
             {
@@ -317,7 +320,6 @@ namespace SoundScape
                 menu.MenuIndex += 1 + menu.MenuItems.Count;
                 PlayMenuSound(0);
             }
-            menu.MenuIndex %= menu.MenuItems.Count;
 
             if (inputs.Any(c => c.ActionBack))
             {
@@ -330,8 +332,10 @@ namespace SoundScape
                 menu.Hide();
                 PlayMenuSound(1);
                 HideAllScene();
-                StartGame(menu.ActiveMenuItem.Component);
+                StartGame(options | menu.ActiveMenuItem.Component);
             }
+
+            menu.MenuIndex %= menu.MenuItems.Count;
         }
 
         private void StartGame(GameOptions options)
@@ -350,8 +354,6 @@ namespace SoundScape
         public void PlayMenuSound(int i)
         {
             var menuSound = _menuEffects[i.Mid(_menuEffects.Length - 1)];
-            //if (menuSound.State == SoundState.Playing) 
-            //    menuSound.Stop();
             menuSound.Play();
         }
 

@@ -21,7 +21,6 @@ namespace SoundScape
         private DateTime _gameOverTime;
         private TimeSpan _runTime;
         private GameState _gameState;
-        private GameOptions _options;
 
         [Flags]
         public enum GameState
@@ -38,6 +37,7 @@ namespace SoundScape
         {
             None = 0x0,
             SpectatorMode = 0x1,
+            Multiplayer = 0x2,
         }
 
         public GameState State
@@ -53,18 +53,19 @@ namespace SoundScape
             if (_gameState == GameState.None)
             {
                 // Hide all non-walls
-                Components.Where(c => !(c is Wall)).ForEach(c =>
-                {
-                    var gsc = c as GameplaySceneComponent;
-                    if (gsc != null && gsc.Visible && !_options.HasFlag(GameOptions.SpectatorMode))
+                if (!Options.HasFlag(GameOptions.SpectatorMode))
+                    Components.Where(c => !(c is Wall)).ForEach(c =>
                     {
-                        var colour = gsc.Colour;
-                        if (colour.A != 0)
+                        var gsc = c as GameplaySceneComponent;
+                        if (gsc != null && gsc.Visible )
                         {
-                            gsc.Colour = new Color(colour.R - 2, colour.G - 2, colour.B - 2, colour.A - 2);
+                            var colour = gsc.Colour;
+                            if (colour.A != 0)
+                            {
+                                gsc.Colour = new Color(colour.R - 2, colour.G - 2, colour.B - 2, colour.A - 2);
+                            }
                         }
-                    }
-                });
+                    });
             }
             else
             {
@@ -112,7 +113,7 @@ namespace SoundScape
         public GameplayScene(GameLoop game, SpriteBatch sb, GameOptions options)
             : base(game, sb)
         {
-            _options = options;
+            Options = options;
             _runTime = TimeSpan.Zero;
         }
 
@@ -159,6 +160,8 @@ namespace SoundScape
             get { return _background; }
             set { _background = value; }
         }
+
+        public GameOptions Options { get; set; }
 
         protected override void LoadContent()
         {
@@ -242,7 +245,7 @@ namespace SoundScape
             _gameOverTime = DateTime.Now + TimeSpan.FromSeconds(5);
             _gameState |= GameState.Victory;
 
-            if (Game.HighScore.IsHighScore(Campaign.CurrentScore) && !_options.HasFlag(GameOptions.SpectatorMode))
+            if (Game.HighScore.IsHighScore(Campaign.CurrentScore) && !Options.HasFlag(GameOptions.SpectatorMode))
                 _gameState |= GameState.NewRecord;
         }
 

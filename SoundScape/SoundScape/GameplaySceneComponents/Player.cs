@@ -133,12 +133,13 @@ namespace SoundScape.GameplaySceneComponents
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
+#if DEBUG
             // Toggle Visibility
             if (Controller.ButtonPressed(Buttons.Y))
             {
-                Scene.Visible = !Scene.Visible;
+                Scene.Options ^= GameplayScene.GameOptions.SpectatorMode;
             }
-
+#endif
             // Expire rumbles
             if (_rumbleLeftTime < DateTime.Now)
             {
@@ -163,13 +164,10 @@ namespace SoundScape.GameplaySceneComponents
                 var gsc = component as GameplaySceneComponent;
                 if (gsc != this && gsc != null)
                 {
-                    // TODO: Stop ignoring collision when right sholder is pressed. 
-                    if (!Controller.ButtonDown(Buttons.A)
-                        && gsc.Enabled
-                        && gsc.Hitbox.Intersects(Hitbox))
+                    if (gsc.Enabled && gsc.Hitbox.Intersects(Hitbox))
                     {
                         // TODO: Remove godmode when left sholder is pressed. 
-                        if (gsc is Enemy) Kill(Colour);
+                        if (gsc is Enemy) Kill(Colour, false);
                         else
                         {
                             Position = oldPosition;
@@ -215,7 +213,7 @@ namespace SoundScape.GameplaySceneComponents
             }
 
             // Sound Wave
-            _arrow = new Vector2(_controller.AimAxisX, -_controller.AimAxisY)*DISTANCE_FACTOR;
+            _arrow = new Vector2(Controller.AimAxisX, -Controller.AimAxisY) * DISTANCE_FACTOR;
 
             bool hitSomething = false;
 
@@ -350,12 +348,10 @@ namespace SoundScape.GameplaySceneComponents
             base.OnEnabledChanged(sender, args);
         }
 
-        public override void Kill(Color? killedByColour = null)
+        public override void Kill(Color? killedByColour = null, bool alterScore = true)
         {
-            if (Controller.ButtonDown(Buttons.LeftShoulder))
-                RumbleFor(75, 1);
-            else
-                base.Kill(killedByColour);
+            RumbleFor(100, 1);
+            base.Kill(killedByColour, alterScore);
         }
 
         private enum WeaponState

@@ -28,9 +28,9 @@ namespace SoundScape.GameplaySceneComponents
             SpriteBatch.End();
         }
 
-        public override void Kill(Color? killedByColour = null)
+        public override void Kill(Color? killedByColour = null, bool alterScore = true)
         {
-            int scoreChange = Score;
+            int scoreChange = alterScore ? Score : 0;
             Scene.Score += scoreChange;
             Console.WriteLine("\n--- Walls don't die! ---\nScene Score = {0} ({1}{2})",
                 Scene.Score,

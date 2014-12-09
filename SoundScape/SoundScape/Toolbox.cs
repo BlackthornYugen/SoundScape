@@ -51,7 +51,7 @@ namespace SoundScape
             return new T();
         }
 
-        public static bool SaveScoreToDatabase(this HighScoreSaved savedata)
+        public static void SaveScoreToDatabase(this HighScoreSaved savedata)
         {
             var conn = new MySqlConnection(sqlConnString);
             try
@@ -60,7 +60,6 @@ namespace SoundScape
                 const string query = "INSERT INTO highscore (name, score) VALUES('{0}', '{1}')";
                 var cmd = new MySqlCommand(string.Format(query, savedata.PlayerName, savedata.Score), conn);
                 cmd.ExecuteNonQuery();
-                return true;
             }
             catch (Exception ex)
             {
@@ -70,7 +69,6 @@ namespace SoundScape
             {
                 conn.Close();
             }
-            return false;
         }
 
 

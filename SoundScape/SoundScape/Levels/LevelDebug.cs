@@ -35,6 +35,21 @@ namespace SoundScape.Levels
                 SonarTexture = Textures[Entity.Sonar],
             });
 
+            if (Options.HasFlag(GameOptions.Multiplayer))
+                Components.Add(new Player(
+                    scene: this,
+                    spriteBatch: _spritebatch,
+                    position: Vector2.One * 100,
+                    texture: Textures[Entity.PlayerTwo],
+                    soundEffect: SFX[Entity.PlayerTwo],
+                    pan: 1f,
+                    weaponSoundEffect: SFX[Entity.Sonar],
+                    colour: Color.Blue)
+                {
+                    Controller = Game.PlayerTwo,
+                    SonarTexture = Textures[Entity.Sonar],
+                });
+
             var r = new Random();
             var n = Enum.GetValues(typeof(Entity)).Length;
 
