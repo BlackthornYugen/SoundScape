@@ -1,0 +1,85 @@
+{
+  "PlayerIndex": "one",
+  "MenuUpKeys": [
+    "up",
+    "oemPlus",
+    "pageUp"
+  ],
+  "MenuUpButtons": [
+    "dPadUp",
+    "leftThumbstickUp",
+    "rightThumbstickUp"
+  ],
+  "MenuDownKeys": [
+    "down",
+    "oemMinus",
+    "pageDown"
+  ],
+  "MenuDownButtons": [
+    "dPadDown",
+    "leftThumbstickDown",
+    "rightThumbstickDown"
+  ],
+  "MenuLeftKeys": [
+    "left"
+  ],
+  "MenuLeftButtons": [
+    "dPadLeft",
+    "leftThumbstickLeft",
+    "rightThumbstickLeft"
+  ],
+  "MenuRightKeys": [
+    "right"
+  ],
+  "MenuRightButtons": [
+    "dPadRight",
+    "leftThumbstickRight",
+    "rightThumbstickRight"
+  ],
+  "MenuSelectKeys": [
+    "enter"
+  ],
+  "MenuSelectButtons": [
+    "start",
+    "a",
+    "rightTrigger"
+  ],
+  "GameFireKeys": [
+    "space"
+  ],
+  "GameFireButtons": [
+    "rightShoulder",
+    "rightTrigger"
+  ],
+  "MenuBackKeys": [
+    "escape"
+  ],
+  "MenuBackButtons": [
+    "back",
+    "b"
+  ],
+  "MovementRightKeys": [
+    "d"
+  ],
+  "MovementLeftKeys": [
+    "a"
+  ],
+  "MovementUpKeys": [
+    "w"
+  ],
+  "MovementDownKeys": [
+    "s"
+  ],
+  "AimUpKeys": [
+    "u"
+  ],
+  "AimDownKeys": [
+    "j"
+  ],
+  "AimLeftKeys": [
+    "h"
+  ],
+  "AimRightKeys": [
+    "k"
+  ]
+}

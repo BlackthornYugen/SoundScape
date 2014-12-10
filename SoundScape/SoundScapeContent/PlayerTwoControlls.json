@@ -1,0 +1,88 @@
+{
+  "PlayerIndex": "two",
+  "MenuUpKeys": [
+    "up",
+    "oemPlus",
+    "pageUp"
+  ],
+  "MenuUpButtons": [
+    "dPadUp",
+    "leftThumbstickUp",
+    "rightThumbstickUp"
+  ],
+  "MenuDownKeys": [
+    "down",
+    "oemMinus",
+    "pageDown"
+  ],
+  "MenuDownButtons": [
+    "dPadDown",
+    "leftThumbstickDown",
+    "rightThumbstickDown"
+  ],
+  "MenuLeftKeys": [
+    "left"
+  ],
+  "MenuLeftButtons": [
+    "dPadLeft",
+    "leftThumbstickLeft",
+    "rightThumbstickLeft"
+  ],
+  "MenuRightKeys": [
+    "right"
+  ],
+  "MenuRightButtons": [
+    "dPadRight",
+    "leftThumbstickRight",
+    "rightThumbstickRight"
+  ],
+  "MenuSelectKeys": [
+    "enter"
+  ],
+  "MenuSelectButtons": [
+    "start",
+    "a",
+    "rightTrigger"
+  ],
+  "GameFireKeys": [
+    "add",
+    "subtract",
+    "delete",
+    "insert"
+  ],
+  "GameFireButtons": [
+    "rightShoulder",
+    "rightTrigger"
+  ],
+  "MenuBackKeys": [
+    "escape"
+  ],
+  "MenuBackButtons": [
+    "back",
+    "b"
+  ],
+  "MovementRightKeys": [
+    "right"
+  ],
+  "MovementLeftKeys": [
+    "left"
+  ],
+  "MovementUpKeys": [
+    "up"
+  ],
+  "MovementDownKeys": [
+    "down"
+  ],
+  "AimUpKeys": [
+    "numPad8"
+  ],
+  "AimDownKeys": [
+    "numPad2"
+  ],
+  "AimLeftKeys": [
+    "numPad4"
+  ],
+  "AimRightKeys": [
+    "numPad6"
+  ]
+}
