@@ -12,7 +12,7 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
-    class NewHighscore : GameScene
+    class NewHighscoreScene : GameScene
     {
         private Color _regularColour;
         private Color _highlightColumn;
@@ -36,7 +36,7 @@ namespace SoundScape
             Saving,
             Saved,
         }
-        public NewHighscore(GameLoop game, SpriteBatch sb) : base(game, sb)
+        public NewHighscoreScene(GameLoop game, SpriteBatch sb) : base(game, sb)
         {
             _font = game.DefaultGameFont;
             _regularColour = Color.WhiteSmoke;

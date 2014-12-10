@@ -197,7 +197,7 @@ namespace SoundScape
             Components.Add(_highScore = new HighScoreScene(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
 
-            Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch)
+            Components.Add(_newHighScore = new NewHighscoreScene(this, SpriteBatch)
             {
                 Background = backGround,
                 BannerTexture = Content.Load<Texture2D>("images/BlackBanner"),
