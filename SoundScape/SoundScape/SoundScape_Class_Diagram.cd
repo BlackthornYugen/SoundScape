@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="SoundScape.StartScene">
-    <Position X="0.5" Y="9.75" Width="3" />
+    <Position X="0.5" Y="7.5" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.GameplayScene">
-    <Position X="0.5" Y="13" Width="3" />
+    <Position X="0.5" Y="10.75" Width="3" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
@@ -53,16 +53,6 @@
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
-    <InheritanceLine Type="XNALib.Scenes.GameScene" ManuallyRouted="true">
-      <Path>
-        <Point X="5.625" Y="8.405" />
-        <Point X="5.625" Y="9.596" />
-        <Point X="3.672" Y="9.596" />
-        <Point X="3.672" Y="12.7" />
-        <Point X="2" Y="12.7" />
-        <Point X="2" Y="13" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AgSAgAAAIRAAAglAAAAAACAAAAgAEAgCAAAQBgBAAAc=</HashCode>
       <FileName>GameplayScene.cs</FileName>
@@ -70,8 +60,11 @@
   </Class>
   <Class Name="SoundScape.GameLoop">
     <Position X="0.5" Y="1.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>ACQAEAAECAQCUwkQAAAgAACoAAAAIAAAyIABEiEgAAQ=</HashCode>
+      <HashCode>ACQAEEAECAQCUwkQAAAgACCoAAAAIAAAyIABEiEgAAQ=</HashCode>
       <FileName>GameLoop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -224,8 +217,15 @@
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
+    <NestedTypes>
+      <Enum Name="SoundScape.NewHighscore.SaveStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NewHighscore.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>IgQAAAAIAAQAAgAAAAEAEAEQAAiAAAAAAAQAAShAAAQ=</HashCode>
+      <HashCode>IgQAAAAIBAQAAgAAAAEAEAMQAAiAAAAAEAQAAShAAAQ=</HashCode>
       <FileName>NewHighscore.cs</FileName>
     </TypeIdentifier>
   </Class>

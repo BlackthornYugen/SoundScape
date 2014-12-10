@@ -24,7 +24,18 @@ namespace SoundScape
         const int MAX_LETTERS = 15;
         private MenuComponent<char>[] _letterMenuComponents;
         private int _activePosition;
+        private SaveStatus _saveStatus = SaveStatus.None;
+        public Texture2D BannerTexture { get; set; }
+        public Texture2D SavingTexture { get; set; }
 
+        private enum SaveStatus
+        {
+            None,
+            Requested,
+            StatusDrawn,
+            Saving,
+            Saved,
+        }
         public NewHighscore(GameLoop game, SpriteBatch sb) : base(game, sb)
         {
             _font = game.DefaultGameFont;
@@ -109,6 +120,8 @@ namespace SoundScape
                 MoveRow(-1);
 
             base.Update(gameTime);
+            if (_saveStatus == SaveStatus.StatusDrawn)
+                SaveScore();
         }
 
         private void MoveColumn(int i, bool save = true)
@@ -126,7 +139,7 @@ namespace SoundScape
                 else if (_activePosition == letters.Length ||
                     (i > 0 && letters[_activePosition - i].ActiveMenuItem.Component == ' '))
                 {
-                    SaveScore();
+                    _saveStatus = SaveStatus.Requested;
                 }
             }
             _activePosition = _activePosition.Mid(_letterMenuComponents.Length - 1);
@@ -164,15 +177,28 @@ namespace SoundScape
             base.Draw(gameTime);
             var cb = Game.Window.ClientBounds;
             var font = Game.DefaultGameFont;
-            string[] title = {"Congratulations", "{0:n0} points is a new record!"};
+            string[] title = { "Congratulations", string.Format("{0:n0} points is a new record!", Campaign.CurrentScore) };
+            var bannerBox = new Rectangle(0, 0, cb.Width, cb.Height/3);
             Vector2 posVector2 = Vector2.UnitX*(cb.Width/2f);
             _spritebatch.Begin();
+            _spritebatch.Draw(_background, bannerBox, bannerBox, Color.White, 0,
+                Vector2.Zero, SpriteEffects.None, 1);
+            bannerBox.Offset(0, cb.Height - bannerBox.Height);
+            _spritebatch.Draw(_background, bannerBox, bannerBox, Color.White, 0,
+                Vector2.Zero, SpriteEffects.None, 1);
             foreach (string s in title)
             {
-                Vector2 adjustedVector2 = posVector2 + Vector2.UnitX*(-font.MeasureString(s).X/2f);
-                posVector2 -= Vector2.UnitY * font.MeasureString(s).Y;
-                _spritebatch.DrawString(font, string.Format(s, Campaign.CurrentScore), adjustedVector2, _regularColour);                
+                Vector2 adjustedVector2 = posVector2 - Vector2.UnitX*(font.MeasureString(s).X/2f);
+                posVector2 += Vector2.UnitY * font.LineSpacing;
+                _spritebatch.DrawString(font, s, adjustedVector2, _regularColour);                
             }
+
+            if (_saveStatus == SaveStatus.Requested)
+            {
+                _spritebatch.Draw(SavingTexture, Vector2.Zero, Color.White);
+                _saveStatus = SaveStatus.StatusDrawn;
+            }
+
             _spritebatch.End();
         }
 
@@ -181,7 +207,11 @@ namespace SoundScape
             StringBuilder name = new StringBuilder(MAX_LETTERS);
             _letterMenuComponents.ForEach(l => name.Append(l.ActiveMenuItem.Component));
 
+            
+            _saveStatus = SaveStatus.Saving;
             Game.HighScore.UpdateHighScore(name.ToString().Trim(), Campaign.CurrentScore);
+            _saveStatus = SaveStatus.Saved;
+
             Campaign.New(); // Reset the score
             Game.HighScore.Show();
             Hide();

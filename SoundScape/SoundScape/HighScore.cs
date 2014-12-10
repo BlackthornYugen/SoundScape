@@ -57,12 +57,15 @@ namespace SoundScape
             _highscores.Add(highScore);
             _highscores = BubbleSort(_highscores);
 
-            if (_highscores.Count >= 10)
+            if (_highscores.Count >= HIGH_SCORE_LIMIT)
             {
                 _highscores.RemoveAt(_highscores.Count - 1);
             }
 
-            Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
+            // Only bother saving to server if there is room.
+            if (_highscoresOnline.Count >= HIGH_SCORE_LIMIT || _highscoresOnline.Any(s => s.Score < score)) 
+                Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
+
             highScore.SaveScoreToDatabase();
         }
 

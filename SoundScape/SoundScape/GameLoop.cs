@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using SoundScape.Levels;
 using XNALib.Menus;
 using XNALib.Scenes;
@@ -38,6 +39,9 @@ namespace SoundScape
         private GameScene _highScore;
         private GameScene _newHighScore;
         private GameScene _credit;
+
+        private Song _menuSong;
+        private Song _gameSong;
 
         private MenuComponent<GameOptions> _gametypeMenu;  
 
@@ -154,7 +158,13 @@ namespace SoundScape
             {
                 Content.Load<SoundEffect>("sounds/Beep2"),
                 Content.Load<SoundEffect>("sounds/Beep4"),
-            }; 
+            };
+
+            _menuSong = Content.Load<Song>("music/dream");
+            _gameSong = Content.Load<Song>("music/cavedrips");
+            MediaPlayer.Play(_menuSong);
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.IsRepeating = true;
 
             Texture2D dimensions = Content.Load<Texture2D>("images/Help");
             //All images for menus should have same size 
@@ -187,7 +197,12 @@ namespace SoundScape
             Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
 
-            Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch) { Background = backGround });
+            Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch)
+            {
+                Background = backGround,
+                BannerTexture = Content.Load<Texture2D>("images/BlackBanner"),
+                SavingTexture = Content.Load<Texture2D>("images/Saving"),
+            });
             _newHighScore.Initialize();
             Campaign.New(this);
             _menu.Show();
@@ -232,6 +247,7 @@ namespace SoundScape
             // Allows the game to exit
             if (AllowExit && inputs.Any(p => p.ActionBack))
             {
+                MediaPlayer.Play(_menuSong);
                 if (_menu.Enabled)
                 {
                     PlayMenuSound(0);
@@ -349,6 +365,7 @@ namespace SoundScape
             Gameplay = Campaign.New(options: options).NextLevel();
             Components.Add(Gameplay);
             Gameplay.Show();
+            MediaPlayer.Play(_gameSong);
         }
 
         public void PlayMenuSound(int i)
