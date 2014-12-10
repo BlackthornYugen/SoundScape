@@ -11,7 +11,7 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
-    public class GameplayScene : GameScene
+    public abstract class GameplayScene : GameScene
     {
         private Dictionary<Entity, SoundEffect> _sfx;
         private Dictionary<Entity, Texture2D> _textures;
