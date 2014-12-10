@@ -247,7 +247,8 @@ namespace SoundScape
             // Allows the game to exit
             if (AllowExit && inputs.Any(p => p.ActionBack))
             {
-                MediaPlayer.Play(_menuSong);
+                if (MediaPlayer.Queue.ActiveSong != _menuSong)
+                    MediaPlayer.Play(_menuSong);
                 if (_menu.Enabled)
                 {
                     PlayMenuSound(0);
