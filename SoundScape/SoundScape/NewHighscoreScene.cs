@@ -106,6 +106,8 @@ namespace SoundScape
                 MoveRow(5);
             else if (inputs.Any(p => p.ButtonPressed(Buttons.LeftTrigger)))
                 MoveRow(-5);
+            else if (inputs.Any(p => p.KeyPressed(Keys.Space)))
+                MoveColumn(1, false);
             else if (inputs.Any(p => p.ActionMenuLeft))
                 MoveColumn(-1, false);
             else if (inputs.Any(p => p.ActionMenuRight))

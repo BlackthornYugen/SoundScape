@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using File = System.IO.File;
 
 namespace SoundScape
 {
     internal static class Toolbox
     {
-        private const string sqlConnString = @"SERVER=node.steelcomputers.com;DATABASE=soundscape;UID=soundscape;PASSWORD=zipzipzoom;";
+        private const string SQL_CONN_STRING = @"SERVER=node.steelcomputers.com;DATABASE=soundscape;UID=soundscape;PASSWORD=zipzipzoom;";
         public static void ForEach<T>(this IEnumerable<T> value, Action<T> action)
         {
             foreach (T item in value)
@@ -22,11 +23,14 @@ namespace SoundScape
             return Math.Min(max, Math.Max(min, value));
         }
 
-        public static bool SaveObjectToFile<T>(T savedata, string filepath)
+        public static bool JsonSaveObject<T>(this T savedata, string filepath)
         {
             try
             {
-                File.WriteAllText(filepath, JsonConvert.SerializeObject(savedata, Formatting.Indented));
+                var jsonSerializerSettings = new JsonSerializerSettings();
+                jsonSerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
+                jsonSerializerSettings.Error = (sender, errArgs) => errArgs.ErrorContext.Handled = true;
+                File.WriteAllText(filepath, JsonConvert.SerializeObject(savedata, Formatting.Indented, jsonSerializerSettings));
                 return true;
             }
             catch (Exception ex)
@@ -37,23 +41,40 @@ namespace SoundScape
             return false;
         }
 
-        public static T LoadObjectFromFile<T>(string filepath) where T : new()
+        public static T JsonLoadObject<T>(string filepath) where T : new()
         {
             try
             {
-                return JsonConvert.DeserializeObject<T>(File.ReadAllText(filepath));
+                var jsonSerializerSettings = new JsonSerializerSettings();
+                jsonSerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
+                return JsonConvert.DeserializeObject<T>(File.ReadAllText(filepath), jsonSerializerSettings);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Unable to load {0}. Got message:\n{1}", 
+                Console.WriteLine("Unable to load {0}. Got message:\n{1}",
                     filepath, ex.GetBaseException().Message);
             }
             return new T();
         }
 
-        public static void SaveScoreToDatabase(this HighScoreSaved savedata)
+        public static void JsonUpdateObject<T>(this T updateObject, string filepath)
         {
-            var conn = new MySqlConnection(sqlConnString);
+            try
+            {
+                var jsonSerializerSettings = new JsonSerializerSettings();
+                jsonSerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
+                JsonConvert.PopulateObject(File.ReadAllText(filepath), updateObject, jsonSerializerSettings);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unable to update {0} using {1}. Got message:\n{2}",
+                    updateObject, filepath, ex.GetBaseException().Message);
+            }
+        }
+
+        public static void DatabaseSaveScore(this HighScoreSaved savedata)
+        {
+            var conn = new MySqlConnection(SQL_CONN_STRING);
             try
             {
                 conn.Open();
@@ -72,10 +93,10 @@ namespace SoundScape
         }
 
 
-        public static IEnumerable<HighScoreSaved> LoadScoresFromDatabase()
+        public static IEnumerable<HighScoreSaved> DatabaseLoadScores()
         {
 
-            var conn = new MySqlConnection(sqlConnString);
+            var conn = new MySqlConnection(SQL_CONN_STRING);
             MySqlDataReader reader = null;
 
             try

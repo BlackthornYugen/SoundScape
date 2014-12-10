@@ -62,11 +62,11 @@ namespace SoundScape
                 _highscores.RemoveAt(_highscores.Count - 1);
             }
 
+            _highscores.JsonSaveObject("content/highscores.json");
+
             // Only bother saving to server if there is room.
             if (_highscoresOnline.Count >= HIGH_SCORE_LIMIT || _highscoresOnline.Any(s => s.Score < score)) 
-                Toolbox.SaveObjectToFile(_highscores, "content/highscores.json");
-
-            highScore.SaveScoreToDatabase();
+            highScore.DatabaseSaveScore();
         }
 
         private static List<HighScoreSaved> BubbleSort(List<HighScoreSaved> list)
@@ -117,9 +117,9 @@ namespace SoundScape
 
         protected override void OnEnabledChanged(object sender, EventArgs args)
         {
-            var loadedScores = Toolbox.LoadScoresFromDatabase().ToList();
             if (Enabled)
             {
+                var loadedScores = Toolbox.DatabaseLoadScores().ToList();
                 _showOnline = !_showOnline;
                 _highscoresOnline = loadedScores.Any() ? loadedScores : _highscoresOnline;
             }

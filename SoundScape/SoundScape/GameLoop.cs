@@ -53,23 +53,10 @@ namespace SoundScape
 
         public GameLoop(string monitor = null)
         {
-            PlayerOne = new VirtualController(this, PlayerIndex.One);
-
-            PlayerTwo = new VirtualController(this, PlayerIndex.Two)
-            {
-                MovementUpKeys = new[] { Keys.Up },
-                MovementDownKeys = new[] { Keys.Down },
-                MovementLeftKeys = new[] { Keys.Left },
-                MovementRightKeys = new[] { Keys.Right },
-
-                AimUpKeys = new[] { Keys.NumPad8 },
-                AimDownKeys = new[] { Keys.NumPad2 },
-                AimLeftKeys = new[] { Keys.NumPad4 },
-                AimRightKeys = new[] { Keys.NumPad6 },
-
-                GameFireKeys = new[] { Keys.Add, Keys.Subtract, Keys.Delete, Keys.Insert, }
-            };
-
+            PlayerOne = new VirtualController(this);
+            PlayerOne.JsonUpdateObject("content/PlayerOneControlls.json");
+            PlayerTwo = new VirtualController(this, PlayerIndex.Two);
+            PlayerTwo.JsonUpdateObject("content/PlayerTwoControlls.json");
             GraphicsDeviceManager graphics;
             if (monitor == null)
                 graphics = new GraphicsDeviceManager(this);
@@ -195,7 +182,7 @@ namespace SoundScape
             Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
             Components.Add(_highScore = new HighScoreScene(this, Content.Load<Texture2D>("images/HighScore"),
-                backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
+                backGround, centerScreen, Toolbox.JsonLoadObject<List<HighScoreSaved>>("content/highscores.json")));
 
             Components.Add(_newHighScore = new NewHighscoreScene(this, SpriteBatch)
             {

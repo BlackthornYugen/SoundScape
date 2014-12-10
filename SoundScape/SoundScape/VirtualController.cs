@@ -14,7 +14,7 @@ namespace SoundScape
         private KeyboardState _keyStateNew, _keyStateOld;
         private MouseState _ratStateNew, _ratStateOld;
 
-        public VirtualController(Game game, PlayerIndex playerIndex) : base(game)
+        public VirtualController(Game game, PlayerIndex playerIndex = PlayerIndex.One) : base(game)
         {
             _playerIndex = playerIndex;
             _keyStateNew = Keyboard.GetState();

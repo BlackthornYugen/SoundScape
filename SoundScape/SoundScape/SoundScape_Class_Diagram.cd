@@ -10,14 +10,14 @@
       <FileName>StartScene.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.HighScore">
+  <Class Name="SoundScape.HighScoreScene">
     <Position X="3.75" Y="13" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AgQAAAAAAAAAAgAACgIAAAAIAAAACAAAAAAAAAAAABE=</HashCode>
-      <FileName>HighScore.cs</FileName>
+      <FileName>HighScoreScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.InfoScene">
@@ -173,9 +173,9 @@
     <InheritanceLine Type="Microsoft.Xna.Framework.GameComponent" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="10.25" Y="1.062" />
-        <Point X="12.082" Y="1.062" />
-        <Point X="12.082" Y="3.377" />
-        <Point X="12.562" Y="3.377" />
+        <Point X="12.102" Y="1.062" />
+        <Point X="12.102" Y="3.346" />
+        <Point X="12.562" Y="3.346" />
         <Point X="12.562" Y="3.5" />
       </Path>
     </InheritanceLine>
@@ -212,21 +212,21 @@
       <FileName>ControllerStatusScene.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SoundScape.NewHighscore">
+  <Class Name="SoundScape.NewHighscoreScene">
     <Position X="5.75" Y="9.75" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="SoundScape.NewHighscore.SaveStatus" Collapsed="true">
+      <Enum Name="SoundScape.NewHighscoreScene.SaveStatus" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>NewHighscore.cs</NewMemberFileName>
+          <NewMemberFileName>NewHighscoreScene.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>IgQAAAAIBAQAAgAAAAEAEAMQAAiAAAAAEAQAAShAAAQ=</HashCode>
-      <FileName>NewHighscore.cs</FileName>
+      <FileName>NewHighscoreScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Microsoft.Xna.Framework.Game" Collapsed="true">
@@ -259,9 +259,9 @@
     <Lollipop Position="1.458" />
   </Class>
   <Class Name="SoundScape.Toolbox">
-    <Position X="12.25" Y="0.75" Width="2.75" />
+    <Position X="12.25" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAACAAgAAAAAAAAEAAAAQAAAIAAAgAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAQAAAEIAAAAIQEAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Toolbox.cs</FileName>
     </TypeIdentifier>
   </Class>
