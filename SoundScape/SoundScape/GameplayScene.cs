@@ -11,6 +11,12 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// Gameplay Scene abstract class inherits from 
+    /// XNALIB.SCENES.GAMESCENE. It extends the 
+    /// functionality of that class to handle things 
+    /// common to all Levels. 
+    /// </summary>
     public abstract class GameplayScene : GameScene
     {
         private Dictionary<Entity, SoundEffect> _sfx;

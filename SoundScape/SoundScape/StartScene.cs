@@ -8,6 +8,10 @@ using XNALib.Menus;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// This scene provides a main menu. It’s not that interesting 
+    /// because its 99% a wrapper for MenuComponent. 
+    /// </summary>
     public class StartScene : GameScene
     {
         private SpriteFont _regularFont, _highlightFont;

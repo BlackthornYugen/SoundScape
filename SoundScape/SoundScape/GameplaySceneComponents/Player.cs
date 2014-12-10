@@ -7,7 +7,11 @@ using Microsoft.Xna.Framework.Input;
 namespace SoundScape.GameplaySceneComponents
 {
     /// <summary>
-    ///     A player object
+    /// The player object handles storing the channel 
+    /// audio should be played on for that player as
+    ///  well as managing the two rumble motors in the 
+    /// 360 controller. It also handles weapon and 
+    /// sonar logic.
     /// </summary>
     internal class Player : GameplaySceneComponent
     {

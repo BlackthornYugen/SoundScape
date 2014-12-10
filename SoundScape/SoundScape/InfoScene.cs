@@ -6,7 +6,9 @@ using XNALib.Scenes;
 namespace SoundScape
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// The info scene is used to display a single image to the user. 
+    /// The “Help” and “How To Play” pages are built using this class. 
+    /// Also the HighScoreScene extends it. 
     /// </summary>
     public class InfoScene : GameScene
     {

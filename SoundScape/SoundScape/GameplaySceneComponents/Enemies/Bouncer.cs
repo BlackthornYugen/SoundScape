@@ -5,6 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents.Enemies
 {
+    /// <summary>
+    /// The bouncer just moves at 45 degree angles, 
+    /// bouncing off of walls in encounters. 
+    /// </summary>
     class Bouncer : Enemy
     {
         public Bouncer(GameplayScene scene, SpriteBatch spriteBatch, Vector2 position, Texture2D texture,

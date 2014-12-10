@@ -7,6 +7,11 @@ using File = System.IO.File;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// Toolbox is a static method that handles 
+    /// miscellaneous tasks such as saving/loading 
+    /// data to a file or database. 
+    /// </summary>
     internal static class Toolbox
     {
         private const string SQL_CONN_STRING = @"SERVER=node.steelcomputers.com;DATABASE=soundscape;UID=soundscape;PASSWORD=zipzipzoom;";

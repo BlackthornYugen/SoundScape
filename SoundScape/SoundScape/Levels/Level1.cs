@@ -8,9 +8,12 @@ using SoundScape.GameplaySceneComponents.Enemies;
 
 namespace SoundScape.Levels
 {
+    /// <summary>
+    /// This level has one Bouncing enemy and one 
+    /// Circler enemy and no interior walls
+    /// </summary>
     class Level1 : GameplayScene
     {
-
         public Level1(GameLoop game, SpriteBatch sb, GameOptions options)
             : base(game, sb, options)
         {

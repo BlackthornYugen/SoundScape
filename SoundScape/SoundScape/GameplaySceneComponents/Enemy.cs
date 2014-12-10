@@ -5,6 +5,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents
 {
+    /// <summary>
+    /// On top of managing its movement, the enemy class 
+    /// handles keeping track of what score a player 
+    /// should get for killing it based on the 
+    /// GameplayScene’s runtime property. Adjustments 
+    /// to score may also be done in the two child 
+    /// classes.
+    /// </summary>
     class Enemy : GameplaySceneComponent
     {
         private const int SCORE_REDUCTION = 3;

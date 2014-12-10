@@ -1,10 +1,21 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using XNALib.Scenes;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// This scene is used to display the status of the 
+    /// gamepads overtop of the main menu. It contains 
+    /// a texture to draw when a controller is connected 
+    /// and one to draw when it is disconnected. Player 
+    /// One is drawn in blue while Player Two is drawn 
+    /// in red. 
+    /// 
+    /// References to the GameLoop’s PlayerOne and 
+    /// PlayerTwo VirtualController properties are used 
+    /// to poll status information.
+    /// </summary>
     class ControllerStatusScene : GameScene
     {
         private const byte COLOUR_INTENSITY = 255;

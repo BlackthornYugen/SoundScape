@@ -1,9 +1,3 @@
-/*
- * 
- * Final Project: Sound Scape 
- * 
- * 
- */
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +11,6 @@ using SoundScape.Levels;
 using XNALib.Menus;
 using XNALib.Scenes;
 using Microsoft.Xna.Framework.Audio;
-using Keys = Microsoft.Xna.Framework.Input.Keys;
 using GameOptions = SoundScape.GameplayScene.GameOptions;
 
 namespace SoundScape
@@ -25,7 +18,11 @@ namespace SoundScape
 
 
     /// <summary>
-    /// This is the main type for your game
+    /// The game loop, which inherits from MICROSOFT.XNA.FRAMEWORK.GAME,
+    /// handles directing the user to different scenes in the game as 
+    /// well as handling the input for the menus. It also provides access 
+    /// to shared resources such as fonts, menu sounds, the sprite batch 
+    /// and some GameScenes
     /// </summary>
     public class GameLoop : Game
     {

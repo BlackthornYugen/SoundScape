@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Linq;
-using System.Speech.Synthesis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents
 {
+    /// <summary>
+    /// This class extends MICROSOFT.XNA.FRAMEWORK.DRAWABLEGAMECOMPONENT. 
+    /// It includes a reference to the scene that it inhabits and has 
+    /// insures that all gameplay classes have the Kill method and the 
+    /// Hitbox and Position public properties. This class also handles 
+    /// drawing so that classes that inherit this are not required to 
+    /// draw themselves (although some do for specific reasons. 
+    /// </summary>
     class GameplaySceneComponent : DrawableGameComponent
     {
         private GameplayScene _scene;

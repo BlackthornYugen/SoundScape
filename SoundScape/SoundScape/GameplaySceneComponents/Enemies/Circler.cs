@@ -5,6 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents.Enemies
 {
+    /// <summary>
+    /// The circler enemy overrides the movement of 
+    /// Enemy so that it moves in a circular pattern. 
+    /// The circler can fly through walls making it 
+    /// very annoying to locate since it will seem 
+    /// to disappear and reappear.
+    /// </summary>
     class Circler : Enemy
     {
         private const int SCORE_ADJUSTMENT = 50;

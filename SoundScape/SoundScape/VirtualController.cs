@@ -1,12 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// This class was a solution to the problem of handling 
+    /// multiple gamepad and keyboard states in a number of 
+    /// different scenes.
+    /// 
+    /// This partial is deticated to construction, helper 
+    /// methods, and input states
+    /// </summary>
     public partial class VirtualController : GameComponent
     {
         private PlayerIndex _playerIndex;

@@ -3,7 +3,15 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SoundScape
 {
-
+    /// <summary>
+    /// This class was a solution to the problem of handling 
+    /// multiple gamepad and keyboard states in a number of 
+    /// different scenes.
+    /// 
+    /// This partial is dedicated to Properties for configuring
+    /// inputs as well as Properties for checking if an action
+    /// should be performed.
+    /// </summary>
     public partial class VirtualController
     {
         public Keys[] MenuUpKeys { get; set; }

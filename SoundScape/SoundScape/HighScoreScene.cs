@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -15,7 +14,18 @@ namespace SoundScape
     }
 
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// This scene is used to display Scores to the user. 
+    /// The scores are displayed over an image so it 
+    /// extends InfoScene rather than GameScene directly 
+    /// to reuse the most amount of code
+    /// 
+    /// This scene is only built once and is referenced 
+    /// by other scenes through a property on GameLoop 
+    /// in order to call helper methods that let other 
+    /// parts of the program know if a score is eligible 
+    /// to be a high score. This way users are only 
+    /// prompted to enter their name when they have a 
+    /// new record.
     /// </summary>
     public class HighScoreScene : InfoScene
     {

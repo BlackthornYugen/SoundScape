@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
 using SoundScape.GameplaySceneComponents;
 using XNALib.Scenes;
 using GameOptions = SoundScape.GameplayScene.GameOptions;
 
 namespace SoundScape.Levels
 {
+    /// <summary>
+    /// Campaign is a singleton pattern that makes sure 
+    /// only one level is active at a time and handles 
+    /// providing the levels to the GameLoop.
+    /// </summary>
     class Campaign
     {
         private static GameLoop _game;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,6 +11,16 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// This scene is called whenever the player score is 
+    /// high enough to get on the Global or Local scoreboards. 
+    /// It consists of 15 MenuComponents that are positioned 
+    /// in the middle of the screen. When the user hits the 
+    /// select key/button on whitespace or on the last letter 
+    /// position, the score is submitted to the HighScoreScene. 
+    /// After it has been saved, the HighScoreScene is displayed 
+    /// to the user.
+    /// </summary>
     class NewHighscoreScene : GameScene
     {
         private Color _regularColour;

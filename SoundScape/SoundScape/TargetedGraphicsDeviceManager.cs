@@ -3,6 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace SoundScape
 {
+    /// <summary>
+    /// This class extends MICROSOFT.XNA.FRAMEWORK.GRAPHICSDEVICEMANAGER 
+    /// but takes a screen number as an argument, allowing uses to play 
+    /// the game on a specified monitor identified via a run argument. 
+    /// IE: “soundscape.exe 1” will run the game on \\Display1 if that 
+    /// display exists.
+    /// </summary>
     public class TargetedGraphicsDeviceManager : GraphicsDeviceManager
     {   // http://www.carbonatethis.com/xna-multi-monitor-support/
         private string _target;

@@ -5,6 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SoundScape.GameplaySceneComponents
 {
+    /// <summary>
+    /// The wall just takes up space and gets collided with. 
+    /// The biggest difference between it and other components 
+    /// is that it’s Kill method does not deactivate the object 
+    /// (walls don’t die) instead it takes a pre-set number of 
+    /// points away for a “missed shot”. 
+    /// </summary>
     class Wall : GameplaySceneComponent
     {
         private const int SCORE = -25;

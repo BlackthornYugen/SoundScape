@@ -8,6 +8,10 @@ using SoundScape.GameplaySceneComponents.Enemies;
 
 namespace SoundScape.Levels
 {
+    /// <summary>
+    /// This level has two bouncing enemies
+    /// and a big wall in the middle
+    /// </summary>
     class Level2 : GameplayScene
     {
         public Level2(GameLoop game, SpriteBatch sb, GameOptions options)
