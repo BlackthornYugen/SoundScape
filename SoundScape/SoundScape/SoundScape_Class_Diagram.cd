@@ -191,25 +191,25 @@
     </Compartments>
     <TypeIdentifier />
   </Class>
-  <Class Name="SoundScape.ControllerStatus">
+  <Class Name="SoundScape.ControllerStatusScene">
     <Position X="5.75" Y="14" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Struct Name="SoundScape.ControllerStatus.ControllerData">
+      <Struct Name="SoundScape.ControllerStatusScene.ControllerData">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
         <TypeIdentifier>
-          <NewMemberFileName>ControllerStatus.cs</NewMemberFileName>
+          <NewMemberFileName>ControllerStatusScene.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAMAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAAQAQ=</HashCode>
-      <FileName>ControllerStatus.cs</FileName>
+      <FileName>ControllerStatusScene.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SoundScape.NewHighscore">

@@ -5,7 +5,7 @@ using XNALib.Scenes;
 
 namespace SoundScape
 {
-    class ControllerStatus : GameScene
+    class ControllerStatusScene : GameScene
     {
         private const byte COLOUR_INTENSITY = 255;
 
@@ -53,7 +53,7 @@ namespace SoundScape
             get { return base.Game as GameLoop; }
         }
 
-        public ControllerStatus(Game game, SpriteBatch spritebatch) : base(game, spritebatch)
+        public ControllerStatusScene(Game game, SpriteBatch spritebatch) : base(game, spritebatch)
         {
             MarginY = 100;
             MarginX = 100;

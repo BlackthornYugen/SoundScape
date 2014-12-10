@@ -83,7 +83,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerStatus.cs" />
+    <Compile Include="ControllerStatusScene.cs" />
     <Compile Include="GameplayScene.cs" />
     <Compile Include="GameplaySceneComponents\Enemies\Circler.cs" />
     <Compile Include="GameplaySceneComponents\Enemies\Bouncer.cs" />
@@ -91,7 +91,7 @@
     <Compile Include="GameplaySceneComponents\GameplaySceneComponent.cs" />
     <Compile Include="GameplaySceneComponents\Player.cs" />
     <Compile Include="GameplaySceneComponents\Wall.cs" />
-    <Compile Include="HighScore.cs" />
+    <Compile Include="HighScoreScene.cs" />
     <Compile Include="InfoScene.cs" />
     <Compile Include="Levels\Campaign.cs" />
     <Compile Include="Levels\LevelDebug.cs" />

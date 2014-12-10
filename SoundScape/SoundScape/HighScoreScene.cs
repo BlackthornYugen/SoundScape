@@ -17,14 +17,14 @@ namespace SoundScape
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class HighScore : InfoScene
+    public class HighScoreScene : InfoScene
     {
         public const int HIGH_SCORE_LIMIT = 10;
         private List<HighScoreSaved> _highscores = new List<HighScoreSaved>();
         private List<HighScoreSaved> _highscoresOnline = new List<HighScoreSaved>();
         private bool _showOnline;
 
-        public HighScore(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
+        public HighScoreScene(GameLoop game, Texture2D texture, Texture2D background, Vector2 centerScreen, IEnumerable<HighScoreSaved> oldScores
             )
             : base(game, texture, background, centerScreen)
         {

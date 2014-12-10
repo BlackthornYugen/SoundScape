@@ -97,9 +97,9 @@ namespace SoundScape
             get { return _spriteBatch; }
         }
 
-        public HighScore HighScore
+        public HighScoreScene HighScore
         {
-            get { return _highScore as HighScore; }
+            get { return _highScore as HighScoreScene; }
         }
 
         public GameScene Gameplay { get; set; }
@@ -194,7 +194,7 @@ namespace SoundScape
                 backGround, centerScreen));
             Components.Add(_credit = new InfoScene(this, Content.Load<Texture2D>("images/Credits"),
                 backGround, centerScreen));
-            Components.Add(_highScore = new HighScore(this, Content.Load<Texture2D>("images/HighScore"),
+            Components.Add(_highScore = new HighScoreScene(this, Content.Load<Texture2D>("images/HighScore"),
                 backGround, centerScreen, Toolbox.LoadObjectFromFile<List<HighScoreSaved>>("content/highscores.json")));
 
             Components.Add(_newHighScore = new NewHighscore(this, SpriteBatch)

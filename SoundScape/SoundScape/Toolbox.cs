@@ -82,7 +82,7 @@ namespace SoundScape
             {
                 conn.Open();
                 const string query = @"SELECT name, score FROM highscore ORDER BY score desc LIMIT {0};";
-                var cmd = new MySqlCommand(string.Format(query, HighScore.HIGH_SCORE_LIMIT), conn);
+                var cmd = new MySqlCommand(string.Format(query, HighScoreScene.HIGH_SCORE_LIMIT), conn);
                 reader = cmd.ExecuteReader();
             }
             catch (Exception ex)

@@ -52,7 +52,7 @@ namespace SoundScape
 
         protected override void LoadContent()
         {
-            _controllerStats = new ControllerStatus(Game, _spritebatch);
+            _controllerStats = new ControllerStatusScene(Game, _spritebatch);
             _regularFont = Game.DefaultGameFont;
             _highlightFont = Game.Content.Load<SpriteFont>("fonts/highFont");
 
